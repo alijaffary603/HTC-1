@@ -32,7 +32,6 @@ Globals:
   Function:
     Runtime: python3.12
     Architectures: [x86_64]
-    CodeUri: ../build/lambda
     Environment:
       Variables:
         DATA_BUCKET: !Ref DataBucket
@@ -156,9 +155,11 @@ Resources:
           ThrottlingBurstLimit: 5
           ThrottlingRateLimit: 1
 
+  # CodeUri has to be set on each function: `aws cloudformation package` ignores it under Globals
   ApiFunction:
     Type: AWS::Serverless::Function
     Properties:
+      CodeUri: ../build/lambda
       Handler: gridapi.api.handler
       MemorySize: 1024
       Timeout: 29
@@ -273,6 +274,7 @@ Resources:
   AlertsFunction:
     Type: AWS::Serverless::Function
     Properties:
+      CodeUri: ../build/lambda
       Handler: gridapi.alerts.handler
       MemorySize: 512
       Timeout: 300
