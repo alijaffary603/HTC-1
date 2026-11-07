@@ -17,14 +17,18 @@ no_date_months = 36
 # CER costs are in recent dollars, multipliers are per 2022 dollar. [judgement]
 deflator_to_2022 = 0.88
 
-# Spread of p_built around the model. Over the backtests the logit predicted 1.02x to
-# 1.84x the real number of completions, so low is roughly 1/1.84 and high is modest. [fit]
-p_scale_low = 0.55
-p_scale_high = 1.2
+# Scales p_built. On held-out months the logit predicted 1.00x, 1.27x and 1.52x the real
+# number of completions (mean 1.26), so the base case takes that bias out and the low
+# case uses the worst one. It never under-predicted, hence high stays at 1. [fit]
+p_scale_low = 0.65
+p_scale_base = 0.80
+p_scale_high = 1.0
 
-# Share of a project's jobs that land in its own region. Remainder is spread across
-# Alberta by employment. Direct is all local because crews work on site. [judgement]
-local_capture = { direct = 1.0, indirect = 0.5, induced = 0.5 }
+# Share of a project's jobs held by people living in its region. The rest go across Alberta
+# by employment. Direct started at 1.0, but MW built 2023-25 didn't track local construction
+# hiring at all (see docs/validation.md) and LFS counts people where they live, so crews
+# clearly commute. 0.6 is a judgement, the data only says it's well below 1. [judgement]
+local_capture = { direct = 0.6, indirect = 0.5, induced = 0.5 }
 
 # Who supplies a construction project. Multipliers give the total indirect jobs but
 # not the sectors, that needs the full IO table, which isn't published in this file. [judgement]
@@ -97,11 +101,14 @@ build_years = 3.0
 construction_code = "BS23C300"
 
 # Load side. CER doesn't cover these so capex is [judgement]. Data centre capex is the
-# building and electrical plant, excluding IT gear. ATB describes a Beacon facility as
-# about 1,500 construction and 300 operating jobs, no MW given, so ops_jobs_per_mw is rough.
+# building and electrical plant, excluding IT gear.
+# The only outside anchor: ATB describes a Beacon facility as about 1,500 construction and
+# 300 operating jobs. The queue has Beacon sites from 400 to 1,400 MW and ATB gives no MW.
+# A 0.20 local share gives about 1,650 direct workers on a 400 MW site, 5,700 on 1,400 MW,
+# so this is still likely on the high side for big campuses. Low confidence either way.
 [tech.data_centre]
 capex_per_kw = 12000
-local_share = [0.20, 0.30, 0.40]
+local_share = [0.12, 0.20, 0.30]
 build_years = 2.0
 construction_code = "BS23B000"
 ops_jobs_per_mw = [0.1, 0.3, 0.5]

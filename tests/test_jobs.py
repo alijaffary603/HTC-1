@@ -4,6 +4,7 @@ import pytest
 
 from gridskills import jobs
 from gridskills.params import load_assumptions
+from gridskills.regions import REGIONS
 
 
 @pytest.fixture
@@ -78,12 +79,15 @@ def test_to_sectors_conserves_jobs(assumptions, multipliers):
     en = jobs.energizations(pd.DataFrame([_project()]), assumptions)
     pj = jobs.project_jobs(en, multipliers, assumptions)
     sector_emp = pd.Series(1000.0, index=assumptions["induced_sectors"])
-    shares = {r: 1 / len(jobs.REGIONS) for r in jobs.REGIONS}
+    shares = {r: 1 / len(REGIONS) for r in REGIONS}
     out = jobs.to_sectors(pj, sector_emp, assumptions, shares)
     assert out.jobs.sum() == pytest.approx(pj.jobs.sum())
     direct = out[(out.channel == "direct") & (out.phase == "construction")]
     assert set(direct.sector) == {"23"}
-    assert set(direct.region) == {"Camrose-Drumheller"}
+    by_region = direct.groupby("region").jobs.sum()
+    assert by_region.idxmax() == "Camrose-Drumheller"
+    local = assumptions["local_capture"]["direct"]
+    assert by_region.max() / by_region.sum() > local
 
 
 def test_indirect_mix_sums_to_one(assumptions):

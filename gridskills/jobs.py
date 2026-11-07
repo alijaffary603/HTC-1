@@ -11,7 +11,7 @@ import pandas as pd
 
 from . import completion
 from .params import SCENARIOS, tech_costs
-from .regions import PLANNING_AREA_TO_REGION, REGIONS
+from .regions import PLANNING_AREA_TO_REGION
 
 UTILITY_OPS_CODE = "BS221100"
 BUILDABLE = {"solar", "solar_storage", "wind", "wind_storage", "storage", "storage_long", "gas", "cogen",
@@ -32,8 +32,8 @@ def score_projects(rows, model, chain, assumptions):
     p = pd.Series(0.0, index=rows.index)
     if scored.any():
         p[scored] = completion.p_built(rows[scored], model, chain)
-    rows["p_base"] = p
     rows["p_low"] = p * assumptions["p_scale_low"]
+    rows["p_base"] = p * assumptions["p_scale_base"]
     rows["p_high"] = (p * assumptions["p_scale_high"]).clip(upper=1)
 
     dc = assumptions["data_centres"]
@@ -61,6 +61,7 @@ def energizations(rows, assumptions):
         if r.tech not in BUILDABLE:
             continue
         dated = []
+        past = None
         for n in (1, 2, 3):
             sts, dts, isd = r[f"sts_{n}"], r[f"dts_{n}"], r[f"isd_{n}"]
             if sts == 0 and dts == 0:
@@ -68,10 +69,14 @@ def energizations(rows, assumptions):
             if pd.isna(isd):
                 when = no_date
             elif isd < r.snapshot:
-                continue  # already in service
+                past = (sts, dts, r.snapshot + slip)  # probably in service already
+                continue
             else:
                 when = isd + slip
             dated.append((sts, dts, when))
+        # still open with every date behind it means it's late, not finished
+        if not dated and past:
+            dated.append(past)
         for sts, dts, when in dated:
             common = dict(project_id=r.project_id, name=r["name"], pa_code=r.pa_code, isd=when, state=r.state,
                           p_low=r.p_low, p_base=r.p_base, p_high=r.p_high)
@@ -203,5 +208,3 @@ def jobs_per_mw(multipliers, assumptions):
                          operations_direct=round(ops_direct, 3), operations_total=round(ops_total, 3)))
     return pd.DataFrame(rows)
 
-
-__all__ = ["REGIONS", "open_projects", "score_projects", "energizations", "project_jobs", "to_sectors", "jobs_per_mw"]
