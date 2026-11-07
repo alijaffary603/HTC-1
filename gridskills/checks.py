@@ -9,7 +9,7 @@ import json
 import pandas as pd
 
 from .paths import OUTPUTS
-from .regions import ECONOMIC_REGIONS, REGIONS
+from .regions import REGIONS
 
 OCCUPATIONS = 162
 MIN_PROJECTS = 100
@@ -53,7 +53,7 @@ def check_outputs(outputs=OUTPUTS, previous_meta=None):
 
 def check_bundle(bundle):
     problems = []
-    expected = OCCUPATIONS * len(ECONOMIC_REGIONS)
+    expected = OCCUPATIONS * len(REGIONS)
     if len(bundle["responses"]) != expected:
         problems.append(f"bundle has {len(bundle['responses'])} responses, expected {expected}")
     return problems

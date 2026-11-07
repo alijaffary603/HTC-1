@@ -67,7 +67,7 @@ def test_publish_writes_meta_last_and_blocks_bad_builds(aws_env):
 
         meta = json.loads(s3.get_object(Bucket="data", Key="api/latest/meta.json")["Body"].read())
         scores = json.loads(s3.get_object(Bucket="data", Key="api/latest/scores.json")["Body"].read())
-        assert meta["responses"] == len(scores) == 162 * 8
+        assert meta["responses"] == len(scores) == 162 * 7
         assert s3.head_object(Bucket="data", Key=f"history/{meta['snapshot']}/summary.json")
 
         # pretend last month's estimate was ten times bigger: this build must not go out

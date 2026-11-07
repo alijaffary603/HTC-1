@@ -14,9 +14,7 @@ import json
 import sys
 
 from gridskills import checks, contract
-from gridskills.paths import CONFIG, OUTPUTS
-
-SKILLS_KEY = "api/skills.json"
+from gridskills.paths import OUTPUTS
 
 
 def _get_json(s3, bucket, key):
@@ -40,8 +38,7 @@ def publish(bucket, s3=None, outputs=OUTPUTS):
     if problems:
         return problems
 
-    skills = _get_json(s3, bucket, SKILLS_KEY) or _local_skills()
-    bundle = contract.build(outputs, skills)
+    bundle = contract.build(outputs)
     problems = checks.check_bundle(bundle)
     if problems:
         return problems
@@ -58,13 +55,8 @@ def publish(bucket, s3=None, outputs=OUTPUTS):
     # meta goes last: the API reads it to decide whether to reload, so it must not
     # point at a version whose scores aren't there yet
     _put_json(s3, bucket, "api/latest/meta.json", meta)
-    print(f"published {snapshot}: {meta['responses']} responses, skills included: {meta['skillsIncluded']}")
+    print(f"published {snapshot}: {meta['responses']} responses")
     return []
-
-
-def _local_skills():
-    path = CONFIG / "skills.json"
-    return json.loads(path.read_text()) if path.exists() else None
 
 
 def main():
@@ -76,7 +68,7 @@ def main():
     if args.dry_run or not args.bucket:
         problems = checks.check_outputs(OUTPUTS)
         if not problems:
-            bundle = contract.build(OUTPUTS, _local_skills())
+            bundle = contract.build(OUTPUTS)
             problems = checks.check_bundle(bundle)
             (OUTPUTS / "api_bundle.json").write_text(json.dumps(bundle))
             print(f"dry run ok: {bundle['meta']['responses']} responses")
