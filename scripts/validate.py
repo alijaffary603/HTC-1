@@ -6,7 +6,6 @@
 4. Our jobs per MW against published figures
 """
 import json
-import re
 
 import numpy as np
 import pandas as pd
@@ -155,6 +154,46 @@ def built_vs_hiring(clean, lfs, mult, a):
     ), table.round(1).reset_index().rename(columns={"index": "region"})
 
 
+def job_trend_backtest(lfs):
+    """Would the job trend signal have worked as a forecast?
+
+    Take the trend from an earlier window and compare with what came next. COVID lands
+    in the later window either way, so this is about as fair as the data allows.
+    """
+    mapping = labour.occupation_series(lfs)
+    names = sorted(set(mapping.values()))
+    wide = lfs[lfs.series.isin(names)].pivot_table(index=["GEO", "series"], columns="year", values="VALUE")
+    rows = []
+    for name, first, middle, last in (
+        ("2012-14 to 2017-19, then to 2023-25", (2012, 2014), (2017, 2019), (2023, 2025)),
+        ("2011-13 to 2016-18, then to 2023-25", (2011, 2013), (2016, 2018), (2023, 2025)),
+        ("2014-16 to 2017-19, then to 2023-25", (2014, 2016), (2017, 2019), (2023, 2025)),
+    ):
+        earlier = labour.annual_growth(wide, first, middle)
+        later = labour.annual_growth(wide, middle, last)
+        frame = pd.DataFrame({"earlier": earlier, "later": later}).replace([np.inf, -np.inf], np.nan)
+
+        ab = frame.xs("Alberta", level="GEO").dropna()
+        regional = frame.drop(index="Alberta", level="GEO").dropna().reset_index()
+        regional["ab_earlier"] = regional.series.map(ab.earlier)
+        regional["region"] = regional.GEO.map(lfs_region)
+        by_region, overall = labour.employment_growth(lfs, first, middle)
+        regional["with_region"] = regional.ab_earlier + regional.region.map(by_region) - overall
+        regional = regional.dropna()
+
+        rows.append(dict(
+            windows=name, groups=len(ab),
+            alberta_rank_corr=round(float(spearman(ab.earlier, ab.later)), 3),
+            alberta_median_error_trend=round(float((ab.earlier - ab.later).abs().median()), 2),
+            alberta_median_error_average=round(float((ab.later.mean() - ab.later).abs().median()), 2),
+            regional_cells=len(regional),
+            region_own_trend_rank_corr=round(float(spearman(regional.earlier, regional.later)), 3),
+            region_alberta_trend_rank_corr=round(float(spearman(regional.ab_earlier, regional.later)), 3),
+            region_alberta_plus_region_rank_corr=round(float(spearman(regional.with_region, regional.later)), 3),
+        ))
+    return pd.DataFrame(rows)
+
+
 def tailwind_vs_occupation_growth(lfs, before=(2021, 2022), after=(2024, 2025)):
     """Did the occupations we favour actually grow? Alberta, by LFS occupation group.
 
@@ -165,17 +204,9 @@ def tailwind_vs_occupation_growth(lfs, before=(2021, 2022), after=(2024, 2025)):
     wide = lfs[lfs.GEO == "Alberta"].pivot_table(index="series", columns="year", values="VALUE")
     rows = []
     for series in wide.index:
-        m = re.search(r"\[([\d, -]+)\]$", series)
-        if not m or series in labour.LFS_GROUP.values():
+        prefixes = labour.bracket_codes(series)
+        if not prefixes or series in labour.LFS_GROUP.values():
             continue
-        spec = m[1].replace(" ", "").split(",")
-        prefixes = []
-        for s in spec:
-            if "-" in s:
-                lo, hi = s.split("-")
-                prefixes += [str(n).zfill(len(lo)) for n in range(int(lo), int(hi) + 1)]
-            else:
-                prefixes.append(s)
         members = scores_table[scores_table.code.str.startswith(tuple(prefixes))]
         if members.empty or len(prefixes[0]) != 2:
             continue
@@ -233,6 +264,10 @@ def main():
     occ_table.to_csv(OUTPUTS / "validation_tailwind_vs_growth.csv", index=False)
     print(occ_stats)
     print(occ_table.sort_values("tailwind_pct", ascending=False).to_string())
+
+    trend_test = job_trend_backtest(lfs)
+    trend_test.to_csv(OUTPUTS / "validation_job_trend.csv", index=False)
+    print(trend_test.T.to_string())
 
     summary = dict(queue_vs_load=load_stats, built_vs_hiring=hire_stats, load_vs_employment=lve_stats,
                    sector_trend_persistence=persistence, tailwind_vs_occupation_growth=occ_stats)
