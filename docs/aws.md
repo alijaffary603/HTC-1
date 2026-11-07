@@ -1,0 +1,86 @@
+# Running GridSkills on AWS
+
+Everything is in one CloudFormation stack, [`aws/template.yaml`](../aws/template.yaml), deployed by [`scripts/deploy.py`](../scripts/deploy.py). Nothing is clicked together in the console.
+
+## How it fits together
+
+```
+EventBridge (12th of each month)
+   -> CodeBuild: fetch new AESO list, rebuild the model, run the tests, run the checks
+         -> if anything fails: nothing is published, the admin gets an email
+         -> if it all passes: publish to S3 (api/latest/ and history/<month>/)
+              -> EventBridge (build succeeded) -> Alerts Lambda -> SES emails
+
+Browser -> CloudFront -> S3 (the React app)
+                      -> /api/* -> API Gateway -> API Lambda -> S3 (scores)
+                                       |                      -> DynamoDB (pathways, alerts)
+                              Cognito JWT check               -> Gemini API (résumés)
+                                                              -> SES (intro emails)
+```
+
+| Piece | Service | Why this one |
+|---|---|---|
+| Monthly refresh | CodeBuild on an EventBridge schedule | The model needs pandas and scikit-learn and takes a few minutes. CodeBuild runs it as-is with no container to build. |
+| Published scores | S3 | All 1,296 answers (162 jobs × 8 regions) are worked out once a month, so the API only looks them up |
+| API | API Gateway (HTTP API) + one Lambda | Tiny, spiky traffic. Costs nothing when idle |
+| Accounts | Cognito | Email sign-up with a confirmation code. API Gateway checks the token before the Lambda runs |
+| Saved pathways, alerts | DynamoDB | Small per-user records, one table |
+| Email | SES | Monthly "your outlook changed" and introduction emails |
+| Résumé matching | Gemini API (`gemini-3.5-flash-lite`) | Picks from our 162 occupation codes, enforced by the response schema |
+| Web app | S3 + CloudFront | `/api/*` goes to the API on the same domain, so there's no CORS to configure |
+
+No SageMaker, Kinesis, Redshift or containers. The data is small and changes monthly.
+
+## Deploying
+
+You need an AWS account, the AWS CLI (installed), Node (installed), a Gemini API key and the raw data in `data/`.
+
+1. Sign in to AWS on this machine. In the Claude prompt type `! aws configure` and paste an access key, or use `aws login`.
+2. Get a Gemini API key from Google AI Studio.
+3. Deploy:
+
+```
+set GEMINI_API_KEY=your-key
+.venv\Scripts\python scripts\deploy.py --sender-email you@example.com --admin-email you@example.com
+```
+
+It asks for the Gemini key if `GEMINI_API_KEY` isn't set, and stores it in SSM Parameter Store as a SecureString. The key never goes in the template or in git.
+
+4. Click the verification link SES emails to the sender address.
+5. Open the `SiteUrl` the script prints.
+
+Re-running the script updates everything in place. `--skip-data` and `--skip-frontend` skip those steps.
+
+### Things that will trip you up
+
+- **SES sandbox.** New accounts can only send to addresses you've verified in SES. Fine for a demo with your own emails. Ask AWS for production access before real users sign up.
+- **Cognito's own emails** (sign-up codes) come from Cognito's default sender, which is capped at 50 a day. Enough for a hackathon.
+- **First month.** Outlook alerts compare two published months, so the first email goes out after the second monthly refresh.
+- **The monthly job builds whatever was last deployed.** `deploy.py` uploads the current commit. Commit before deploying.
+
+## Running the refresh by hand
+
+```
+aws codebuild start-build --project-name <PipelineProject output>
+```
+
+Watch it in the CodeBuild console. If the checks fail, the log says which one (see `gridskills/checks.py`).
+
+## Privacy
+
+- **Résumés** go to Google's Gemini API for the one request and aren't stored by us. Say so on the upload screen before launch. Check that Gemini's data terms for your key's tier are acceptable. Free tier keys may let Google use inputs to improve its products.
+- **Shared pathways** are off until the user turns them on. Others see only a first name and the move.
+- **Intro emails** are sent by us. The requester's email is only revealed as the reply-to address, after the requester clicked to send.
+- Everything else (accounts, pathways, alerts) stays in `ca-central-1`.
+
+## Cost
+
+At hackathon scale this is close to free. Lambda, API Gateway, DynamoDB and Cognito stay within free tiers. CloudFront, S3 and CodeBuild cost cents a month. Gemini Flash-Lite costs a fraction of a cent per résumé. Set an AWS budget alert anyway.
+
+## Tearing it down
+
+```
+aws cloudformation delete-stack --stack-name gridskills
+```
+
+The two S3 buckets must be emptied first or the delete fails. The Gemini key stays in Parameter Store until you delete `/gridskills/gemini-api-key`.
