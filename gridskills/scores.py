@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 
 # judgement: weights on the exposure components, documented in docs/methodology.md
-EXPOSURE_WEIGHTS = {"sector_trend": 0.5, "resource_reliance": 0.3, "load_trend": 0.2}
+EXPOSURE_WEIGHTS = {"sector_trend": 0.6, "resource_reliance": 0.4}
 RESOURCE_SECTORS = ["21"]
 THIN_WORKFORCE = 500
 
@@ -50,40 +50,32 @@ def tailwind(scenario_jobs, occ_given_sector, employment):
 
 
 def exposure(sector_given_occ, momentum, load_growth, regions):
-    """Long table of exposure components for each occupation and region.
+    """Long table of exposure for each occupation and region.
 
-    sector_trend:      employment growth of the sectors this job sits in, here
+    sector_trend:      Alberta employment growth of the sectors this job sits in
     resource_reliance: share of the job's workers in mining, oil and gas
-    load_trend:        growth of electricity use in the region
 
-    The first two are job-specific, the last only differs by region. Each is ranked
-    0-100 with higher meaning more exposed, then combined with EXPOSURE_WEIGHTS.
+    Each is ranked 0-100 with higher meaning more exposed, then weighted. It's a score
+    about the job rather than the place, so it's the same in every region. Regional load
+    growth gets passed through for display only: it showed no link to employment.
     """
     from .labour import LFS_GROUP
 
-    weights = sector_given_occ.copy()
-    columns = [c for c in weights.columns if c in LFS_GROUP]
-    rows = []
-    for region in regions:
-        by_sector = pd.Series({c: momentum[region][LFS_GROUP[c]] for c in columns})
-        trend = weights[columns].dot(by_sector)
-        for code in weights.index:
-            rows.append((region, code, trend[code]))
-    df = pd.DataFrame(rows, columns=["region", "code", "sector_growth_pct"])
-
-    resource = weights[[c for c in RESOURCE_SECTORS if c in weights]].sum(axis=1)
-    df["resource_share"] = df.code.map(resource)
-    df["region_load_growth_pct"] = df.region.map(load_growth)
-
-    df["sector_trend_rank"] = percentile_rank(-df.sector_growth_pct)
-    df["resource_reliance_rank"] = percentile_rank(df.resource_share)
-    df["load_trend_rank"] = percentile_rank(-df.region_load_growth_pct)
+    columns = [c for c in sector_given_occ.columns if c in LFS_GROUP]
+    by_sector = pd.Series({c: momentum[LFS_GROUP[c]] for c in columns})
+    jobs = pd.DataFrame({
+        "code": sector_given_occ.index,
+        "sector_growth_pct": sector_given_occ[columns].dot(by_sector).to_numpy(),
+        "resource_share": sector_given_occ[[c for c in RESOURCE_SECTORS if c in sector_given_occ]].sum(axis=1).to_numpy(),
+    })
     combined = (
-        EXPOSURE_WEIGHTS["sector_trend"] * df.sector_trend_rank
-        + EXPOSURE_WEIGHTS["resource_reliance"] * df.resource_reliance_rank
-        + EXPOSURE_WEIGHTS["load_trend"] * df.load_trend_rank
+        EXPOSURE_WEIGHTS["sector_trend"] * percentile_rank(-jobs.sector_growth_pct)
+        + EXPOSURE_WEIGHTS["resource_reliance"] * percentile_rank(jobs.resource_share)
     )
-    df["exposure"] = percentile_rank(combined)
+    jobs["exposure"] = percentile_rank(combined)
+
+    df = pd.concat([jobs.assign(region=r) for r in regions], ignore_index=True)
+    df["region_load_growth_pct"] = df.region.map(load_growth)
     return df
 
 

@@ -40,9 +40,14 @@ def test_tailwind_scenarios_and_percent(occ_given_sector):
 def test_exposure_ranks_resource_jobs_higher():
     sectors = pd.DataFrame({"21": [0.9, 0.0], "62": [0.1, 1.0]}, index=["8222", "3012"])
     from gridskills.labour import LFS_GROUP
-    momentum = pd.DataFrame({"Calgary": {LFS_GROUP["21"]: -2.0, LFS_GROUP["62"]: 3.0}})
-    out = scores.exposure(sectors, momentum, pd.Series({"Calgary": 1.0}), ["Calgary"]).set_index("code")
-    assert out.exposure["8222"] > out.exposure["3012"]
+    momentum = pd.Series({LFS_GROUP["21"]: -2.0, LFS_GROUP["62"]: 3.0})
+    load = pd.Series({"Calgary": 1.0, "Edmonton": -1.0})
+    out = scores.exposure(sectors, momentum, load, ["Calgary", "Edmonton"])
+    calgary = out[out.region == "Calgary"].set_index("code")
+    assert calgary.exposure["8222"] > calgary.exposure["3012"]
+    # same job scores the same everywhere, load growth is display only
+    assert out[out.code == "8222"].exposure.nunique() == 1
+    assert calgary.region_load_growth_pct["8222"] == 1.0
 
 
 def test_adjacent_roles_respect_training_level_and_tailwind():

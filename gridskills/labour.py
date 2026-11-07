@@ -117,24 +117,16 @@ def region_occupation_employment(census, lfs, year=2025):
 
 
 def sector_momentum(lfs, start=(2017, 2019), end=(2023, 2025)):
-    """Annual employment growth per sector and region, in percent.
+    """Annual employment growth by sector in Alberta, in percent.
 
-    Compares 3-year averages either side of COVID. Regional sector numbers are noisy
-    and sometimes suppressed, so each is averaged with the Alberta figure.
+    Compares 3-year averages either side of COVID. Province-wide on purpose: sector
+    trends within a region showed no persistence from one period to the next, while
+    province-wide ones showed some (see docs/validation.md).
     """
     groups = sorted(set(LFS_GROUP.values()))
-    wide = lfs[lfs.series.isin(groups)].pivot_table(index=["GEO", "series"], columns="year", values="VALUE")
+    rows = lfs[lfs.series.isin(groups) & (lfs.GEO == "Alberta")]
+    wide = rows.pivot_table(index="series", columns="year", values="VALUE")
     span = (sum(end) - sum(start)) / 2
     before = wide[list(range(start[0], start[1] + 1))].mean(axis=1)
     after = wide[list(range(end[0], end[1] + 1))].mean(axis=1)
-    growth = (((after / before) ** (1 / span)) - 1) * 100
-    growth = growth.unstack("series")
-
-    ab = growth.loc["Alberta"]
-    out = {}
-    for geo in growth.index:
-        region = lfs_region(geo)
-        if region:
-            out[region] = ((growth.loc[geo].fillna(ab) + ab) / 2).clip(-15, 15)
-    table = pd.DataFrame(out)
-    return table, ab
+    return ((after / before) ** (1 / span) - 1) * 100
