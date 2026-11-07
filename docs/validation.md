@@ -13,8 +13,9 @@ What we tested against real outcomes, including the tests that went badly. Rerun
 | The queue predicts where load grows | 0.42, simple past trend gets 0.68 | **Weak** |
 | Electricity use tracks employment by region | -0.11 across 7 regions | **Not supported** |
 | Tailwind predicts which occupations grow | -0.05 across 34 groups | **Not supported** |
+| Past job trends forecast the next period | 0.15 to 0.29, with larger errors than assuming average growth | **Not supported as a forecast** |
 
-So the model is good at saying what gets built, and it's an honest way to work out what that means for each occupation. There's no evidence yet that it predicts hiring.
+So the model is good at saying what gets built, and it's an honest way to work out what that means for each occupation. There's no evidence yet that it predicts hiring. Tailwind estimates one source of demand and job trend describes the recent past, and neither is a hiring forecast.
 
 ## Completion model
 
@@ -76,6 +77,24 @@ The likely reason for all of this is scale. Grid-driven demand is about 11,000 j
 
 **Sector trend persistence.** Exposure uses recent sector trends, so we checked whether they carry forward, comparing 2012-14 to 2017-19 against 2017-19 to 2023-25. Within a region: 0.06. Province-wide: 0.39. That's why exposure now uses province-wide trends, and why it should be read as description and not a forecast.
 
+## Job trend
+
+We added this so the tool says something about every job, then tested whether it would have worked as a forecast. Each row takes the trend from an earlier period and compares it with what came next.
+
+| Trend measured over | Then compared to | Alberta rank corr. | Region's own trend | Alberta + region gap (used) |
+|---|---|---|---|---|
+| 2012-14 to 2017-19 | 2023-25 | 0.27 | 0.04 | 0.27 |
+| 2011-13 to 2016-18 | 2023-25 | 0.29 | 0.06 | 0.26 |
+| 2014-16 to 2017-19 | 2023-25 | 0.15 | -0.12 | 0.17 |
+
+Three things follow:
+
+- **Weak signal.** Past trends lean in the right direction but explain little, and the windows overlap and all run into COVID.
+- **Bad as a growth rate.** Assuming each group keeps its past rate gave a median error of 2.2 to 2.6 points a year, against 1.3 to 1.5 for assuming they all grow at the average. So never show it as "this job will grow X%".
+- **The design holds.** The Alberta trend plus the region's overall gap beat a region's own occupation trend in all three tests, which is why we use it.
+
+It's kept because it's a true statement about the recent past, and it's independent of tailwind (rank correlation -0.06), so it adds something. It overlaps somewhat with exposure (-0.51), since both look at recent growth.
+
 ## Jobs per MW against published figures
 
 | | Ours | Published | Source |
@@ -119,8 +138,10 @@ Fine to say:
 - "We backtested the completion model and it ranks well on later data."
 - "Energy buildout mostly helps trades and construction, and here's how each occupation is connected to it."
 - "Data centres are the big unknown. Without them the job estimate falls by about 80%."
+- "Here's how this kind of job has done in Alberta recently, next to what energy projects could add."
 
 Don't say:
+- "This job will grow X% a year." Job trend is about the past.
 - "We predict jobs." We estimate demand from one source, and it didn't predict past hiring.
 - "X new jobs for teachers in Red Deer" as a firm number. Show ranks and ranges.
 - "Electricity data tells you the health of any job." The load data doesn't support this.

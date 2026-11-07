@@ -45,6 +45,7 @@ Traps:
 - Two regions are merged (Banff-Jasper-Rocky Mountain House with Athabasca-Grande Prairie-Peace River), so 7 regions rather than 8.
 - Small cells are suppressed, such as Utilities in Red Deer.
 - Sectors are grouped differently from the census (41 with 44-45, 52 with 53, 51 with 71). `labour.LFS_GROUP` maps them.
+- Occupations only come in broad groups, 43 once you take the most detailed one for each job, against 162 in the census. Regional cells are small (median around 5,500 people), so the job trend uses Alberta-wide occupation figures.
 
 ## Alberta Economic Multipliers 2022
 

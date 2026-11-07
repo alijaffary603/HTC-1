@@ -85,6 +85,14 @@ Current workforce per occupation and region is LFS 2025 regional employment time
 
 We planned to use retirements from the project list, but the queue barely has any (the largest negative entry is 8 MW). Regional load growth was also tried and dropped, see validation.
 
+**Job trend (0-100).** How the job has been doing lately, whether energy touches it or not. Tailwind only covers energy projects, so on its own it says little about most jobs. This fills that gap:
+
+```
+trend = Alberta growth of the job's occupation group + (region's employment growth - Alberta's)
+```
+
+Growth compares 2017-19 with 2023-25 in the Labour Force Survey. It uses the most detailed group available, so teachers use education professionals [412] and electricians use technical trades [72]. That's 43 groups across 162 occupations, so many jobs share the same underlying number and broad groups can hide differences inside them. A region's own figure per occupation is too noisy to use. This describes the recent past and it failed as a forecast, see validation.
+
 **Adjacent roles.** A stand-in until the skills matching lands. Close means working in the same industries, with a training level (TEER) within one step and a bonus for the same broad field. Only roles with at least the same tailwind are suggested. It can miss real skill overlaps and produce some odd pairings.
 
 ## Known limits
