@@ -51,6 +51,14 @@ Bad input raises `ValueError` with a readable message, so it's fine to show that
     "share_in_mining_oil_gas": 0.0,
     "region_load_growth_pct_per_year": 0.94
   },
+  "job_trend": {
+    "score": 52,
+    "growth_pct_per_year": 0.98,
+    "occupation_growth_pct_per_year_alberta": 2.28,
+    "region_employment_growth_pct_per_year": 0.45,
+    "period": "2017-19 to 2023-25",
+    "based_on_group": "Professional occupations in education services [412]"
+  },
   "adjacent_roles": [
     {
       "code": "4120",
@@ -66,6 +74,16 @@ Bad input raises `ValueError` with a readable message, so it's fine to show that
 ```
 
 Trimmed to one technology and one role here, the sample file has the full version. The scores are percentiles, so 10 means this job and region sit above about 10% of all job-region pairs. `adjacent_roles` can be empty, and when it is there's a caveat explaining why.
+
+The three scores answer different questions, so show them side by side and don't average them:
+
+| Score | Question it answers | Good for |
+|---|---|---|
+| `tailwind` | Could energy projects add demand for this job here? | Trades and construction, close to nothing for most others |
+| `job_trend` | How has this kind of job been doing lately? | Every job |
+| `exposure` | Does this job lean on shrinking or resource sectors? | Every job, same score in every region |
+
+They can disagree, and that's useful. An electrician in Edmonton scores 93 on tailwind but 39 on job trend, which means energy projects could add real demand even though the group has been growing slowly.
 
 ## Files
 
@@ -90,6 +108,7 @@ This matters as much as the numbers. See [validation.md](validation.md) for why.
 - **Always show the range.** It's wide because the uncertainty is real.
 - **Show `caveats`.** Especially the data centre one, since most results depend on it.
 - **Use "demand from energy projects", not "job growth".** Tailwind only covers this one source. A teacher with a low score doesn't have a bad outlook overall. It just means energy projects won't change much for them.
+- **Put job trend in the past tense.** "This kind of job grew about 1% a year here" is fine. "Will grow" isn't, because it failed as a forecast. Show `based_on_group` too, since many jobs share a broad group.
 - **Exposure describes, it doesn't forecast.** "Your job leans on oil and gas" is fine. "Your job is at risk" isn't, because telling someone that has real stakes and we can't back it up.
 - **Regions are large.** Say "your region", never "your town".
 - **Label adjacent roles as a starting point.** They're based on shared industries, not skills, until the real matching is in.
