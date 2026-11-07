@@ -1,12 +1,12 @@
 import { useSyncExternalStore } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { sessionStore } from './session'
-import { signIn, signOut, signUp } from './authClient'
+import { confirmSignUp, resendCode, signIn, signOut, signUp } from './authClient'
 
 /** Current user plus sign-in actions. Re-renders when the session changes. */
 export function useAuth() {
   const session = useSyncExternalStore(sessionStore.subscribe, sessionStore.get)
-  return { user: session?.user ?? null, signIn, signUp, signOut }
+  return { user: session?.user ?? null, signIn, signUp, signOut, confirmSignUp, resendCode }
 }
 
 /** State passed to the sign-in / sign-up pages so they can return you afterwards. */

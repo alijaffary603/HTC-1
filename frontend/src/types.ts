@@ -117,6 +117,10 @@ export interface Session {
   user: User
   /** Bearer token for the API (Cognito ID token in production) */
   token: string
+  /** Cognito only: used to get a new token when this one expires */
+  refreshToken?: string
+  /** Cognito only: ms timestamp after which the token needs refreshing */
+  expiresAt?: number
 }
 
 export type AlertFrequency = 'daily' | 'weekly'

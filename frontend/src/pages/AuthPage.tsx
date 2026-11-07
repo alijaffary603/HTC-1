@@ -29,7 +29,7 @@ const COPY: Record<Mode, { title: string; intro: string; submit: string; busy: s
 }
 
 export default function AuthPage({ mode }: { mode: Mode }) {
-  const { user, signIn, signUp } = useAuth()
+  const { user, signIn, signUp, confirmSignUp, resendCode } = useAuth()
   const navigate = useNavigate()
   const state = (useLocation().state ?? {}) as AuthRedirectState
   const returnTo = state.from ?? '/'
@@ -42,6 +42,10 @@ export default function AuthPage({ mode }: { mode: Mode }) {
   const [submitted, setSubmitted] = useState(false)
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  // Cognito emails a code after sign-up (or when an unconfirmed account signs in)
+  const [confirming, setConfirming] = useState(false)
+  const [code, setCode] = useState('')
+  const [info, setInfo] = useState<string | null>(null)
 
   if (user && !busy) return <Navigate to={returnTo} replace />
 
@@ -61,14 +65,34 @@ export default function AuthPage({ mode }: { mode: Mode }) {
     setSubmitted(true)
     setError(null)
     if (errors.name || errors.email || errors.password) return
+    if (confirming && !code.trim()) {
+      setError('Enter the code from the email.')
+      return
+    }
     setBusy(true)
     try {
-      if (mode === 'sign-up') await signUp({ name, email, password })
+      if (confirming) await confirmSignUp({ email, password, code })
+      else if (mode === 'sign-up') await signUp({ name, email, password })
       else await signIn({ email, password })
       navigate(returnTo, { replace: true })
     } catch (err) {
-      setError(err instanceof AuthError || err instanceof Error ? err.message : 'Something went wrong. Try again.')
+      if (err instanceof AuthError && err.code === 'confirm_required') {
+        setConfirming(true)
+        setInfo(err.message)
+      } else {
+        setError(err instanceof AuthError || err instanceof Error ? err.message : 'Something went wrong. Try again.')
+      }
       setBusy(false)
+    }
+  }
+
+  const onResend = async () => {
+    setError(null)
+    try {
+      await resendCode(email)
+      setInfo(`We sent a new code to ${email.trim()}.`)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'We couldn’t send a new code. Try again.')
     }
   }
 
@@ -144,7 +168,28 @@ export default function AuthPage({ mode }: { mode: Mode }) {
                 },
               }}
             />
+            {confirming && (
+              <TextField
+                label="Code from the email"
+                value={code}
+                onChange={(e) => setCode(e.target.value)}
+                autoComplete="one-time-code"
+                slotProps={{ htmlInput: { inputMode: 'numeric' } }}
+                helperText={
+                  <Link component="button" type="button" onClick={onResend} color="text.primary">
+                    Send a new code
+                  </Link>
+                }
+                autoFocus
+              />
+            )}
           </Stack>
+
+          {info && !error && (
+            <Alert severity="info" sx={{ mt: 3 }}>
+              {info}
+            </Alert>
+          )}
 
           {error && (
             <Alert severity="error" sx={{ mt: 3 }}>
@@ -161,7 +206,7 @@ export default function AuthPage({ mode }: { mode: Mode }) {
             sx={{ mt: 3 }}
             startIcon={busy ? <CircularProgress size={18} color="inherit" /> : undefined}
           >
-            {busy ? copy.busy : copy.submit}
+            {busy ? copy.busy : confirming ? 'Confirm and sign in' : copy.submit}
           </Button>
         </Box>
 
