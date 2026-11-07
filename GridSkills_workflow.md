@@ -111,3 +111,12 @@ See also: Team_split.md
 - >20,000 MW of data centre requests on the list vs. limited connectable capacity -> Step A (completion probability) is essential.
 - Current NOC x NAICS regional table NOT yet found (only 2011 NHS) -> biggest data gap, data scientist's first task.
 - Alberta 2022 economic multipliers exist (alberta.ca/economic-statistics).
+
+## Data science status (Nov 2026)
+
+The model is built, see `docs/`. What changed from the plan above:
+- All 162 occupations instead of 50, 7 economic regions instead of towns.
+- No US data. Costs are CER, multipliers are Alberta's.
+- Completion model is a logistic regression plus a Markov chain, backtested. Data centres use scenarios because none has ever energized.
+- Exposure uses sector trends, because the queue has almost no retirements.
+- Backtests found the model is good at what gets built, but it doesn't yet predict hiring. Read `docs/validation.md` before writing the pitch.
