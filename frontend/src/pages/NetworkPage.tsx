@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Alert, Avatar, Box, Button, Chip, MenuItem, Skeleton, Snackbar, Stack, TextField, Typography } from '@mui/material'
 import { useSearchParams } from 'react-router-dom'
-import { getMatches } from '../api/client'
+import { getMatches, requestIntro } from '../api/client'
 import { useAsync } from '../hooks/useAsync'
 import { useAuth, useSignInRedirect } from '../auth/useAuth'
 import { OCCUPATIONS, REGIONS } from '../mocks/reference'
@@ -138,13 +138,18 @@ export default function NetworkPage() {
                   <Button
                     variant="outlined"
                     disabled={requested.has(m.id)}
-                    onClick={() => {
+                    onClick={async () => {
                       if (!user) {
                         askToSignIn(`Sign in to ask ${m.firstName} for an introduction.`)
                         return
                       }
-                      setRequested((s) => new Set(s).add(m.id))
-                      setToast(`Intro requested from ${m.firstName}.`)
+                      try {
+                        await requestIntro(m.id, m.region.id)
+                        setRequested((s) => new Set(s).add(m.id))
+                        setToast(`We emailed ${m.firstName}. If they reply, it comes straight to you.`)
+                      } catch (e) {
+                        setToast(e instanceof Error ? e.message : 'That didn’t work. Try again.')
+                      }
                     }}
                   >
                     {requested.has(m.id) ? 'Requested' : 'Request intro'}

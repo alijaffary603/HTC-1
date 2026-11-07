@@ -1,6 +1,6 @@
-import { Alert, Box, Button, Skeleton, Stack, Typography } from '@mui/material'
+import { Alert, Box, Button, FormControlLabel, Skeleton, Stack, Switch, Typography } from '@mui/material'
 import { Link as RouterLink } from 'react-router-dom'
-import { deletePathway, listPathways } from '../api/client'
+import { deletePathway, listPathways, setPathwayShare } from '../api/client'
 import { useAsync } from '../hooks/useAsync'
 import { useAuth } from '../auth/useAuth'
 
@@ -12,6 +12,11 @@ export default function SavedPage() {
 
   const remove = async (id: string) => {
     await deletePathway(id)
+    state.reload()
+  }
+
+  const share = async (id: string, on: boolean) => {
+    await setPathwayShare(id, on)
     state.reload()
   }
 
@@ -83,6 +88,15 @@ export default function SavedPage() {
                     <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
                       From {p.from.title.toLowerCase()}, in the {p.region.name} region. Saved {fmtDate(p.savedAt)}.
                     </Typography>
+                    <FormControlLabel
+                      sx={{ mt: 0.5 }}
+                      control={<Switch size="small" checked={!!p.share} onChange={(e) => share(p.id, e.target.checked)} />}
+                      label={
+                        <Typography variant="body2">
+                          Let people making a similar move find me (they see your first name only)
+                        </Typography>
+                      }
+                    />
                   </Box>
                   <Stack direction="row" spacing={1} sx={{ ml: { xs: -1.25, md: 0 } }}>
                     <Button
