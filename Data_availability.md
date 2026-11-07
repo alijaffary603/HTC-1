@@ -40,3 +40,20 @@ Status legend: CONFIRMED = seen in search results from official page; UNVERIFIED
 - Register for AESO API key, test pool price call
 - Find current StatCan NOC x NAICS table (census 2021 / LFS) and open Alberta 2022 multipliers file
 - Search for jobs-per-MW sources
+
+## Follow-up search: occupation x industry table (#3) and jobs-per-MW (#4)
+
+### #3 Occupation x industry for Alberta
+- NOT found: a current StatCan 2021 census table (industry x occupation, by economic region). Table number unconfirmed - search statcan.gc.ca 2021 Census products directly.
+- Found: StatCan LFS 14-10-0355 (employment by industry, Alberta) and 14-10-0287 (headline labour stats), cited in Alberta bulletins. Industry only, no occupation cross.
+- Found (older): Alberta open-data LFS customizations by industry and by occupation for economic regions, 2000-2013 and 2011-2014 (archived). Plus 2011 NHS NAICS x NOC.
+- Found: Alberta labour market review 2021-2022 and Alberta job market trends profiles (alberta.ca/job-market-trends-profiles); Alberta publishes 2021-Census labour market reports - may contain usable cross-tabs.
+- Plan: (a) look for 2021 census industry x occupation table on statcan.gc.ca, (b) check Alberta job-market-trends occupational profiles for industries employing each occupation, (c) email Alberta Labour/StatCan for a custom tabulation, (d) fallback 2011 NHS, labelled stale.
+
+### #4 Jobs per MW
+- NREL JEDI (nrel.gov/analysis/jedi): wind ~0.7 FTE/MW construction, ~0.3 FTE/MW O&M (2013 assessment). Solar PV and storage models exist but per-MW values not retrieved.
+- Pembina Institute (BC, 2015, based on BC Stats IO model): construction direct 1.83 wind / 15.30 solar jobs/MW; indirect 8.77 wind / 13.20 solar. Old, BC-specific.
+- Delphi Group 2017 (CanWEA) Alberta wind: ~15,000 jobs at 4,500-5,000 MW build-out.
+- IRENA "Renewable Energy and Jobs" review: not retrieved; likely best international per-MW source - check.
+- Ontario examples: wind ~2 temp jobs/MW; 9.1 MW solar ~11/MW.
+- Gaps: no Alberta-specific factors; nothing found for battery storage, gas, data centres. Treat coefficients as wide ranges (units differ: jobs vs job-years vs FTE - normalize!).
