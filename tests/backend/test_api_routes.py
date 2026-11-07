@@ -21,6 +21,11 @@ def test_score_accepts_five_digit_codes_and_echoes_them(aws):
     assert out["occupation"]["title"].startswith("Secondary")
 
 
+def test_score_accepts_region_names_the_app_sends(aws):
+    resp = api.handler(event("GET /api/score", query={"occupation": "7220", "region": "Red Deer"}), None)
+    assert body(resp)["tailwind"]["score"] == 90
+
+
 def test_score_unknown_is_404(aws):
     resp = api.handler(event("GET /api/score", query={"occupation": "9999", "region": "4850"}), None)
     assert resp["statusCode"] == 404

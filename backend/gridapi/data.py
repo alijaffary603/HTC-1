@@ -14,6 +14,18 @@ from . import config
 CHECK_EVERY = 300
 _state = {"version": None, "checked": 0.0, "scores": {}}
 
+# The app uses the model's region names as ids. StatCan economic region codes work too;
+# 4840 and 4870 are reported together, so they share the northwest numbers.
+NORTHWEST = "Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River"
+ECONOMIC_REGIONS = {
+    "4810": "Lethbridge-Medicine Hat", "4820": "Camrose-Drumheller", "4830": "Calgary", "4840": NORTHWEST,
+    "4850": "Red Deer", "4860": "Edmonton", "4870": NORTHWEST, "4880": "Wood Buffalo-Cold Lake",
+}
+
+
+def region_name(value):
+    return ECONOMIC_REGIONS.get(value, value)
+
 
 def _read(s3, key):
     return json.loads(s3.get_object(Bucket=config.DATA_BUCKET(), Key=key)["Body"].read())
@@ -34,15 +46,14 @@ def scores(s3=None, now=None):
 
 
 def lookup(occupation, region, s3=None):
-    """Response for a NOC code and economic region id, or None.
+    """score() output for a NOC code and region, or None.
 
-    The app may send 5-digit unit group codes. The model works at the 4-digit minor
-    group level, and a unit group's first four digits are its minor group, so we
-    trim and echo the code the app sent.
+    A 5-digit unit group code works too: its first four digits are the minor group
+    the model scores, and we echo the code that was sent.
     """
     if not (occupation.isdigit() and len(occupation) in (4, 5)):
         return None
-    found = scores(s3).get(f"{occupation[:4]}|{region}")
+    found = scores(s3).get(f"{occupation[:4]}|{region_name(region)}")
     if found is None:
         return None
     return {**found, "occupation": {"code": occupation, "title": found["occupation"]["title"]}}

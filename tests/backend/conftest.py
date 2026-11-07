@@ -15,12 +15,15 @@ SENDER = "alerts@example.com"
 
 
 def response(code, region, title, tailwind=50, trend=50):
+    """Same shape as gridskills.api.score()."""
     return {
         "occupation": {"code": code, "title": title},
-        "region": {"id": region, "name": "Red Deer"},
-        "tailwind": {"range": {"low": tailwind - 5, "base": tailwind, "high": tailwind + 5}, "summary": "x"},
-        "jobTrend": {"score": trend},
-        "exposure": {"range": {"low": 10, "base": 10, "high": 10}, "summary": "y"},
+        "region": region,
+        "tailwind": {"score": tailwind, "range": [tailwind - 5, tailwind + 5]},
+        "job_trend": {"score": trend},
+        "exposure": {"score": 10},
+        "adjacent_roles": [],
+        "caveats": [],
     }
 
 
@@ -34,8 +37,8 @@ def aws(monkeypatch):
         s3 = boto3.client("s3", region_name=REGION)
         s3.create_bucket(Bucket=BUCKET, CreateBucketConfiguration={"LocationConstraint": REGION})
         scores = {
-            "4122|4850": response("4122", "4850", "Secondary, elementary and kindergarten school teachers"),
-            "7220|4850": response("7220", "4850", "Technical electrical trades", 90, 40),
+            "4122|Red Deer": response("4122", "Red Deer", "Secondary, elementary and kindergarten school teachers"),
+            "7220|Red Deer": response("7220", "Red Deer", "Technical electrical trades", 90, 40),
         }
         s3.put_object(Bucket=BUCKET, Key="api/latest/scores.json", Body=json.dumps(scores).encode())
         s3.put_object(Bucket=BUCKET, Key="api/latest/meta.json",

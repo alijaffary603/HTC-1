@@ -10,7 +10,7 @@ import logging
 import boto3
 from botocore.exceptions import ClientError
 
-from . import config, emails, store
+from . import config, data, emails, store
 
 log = logging.getLogger()
 log.setLevel(logging.INFO)
@@ -46,7 +46,7 @@ def run(s3=None, ses=None, table=None):
     sender, app_url = config.SENDER_EMAIL(), config.APP_URL()
     sent = skipped = 0
     for alert in store.active_alerts(table):
-        key = f"{alert['occupation']['code'][:4]}|{alert['region']['id']}"
+        key = f"{alert['occupation']['code'][:4]}|{data.region_name(alert['region']['id'])}"
         old, new = before.get(key), after.get(key)
         if not old or not new or not alert.get("email"):
             skipped += 1

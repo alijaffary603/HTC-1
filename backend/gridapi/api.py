@@ -28,7 +28,8 @@ def respond(status, body=None):
 
 
 def error(status, message):
-    return respond(status, {"message": message})
+    # the app's advisor code reads "error", the rest reads "message"
+    return respond(status, {"message": message, "error": message})
 
 
 def _claims(event):

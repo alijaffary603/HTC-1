@@ -88,7 +88,7 @@ def test_skills_route_hides_model_errors(aws, monkeypatch):
 
 
 def _snapshot(s3, name, tailwind, trend):
-    summary = {"7220|4850": {"tailwind": tailwind, "jobTrend": trend, "exposure": 10, "title": "x", "region": "Red Deer"}}
+    summary = {"7220|Red Deer": {"tailwind": tailwind, "jobTrend": trend, "exposure": 10, "title": "x", "region": "Red Deer"}}
     s3.put_object(Bucket=BUCKET, Key=f"history/{name}/summary.json", Body=json.dumps(summary).encode())
 
 
