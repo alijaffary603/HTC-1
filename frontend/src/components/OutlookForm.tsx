@@ -1,7 +1,7 @@
 import { useState, type ChangeEvent, type FormEvent } from 'react'
 import { Alert, Autocomplete, Box, Button, Chip, CircularProgress, Link, Stack, TextField, Typography } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
-import { extractSkills } from '../api/client'
+import { extractSkills, USING_MOCKS } from '../api/client'
 import { OCCUPATIONS, TOWNS, findOccupation, findRegion, findTown, matchesOccupation } from '../data/reference'
 import type { Occupation, SkillsResult, Town } from '../types'
 import { blankSx, sentenceSx } from './sentenceStyles'
@@ -59,7 +59,7 @@ export default function OutlookForm() {
       const top = result.suggestedOccupations[0]
       if (top) setOccupation(findOccupation(top.code) ?? null)
     } catch (err) {
-      setError(err instanceof Error ? `We couldn’t read that file: ${err.message}` : "We couldn’t read that file.")
+      setError(err instanceof Error ? err.message : 'We couldn’t read that file. Try a PDF or Word file.')
     } finally {
       setParsing(false)
       e.target.value = ''
@@ -126,41 +126,86 @@ export default function OutlookForm() {
         <Stack spacing={2.5}>
           <Box>
             <Button component="label" variant="outlined" disabled={parsing}>
-              {fileName ? 'Choose a different file' : 'Choose your resume'}
-              <input hidden type="file" accept=".pdf,.doc,.docx,.txt" onChange={onFile} />
+              {fileName ? 'Choose a different file' : 'Choose your résumé'}
+              <input hidden type="file" accept=".pdf,.docx,.txt,application/pdf" onChange={onFile} />
             </Button>
             <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 1 }}>
-              {fileName ?? 'PDF, Word or plain text. We only read it to find your skills.'}
+              {fileName ??
+                (USING_MOCKS
+                  ? 'PDF, Word (.docx) or plain text. It’s read on this device and never uploaded.'
+                  : 'PDF, Word (.docx) or plain text. We only use it to find your skills.')}
             </Typography>
           </Box>
           {parsing && (
             <Stack direction="row" spacing={1.5} sx={{ alignItems: 'center' }}>
               <CircularProgress size={18} />
-              <Typography variant="body2">Reading your resume</Typography>
+              <Typography variant="body2">Reading your résumé</Typography>
             </Stack>
           )}
           {error && <Alert severity="error">{error}</Alert>}
-          {skills && (
-            <Box>
-              <Typography variant="body2" sx={{ mb: 1 }}>
-                We found {skills.skills.map((s) => s.name.toLowerCase()).join(', ')}. Which job is closest to yours?
-              </Typography>
-              <Stack direction="row" sx={{ flexWrap: 'wrap', gap: 1 }}>
-                {skills.suggestedOccupations.map((o) => {
-                  const selected = occupation?.code === o.code
-                  return (
-                    <Chip
-                      key={o.code}
-                      label={o.title}
-                      color={selected ? 'primary' : 'default'}
-                      variant={selected ? 'filled' : 'outlined'}
-                      onClick={() => setOccupation(findOccupation(o.code) ?? null)}
-                      aria-pressed={selected}
-                    />
-                  )
-                })}
-              </Stack>
-            </Box>
+          {skills && skills.suggestedOccupations.length === 0 && (
+            <Alert severity="info">
+              We read your résumé but couldn’t match it to a job.{' '}
+              <Link component="button" type="button" onClick={() => setMode('pick')} sx={{ font: 'inherit', verticalAlign: 'baseline' }}>
+                Pick your job instead
+              </Link>
+              .
+            </Alert>
+          )}
+          {skills && skills.suggestedOccupations.length > 0 && (
+            <Stack spacing={2.5}>
+              <Box>
+                <Typography variant="body2" sx={{ fontWeight: 600, mb: 1 }}>
+                  Skills we found
+                </Typography>
+                <Stack direction="row" sx={{ flexWrap: 'wrap', gap: 0.75 }}>
+                  {skills.skills.map((sk) => (
+                    <Chip key={sk.name} label={sk.name} size="small" variant="outlined" />
+                  ))}
+                </Stack>
+              </Box>
+              <Box role="radiogroup" aria-label="Closest jobs to your résumé">
+                <Typography variant="body2" sx={{ fontWeight: 600, mb: 1 }}>
+                  Closest jobs. Pick the one that fits you best:
+                </Typography>
+                <Stack spacing={1}>
+                  {skills.suggestedOccupations.map((o) => {
+                    const selected = occupation?.code === o.code
+                    return (
+                      <Box
+                        key={o.code}
+                        component="button"
+                        type="button"
+                        role="radio"
+                        aria-checked={selected}
+                        onClick={() => setOccupation(findOccupation(o.code) ?? null)}
+                        sx={{
+                          all: 'unset',
+                          cursor: 'pointer',
+                          display: 'block',
+                          px: 2,
+                          py: 1.25,
+                          border: 1,
+                          borderRadius: '6px',
+                          borderColor: selected ? 'primary.main' : 'divider',
+                          bgcolor: selected ? 'action.selected' : 'transparent',
+                          boxShadow: selected ? 'inset 0 0 0 1px var(--mui-palette-primary-main)' : 'none',
+                          '&:hover': { borderColor: 'text.secondary' },
+                          '&:focus-visible': { outline: '2px solid var(--mui-palette-primary-main)', outlineOffset: 2 },
+                        }}
+                      >
+                        <Typography sx={{ fontWeight: 600, fontSize: '0.9875rem' }}>{o.title}</Typography>
+                        {o.because && o.because.length > 0 && (
+                          <Typography variant="body2" color="text.secondary">
+                            Matched on {o.because.join(', ')}
+                          </Typography>
+                        )}
+                      </Box>
+                    )
+                  })}
+                </Stack>
+              </Box>
+            </Stack>
           )}
           <Box sx={sentenceSx}>
             <Box sx={halfSx}>
@@ -176,7 +221,7 @@ export default function OutlookForm() {
           ? !occupation
             ? mode === 'pick'
               ? 'Choose your job to continue.'
-              : 'Upload your resume and pick the closest job to continue.'
+              : 'Upload your résumé and pick the closest job to continue.'
             : 'Choose your town to continue.'
           : region
             ? `Results cover the ${region.name} region.`
@@ -194,7 +239,7 @@ export default function OutlookForm() {
             setTried(false)
           }}
         >
-          {mode === 'pick' ? 'Use my resume instead' : 'Pick my job instead'}
+          {mode === 'pick' ? 'Use my résumé instead' : 'Pick my job instead'}
         </Button>
       </Stack>
 

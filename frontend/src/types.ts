@@ -68,7 +68,8 @@ export interface ModelScore {
 /** Output of extract_skills(text) */
 export interface SkillsResult {
   skills: { name: string; confidence: number }[]
-  suggestedOccupations: (Occupation & { confidence: number })[]
+  /** Best-matching job groups; `because` lists the skills that matched */
+  suggestedOccupations: (Occupation & { confidence: number; because?: string[] })[]
 }
 
 /** A saved pathway: user's current role -> a target role in a region */

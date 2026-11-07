@@ -1,5 +1,4 @@
 import type { AlertFrequency, JobAlert, JobPosting, Match, ModelScore, Occupation, Pathway, Region, SkillsResult } from '../types'
-import { mockExtractSkills } from '../mocks/skills'
 import { mockMatches } from '../mocks/network'
 import { mockPostings } from '../mocks/postings'
 import { sessionStore } from '../auth/session'
@@ -60,10 +59,14 @@ export async function getScore(occupation: string, region: string): Promise<Mode
   return result
 }
 
+/** Reads a résumé and suggests jobs. Runs in the browser unless VITE_API_URL is set. */
 export async function extractSkills(file: File): Promise<SkillsResult> {
   if (USING_MOCKS) {
-    await delay(900)
-    return mockExtractSkills(file.name)
+    const [{ extractResumeText }, { matchResume }] = await Promise.all([
+      import('../resume/extractText'),
+      import('../resume/matchResume'),
+    ])
+    return matchResume(await extractResumeText(file))
   }
   const body = new FormData()
   body.append('resume', file)

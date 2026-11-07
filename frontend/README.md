@@ -14,7 +14,11 @@ npm run build      # type-check + production build
   7 regions and writes `src/data/reference.json` (jobs, regions, towns, aliases) and `public/data/scores/<code>.json`.
   The app reads those files, so no Python or server is needed. After the model's outputs change, rerun:
   `python -m venv .venv && .venv/bin/pip install pandas && .venv/bin/python scripts/export_app_data.py`
-- **Still mocked:** accounts (browser storage), résumé skills, people to connect with, and job postings.
+- **Résumé reading runs in the browser:** `src/resume/` pulls text from PDF (pdf.js), Word .docx (mammoth) or
+  .txt, matches it against a skills dictionary mapped to the model's job codes, and suggests the closest jobs with
+  the skills that matched. The file never leaves the device. Abdullah's `extract_skills()` can replace
+  `matchResume()` later with the same output shape (`SkillsResult`).
+- **Still mocked:** accounts (browser storage), people to connect with, and job postings.
 - Set `VITE_API_URL` (copy `.env.example` to `.env.local`) to send every call to a real backend instead.
   All backend calls go through `src/api/client.ts`, so the switch needs no UI changes.
 
