@@ -69,6 +69,14 @@ def test_extract_sends_the_file_and_keeps_only_known_codes():
     assert enum == ["1110", "7220"]
 
 
+def test_plain_text_goes_in_as_text_not_a_document():
+    fake = FakeGemini({"skills": [], "occupations": [{"code": "7220", "confidence": 0.7}]})
+    resume.extract("cv.txt", "text/plain", "Journeyperson electrician".encode(), client=fake, occupations=OCCUPATIONS)
+    part = fake.calls[0]["input"][0]
+    assert part["type"] == "text"
+    assert "Journeyperson electrician" in part["text"]
+
+
 def test_skills_route_hides_model_errors(aws, monkeypatch):
     def broken(*a, **k):
         raise RuntimeError("upstream exploded with résumé text inside")

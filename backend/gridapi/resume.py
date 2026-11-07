@@ -78,12 +78,14 @@ def extract(filename, mime_type, content, client=None, occupations=None):
     occupations = occupations or occupation_list()
     client = client or _client()
     listing = "\n".join(f"{code}: {title}" for code, title in occupations.items())
+    # Gemini takes PDF and Office files as documents but rejects text/plain, so plain text goes in as text
+    if mime_type == "text/plain":
+        resume_part = {"type": "text", "text": "Résumé:\n" + content.decode("utf-8", errors="replace")}
+    else:
+        resume_part = {"type": "document", "data": base64.b64encode(content).decode(), "mime_type": mime_type}
     interaction = client.interactions.create(
         model=config.GEMINI_MODEL(),
-        input=[
-            {"type": "document", "data": base64.b64encode(content).decode(), "mime_type": mime_type},
-            {"type": "text", "text": INSTRUCTIONS.format(occupations=listing)},
-        ],
+        input=[resume_part, {"type": "text", "text": INSTRUCTIONS.format(occupations=listing)}],
         response_format={"type": "text", "mime_type": "application/json", "schema": schema(list(occupations))},
     )
     result = json.loads(interaction.output_text)
