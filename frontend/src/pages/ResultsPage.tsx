@@ -31,11 +31,19 @@ const TYPE_LABEL: Record<Driver['type'], string> = {
   gas: 'Gas plant',
   data_centre: 'Data centre',
   industrial: 'Industrial site',
+  grid: 'Grid connection',
+  other: 'Other generation',
 }
 const STAGE_LABEL: Record<Driver['stage'], string> = {
   early_study: 'Early study',
   approved: 'Approved',
   under_construction: 'Under construction',
+  cluster: 'Cluster study',
+  early: 'Early stages',
+  mid: 'Mid stages',
+  late: 'Late stages',
+  isd_review: 'Date under review',
+  on_hold: 'On hold',
 }
 
 const NBSP = ' '
@@ -136,7 +144,8 @@ function RoleRow({
       <Box>
         <Typography variant="h3">{role.occupation.title}</Typography>
         <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5, mb: 2 }}>
-          {Math.round(role.similarity * 100)}% of your skills carry over. Tailwind {rangeText(role.tailwind)}.
+          {Math.round(role.similarity * 100)}% overlap in the industries both jobs work in. Tailwind{' '}
+          {rangeText(role.tailwind)}.
         </Typography>
         <Box sx={{ maxWidth: 280 }}>
           <RangeBar range={role.tailwind} height={6} />
@@ -147,6 +156,11 @@ function RoleRow({
         <Typography variant="h4" sx={{ mb: 1.25 }}>
           Skills to build
         </Typography>
+        {role.missingSkills.length === 0 && (
+          <Typography variant="body2" color="text.secondary">
+            We don’t have a skills list for this role yet.
+          </Typography>
+        )}
         <Stack component="ul" spacing={1.5} sx={{ listStyle: 'none', p: 0, m: 0 }}>
           {role.missingSkills.map((gap) => (
             <Box component="li" key={gap.skill}>
@@ -210,7 +224,14 @@ function ProjectsTable({ drivers }: { drivers: Driver[] }) {
         <TableBody>
           {drivers.map((d, i) => (
             <TableRow key={i} sx={{ '&:last-of-type td': { borderBottom: 0 } }}>
-              <TableCell sx={{ fontWeight: 500 }}>{TYPE_LABEL[d.type]}</TableCell>
+              <TableCell sx={{ fontWeight: 500 }}>
+                {d.name ?? TYPE_LABEL[d.type]}
+                {d.name && (
+                  <Typography variant="body2" color="text.secondary">
+                    {TYPE_LABEL[d.type]}
+                  </Typography>
+                )}
+              </TableCell>
               <TableCell align="right">{`${d.mw.toLocaleString()}${NBSP}MW`}</TableCell>
               <TableCell>{STAGE_LABEL[d.stage]}</TableCell>
               <TableCell align="right">{d.inServiceYear}</TableCell>
@@ -255,7 +276,7 @@ function Results({ data, town }: { data: ScoreResult; town: string | null }) {
     await createAlert({ occupation, region: data.region, frequency: 'weekly' })
     alerts.reload()
     setToast({
-      message: `Every Monday we’ll email you new postings for ${job} in the ${data.region.name} region.`,
+      message: `We’ll email you about ${job} in the ${data.region.name} region when there’s something new.`,
       to: '/alerts',
       label: 'Preview email',
     })
@@ -308,10 +329,31 @@ function Results({ data, town }: { data: ScoreResult; town: string | null }) {
           detail={data.exposure}
           color="secondary"
         />
+        {data.jobTrend && (
+          <OutlookRow
+            name="Job trend"
+            explainer={`How this kind of job has done here, ${data.jobTrend.period}`}
+            detail={{
+              range: { low: data.jobTrend.score, base: data.jobTrend.score, high: data.jobTrend.score },
+              summary: data.jobTrend.summary,
+            }}
+            color="primary"
+          />
+        )}
       </Box>
       <Typography variant="body2" color="text.secondary" sx={{ mt: 1.5 }}>
         The shaded band runs from the low to the high scenario. The mark is the base case.
+        {data.jobTrend && ` Job trend is based on ${data.jobTrend.basedOnGroup.toLowerCase()}.`}
       </Typography>
+      {data.caveats && data.caveats.length > 0 && (
+        <Alert severity="info" sx={{ mt: 3 }}>
+          <Stack component="ul" spacing={0.5} sx={{ m: 0, pl: 2 }}>
+            {data.caveats.map((c) => (
+              <li key={c}>{c}</li>
+            ))}
+          </Stack>
+        </Alert>
+      )}
 
       <Section
         id="moves"

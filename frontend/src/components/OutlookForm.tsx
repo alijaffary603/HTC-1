@@ -56,8 +56,9 @@ export default function OutlookForm() {
     try {
       const result = await extractSkills(file)
       setSkills(result)
+      // the résumé matcher can suggest jobs that aren't in the dropdown list; keep them anyway
       const top = result.suggestedOccupations[0]
-      if (top) setOccupation(findOccupation(top.code) ?? null)
+      if (top) setOccupation(findOccupation(top.code) ?? { code: top.code, title: top.title })
     } catch (err) {
       setError(err instanceof Error ? `We couldn’t read that file: ${err.message}` : "We couldn’t read that file.")
     } finally {
@@ -98,7 +99,7 @@ export default function OutlookForm() {
           <span>I work as</span>
           <Autocomplete
             options={OCCUPATIONS}
-            value={occupation ? (findOccupation(occupation.code) ?? null) : null}
+            value={occupation ? (findOccupation(occupation.code) ?? occupation) : null}
             onChange={(_, v) => setOccupation(v)}
             getOptionLabel={(o) => o.title}
             isOptionEqualToValue={(a, b) => a.code === b.code}
@@ -153,7 +154,7 @@ export default function OutlookForm() {
                       label={o.title}
                       color={selected ? 'primary' : 'default'}
                       variant={selected ? 'filled' : 'outlined'}
-                      onClick={() => setOccupation(findOccupation(o.code) ?? null)}
+                      onClick={() => setOccupation(findOccupation(o.code) ?? { code: o.code, title: o.title })}
                       aria-pressed={selected}
                     />
                   )
