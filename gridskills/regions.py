@@ -41,7 +41,7 @@ PLANNING_AREA_TO_REGION = {
     31: EDMONTON,      # Wetaskiwin
     32: EAST_CENTRAL,  # Wainwright
     33: EDMONTON,      # Fort Saskatchewan
-    34: EAST_CENTRAL,  # Abraham Lake area, in the load files but never in the project list
+    34: RED_DEER,      # only in the load files, name unconfirmed; AESO puts it in Central
     35: RED_DEER,
     36: EAST_CENTRAL,  # Alliance/Battle River
     37: EAST_CENTRAL,  # Provost
