@@ -4,6 +4,7 @@ import { mockExtractSkills } from '../mocks/skills'
 import { mockMatches } from '../mocks/network'
 import { mockPostings } from '../mocks/postings'
 import { sessionStore } from '../auth/session'
+import { freshSession } from '../auth/cognito'
 
 // Single place the UI talks to the backend.
 // No VITE_API_URL set -> everything comes from local mocks.
@@ -20,17 +21,24 @@ export class SignInRequiredError extends Error {
   }
 }
 
-function authHeader(): Record<string, string> {
-  const s = sessionStore.get()
+async function authHeader(): Promise<Record<string, string>> {
+  const s = await freshSession()
   return s ? { Authorization: `Bearer ${s.token}` } : {}
+}
+
+/** The API sends {"message": "..."} on errors, written to be shown as is. */
+async function apiError(res: Response): Promise<Error> {
+  const body = await res.json().catch(() => null)
+  if (res.status === 401) sessionStore.set(null)
+  return new Error(body?.message ?? `Something went wrong (${res.status}). Try again.`)
 }
 
 async function http<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(`${API_URL}${path}`, {
     ...init,
-    headers: { 'Content-Type': 'application/json', ...authHeader(), ...init?.headers },
+    headers: { 'Content-Type': 'application/json', ...(await authHeader()), ...init?.headers },
   })
-  if (!res.ok) throw new Error(`API ${res.status}: ${await res.text()}`)
+  if (!res.ok) throw await apiError(res)
   if (res.status === 204) return undefined as T
   return res.json() as Promise<T>
 }
@@ -50,9 +58,19 @@ export async function extractSkills(file: File): Promise<SkillsResult> {
   }
   const body = new FormData()
   body.append('resume', file)
-  const res = await fetch(`${API_URL}/skills`, { method: 'POST', body, headers: authHeader() })
-  if (!res.ok) throw new Error(`API ${res.status}`)
+  const res = await fetch(`${API_URL}/skills`, { method: 'POST', body, headers: await authHeader() })
+  if (!res.ok) throw await apiError(res)
   return res.json()
+}
+
+/** Emails the person behind a match, with your email as the reply-to. */
+export async function requestIntro(matchId: string, region: string): Promise<void> {
+  if (!sessionStore.get()) throw new SignInRequiredError()
+  if (USING_MOCKS) {
+    await delay(300)
+    return
+  }
+  await http('/intros', { method: 'POST', body: JSON.stringify({ matchId, region }) })
 }
 
 export async function getMatches(region: string, from: string, to?: string): Promise<Match[]> {
@@ -111,6 +129,20 @@ export async function savePathway(p: Omit<Pathway, 'id' | 'savedAt'>): Promise<P
     return saved
   }
   return http('/pathways', { method: 'POST', body: JSON.stringify(p) })
+}
+
+/** Lets others making a similar move find you. Off until you turn it on. */
+export async function setPathwayShare(id: string, share: boolean): Promise<Pathway> {
+  if (!sessionStore.get()) throw new SignInRequiredError()
+  if (USING_MOCKS) {
+    const all = readLocal()
+    const i = all.findIndex((p) => p.id === id)
+    if (i < 0) throw new Error('That pathway no longer exists.')
+    all[i] = { ...all[i], share }
+    writeLocal(all)
+    return all[i]
+  }
+  return http(`/pathways/${id}`, { method: 'PATCH', body: JSON.stringify({ share }) })
 }
 
 export async function deletePathway(id: string): Promise<void> {

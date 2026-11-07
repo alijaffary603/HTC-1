@@ -54,17 +54,40 @@ export interface ScoreDetail {
   summary: string
 }
 
-export type ProjectType = 'solar' | 'wind' | 'storage' | 'gas' | 'data_centre' | 'industrial'
-export type ProjectStage = 'early_study' | 'approved' | 'under_construction'
+export type ProjectType = 'solar' | 'wind' | 'storage' | 'gas' | 'data_centre' | 'industrial' | 'grid' | 'other'
+/** Where a project sits in AESO's connection process. The first three are the old mock values. */
+export type ProjectStage =
+  | 'early_study'
+  | 'approved'
+  | 'under_construction'
+  | 'cluster'
+  | 'early'
+  | 'mid'
+  | 'late'
+  | 'isd_review'
+  | 'on_hold'
 
 /** Grid projects that drive the score (subset of the project table contract) */
 export interface Driver {
+  /** AESO project name, from the real API only */
+  name?: string
   type: ProjectType
   mw: number
   stage: ProjectStage
   /** 0-1 probability the project is actually built (Step A) */
   probability: number
   inServiceYear: number
+}
+
+/** How this kind of job has done lately. Describes the past, it isn't a forecast. */
+export interface JobTrend {
+  score: number
+  summary: string
+  growthPctPerYear: number
+  occupationGrowthPctPerYearAlberta: number
+  regionEmploymentGrowthPctPerYear: number
+  period: string
+  basedOnGroup: string
 }
 
 /** Output of score(occupation, region) */
@@ -78,6 +101,15 @@ export interface ScoreResult {
   drivers: Driver[]
   confidence: Confidence
   modelVersion: string
+  /** The fields below come from the real API only */
+  jobTrend?: JobTrend
+  /** Things to keep in mind about this result, written to be shown as is */
+  caveats?: string[]
+  addedJobsPerYear?: { low: number; base: number; high: number }
+  percentOfWorkforce?: number
+  workforce?: number
+  topTechnologies?: { technology: string; share: number }[]
+  exposureDetail?: { sectorGrowthPctPerYear: number; shareInMiningOilGas: number }
 }
 
 /** Output of extract_skills(text) */
@@ -93,6 +125,8 @@ export interface Pathway {
   to: Occupation
   region: Region
   savedAt: string
+  /** Shown to others making a similar move. Off unless the owner turns it on. */
+  share?: boolean
 }
 
 /** Someone in the network for "people like you" matching */
