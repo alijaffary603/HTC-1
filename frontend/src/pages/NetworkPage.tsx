@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { Alert, Avatar, Box, Button, Chip, MenuItem, Skeleton, Snackbar, Stack, TextField, Typography } from '@mui/material'
 import { useSearchParams } from 'react-router-dom'
-import { getMatches, requestIntro } from '../api/client'
+import { USING_MOCKS, getMatches } from '../api/client'
 import { useAsync } from '../hooks/useAsync'
 import { useAuth, useSignInRedirect } from '../auth/useAuth'
-import { OCCUPATIONS, REGIONS } from '../mocks/reference'
+import { OCCUPATIONS, REGIONS } from '../data/reference'
 import type { Match } from '../types'
 
 const lower = (s: string) => s.charAt(0).toLowerCase() + s.slice(1)
@@ -18,8 +18,8 @@ function describe(m: Match) {
 // Kept deliberately small for v1 (see Team_split.md: networking scope creep risk).
 export default function NetworkPage() {
   const [params, setParams] = useSearchParams()
-  const region = params.get('region') ?? '4830'
-  const from = params.get('from') ?? '11100'
+  const region = params.get('region') ?? 'Calgary'
+  const from = params.get('from') ?? '1110'
   const to = params.get('to') ?? undefined
   const [toast, setToast] = useState<string | null>(null)
   const [requested, setRequested] = useState<Set<string>>(new Set())
@@ -61,7 +61,7 @@ export default function NetworkPage() {
         >
           {REGIONS.map((r) => (
             <MenuItem key={r.id} value={r.id}>
-              {r.name}
+              {r.short}
             </MenuItem>
           ))}
         </TextField>
@@ -83,6 +83,7 @@ export default function NetworkPage() {
         <Chip label={`Moving to ${lower(toTitle)}`} onDelete={clearTo} sx={{ mt: 2 }} />
       )}
 
+      {USING_MOCKS && <Alert severity="info" sx={{ mt: 3 }}>These are fictional sample profiles. No introductions are sent. For real career coaching, use the resources in your action plan.</Alert>}
       <Box sx={{ mt: 4 }}>
         {state.status === 'loading' && <Skeleton variant="rounded" height={120} />}
         {state.status === 'error' && <Alert severity="error">People didn’t load: {state.error.message}</Alert>}
@@ -130,7 +131,7 @@ export default function NetworkPage() {
                     )}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    {describe(m)}, {m.region.name} region.
+                    {describe(m)}, {m.region.short} region.
                   </Typography>
                   <Typography sx={{ mt: 1 }}>{m.blurb}</Typography>
                 </Box>
@@ -138,18 +139,13 @@ export default function NetworkPage() {
                   <Button
                     variant="outlined"
                     disabled={requested.has(m.id)}
-                    onClick={async () => {
+                    onClick={() => {
                       if (!user) {
                         askToSignIn(`Sign in to ask ${m.firstName} for an introduction.`)
                         return
                       }
-                      try {
-                        await requestIntro(m.id, m.region.id)
-                        setRequested((s) => new Set(s).add(m.id))
-                        setToast(`We emailed ${m.firstName}. If they reply, it comes straight to you.`)
-                      } catch (e) {
-                        setToast(e instanceof Error ? e.message : 'That didn’t work. Try again.')
-                      }
+                      setRequested((s) => new Set(s).add(m.id))
+                      setToast(USING_MOCKS ? `Demo only: no request was sent to ${m.firstName}.` : `Introduction request noted for ${m.firstName}.`)
                     }}
                   >
                     {requested.has(m.id) ? 'Requested' : 'Request intro'}

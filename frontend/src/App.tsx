@@ -3,6 +3,7 @@ import Layout from './components/Layout'
 import HomePage from './pages/HomePage'
 import ResultsPage from './pages/ResultsPage'
 import SavedPage from './pages/SavedPage'
+import PlansPage from './pages/PlansPage'
 import NetworkPage from './pages/NetworkPage'
 import AuthPage from './pages/AuthPage'
 import AlertsPage from './pages/AlertsPage'
@@ -15,6 +16,7 @@ export default function App() {
           <Route index element={<HomePage />} />
           <Route path="results" element={<ResultsPage />} />
           <Route path="saved" element={<SavedPage />} />
+          <Route path="plans" element={<PlansPage />} />
           <Route path="network" element={<NetworkPage />} />
           <Route path="alerts" element={<AlertsPage />} />
           <Route path="sign-in" element={<AuthPage key="sign-in" mode="sign-in" />} />

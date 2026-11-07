@@ -86,7 +86,7 @@ export default function SavedPage() {
                   <Box>
                     <Typography variant="h3">{p.to.title}</Typography>
                     <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
-                      From {p.from.title.toLowerCase()}, in the {p.region.name} region. Saved {fmtDate(p.savedAt)}.
+                      From {p.from.title.toLowerCase()}, in the {p.region.short} region. Saved {fmtDate(p.savedAt)}.
                     </Typography>
                     <FormControlLabel
                       sx={{ mt: 0.5 }}

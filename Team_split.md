@@ -1,4 +1,4 @@
-# GridSkills – Team split (4 people)
+# Signal – Team split (4 people)
 
 ## Uzair – "the model"
 Owns workflow Steps A-F.

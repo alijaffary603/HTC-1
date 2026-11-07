@@ -1,4 +1,4 @@
-# GridSkills – How the project works
+# Signal – How the project works
 
 Prompt: How can we leverage technology to help people develop in-demand skills and build meaningful networks in a rapidly changing job market?
 

@@ -12,7 +12,7 @@ export interface AlertEmailInput {
   postings: JobPosting[]
   /** Optional outlook for this job and region, shown as context */
   tailwind?: Range
-  /** Base URL of the app, e.g. https://gridskills.ca */
+  /** Base URL of the app, e.g. https://signal.example */
   appUrl: string
   now?: Date
 }
@@ -63,10 +63,10 @@ export function postedAgo(iso: string, now = new Date()) {
 
 export function buildAlertEmail({ user, alert, postings, tailwind, appUrl, now = new Date() }: AlertEmailInput): AlertEmail {
   const job = lowerFirst(alert.occupation.title)
-  const where = `the ${alert.region.name} region`
+  const where = `the ${alert.region.short} region`
   const period = alert.frequency === 'daily' ? 'since yesterday' : 'this week'
   const n = postings.length
-  const subject = `${n} new posting${n === 1 ? '' : 's'} for ${job} in ${alert.region.name}`
+  const subject = `${n} new posting${n === 1 ? '' : 's'} for ${job} in ${alert.region.short}`
   const preheader =
     n === 0
       ? `No new postings ${period}.`
@@ -121,7 +121,7 @@ export function buildAlertEmail({ user, alert, postings, tailwind, appUrl, now =
         <td align="center" style="padding:24px 12px;">
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;background:#ffffff;border:1px solid #D9DFD6;border-radius:8px;">
           <tr>
-            <td style="padding:24px 32px 4px;font-family:${FONT};font-size:20px;font-weight:bold;letter-spacing:-0.2px;color:${C.ink};">GridSkills</td>
+            <td style="padding:24px 32px 4px;font-family:${FONT};font-size:20px;font-weight:bold;letter-spacing:-0.2px;color:${C.ink};">Signal</td>
           </tr>
           <tr>
             <td style="padding:12px 32px 20px;font-family:${FONT};font-size:16px;line-height:24px;color:${C.ink};">

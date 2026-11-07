@@ -21,9 +21,10 @@ export default function RangeBar({ range, color = 'primary', scale, height = 8 }
       >
         <Box
           sx={{
+            display: high > low ? 'block' : 'none',
             position: 'absolute',
             left: `${low}%`,
-            width: `${Math.max(high - low, 1)}%`,
+            width: `${high - low}%`,
             top: 0,
             bottom: 0,
             borderRadius: height / 2,

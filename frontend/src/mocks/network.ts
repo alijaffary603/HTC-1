@@ -1,5 +1,5 @@
 import type { Match } from '../types'
-import { OCCUPATIONS, REGIONS } from './reference'
+import { OCCUPATIONS, REGIONS } from '../data/reference'
 
 // MOCK people for the "people like you" feature. Fictional.
 
@@ -7,17 +7,20 @@ const occ = (code: string) => {
   const o = OCCUPATIONS.find((x) => x.code === code)!
   return { code: o.code, title: o.title }
 }
-const region = (id: string) => REGIONS.find((r) => r.id === id)!
+const region = (id: string) => {
+  const r = REGIONS.find((x) => x.id === id)!
+  return { id: r.id, name: r.name, short: r.short }
+}
 
 const PEOPLE: Match[] = [
-  { id: 'm1', firstName: 'Priya', region: region('4830'), from: occ('11100'), to: occ('11101'), kind: 'mentor', blurb: 'Moved from audit to energy-sector finance in 2024.' },
-  { id: 'm2', firstName: 'Daniel', region: region('4830'), from: occ('11100'), to: occ('22303'), kind: 'peer', blurb: 'Taking an estimating course this winter.' },
-  { id: 'm3', firstName: 'Aisha', region: region('4860'), from: occ('41221'), to: occ('41210'), kind: 'mentor', blurb: 'Teaches electrical pre-apprenticeship at a college.' },
-  { id: 'm4', firstName: 'Tom', region: region('4860'), from: occ('41221'), to: occ('11200'), kind: 'peer', blurb: 'Exploring corporate training roles.' },
-  { id: 'm5', firstName: 'Mei', region: region('4810'), from: occ('60020'), to: occ('70012'), kind: 'mentor', blurb: 'Runs maintenance at a solar site after 10 years in retail.' },
-  { id: 'm6', firstName: 'Carlos', region: region('4810'), from: occ('60020'), to: occ('13201'), kind: 'peer', blurb: 'Retail ops background, learning logistics.' },
-  { id: 'm7', firstName: 'Grace', region: region('4830'), from: occ('60020'), to: occ('70010'), kind: 'peer', blurb: 'Starting a construction management certificate.' },
-  { id: 'm8', firstName: 'Sam', region: region('4860'), from: occ('72200'), to: occ('72202'), kind: 'mentor', blurb: 'Power system electrician, happy to talk tickets.' },
+  { id: 'm1', firstName: 'Priya', region: region('Calgary'), from: occ('1110'), to: occ('1002'), kind: 'mentor', blurb: 'Went from audit to running finance for a solar developer in 2024.' },
+  { id: 'm2', firstName: 'Daniel', region: region('Calgary'), from: occ('1110'), to: occ('2230'), kind: 'peer', blurb: 'Taking a construction estimating course this winter.' },
+  { id: 'm3', firstName: 'Aisha', region: region('Edmonton'), from: occ('4122'), to: occ('4121'), kind: 'mentor', blurb: 'Teaches electrical pre-apprenticeship at a college.' },
+  { id: 'm4', firstName: 'Tom', region: region('Edmonton'), from: occ('4122'), to: occ('1120'), kind: 'peer', blurb: 'Exploring corporate training roles.' },
+  { id: 'm5', firstName: 'Mei', region: region('Lethbridge-Medicine Hat'), from: occ('6002'), to: occ('7001'), kind: 'mentor', blurb: 'Runs maintenance at a solar site after 10 years in retail.' },
+  { id: 'm6', firstName: 'Carlos', region: region('Lethbridge-Medicine Hat'), from: occ('6002'), to: occ('1320'), kind: 'peer', blurb: 'Retail operations background, learning logistics.' },
+  { id: 'm7', firstName: 'Grace', region: region('Calgary'), from: occ('6002'), to: occ('7001'), kind: 'peer', blurb: 'Starting a construction management certificate.' },
+  { id: 'm8', firstName: 'Sam', region: region('Edmonton'), from: occ('7220'), to: occ('7201'), kind: 'mentor', blurb: 'Electrical supervisor on solar builds. Happy to talk tickets.' },
 ]
 
 /** Same region first; same move ranked above same starting role. */

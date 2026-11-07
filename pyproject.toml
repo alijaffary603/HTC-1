@@ -1,5 +1,5 @@
 [project]
-name = "gridskills"
+name = "signal-careers"
 version = "0.1.0"
 description = "Turns AESO connection data into regional job demand estimates by occupation"
 requires-python = ">=3.11"

@@ -9,18 +9,19 @@ export interface Range {
   high: number
 }
 
-export type Confidence = 'low' | 'medium' | 'high'
-
 export interface Occupation {
-  /** NOC 2021 code, e.g. "11100" */
+  /** NOC 2021 minor group, 4 digits, e.g. "4122" (same codes as gridskills.api) */
   code: string
   title: string
 }
 
 export interface Region {
-  /** Region ID used by the model (economic region / planning area) */
+  /** Region name as the model uses it, e.g. "Lethbridge-Medicine Hat" */
   id: string
+  /** Display name with proper dashes */
   name: string
+  /** Short name for sentences ("the ___ region") */
+  short: string
 }
 
 export interface Town {
@@ -28,94 +29,47 @@ export interface Town {
   regionId: string
 }
 
-export interface LearningResource {
-  title: string
-  provider: string
-  url: string
-}
+// ---- Output of gridskills.api.score(occupation, region) -------------------
+// Mirrors the model's JSON exactly (snake_case), so the API can return it as is.
+// See docs/using_the_scores.md for what each field means and how to show it.
 
-export interface SkillGap {
-  skill: string
-  importance: 'core' | 'helpful'
-  resources: LearningResource[]
-}
-
-export interface AdjacentRole {
+export interface ModelScore {
   occupation: Occupation
-  /** 0-1, how close this role is to the user's current role */
-  similarity: number
-  tailwind: Range
-  missingSkills: SkillGap[]
-}
-
-export interface ScoreDetail {
-  range: Range
-  /** One-line plain-language explanation */
-  summary: string
-}
-
-export type ProjectType = 'solar' | 'wind' | 'storage' | 'gas' | 'data_centre' | 'industrial' | 'grid' | 'other'
-/** Where a project sits in AESO's connection process. The first three are the old mock values. */
-export type ProjectStage =
-  | 'early_study'
-  | 'approved'
-  | 'under_construction'
-  | 'cluster'
-  | 'early'
-  | 'mid'
-  | 'late'
-  | 'isd_review'
-  | 'on_hold'
-
-/** Grid projects that drive the score (subset of the project table contract) */
-export interface Driver {
-  /** AESO project name, from the real API only */
-  name?: string
-  type: ProjectType
-  mw: number
-  stage: ProjectStage
-  /** 0-1 probability the project is actually built (Step A) */
-  probability: number
-  inServiceYear: number
-}
-
-/** How this kind of job has done lately. Describes the past, it isn't a forecast. */
-export interface JobTrend {
-  score: number
-  summary: string
-  growthPctPerYear: number
-  occupationGrowthPctPerYearAlberta: number
-  regionEmploymentGrowthPctPerYear: number
-  period: string
-  basedOnGroup: string
-}
-
-/** Output of score(occupation, region) */
-export interface ScoreResult {
-  occupation: Occupation
-  region: Region
-  horizonYears: number
-  tailwind: ScoreDetail
-  exposure: ScoreDetail
-  adjacentRoles: AdjacentRole[]
-  drivers: Driver[]
-  confidence: Confidence
-  modelVersion: string
-  /** The fields below come from the real API only */
-  jobTrend?: JobTrend
-  /** Things to keep in mind about this result, written to be shown as is */
-  caveats?: string[]
-  addedJobsPerYear?: { low: number; base: number; high: number }
-  percentOfWorkforce?: number
-  workforce?: number
-  topTechnologies?: { technology: string; share: number }[]
-  exposureDetail?: { sectorGrowthPctPerYear: number; shareInMiningOilGas: number }
+  /** Region id */
+  region: string
+  tailwind: {
+    /** Percentile 0-100, base case */
+    score: number
+    /** [low, high] percentiles */
+    range: [number, number]
+    added_jobs_per_year: { low: number; base: number; high: number }
+    percent_of_workforce: number
+    workforce: number
+    top_technologies: { technology: string; share: number }[]
+  }
+  exposure: {
+    score: number
+    sector_growth_pct_per_year: number
+    share_in_mining_oil_gas: number
+    region_load_growth_pct_per_year: number
+  }
+  job_trend: {
+    score: number
+    growth_pct_per_year: number
+    occupation_growth_pct_per_year_alberta: number
+    region_employment_growth_pct_per_year: number
+    period: string
+    based_on_group: string
+  }
+  adjacent_roles: { code: string; title: string; closeness: number; tailwind: number }[]
+  caveats: string[]
 }
 
 /** Output of extract_skills(text) */
 export interface SkillsResult {
   skills: { name: string; confidence: number }[]
-  suggestedOccupations: (Occupation & { confidence: number })[]
+  /** Best-matching job groups; `because` lists the skills that matched */
+  suggestedOccupations: (Occupation & { confidence: number; because?: string[] })[]
 }
 
 /** A saved pathway: user's current role -> a target role in a region */
@@ -180,4 +134,39 @@ export interface JobPosting {
   postedAt: string
   salary: { min: number; max: number; per: 'year' | 'hour' }
   url: string
+}
+
+export interface AdvisorRequest {
+  occupation: string
+  region: string
+  target: string
+  preferences: { experience: string; hoursPerWeek: number; budget: number; format: string }
+  question: string
+  history: { role: 'user' | 'assistant'; text: string }[]
+}
+export interface AdvisorResource {
+  id: string; title: string; provider: string; url: string
+  kind: 'requirements' | 'training' | 'network'; description: string; checkedOn: string
+}
+export interface AdvisorPlan {
+  summary: string
+  transferableSkills: string[]
+  skillGaps: { skill: string; reason: string; resourceIds: string[] }[]
+  steps: { title: string; detail: string; week: number; resourceIds: string[] }[]
+  outreachDraft: string
+  questions: string[]
+  resourceIds: string[]
+  mentorIds: string[]
+  resources: AdvisorResource[]
+  mentors: { id: string; name: string; url: string; reason: string }[]
+  current: Occupation
+  target: Occupation
+  region: string
+  limitations: string[]
+}
+export interface SavedAdvisorPlan {
+  id: string
+  savedAt: string
+  completedSteps: number[]
+  plan: AdvisorPlan
 }

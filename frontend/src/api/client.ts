@@ -1,6 +1,4 @@
-import type { AlertFrequency, JobAlert, JobPosting, Match, Occupation, Pathway, Region, ScoreResult, SkillsResult } from '../types'
-import { mockScore } from '../mocks/scoring'
-import { mockExtractSkills } from '../mocks/skills'
+import type { AlertFrequency, JobAlert, JobPosting, Match, ModelScore, Occupation, Pathway, Region, SkillsResult } from '../types'
 import { mockMatches } from '../mocks/network'
 import { mockPostings } from '../mocks/postings'
 import { sessionStore } from '../auth/session'
@@ -43,18 +41,40 @@ async function http<T>(path: string, init?: RequestInit): Promise<T> {
   return res.json() as Promise<T>
 }
 
-export async function getScore(occupation: string, region: string): Promise<ScoreResult> {
-  if (USING_MOCKS) {
-    await delay()
-    return mockScore(occupation, region)
+// Real model results, exported from gridskills by scripts/export_app_data.py into
+// public/data/scores/<code>.json ({ region: score(...) }). One file per job, cached.
+const scoreFiles = new Map<string, Promise<Record<string, ModelScore>>>()
+
+function loadScoreFile(code: string) {
+  let file = scoreFiles.get(code)
+  if (!file) {
+    file = fetch(`${import.meta.env.BASE_URL}data/scores/${encodeURIComponent(code)}.json`).then((res) => {
+      if (!res.ok) throw new Error(`We don’t have results for job code ${code}.`)
+      return res.json() as Promise<Record<string, ModelScore>>
+    })
+    file.catch(() => scoreFiles.delete(code))
+    scoreFiles.set(code, file)
   }
-  return http(`/score?${new URLSearchParams({ occupation, region })}`)
+  return file
 }
 
+/** gridskills.api.score(occupation, region): from the exported files, or the API when VITE_API_URL is set. */
+export async function getScore(occupation: string, region: string): Promise<ModelScore> {
+  if (API_URL) return http(`/score?${new URLSearchParams({ occupation, region })}`)
+  const byRegion = await loadScoreFile(occupation)
+  const result = byRegion[region]
+  if (!result) throw new Error(`We don’t have results for the ${region} region.`)
+  return result
+}
+
+/** Reads a résumé and suggests jobs. Runs in the browser unless VITE_API_URL is set. */
 export async function extractSkills(file: File): Promise<SkillsResult> {
   if (USING_MOCKS) {
-    await delay(900)
-    return mockExtractSkills(file.name)
+    const [{ extractResumeText }, { matchResume }] = await Promise.all([
+      import('../resume/extractText'),
+      import('../resume/matchResume'),
+    ])
+    return matchResume(await extractResumeText(file))
   }
   const body = new FormData()
   body.append('resume', file)
@@ -90,7 +110,7 @@ export async function getMatches(region: string, from: string, to?: string): Pro
 function userKey(): string {
   const s = sessionStore.get()
   if (!s) throw new SignInRequiredError()
-  return `gridskills.pathways.${s.user.id}`
+  return `gridskills.v2.pathways.${s.user.id}`
 }
 
 function readLocal(): Pathway[] {
@@ -175,7 +195,7 @@ export async function getPostings(occupation: string, region: string, sinceDays?
 function alertsKey(): string {
   const s = sessionStore.get()
   if (!s) throw new SignInRequiredError()
-  return `gridskills.alerts.${s.user.id}`
+  return `gridskills.v2.alerts.${s.user.id}`
 }
 function readAlerts(): JobAlert[] {
   const key = alertsKey()

@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material/styles'
 
-// GridSkills design tokens.
+// Signal design tokens.
 // Colour comes from the landing image (field green, sky blue, rock ochre) and
 // carries meaning: green = growth / actions, ochre = risk, blue = data.
 // Type: IBM Plex Sans Condensed for headings and figures (utility-document feel),

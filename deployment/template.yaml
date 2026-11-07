@@ -1,0 +1,61 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Signal model and Gemini career advisor API
+Parameters:
+  GeminiSecretArn:
+    Type: String
+    Description: Existing Secrets Manager secret containing GEMINI_API_KEY as JSON or plaintext
+  FrontendOrigin:
+    Type: String
+    Description: Exact HTTPS origin of the frontend (no trailing slash)
+  GeminiModel:
+    Type: String
+    Default: gemini-3.1-flash-lite
+Resources:
+  Api:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      CorsConfiguration:
+        AllowOrigins: [!Ref FrontendOrigin]
+        AllowMethods: [GET, POST, OPTIONS]
+        AllowHeaders: [Content-Type]
+      DefaultRouteSettings:
+        ThrottlingBurstLimit: 4
+        ThrottlingRateLimit: 2
+  Backend:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: package/
+      Handler: gridskills.server.lambda_handler
+      Runtime: python3.12
+      MemorySize: 512
+      Timeout: 28
+      ReservedConcurrentExecutions: 2
+      Environment:
+        Variables:
+          GEMINI_SECRET_ARN: !Ref GeminiSecretArn
+          GEMINI_MODEL: !Ref GeminiModel
+      Policies:
+        - Statement:
+            Effect: Allow
+            Action: secretsmanager:GetSecretValue
+            Resource: !Ref GeminiSecretArn
+      Events:
+        Score:
+          Type: HttpApi
+          Properties: {ApiId: !Ref Api, Path: /score, Method: GET}
+        Advisor:
+          Type: HttpApi
+          Properties: {ApiId: !Ref Api, Path: /advisor, Method: POST}
+        Health:
+          Type: HttpApi
+          Properties: {ApiId: !Ref Api, Path: /health, Method: GET}
+        Resources:
+          Type: HttpApi
+          Properties: {ApiId: !Ref Api, Path: /resources, Method: GET}
+        Mentors:
+          Type: HttpApi
+          Properties: {ApiId: !Ref Api, Path: /mentors, Method: GET}
+Outputs:
+  ModelApiUrl:
+    Value: !Sub 'https://${Api}.execute-api.${AWS::Region}.${AWS::URLSuffix}'

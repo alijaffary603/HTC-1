@@ -1,4 +1,4 @@
-data/
+/data/
 .venv/
 __pycache__/
 *.pyc
@@ -7,4 +7,13 @@ __pycache__/
 .ipynb_checkpoints/
 outputs/api_bundle.json
 build/
-frontend/.env.local
+
+.env
+.env.*
+!.env.example
+.aws-sam/
+frontend/node_modules/
+frontend/dist/
+deployment/package/
+frontend/test-results/
+frontend/playwright-report/

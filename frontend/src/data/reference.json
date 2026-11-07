@@ -1,0 +1,1182 @@
+{
+ "snapshot": "2026-11-01",
+ "horizon": [
+  2027,
+  2029
+ ],
+ "province": {
+  "queuedMw": 70241,
+  "expectedMwBase": 6096,
+  "jobsPerYear": {
+   "low": 3326,
+   "base": 11443,
+   "high": 36271
+  }
+ },
+ "occupations": [
+  {
+   "code": "0001",
+   "title": "Legislative and senior managers"
+  },
+  {
+   "code": "1001",
+   "title": "Administrative services managers"
+  },
+  {
+   "code": "1002",
+   "title": "Managers in financial and business services"
+  },
+  {
+   "code": "1003",
+   "title": "Managers in communication (except broadcasting)"
+  },
+  {
+   "code": "1110",
+   "title": "Auditors, accountants and investment professionals"
+  },
+  {
+   "code": "1120",
+   "title": "Human resources and business service professionals"
+  },
+  {
+   "code": "1201",
+   "title": "Administrative and financial supervisors"
+  },
+  {
+   "code": "1210",
+   "title": "Administrative and regulatory occupations"
+  },
+  {
+   "code": "1211",
+   "title": "Court reporters, transcriptionists, records management technicians and statistical officers"
+  },
+  {
+   "code": "1220",
+   "title": "Accounting, insurance and related business administrative occupations"
+  },
+  {
+   "code": "1310",
+   "title": "Administrative, property and payroll officers"
+  },
+  {
+   "code": "1311",
+   "title": "Office administrative assistants - general, legal and medical"
+  },
+  {
+   "code": "1320",
+   "title": "Transportation and production logistics coordinators and customs brokers and related broker occupations"
+  },
+  {
+   "code": "1410",
+   "title": "Office support and court services occupations"
+  },
+  {
+   "code": "1411",
+   "title": "Survey, statistical and data entry occupations"
+  },
+  {
+   "code": "1420",
+   "title": "Financial, insurance and related administrative support workers"
+  },
+  {
+   "code": "1430",
+   "title": "Library, correspondence and other clerks"
+  },
+  {
+   "code": "1440",
+   "title": "Supply chain logistics, tracking and scheduling coordination occupations"
+  },
+  {
+   "code": "2001",
+   "title": "Managers in engineering, architecture, science and information systems"
+  },
+  {
+   "code": "2110",
+   "title": "Physical science professionals"
+  },
+  {
+   "code": "2111",
+   "title": "Life science professionals"
+  },
+  {
+   "code": "2112",
+   "title": "Public and environmental health and safety professionals"
+  },
+  {
+   "code": "2120",
+   "title": "Architects, urban planners and land surveyors"
+  },
+  {
+   "code": "2121",
+   "title": "Mathematicians, statisticians, actuaries and data scientists"
+  },
+  {
+   "code": "2122",
+   "title": "Computer and information systems professionals"
+  },
+  {
+   "code": "2123",
+   "title": "Computer, software and Web designers and developers"
+  },
+  {
+   "code": "2130",
+   "title": "Civil and mechanical engineers"
+  },
+  {
+   "code": "2131",
+   "title": "Electrical, electronics and computer engineers"
+  },
+  {
+   "code": "2132",
+   "title": "Manufacturing and processing engineers"
+  },
+  {
+   "code": "2133",
+   "title": "Natural resources engineers"
+  },
+  {
+   "code": "2139",
+   "title": "Other engineers"
+  },
+  {
+   "code": "2210",
+   "title": "Technical occupations in physical sciences"
+  },
+  {
+   "code": "2211",
+   "title": "Technical occupations in life sciences"
+  },
+  {
+   "code": "2221",
+   "title": "Technical occupations in architecture, drafting, surveying, geomatics and meteorology"
+  },
+  {
+   "code": "2222",
+   "title": "Technical occupations in computer and information systems"
+  },
+  {
+   "code": "2223",
+   "title": "Technical inspectors and regulatory officers"
+  },
+  {
+   "code": "2230",
+   "title": "Technical occupations in civil, mechanical and industrial engineering"
+  },
+  {
+   "code": "2231",
+   "title": "Technical occupations in electronics and electrical engineering"
+  },
+  {
+   "code": "3001",
+   "title": "Managers in health care"
+  },
+  {
+   "code": "3110",
+   "title": "Physicians and veterinarians"
+  },
+  {
+   "code": "3111",
+   "title": "Dentists, optometrists and audiologists"
+  },
+  {
+   "code": "3112",
+   "title": "Pharmacists and dietitians"
+  },
+  {
+   "code": "3120",
+   "title": "Therapy and assessment professionals"
+  },
+  {
+   "code": "3130",
+   "title": "Nursing and allied health professionals"
+  },
+  {
+   "code": "3210",
+   "title": "Technical occupations in therapy and assessment"
+  },
+  {
+   "code": "3211",
+   "title": "Technical occupations in dental health care"
+  },
+  {
+   "code": "3212",
+   "title": "Medical technologists and technicians"
+  },
+  {
+   "code": "3220",
+   "title": "Practitioners of natural healing"
+  },
+  {
+   "code": "3310",
+   "title": "Assisting occupations in support of health services"
+  },
+  {
+   "code": "4001",
+   "title": "Managers in public administration"
+  },
+  {
+   "code": "4002",
+   "title": "Managers in education"
+  },
+  {
+   "code": "4003",
+   "title": "Managers in social, community and correctional services"
+  },
+  {
+   "code": "4004",
+   "title": "Managers in public protection services"
+  },
+  {
+   "code": "4110",
+   "title": "Judges, lawyers and Quebec notaries"
+  },
+  {
+   "code": "4120",
+   "title": "University professors and post-secondary assistants"
+  },
+  {
+   "code": "4121",
+   "title": "College and other vocational instructors"
+  },
+  {
+   "code": "4122",
+   "title": "Secondary, elementary and kindergarten school teachers"
+  },
+  {
+   "code": "4130",
+   "title": "Social and community service professionals"
+  },
+  {
+   "code": "4131",
+   "title": "Police investigators and probation officers"
+  },
+  {
+   "code": "4132",
+   "title": "Educational and employment counsellors"
+  },
+  {
+   "code": "4140",
+   "title": "Policy and program researchers, consultants and officers"
+  },
+  {
+   "code": "4210",
+   "title": "Occupations in front-line public protection services"
+  },
+  {
+   "code": "4220",
+   "title": "Paraprofessional occupations in legal, social, community and education services"
+  },
+  {
+   "code": "4310",
+   "title": "Assisting occupations in education"
+  },
+  {
+   "code": "4320",
+   "title": "Assisting occupations in legal and public protection"
+  },
+  {
+   "code": "4410",
+   "title": "Home care provider occupations"
+  },
+  {
+   "code": "4420",
+   "title": "Primary combat members of the Canadian Armed Forces"
+  },
+  {
+   "code": "4510",
+   "title": "Student monitors, crossing guards and related occupations"
+  },
+  {
+   "code": "5001",
+   "title": "Managers in art, culture, recreation and sport"
+  },
+  {
+   "code": "5110",
+   "title": "Librarians, archivists, conservators and curators"
+  },
+  {
+   "code": "5111",
+   "title": "Writing, translating and related communications professionals"
+  },
+  {
+   "code": "5112",
+   "title": "Creative and performing artists"
+  },
+  {
+   "code": "5210",
+   "title": "Technical occupations in libraries and public archives"
+  },
+  {
+   "code": "5211",
+   "title": "Technical occupations in motion pictures, broadcasting and the performing arts"
+  },
+  {
+   "code": "5212",
+   "title": "Graphic and interior designers"
+  },
+  {
+   "code": "5310",
+   "title": "Occupations related to museums and art galleries"
+  },
+  {
+   "code": "5311",
+   "title": "Photographers and support occupations in arts and culture"
+  },
+  {
+   "code": "5312",
+   "title": "Occupations in creative and performing art"
+  },
+  {
+   "code": "5320",
+   "title": "Athletes, coaches, referees and related occupations"
+  },
+  {
+   "code": "5410",
+   "title": "Program leaders and instructors in recreation, sport and fitness"
+  },
+  {
+   "code": "5510",
+   "title": "Support occupations in art and culture"
+  },
+  {
+   "code": "6001",
+   "title": "Corporate sales managers"
+  },
+  {
+   "code": "6002",
+   "title": "Retail and wholesale trade managers"
+  },
+  {
+   "code": "6003",
+   "title": "Managers in food service and accommodation"
+  },
+  {
+   "code": "6004",
+   "title": "Managers in customer and personal services"
+  },
+  {
+   "code": "6201",
+   "title": "Retail sales supervisors"
+  },
+  {
+   "code": "6202",
+   "title": "Service supervisors"
+  },
+  {
+   "code": "6210",
+   "title": "Technical sales specialists in wholesale trade and retail and wholesale buyers"
+  },
+  {
+   "code": "6220",
+   "title": "Specialized occupations in services"
+  },
+  {
+   "code": "6310",
+   "title": "Insurance, real estate and financial sales occupations"
+  },
+  {
+   "code": "6320",
+   "title": "Cooks, butchers and bakers"
+  },
+  {
+   "code": "6321",
+   "title": "Hairstylists and estheticians"
+  },
+  {
+   "code": "6322",
+   "title": "Shoe repairers, shoemakers and upholsterers"
+  },
+  {
+   "code": "6410",
+   "title": "Retail salespersons and non-technical wholesale trade sales and account representatives"
+  },
+  {
+   "code": "6420",
+   "title": "Occupations in personal service"
+  },
+  {
+   "code": "6430",
+   "title": "Occupations in food and beverage service"
+  },
+  {
+   "code": "6431",
+   "title": "Occupations in travel and accommodation"
+  },
+  {
+   "code": "6432",
+   "title": "Tourism and amusement services occupations"
+  },
+  {
+   "code": "6440",
+   "title": "Customer and information services representatives"
+  },
+  {
+   "code": "6441",
+   "title": "Security guards and related security service occupations"
+  },
+  {
+   "code": "6510",
+   "title": "Cashiers and other sales support occupations"
+  },
+  {
+   "code": "6520",
+   "title": "Food support occupations"
+  },
+  {
+   "code": "6521",
+   "title": "Support occupations in accommodation, travel, tourism and amusement services"
+  },
+  {
+   "code": "6522",
+   "title": "Support occupations in personal services"
+  },
+  {
+   "code": "6531",
+   "title": "Cleaners"
+  },
+  {
+   "code": "6532",
+   "title": "Service support and related occupations"
+  },
+  {
+   "code": "7001",
+   "title": "Managers in construction and facility operation and maintenance"
+  },
+  {
+   "code": "7002",
+   "title": "Managers in transportation and postal and courier services"
+  },
+  {
+   "code": "7201",
+   "title": "Contractors and supervisors, technical industrial, electrical and construction trades and related workers"
+  },
+  {
+   "code": "7202",
+   "title": "Contractors and supervisors, technical maintenance trades and heavy equipment and transport operators"
+  },
+  {
+   "code": "7210",
+   "title": "Machining, metal forming, shaping and erecting trades"
+  },
+  {
+   "code": "7220",
+   "title": "Technical electrical trades and electrical power line and telecommunications workers"
+  },
+  {
+   "code": "7230",
+   "title": "Plumbers, pipefitters and gas fitters"
+  },
+  {
+   "code": "7231",
+   "title": "Carpenters and cabinetmakers"
+  },
+  {
+   "code": "7232",
+   "title": "Bricklayers and insulators"
+  },
+  {
+   "code": "7240",
+   "title": "Machinery and transportation equipment mechanics (except motor vehicles)"
+  },
+  {
+   "code": "7241",
+   "title": "Automotive service technicians"
+  },
+  {
+   "code": "7242",
+   "title": "Small engine and equipment mechanics and related repairers (including electrical components)"
+  },
+  {
+   "code": "7250",
+   "title": "Crane operators and water well drillers"
+  },
+  {
+   "code": "7260",
+   "title": "Transportation officers and controllers"
+  },
+  {
+   "code": "7299",
+   "title": "Other technical trades"
+  },
+  {
+   "code": "7310",
+   "title": "Concrete finishers, tilesetters and plasterers"
+  },
+  {
+   "code": "7311",
+   "title": "Roofers, glaziers, painters, decorators and floor covering installers"
+  },
+  {
+   "code": "7320",
+   "title": "Building maintenance installers, servicers and repairers"
+  },
+  {
+   "code": "7330",
+   "title": "Transport truck and transit drivers"
+  },
+  {
+   "code": "7331",
+   "title": "Train crew operating occupations"
+  },
+  {
+   "code": "7340",
+   "title": "Operators, drillers and blasters"
+  },
+  {
+   "code": "7410",
+   "title": "Mail and message distribution occupations"
+  },
+  {
+   "code": "7420",
+   "title": "Transport equipment operators, utility maintenance and related maintenance workers"
+  },
+  {
+   "code": "7510",
+   "title": "Longshore workers and material handlers"
+  },
+  {
+   "code": "7511",
+   "title": "Trades helpers and labourers"
+  },
+  {
+   "code": "7520",
+   "title": "Taxi, personal service and delivery service drivers"
+  },
+  {
+   "code": "7521",
+   "title": "Water and rail transport operators and labourers and related occupations"
+  },
+  {
+   "code": "8001",
+   "title": "Managers in natural resources production and fishing"
+  },
+  {
+   "code": "8002",
+   "title": "Managers in agriculture, horticulture and aquaculture"
+  },
+  {
+   "code": "8201",
+   "title": "Supervisors, logging and forestry"
+  },
+  {
+   "code": "8202",
+   "title": "Contractors and supervisors, mining, oil and gas"
+  },
+  {
+   "code": "8203",
+   "title": "Contractors and supervisors, agriculture, horticulture and related operations and services"
+  },
+  {
+   "code": "8310",
+   "title": "Underground miners, oil and gas drillers and related occupations"
+  },
+  {
+   "code": "8311",
+   "title": "Logging machinery operators"
+  },
+  {
+   "code": "8312",
+   "title": "Fishing vessel masters and fishermen/women"
+  },
+  {
+   "code": "8410",
+   "title": "Mine service workers and operators in oil and gas drilling"
+  },
+  {
+   "code": "8411",
+   "title": "Logging and forestry workers"
+  },
+  {
+   "code": "8412",
+   "title": "Workers in agriculture and fishing occupations"
+  },
+  {
+   "code": "8510",
+   "title": "Agriculture, horticulture and harvesting labourers and related occupations"
+  },
+  {
+   "code": "8511",
+   "title": "Mine and oil and gas drilling, services and related labourers"
+  },
+  {
+   "code": "8512",
+   "title": "Logging, forestry, landscaping and other related labourers"
+  },
+  {
+   "code": "9001",
+   "title": "Managers in manufacturing and utilities"
+  },
+  {
+   "code": "9201",
+   "title": "Supervisors, processing and manufacturing occupations"
+  },
+  {
+   "code": "9202",
+   "title": "Supervisors, assembly and fabrication"
+  },
+  {
+   "code": "9210",
+   "title": "Utilities equipment operators and controllers"
+  },
+  {
+   "code": "9310",
+   "title": "Central control and process operators in processing and manufacturing"
+  },
+  {
+   "code": "9320",
+   "title": "Aircraft assemblers and aircraft assembly inspectors"
+  },
+  {
+   "code": "9410",
+   "title": "Machine operators and related workers in mineral and metal products processing and manufacturing"
+  },
+  {
+   "code": "9411",
+   "title": "Machine operators and related workers in chemical, plastic and rubber processing"
+  },
+  {
+   "code": "9412",
+   "title": "Machine operators and related workers in pulp and paper production and wood processing and manufacturing"
+  },
+  {
+   "code": "9413",
+   "title": "Machine operators and related workers in textile, fabric, fur and leather products processing and manufacturing"
+  },
+  {
+   "code": "9414",
+   "title": "Machine operators and related workers in food, beverage and associated products processing"
+  },
+  {
+   "code": "9415",
+   "title": "Printing equipment operators and related occupations"
+  },
+  {
+   "code": "9420",
+   "title": "Mechanical, electrical and electronics assemblers and inspectors"
+  },
+  {
+   "code": "9421",
+   "title": "Furniture, wood, plastic and other products assemblers, finishers and inspectors"
+  },
+  {
+   "code": "9510",
+   "title": "Labourers in processing, manufacturing and utilities"
+  }
+ ],
+ "aliases": {
+  "accountant": "1110",
+  "actuary": "2121",
+  "admin": "1311",
+  "administrative assistant": "1311",
+  "analyst": "4140",
+  "auditor": "1110",
+  "barista": "6520",
+  "bookkeeper": "1220",
+  "carpenter": "7231",
+  "cashier": "6510",
+  "chef": "6320",
+  "cleaner": "6531",
+  "cook": "6320",
+  "data scientist": "2121",
+  "dentist": "3111",
+  "developer": "2123",
+  "doctor": "3110",
+  "electrician": "7220",
+  "engineer": "2130",
+  "graphic designer": "5212",
+  "hr": "1120",
+  "human resources": "1120",
+  "lawyer": "4110",
+  "lineman": "7220",
+  "marketing": "1120",
+  "mechanic": "7241",
+  "nurse": "3130",
+  "paramedic": "3210",
+  "pharmacist": "3112",
+  "physician": "3110",
+  "pipefitter": "7230",
+  "plumber": "7230",
+  "police": "4210",
+  "professor": "4120",
+  "programmer": "2123",
+  "realtor": "6310",
+  "receptionist": "1410",
+  "retail": "6410",
+  "sales": "6410",
+  "server": "6520",
+  "social worker": "4130",
+  "software": "2123",
+  "teacher": "4122",
+  "truck driver": "7330",
+  "trucker": "7330",
+  "waiter": "6520",
+  "welder": "7210"
+ },
+ "regions": [
+  {
+   "id": "Calgary",
+   "name": "Calgary",
+   "short": "Calgary",
+   "workforce": 1046500,
+   "jobsPerYear": {
+    "low": 844,
+    "base": 3408,
+    "high": 11868
+   },
+   "topTechnologies": [
+    {
+     "technology": "data_centre",
+     "jobs": 2856
+    },
+    {
+     "technology": "gas",
+     "jobs": 215
+    },
+    {
+     "technology": "solar",
+     "jobs": 147
+    },
+    {
+     "technology": "storage_long",
+     "jobs": 49
+    }
+   ]
+  },
+  {
+   "id": "Edmonton",
+   "name": "Edmonton",
+   "short": "Edmonton",
+   "workforce": 886100,
+   "jobsPerYear": {
+    "low": 1446,
+    "base": 4655,
+    "high": 13766
+   },
+   "topTechnologies": [
+    {
+     "technology": "data_centre",
+     "jobs": 3837
+    },
+    {
+     "technology": "gas",
+     "jobs": 512
+    },
+    {
+     "technology": "industrial_load",
+     "jobs": 89
+    },
+    {
+     "technology": "solar",
+     "jobs": 88
+    }
+   ]
+  },
+  {
+   "id": "Lethbridge-Medicine Hat",
+   "name": "Lethbridge–Medicine Hat",
+   "short": "Lethbridge–Medicine Hat",
+   "workforce": 156900,
+   "jobsPerYear": {
+    "low": 309,
+    "base": 1009,
+    "high": 3191
+   },
+   "topTechnologies": [
+    {
+     "technology": "data_centre",
+     "jobs": 688
+    },
+    {
+     "technology": "solar",
+     "jobs": 178
+    },
+    {
+     "technology": "gas",
+     "jobs": 50
+    },
+    {
+     "technology": "solar_storage",
+     "jobs": 30
+    }
+   ]
+  },
+  {
+   "id": "Camrose-Drumheller",
+   "name": "Camrose–Drumheller",
+   "short": "Camrose–Drumheller",
+   "workforce": 110200,
+   "jobsPerYear": {
+    "low": 169,
+    "base": 500,
+    "high": 1498
+   },
+   "topTechnologies": [
+    {
+     "technology": "data_centre",
+     "jobs": 311
+    },
+    {
+     "technology": "solar_storage",
+     "jobs": 53
+    },
+    {
+     "technology": "solar",
+     "jobs": 51
+    },
+    {
+     "technology": "wind",
+     "jobs": 47
+    }
+   ]
+  },
+  {
+   "id": "Red Deer",
+   "name": "Red Deer",
+   "short": "Red Deer",
+   "workforce": 122800,
+   "jobsPerYear": {
+    "low": 139,
+    "base": 623,
+    "high": 2285
+   },
+   "topTechnologies": [
+    {
+     "technology": "data_centre",
+     "jobs": 506
+    },
+    {
+     "technology": "gas",
+     "jobs": 70
+    },
+    {
+     "technology": "solar",
+     "jobs": 12
+    },
+    {
+     "technology": "cogen",
+     "jobs": 10
+    }
+   ]
+  },
+  {
+   "id": "Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River",
+   "name": "Banff–Jasper–Rocky Mountain House and Athabasca–Grande Prairie–Peace River",
+   "short": "Northwest Alberta",
+   "workforce": 188800,
+   "jobsPerYear": {
+    "low": 257,
+    "base": 886,
+    "high": 2778
+   },
+   "topTechnologies": [
+    {
+     "technology": "data_centre",
+     "jobs": 602
+    },
+    {
+     "technology": "gas",
+     "jobs": 216
+    },
+    {
+     "technology": "solar",
+     "jobs": 26
+    },
+    {
+     "technology": "storage_long",
+     "jobs": 9
+    }
+   ]
+  },
+  {
+   "id": "Wood Buffalo-Cold Lake",
+   "name": "Wood Buffalo–Cold Lake",
+   "short": "Wood Buffalo–Cold Lake",
+   "workforce": 78800,
+   "jobsPerYear": {
+    "low": 162,
+    "base": 362,
+    "high": 886
+   },
+   "topTechnologies": [
+    {
+     "technology": "data_centre",
+     "jobs": 165
+    },
+    {
+     "technology": "storage_long",
+     "jobs": 157
+    },
+    {
+     "technology": "gas",
+     "jobs": 15
+    },
+    {
+     "technology": "industrial_load",
+     "jobs": 11
+    }
+   ]
+  }
+ ],
+ "towns": [
+  {
+   "name": "Airdrie",
+   "region": "Calgary"
+  },
+  {
+   "name": "Athabasca",
+   "region": "Wood Buffalo-Cold Lake"
+  },
+  {
+   "name": "Banff",
+   "region": "Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River"
+  },
+  {
+   "name": "Beaumont",
+   "region": "Edmonton"
+  },
+  {
+   "name": "Blackie",
+   "region": "Calgary"
+  },
+  {
+   "name": "Bonnyville",
+   "region": "Wood Buffalo-Cold Lake"
+  },
+  {
+   "name": "Brooks",
+   "region": "Lethbridge-Medicine Hat"
+  },
+  {
+   "name": "Calgary",
+   "region": "Calgary"
+  },
+  {
+   "name": "Camrose",
+   "region": "Camrose-Drumheller"
+  },
+  {
+   "name": "Canmore",
+   "region": "Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River"
+  },
+  {
+   "name": "Caroline",
+   "region": "Red Deer"
+  },
+  {
+   "name": "Chestermere",
+   "region": "Calgary"
+  },
+  {
+   "name": "Cochrane",
+   "region": "Calgary"
+  },
+  {
+   "name": "Cold Lake",
+   "region": "Wood Buffalo-Cold Lake"
+  },
+  {
+   "name": "Didsbury",
+   "region": "Calgary"
+  },
+  {
+   "name": "Drayton Valley",
+   "region": "Edmonton"
+  },
+  {
+   "name": "Drumheller",
+   "region": "Camrose-Drumheller"
+  },
+  {
+   "name": "Edmonton",
+   "region": "Edmonton"
+  },
+  {
+   "name": "Edson",
+   "region": "Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River"
+  },
+  {
+   "name": "Empress",
+   "region": "Lethbridge-Medicine Hat"
+  },
+  {
+   "name": "Fort Macleod",
+   "region": "Lethbridge-Medicine Hat"
+  },
+  {
+   "name": "Fort McMurray",
+   "region": "Wood Buffalo-Cold Lake"
+  },
+  {
+   "name": "Fort Saskatchewan",
+   "region": "Edmonton"
+  },
+  {
+   "name": "Fox Creek",
+   "region": "Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River"
+  },
+  {
+   "name": "Grande Cache",
+   "region": "Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River"
+  },
+  {
+   "name": "Grande Prairie",
+   "region": "Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River"
+  },
+  {
+   "name": "Hanna",
+   "region": "Camrose-Drumheller"
+  },
+  {
+   "name": "High Level",
+   "region": "Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River"
+  },
+  {
+   "name": "High Prairie",
+   "region": "Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River"
+  },
+  {
+   "name": "High River",
+   "region": "Calgary"
+  },
+  {
+   "name": "Hinton",
+   "region": "Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River"
+  },
+  {
+   "name": "Innisfail",
+   "region": "Red Deer"
+  },
+  {
+   "name": "Jasper",
+   "region": "Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River"
+  },
+  {
+   "name": "Lac La Biche",
+   "region": "Wood Buffalo-Cold Lake"
+  },
+  {
+   "name": "Lacombe",
+   "region": "Red Deer"
+  },
+  {
+   "name": "Leduc",
+   "region": "Edmonton"
+  },
+  {
+   "name": "Lethbridge",
+   "region": "Lethbridge-Medicine Hat"
+  },
+  {
+   "name": "Lloydminster",
+   "region": "Camrose-Drumheller"
+  },
+  {
+   "name": "Medicine Hat",
+   "region": "Lethbridge-Medicine Hat"
+  },
+  {
+   "name": "Okotoks",
+   "region": "Calgary"
+  },
+  {
+   "name": "Olds",
+   "region": "Calgary"
+  },
+  {
+   "name": "Peace River",
+   "region": "Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River"
+  },
+  {
+   "name": "Pincher Creek",
+   "region": "Lethbridge-Medicine Hat"
+  },
+  {
+   "name": "Ponoka",
+   "region": "Red Deer"
+  },
+  {
+   "name": "Provost",
+   "region": "Camrose-Drumheller"
+  },
+  {
+   "name": "Rainbow Lake",
+   "region": "Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River"
+  },
+  {
+   "name": "Red Deer",
+   "region": "Red Deer"
+  },
+  {
+   "name": "Rocky Mountain House",
+   "region": "Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River"
+  },
+  {
+   "name": "Sherwood Park",
+   "region": "Edmonton"
+  },
+  {
+   "name": "Slave Lake",
+   "region": "Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River"
+  },
+  {
+   "name": "Spruce Grove",
+   "region": "Edmonton"
+  },
+  {
+   "name": "St. Albert",
+   "region": "Edmonton"
+  },
+  {
+   "name": "Stettler",
+   "region": "Camrose-Drumheller"
+  },
+  {
+   "name": "Stony Plain",
+   "region": "Edmonton"
+  },
+  {
+   "name": "Strathmore",
+   "region": "Calgary"
+  },
+  {
+   "name": "Swan Hills",
+   "region": "Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River"
+  },
+  {
+   "name": "Sylvan Lake",
+   "region": "Red Deer"
+  },
+  {
+   "name": "Taber",
+   "region": "Lethbridge-Medicine Hat"
+  },
+  {
+   "name": "Valleyview",
+   "region": "Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River"
+  },
+  {
+   "name": "Vauxhall",
+   "region": "Lethbridge-Medicine Hat"
+  },
+  {
+   "name": "Vegreville",
+   "region": "Camrose-Drumheller"
+  },
+  {
+   "name": "Wabamun",
+   "region": "Edmonton"
+  },
+  {
+   "name": "Wainwright",
+   "region": "Camrose-Drumheller"
+  },
+  {
+   "name": "Wetaskiwin",
+   "region": "Edmonton"
+  },
+  {
+   "name": "Whitecourt",
+   "region": "Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River"
+  }
+ ]
+}

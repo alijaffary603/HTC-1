@@ -3,6 +3,7 @@ import { Box, Container, Typography } from '@mui/material'
 import { keyframes } from '@emotion/react'
 import OutlookForm from '../components/OutlookForm'
 import { DISPLAY } from '../theme'
+import { PROVINCE } from '../data/reference'
 import hero1200 from '../assets/hero-1200.jpg'
 import hero2400 from '../assets/hero-2400.jpg'
 
@@ -47,7 +48,7 @@ const LIMITS = [
   },
   {
     lead: 'Many projects never get built.',
-    body: "More than 20,000 MW of data centres have asked to connect to Alberta’s grid, far more than it can take soon. We weight every project by how far along it is.",
+    body: `AESO’s list holds about ${Math.round(PROVINCE.queuedMw / 1000)},000 MW of proposed projects, much of it data centres. Weighting each one by how far along it is, our base case expects about ${(Math.round(PROVINCE.expectedMwBase / 100) * 100).toLocaleString('en-CA')} MW to be built.`,
   },
   {
     lead: 'Results are for your region, not your town.',
@@ -152,7 +153,7 @@ export default function HomePage() {
           >
             <Typography variant="h1">See the jobs coming before they’re posted</Typography>
             <Typography color="text.secondary" sx={{ mt: 2.5, maxWidth: '54ch' }}>
-              Power projects are planned years before anyone hires for them. GridSkills reads Alberta’s grid connection
+              Power projects are planned years before anyone hires for them. Signal reads Alberta’s grid connection
               list to estimate which regions will grow, and what that means for your work.
             </Typography>
             <Box sx={{ mt: 4 }}>
