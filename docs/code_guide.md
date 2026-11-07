@@ -15,10 +15,36 @@ scripts/build_all.py   runs the whole model using the gridskills package
    v
 outputs/*.csv          the results, committed to git
    |
-   +--> gridskills/api.py          what the app calls, reads outputs/ only
+   +--> gridskills/api.py          score() for one job, reads outputs/ only
    +--> scripts/validate.py        checks the model against real outcomes
    +--> scripts/sensitivity.py     checks how much each assumption matters
+   +--> scripts/publish.py         checks, then converts to the app's format and uploads to S3
+                                       |
+                                       v
+                       backend/gridapi/   the Lambda the web app talks to (see docs/aws.md)
 ```
+
+## `backend/gridapi/`, the Lambda code
+
+One package, deployed as two Lambda functions. Tests are in `tests/backend/` and use moto, so no AWS account is needed.
+
+| File | What it does |
+|---|---|
+| `api.py` | API Lambda handler. Routes every `/api/*` request the frontend makes |
+| `data.py` | Loads published scores from S3 and caches them. Turns 5-digit NOC codes into 4-digit |
+| `store.py` | DynamoDB: saved pathways, opt-in sharing, matches, alerts |
+| `resume.py` | Résumé to skills and occupations with the Gemini API |
+| `uploads.py` | Reads the multipart résumé upload and checks the file type and size |
+| `emails.py` | The outlook-change and intro emails, and sending through SES |
+| `alerts.py` | Alerts Lambda handler. After each monthly refresh, emails people whose outlook moved |
+| `config.py` | Environment variables set by the template |
+
+## `aws/`
+
+| File | What it does |
+|---|---|
+| `template.yaml` | The whole stack in CloudFormation. Lint with `cfn-lint aws/template.yaml` |
+| `buildspec.yml` | What the monthly CodeBuild job runs |
 
 Inside the build, data moves through the package in this order:
 
@@ -39,7 +65,9 @@ Inside the build, data moves through the package in this order:
 | `labour.py` | Census and Labour Force Survey tables: which occupations work in which sectors, regional workforce, and employment trends | `occupation_given_sector`, `region_occupation_employment`, `sector_momentum`, `occupation_trend`, `employment_growth` |
 | `load.py` | Reads the hourly AESO load files into yearly averages by planning area. Display and validation only, it doesn't feed any score | `build_yearly`, `region_growth` |
 | `scores.py` | Produces the four results: tailwind, exposure, job trend and adjacent roles | `tailwind`, `exposure`, `job_trend`, `adjacent_roles` |
-| `api.py` | What the app calls. Looks up the job and place, reads `outputs/` and returns the response. Holds the `ALIASES` lookup for everyday job names | `score`, `find_occupation`, `occupations` |
+| `api.py` | One job's result in plain Python. Looks up the job and place, reads `outputs/`. Holds the `ALIASES` lookup for everyday job names | `score`, `find_occupation`, `occupations` |
+| `contract.py` | Converts results into the exact shape `frontend/src/types.ts` expects, for every job and all 8 economic regions | `build`, `summary` |
+| `checks.py` | Sanity checks a monthly build must pass before it's published | `check_outputs`, `check_bundle` |
 
 ## `scripts/`, things you run
 
@@ -52,6 +80,10 @@ Run these from the project folder with the virtual environment's Python, for exa
 | `build_all.py` | Runs the whole model and writes `outputs/`, including the sample responses | When data or assumptions change |
 | `validate.py` | Runs the backtests and real-world comparisons, writes `outputs/validation_*` | After `build_all.py` |
 | `sensitivity.py` | Changes one assumption at a time and writes `outputs/sensitivity.csv` | After `build_all.py` |
+| `fetch_aeso.py` | Downloads any monthly AESO project lists we don't have yet | Monthly, CodeBuild runs it |
+| `publish.py` | Runs the checks, then uploads the app's answers to S3. `--dry-run` checks without uploading | Monthly, CodeBuild runs it |
+| `deploy.py` | Deploys the whole AWS stack, data and web app. See [aws.md](aws.md) | When the code or template changes |
+| `generate_skills.py` | Asks Gemini for each occupation's key skills, writes `config/skills.json` for "skills to build" | Once, then review the output |
 
 `validate.py` holds one function per check: `completion_backtest`, `queue_vs_load`, `load_vs_employment`, `sector_trend_persistence`, `built_vs_hiring`, `job_trend_backtest`, `tailwind_vs_occupation_growth` and `cross_check`. Results are explained in [validation.md](validation.md).
 

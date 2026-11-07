@@ -122,3 +122,4 @@ The model is built, see `docs/`. What changed from the plan above:
 - Backtests found the model is good at what gets built, but it doesn't yet predict hiring. Read `docs/validation.md` before writing the pitch.
 - Added a job trend score so the tool says something about every job. It describes recent years and isn't a forecast.
 - `docs/code_guide.md` explains what every code file does.
+- AWS is built: one CloudFormation stack plus `scripts/deploy.py`. Résumé matching uses the Gemini API. See `docs/aws.md`.
