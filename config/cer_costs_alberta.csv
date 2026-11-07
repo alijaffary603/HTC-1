@@ -1,0 +1,1009 @@
+technology,scenario,field,year,value
+Battery Energy Storage System,CM,Overnight Capital Cost,2024,1900.31
+Battery Energy Storage System,CM,Overnight Capital Cost,2025,1881.31
+Battery Energy Storage System,CM,Overnight Capital Cost,2026,1881.31
+Battery Energy Storage System,CM,Overnight Capital Cost,2027,1881.31
+Battery Energy Storage System,CM,Overnight Capital Cost,2028,1881.31
+Battery Energy Storage System,CM,Overnight Capital Cost,2029,1881.31
+Battery Energy Storage System,CM,Overnight Capital Cost,2030,1881.31
+Battery Energy Storage System,CM,Variable O&M Cost,2024,1.03
+Battery Energy Storage System,CM,Variable O&M Cost,2025,1.03
+Battery Energy Storage System,CM,Variable O&M Cost,2026,1.03
+Battery Energy Storage System,CM,Variable O&M Cost,2027,1.03
+Battery Energy Storage System,CM,Variable O&M Cost,2028,1.03
+Battery Energy Storage System,CM,Variable O&M Cost,2029,1.03
+Battery Energy Storage System,CM,Variable O&M Cost,2030,1.03
+Battery Energy Storage System,CM,Fixed O&M Cost,2024,73.9
+Battery Energy Storage System,CM,Fixed O&M Cost,2025,73.3
+Battery Energy Storage System,CM,Fixed O&M Cost,2026,73.3
+Battery Energy Storage System,CM,Fixed O&M Cost,2027,73.3
+Battery Energy Storage System,CM,Fixed O&M Cost,2028,73.3
+Battery Energy Storage System,CM,Fixed O&M Cost,2029,73.3
+Battery Energy Storage System,CM,Fixed O&M Cost,2030,73.3
+Battery Energy Storage System,CNZ,Overnight Capital Cost,2024,1900.31
+Battery Energy Storage System,CNZ,Overnight Capital Cost,2025,1881.31
+Battery Energy Storage System,CNZ,Overnight Capital Cost,2026,1828.1
+Battery Energy Storage System,CNZ,Overnight Capital Cost,2027,1774.89
+Battery Energy Storage System,CNZ,Overnight Capital Cost,2028,1721.68
+Battery Energy Storage System,CNZ,Overnight Capital Cost,2029,1668.47
+Battery Energy Storage System,CNZ,Overnight Capital Cost,2030,1615.26
+Battery Energy Storage System,CNZ,Variable O&M Cost,2024,1.03
+Battery Energy Storage System,CNZ,Variable O&M Cost,2025,1.03
+Battery Energy Storage System,CNZ,Variable O&M Cost,2026,1.03
+Battery Energy Storage System,CNZ,Variable O&M Cost,2027,1.03
+Battery Energy Storage System,CNZ,Variable O&M Cost,2028,1.03
+Battery Energy Storage System,CNZ,Variable O&M Cost,2029,1.03
+Battery Energy Storage System,CNZ,Variable O&M Cost,2030,1.03
+Battery Energy Storage System,CNZ,Fixed O&M Cost,2024,73.9
+Battery Energy Storage System,CNZ,Fixed O&M Cost,2025,73.3
+Battery Energy Storage System,CNZ,Fixed O&M Cost,2026,71.6
+Battery Energy Storage System,CNZ,Fixed O&M Cost,2027,69.9
+Battery Energy Storage System,CNZ,Fixed O&M Cost,2028,68.21
+Battery Energy Storage System,CNZ,Fixed O&M Cost,2029,66.51
+Battery Energy Storage System,CNZ,Fixed O&M Cost,2030,64.82
+Biomass IGCC,CM,Overnight Capital Cost,2024,8827.03
+Biomass IGCC,CM,Overnight Capital Cost,2025,8782.9
+Biomass IGCC,CM,Overnight Capital Cost,2026,8765.11
+Biomass IGCC,CM,Overnight Capital Cost,2027,8747.32
+Biomass IGCC,CM,Overnight Capital Cost,2028,8729.54
+Biomass IGCC,CM,Overnight Capital Cost,2029,8711.75
+Biomass IGCC,CM,Overnight Capital Cost,2030,8693.96
+Biomass IGCC,CM,Variable O&M Cost,2024,23.85
+Biomass IGCC,CM,Variable O&M Cost,2025,23.85
+Biomass IGCC,CM,Variable O&M Cost,2026,23.83
+Biomass IGCC,CM,Variable O&M Cost,2027,23.8
+Biomass IGCC,CM,Variable O&M Cost,2028,23.78
+Biomass IGCC,CM,Variable O&M Cost,2029,23.75
+Biomass IGCC,CM,Variable O&M Cost,2030,23.73
+Biomass IGCC,CM,Fixed O&M Cost,2024,231.06
+Biomass IGCC,CM,Fixed O&M Cost,2025,230.11
+Biomass IGCC,CM,Fixed O&M Cost,2026,230.11
+Biomass IGCC,CM,Fixed O&M Cost,2027,230.11
+Biomass IGCC,CM,Fixed O&M Cost,2028,230.11
+Biomass IGCC,CM,Fixed O&M Cost,2029,230.11
+Biomass IGCC,CM,Fixed O&M Cost,2030,230.11
+Biomass IGCC,CNZ,Overnight Capital Cost,2024,8827.03
+Biomass IGCC,CNZ,Overnight Capital Cost,2025,8738.76
+Biomass IGCC,CNZ,Overnight Capital Cost,2026,8721.11
+Biomass IGCC,CNZ,Overnight Capital Cost,2027,8703.45
+Biomass IGCC,CNZ,Overnight Capital Cost,2028,8685.8
+Biomass IGCC,CNZ,Overnight Capital Cost,2029,8668.14
+Biomass IGCC,CNZ,Overnight Capital Cost,2030,8650.49
+Biomass IGCC,CNZ,Variable O&M Cost,2024,23.85
+Biomass IGCC,CNZ,Variable O&M Cost,2025,23.85
+Biomass IGCC,CNZ,Variable O&M Cost,2026,23.8
+Biomass IGCC,CNZ,Variable O&M Cost,2027,23.75
+Biomass IGCC,CNZ,Variable O&M Cost,2028,23.71
+Biomass IGCC,CNZ,Variable O&M Cost,2029,23.66
+Biomass IGCC,CNZ,Variable O&M Cost,2030,23.61
+Biomass IGCC,CNZ,Fixed O&M Cost,2024,231.06
+Biomass IGCC,CNZ,Fixed O&M Cost,2025,229.17
+Biomass IGCC,CNZ,Fixed O&M Cost,2026,228.79
+Biomass IGCC,CNZ,Fixed O&M Cost,2027,228.41
+Biomass IGCC,CNZ,Fixed O&M Cost,2028,228.03
+Biomass IGCC,CNZ,Fixed O&M Cost,2029,227.66
+Biomass IGCC,CNZ,Fixed O&M Cost,2030,227.28
+Biomass IGCC with CCUS,CM,Overnight Capital Cost,2024,13755.46
+Biomass IGCC with CCUS,CM,Overnight Capital Cost,2025,13617.9
+Biomass IGCC with CCUS,CM,Overnight Capital Cost,2026,13562.05
+Biomass IGCC with CCUS,CM,Overnight Capital Cost,2027,13506.19
+Biomass IGCC with CCUS,CM,Overnight Capital Cost,2028,13450.34
+Biomass IGCC with CCUS,CM,Overnight Capital Cost,2029,13394.48
+Biomass IGCC with CCUS,CM,Overnight Capital Cost,2030,13338.63
+Biomass IGCC with CCUS,CM,Variable O&M Cost,2024,56.33
+Biomass IGCC with CCUS,CM,Variable O&M Cost,2025,56.49
+Biomass IGCC with CCUS,CM,Variable O&M Cost,2026,56.59
+Biomass IGCC with CCUS,CM,Variable O&M Cost,2027,56.7
+Biomass IGCC with CCUS,CM,Variable O&M Cost,2028,56.8
+Biomass IGCC with CCUS,CM,Variable O&M Cost,2029,56.9
+Biomass IGCC with CCUS,CM,Variable O&M Cost,2030,57.01
+Biomass IGCC with CCUS,CM,Fixed O&M Cost,2024,333.76
+Biomass IGCC with CCUS,CM,Fixed O&M Cost,2025,333.76
+Biomass IGCC with CCUS,CM,Fixed O&M Cost,2026,333.76
+Biomass IGCC with CCUS,CM,Fixed O&M Cost,2027,333.76
+Biomass IGCC with CCUS,CM,Fixed O&M Cost,2028,333.76
+Biomass IGCC with CCUS,CM,Fixed O&M Cost,2029,333.76
+Biomass IGCC with CCUS,CM,Fixed O&M Cost,2030,333.76
+Biomass IGCC with CCUS,CNZ,Overnight Capital Cost,2024,13755.46
+Biomass IGCC with CCUS,CNZ,Overnight Capital Cost,2025,13480.34
+Biomass IGCC with CCUS,CNZ,Overnight Capital Cost,2026,13425.32
+Biomass IGCC with CCUS,CNZ,Overnight Capital Cost,2027,13370.3
+Biomass IGCC with CCUS,CNZ,Overnight Capital Cost,2028,13315.28
+Biomass IGCC with CCUS,CNZ,Overnight Capital Cost,2029,13260.26
+Biomass IGCC with CCUS,CNZ,Overnight Capital Cost,2030,13205.24
+Biomass IGCC with CCUS,CNZ,Variable O&M Cost,2024,56.33
+Biomass IGCC with CCUS,CNZ,Variable O&M Cost,2025,56.02
+Biomass IGCC with CCUS,CNZ,Variable O&M Cost,2026,55.94
+Biomass IGCC with CCUS,CNZ,Variable O&M Cost,2027,55.85
+Biomass IGCC with CCUS,CNZ,Variable O&M Cost,2028,55.77
+Biomass IGCC with CCUS,CNZ,Variable O&M Cost,2029,55.69
+Biomass IGCC with CCUS,CNZ,Variable O&M Cost,2030,55.61
+Biomass IGCC with CCUS,CNZ,Fixed O&M Cost,2024,333.76
+Biomass IGCC with CCUS,CNZ,Fixed O&M Cost,2025,328.98
+Biomass IGCC with CCUS,CNZ,Fixed O&M Cost,2026,328.21
+Biomass IGCC with CCUS,CNZ,Fixed O&M Cost,2027,327.45
+Biomass IGCC with CCUS,CNZ,Fixed O&M Cost,2028,326.68
+Biomass IGCC with CCUS,CNZ,Fixed O&M Cost,2029,325.92
+Biomass IGCC with CCUS,CNZ,Fixed O&M Cost,2030,325.15
+Biomass Steam Cycle,CM,Overnight Capital Cost,2024,7105.76
+Biomass Steam Cycle,CM,Overnight Capital Cost,2025,7048.3
+Biomass Steam Cycle,CM,Overnight Capital Cost,2026,7018.95
+Biomass Steam Cycle,CM,Overnight Capital Cost,2027,6989.59
+Biomass Steam Cycle,CM,Overnight Capital Cost,2028,6960.23
+Biomass Steam Cycle,CM,Overnight Capital Cost,2029,6930.88
+Biomass Steam Cycle,CM,Overnight Capital Cost,2030,6901.52
+Biomass Steam Cycle,CM,Variable O&M Cost,2024,11.22
+Biomass Steam Cycle,CM,Variable O&M Cost,2025,11.22
+Biomass Steam Cycle,CM,Variable O&M Cost,2026,11.22
+Biomass Steam Cycle,CM,Variable O&M Cost,2027,11.22
+Biomass Steam Cycle,CM,Variable O&M Cost,2028,11.22
+Biomass Steam Cycle,CM,Variable O&M Cost,2029,11.22
+Biomass Steam Cycle,CM,Variable O&M Cost,2030,11.22
+Biomass Steam Cycle,CM,Fixed O&M Cost,2024,188.28
+Biomass Steam Cycle,CM,Fixed O&M Cost,2025,188.28
+Biomass Steam Cycle,CM,Fixed O&M Cost,2026,188.28
+Biomass Steam Cycle,CM,Fixed O&M Cost,2027,188.28
+Biomass Steam Cycle,CM,Fixed O&M Cost,2028,188.28
+Biomass Steam Cycle,CM,Fixed O&M Cost,2029,188.28
+Biomass Steam Cycle,CM,Fixed O&M Cost,2030,188.28
+Biomass Steam Cycle,CNZ,Overnight Capital Cost,2024,7105.76
+Biomass Steam Cycle,CNZ,Overnight Capital Cost,2025,6750.47
+Biomass Steam Cycle,CNZ,Overnight Capital Cost,2026,6693.63
+Biomass Steam Cycle,CNZ,Overnight Capital Cost,2027,6636.78
+Biomass Steam Cycle,CNZ,Overnight Capital Cost,2028,6579.94
+Biomass Steam Cycle,CNZ,Overnight Capital Cost,2029,6523.09
+Biomass Steam Cycle,CNZ,Overnight Capital Cost,2030,6466.24
+Biomass Steam Cycle,CNZ,Variable O&M Cost,2024,11.22
+Biomass Steam Cycle,CNZ,Variable O&M Cost,2025,11.22
+Biomass Steam Cycle,CNZ,Variable O&M Cost,2026,11.22
+Biomass Steam Cycle,CNZ,Variable O&M Cost,2027,11.22
+Biomass Steam Cycle,CNZ,Variable O&M Cost,2028,11.22
+Biomass Steam Cycle,CNZ,Variable O&M Cost,2029,11.22
+Biomass Steam Cycle,CNZ,Variable O&M Cost,2030,11.22
+Biomass Steam Cycle,CNZ,Fixed O&M Cost,2024,188.28
+Biomass Steam Cycle,CNZ,Fixed O&M Cost,2025,188.28
+Biomass Steam Cycle,CNZ,Fixed O&M Cost,2026,188.28
+Biomass Steam Cycle,CNZ,Fixed O&M Cost,2027,188.28
+Biomass Steam Cycle,CNZ,Fixed O&M Cost,2028,188.28
+Biomass Steam Cycle,CNZ,Fixed O&M Cost,2029,188.28
+Biomass Steam Cycle,CNZ,Fixed O&M Cost,2030,188.28
+Biomass Steam Cycle with CCUS,CM,Overnight Capital Cost,2024,14432.19
+Biomass Steam Cycle with CCUS,CM,Overnight Capital Cost,2025,14287.87
+Biomass Steam Cycle with CCUS,CM,Overnight Capital Cost,2026,14229.27
+Biomass Steam Cycle with CCUS,CM,Overnight Capital Cost,2027,14170.66
+Biomass Steam Cycle with CCUS,CM,Overnight Capital Cost,2028,14112.06
+Biomass Steam Cycle with CCUS,CM,Overnight Capital Cost,2029,14053.46
+Biomass Steam Cycle with CCUS,CM,Overnight Capital Cost,2030,13994.86
+Biomass Steam Cycle with CCUS,CM,Variable O&M Cost,2024,47.4
+Biomass Steam Cycle with CCUS,CM,Variable O&M Cost,2025,47.57
+Biomass Steam Cycle with CCUS,CM,Variable O&M Cost,2026,47.67
+Biomass Steam Cycle with CCUS,CM,Variable O&M Cost,2027,47.78
+Biomass Steam Cycle with CCUS,CM,Variable O&M Cost,2028,47.89
+Biomass Steam Cycle with CCUS,CM,Variable O&M Cost,2029,48.0
+Biomass Steam Cycle with CCUS,CM,Variable O&M Cost,2030,48.11
+Biomass Steam Cycle with CCUS,CM,Fixed O&M Cost,2024,290.97
+Biomass Steam Cycle with CCUS,CM,Fixed O&M Cost,2025,290.97
+Biomass Steam Cycle with CCUS,CM,Fixed O&M Cost,2026,288.75
+Biomass Steam Cycle with CCUS,CM,Fixed O&M Cost,2027,286.54
+Biomass Steam Cycle with CCUS,CM,Fixed O&M Cost,2028,284.32
+Biomass Steam Cycle with CCUS,CM,Fixed O&M Cost,2029,282.1
+Biomass Steam Cycle with CCUS,CM,Fixed O&M Cost,2030,279.88
+Biomass Steam Cycle with CCUS,CNZ,Overnight Capital Cost,2024,14432.19
+Biomass Steam Cycle with CCUS,CNZ,Overnight Capital Cost,2025,13710.58
+Biomass Steam Cycle with CCUS,CNZ,Overnight Capital Cost,2026,13566.26
+Biomass Steam Cycle with CCUS,CNZ,Overnight Capital Cost,2027,13421.94
+Biomass Steam Cycle with CCUS,CNZ,Overnight Capital Cost,2028,13277.62
+Biomass Steam Cycle with CCUS,CNZ,Overnight Capital Cost,2029,13133.3
+Biomass Steam Cycle with CCUS,CNZ,Overnight Capital Cost,2030,12988.98
+Biomass Steam Cycle with CCUS,CNZ,Variable O&M Cost,2024,47.4
+Biomass Steam Cycle with CCUS,CNZ,Variable O&M Cost,2025,47.2
+Biomass Steam Cycle with CCUS,CNZ,Variable O&M Cost,2026,46.97
+Biomass Steam Cycle with CCUS,CNZ,Variable O&M Cost,2027,46.74
+Biomass Steam Cycle with CCUS,CNZ,Variable O&M Cost,2028,46.52
+Biomass Steam Cycle with CCUS,CNZ,Variable O&M Cost,2029,46.29
+Biomass Steam Cycle with CCUS,CNZ,Variable O&M Cost,2030,46.06
+Biomass Steam Cycle with CCUS,CNZ,Fixed O&M Cost,2024,290.97
+Biomass Steam Cycle with CCUS,CNZ,Fixed O&M Cost,2025,287.15
+Biomass Steam Cycle with CCUS,CNZ,Fixed O&M Cost,2026,284.1
+Biomass Steam Cycle with CCUS,CNZ,Fixed O&M Cost,2027,281.05
+Biomass Steam Cycle with CCUS,CNZ,Fixed O&M Cost,2028,277.99
+Biomass Steam Cycle with CCUS,CNZ,Fixed O&M Cost,2029,274.94
+Biomass Steam Cycle with CCUS,CNZ,Fixed O&M Cost,2030,271.89
+Coal IGCC with CCUS,CM,Overnight Capital Cost,2024,8584.29
+Coal IGCC with CCUS,CM,Overnight Capital Cost,2025,8541.37
+Coal IGCC with CCUS,CM,Overnight Capital Cost,2026,8437.8
+Coal IGCC with CCUS,CM,Overnight Capital Cost,2027,8334.23
+Coal IGCC with CCUS,CM,Overnight Capital Cost,2028,8230.65
+Coal IGCC with CCUS,CM,Overnight Capital Cost,2029,8127.08
+Coal IGCC with CCUS,CM,Overnight Capital Cost,2030,8023.51
+Coal IGCC with CCUS,CM,Variable O&M Cost,2024,42.84
+Coal IGCC with CCUS,CM,Variable O&M Cost,2025,42.99
+Coal IGCC with CCUS,CM,Variable O&M Cost,2026,43.09
+Coal IGCC with CCUS,CM,Variable O&M Cost,2027,43.19
+Coal IGCC with CCUS,CM,Variable O&M Cost,2028,43.29
+Coal IGCC with CCUS,CM,Variable O&M Cost,2029,43.39
+Coal IGCC with CCUS,CM,Variable O&M Cost,2030,43.49
+Coal IGCC with CCUS,CM,Fixed O&M Cost,2024,191.7
+Coal IGCC with CCUS,CM,Fixed O&M Cost,2025,190.91
+Coal IGCC with CCUS,CM,Fixed O&M Cost,2026,189.01
+Coal IGCC with CCUS,CM,Fixed O&M Cost,2027,187.12
+Coal IGCC with CCUS,CM,Fixed O&M Cost,2028,185.23
+Coal IGCC with CCUS,CM,Fixed O&M Cost,2029,183.33
+Coal IGCC with CCUS,CM,Fixed O&M Cost,2030,181.44
+Coal IGCC with CCUS,CNZ,Overnight Capital Cost,2024,8584.29
+Coal IGCC with CCUS,CNZ,Overnight Capital Cost,2025,8412.61
+Coal IGCC with CCUS,CNZ,Overnight Capital Cost,2026,8275.26
+Coal IGCC with CCUS,CNZ,Overnight Capital Cost,2027,8137.91
+Coal IGCC with CCUS,CNZ,Overnight Capital Cost,2028,8000.56
+Coal IGCC with CCUS,CNZ,Overnight Capital Cost,2029,7863.22
+Coal IGCC with CCUS,CNZ,Overnight Capital Cost,2030,7725.87
+Coal IGCC with CCUS,CNZ,Variable O&M Cost,2024,42.84
+Coal IGCC with CCUS,CNZ,Variable O&M Cost,2025,42.59
+Coal IGCC with CCUS,CNZ,Variable O&M Cost,2026,42.33
+Coal IGCC with CCUS,CNZ,Variable O&M Cost,2027,42.07
+Coal IGCC with CCUS,CNZ,Variable O&M Cost,2028,41.8
+Coal IGCC with CCUS,CNZ,Variable O&M Cost,2029,41.54
+Coal IGCC with CCUS,CNZ,Variable O&M Cost,2030,41.28
+Coal IGCC with CCUS,CNZ,Fixed O&M Cost,2024,191.7
+Coal IGCC with CCUS,CNZ,Fixed O&M Cost,2025,188.55
+Coal IGCC with CCUS,CNZ,Fixed O&M Cost,2026,186.04
+Coal IGCC with CCUS,CNZ,Fixed O&M Cost,2027,183.52
+Coal IGCC with CCUS,CNZ,Fixed O&M Cost,2028,181.01
+Coal IGCC with CCUS,CNZ,Fixed O&M Cost,2029,178.5
+Coal IGCC with CCUS,CNZ,Fixed O&M Cost,2030,175.98
+Compressed Air Energy Storage,CM,Overnight Capital Cost,2024,3424.61
+Compressed Air Energy Storage,CM,Overnight Capital Cost,2025,3397.49
+Compressed Air Energy Storage,CM,Overnight Capital Cost,2026,3386.52
+Compressed Air Energy Storage,CM,Overnight Capital Cost,2027,3375.55
+Compressed Air Energy Storage,CM,Overnight Capital Cost,2028,3364.57
+Compressed Air Energy Storage,CM,Overnight Capital Cost,2029,3353.6
+Compressed Air Energy Storage,CM,Overnight Capital Cost,2030,3342.63
+Compressed Air Energy Storage,CM,Variable O&M Cost,2024,2.52
+Compressed Air Energy Storage,CM,Variable O&M Cost,2025,2.52
+Compressed Air Energy Storage,CM,Variable O&M Cost,2026,2.52
+Compressed Air Energy Storage,CM,Variable O&M Cost,2027,2.52
+Compressed Air Energy Storage,CM,Variable O&M Cost,2028,2.52
+Compressed Air Energy Storage,CM,Variable O&M Cost,2029,2.52
+Compressed Air Energy Storage,CM,Variable O&M Cost,2030,2.52
+Compressed Air Energy Storage,CM,Fixed O&M Cost,2024,41.11
+Compressed Air Energy Storage,CM,Fixed O&M Cost,2025,41.11
+Compressed Air Energy Storage,CM,Fixed O&M Cost,2026,41.11
+Compressed Air Energy Storage,CM,Fixed O&M Cost,2027,41.11
+Compressed Air Energy Storage,CM,Fixed O&M Cost,2028,41.11
+Compressed Air Energy Storage,CM,Fixed O&M Cost,2029,41.11
+Compressed Air Energy Storage,CM,Fixed O&M Cost,2030,41.11
+Compressed Air Energy Storage,CNZ,Overnight Capital Cost,2024,3424.61
+Compressed Air Energy Storage,CNZ,Overnight Capital Cost,2025,3370.39
+Compressed Air Energy Storage,CNZ,Overnight Capital Cost,2026,3359.54
+Compressed Air Energy Storage,CNZ,Overnight Capital Cost,2027,3348.69
+Compressed Air Energy Storage,CNZ,Overnight Capital Cost,2028,3337.85
+Compressed Air Energy Storage,CNZ,Overnight Capital Cost,2029,3327.0
+Compressed Air Energy Storage,CNZ,Overnight Capital Cost,2030,3316.16
+Compressed Air Energy Storage,CNZ,Variable O&M Cost,2024,2.52
+Compressed Air Energy Storage,CNZ,Variable O&M Cost,2025,2.52
+Compressed Air Energy Storage,CNZ,Variable O&M Cost,2026,2.52
+Compressed Air Energy Storage,CNZ,Variable O&M Cost,2027,2.52
+Compressed Air Energy Storage,CNZ,Variable O&M Cost,2028,2.52
+Compressed Air Energy Storage,CNZ,Variable O&M Cost,2029,2.52
+Compressed Air Energy Storage,CNZ,Variable O&M Cost,2030,2.52
+Compressed Air Energy Storage,CNZ,Fixed O&M Cost,2024,41.11
+Compressed Air Energy Storage,CNZ,Fixed O&M Cost,2025,41.11
+Compressed Air Energy Storage,CNZ,Fixed O&M Cost,2026,41.11
+Compressed Air Energy Storage,CNZ,Fixed O&M Cost,2027,41.11
+Compressed Air Energy Storage,CNZ,Fixed O&M Cost,2028,41.11
+Compressed Air Energy Storage,CNZ,Fixed O&M Cost,2029,41.11
+Compressed Air Energy Storage,CNZ,Fixed O&M Cost,2030,41.11
+Diesel Combustion Turbine,CM,Overnight Capital Cost,2024,883.24
+Diesel Combustion Turbine,CM,Overnight Capital Cost,2025,883.24
+Diesel Combustion Turbine,CM,Overnight Capital Cost,2026,883.24
+Diesel Combustion Turbine,CM,Overnight Capital Cost,2027,883.24
+Diesel Combustion Turbine,CM,Overnight Capital Cost,2028,883.24
+Diesel Combustion Turbine,CM,Overnight Capital Cost,2029,883.24
+Diesel Combustion Turbine,CM,Overnight Capital Cost,2030,883.24
+Diesel Combustion Turbine,CM,Variable O&M Cost,2024,18.93
+Diesel Combustion Turbine,CM,Variable O&M Cost,2025,18.93
+Diesel Combustion Turbine,CM,Variable O&M Cost,2026,18.93
+Diesel Combustion Turbine,CM,Variable O&M Cost,2027,18.93
+Diesel Combustion Turbine,CM,Variable O&M Cost,2028,18.93
+Diesel Combustion Turbine,CM,Variable O&M Cost,2029,18.93
+Diesel Combustion Turbine,CM,Variable O&M Cost,2030,18.93
+Diesel Combustion Turbine,CM,Fixed O&M Cost,2024,38.48
+Diesel Combustion Turbine,CM,Fixed O&M Cost,2025,38.48
+Diesel Combustion Turbine,CM,Fixed O&M Cost,2026,38.48
+Diesel Combustion Turbine,CM,Fixed O&M Cost,2027,38.48
+Diesel Combustion Turbine,CM,Fixed O&M Cost,2028,38.48
+Diesel Combustion Turbine,CM,Fixed O&M Cost,2029,38.48
+Diesel Combustion Turbine,CM,Fixed O&M Cost,2030,38.48
+Diesel Combustion Turbine,CNZ,Overnight Capital Cost,2024,883.24
+Diesel Combustion Turbine,CNZ,Overnight Capital Cost,2025,883.24
+Diesel Combustion Turbine,CNZ,Overnight Capital Cost,2026,883.24
+Diesel Combustion Turbine,CNZ,Overnight Capital Cost,2027,883.24
+Diesel Combustion Turbine,CNZ,Overnight Capital Cost,2028,883.24
+Diesel Combustion Turbine,CNZ,Overnight Capital Cost,2029,883.24
+Diesel Combustion Turbine,CNZ,Overnight Capital Cost,2030,883.24
+Diesel Combustion Turbine,CNZ,Variable O&M Cost,2024,18.93
+Diesel Combustion Turbine,CNZ,Variable O&M Cost,2025,18.93
+Diesel Combustion Turbine,CNZ,Variable O&M Cost,2026,18.93
+Diesel Combustion Turbine,CNZ,Variable O&M Cost,2027,18.93
+Diesel Combustion Turbine,CNZ,Variable O&M Cost,2028,18.93
+Diesel Combustion Turbine,CNZ,Variable O&M Cost,2029,18.93
+Diesel Combustion Turbine,CNZ,Variable O&M Cost,2030,18.93
+Diesel Combustion Turbine,CNZ,Fixed O&M Cost,2024,38.48
+Diesel Combustion Turbine,CNZ,Fixed O&M Cost,2025,38.48
+Diesel Combustion Turbine,CNZ,Fixed O&M Cost,2026,38.48
+Diesel Combustion Turbine,CNZ,Fixed O&M Cost,2027,38.48
+Diesel Combustion Turbine,CNZ,Fixed O&M Cost,2028,38.48
+Diesel Combustion Turbine,CNZ,Fixed O&M Cost,2029,38.48
+Diesel Combustion Turbine,CNZ,Fixed O&M Cost,2030,38.48
+Geothermal Binary Cycle,CM,Overnight Capital Cost,2024,7429.42
+Geothermal Binary Cycle,CM,Overnight Capital Cost,2025,7392.27
+Geothermal Binary Cycle,CM,Overnight Capital Cost,2026,7347.43
+Geothermal Binary Cycle,CM,Overnight Capital Cost,2027,7302.59
+Geothermal Binary Cycle,CM,Overnight Capital Cost,2028,7257.76
+Geothermal Binary Cycle,CM,Overnight Capital Cost,2029,7212.92
+Geothermal Binary Cycle,CM,Overnight Capital Cost,2030,7168.08
+Geothermal Binary Cycle,CM,Variable O&M Cost,2024,1.07
+Geothermal Binary Cycle,CM,Variable O&M Cost,2025,1.07
+Geothermal Binary Cycle,CM,Variable O&M Cost,2026,1.07
+Geothermal Binary Cycle,CM,Variable O&M Cost,2027,1.07
+Geothermal Binary Cycle,CM,Variable O&M Cost,2028,1.07
+Geothermal Binary Cycle,CM,Variable O&M Cost,2029,1.07
+Geothermal Binary Cycle,CM,Variable O&M Cost,2030,1.07
+Geothermal Binary Cycle,CM,Fixed O&M Cost,2024,258.46
+Geothermal Binary Cycle,CM,Fixed O&M Cost,2025,258.46
+Geothermal Binary Cycle,CM,Fixed O&M Cost,2026,258.46
+Geothermal Binary Cycle,CM,Fixed O&M Cost,2027,258.46
+Geothermal Binary Cycle,CM,Fixed O&M Cost,2028,258.46
+Geothermal Binary Cycle,CM,Fixed O&M Cost,2029,258.46
+Geothermal Binary Cycle,CM,Fixed O&M Cost,2030,258.46
+Geothermal Binary Cycle,CNZ,Overnight Capital Cost,2024,7429.42
+Geothermal Binary Cycle,CNZ,Overnight Capital Cost,2025,7057.94
+Geothermal Binary Cycle,CNZ,Overnight Capital Cost,2026,6939.07
+Geothermal Binary Cycle,CNZ,Overnight Capital Cost,2027,6820.2
+Geothermal Binary Cycle,CNZ,Overnight Capital Cost,2028,6701.33
+Geothermal Binary Cycle,CNZ,Overnight Capital Cost,2029,6582.46
+Geothermal Binary Cycle,CNZ,Overnight Capital Cost,2030,6463.59
+Geothermal Binary Cycle,CNZ,Variable O&M Cost,2024,1.07
+Geothermal Binary Cycle,CNZ,Variable O&M Cost,2025,1.07
+Geothermal Binary Cycle,CNZ,Variable O&M Cost,2026,1.07
+Geothermal Binary Cycle,CNZ,Variable O&M Cost,2027,1.07
+Geothermal Binary Cycle,CNZ,Variable O&M Cost,2028,1.07
+Geothermal Binary Cycle,CNZ,Variable O&M Cost,2029,1.07
+Geothermal Binary Cycle,CNZ,Variable O&M Cost,2030,1.07
+Geothermal Binary Cycle,CNZ,Fixed O&M Cost,2024,258.46
+Geothermal Binary Cycle,CNZ,Fixed O&M Cost,2025,252.1
+Geothermal Binary Cycle,CNZ,Fixed O&M Cost,2026,249.56
+Geothermal Binary Cycle,CNZ,Fixed O&M Cost,2027,247.02
+Geothermal Binary Cycle,CNZ,Fixed O&M Cost,2028,244.47
+Geothermal Binary Cycle,CNZ,Fixed O&M Cost,2029,241.93
+Geothermal Binary Cycle,CNZ,Fixed O&M Cost,2030,239.39
+Hydro Run-of-River >100MW,CM,Overnight Capital Cost,2024,5505.03
+Hydro Run-of-River >100MW,CM,Overnight Capital Cost,2025,5505.03
+Hydro Run-of-River >100MW,CM,Overnight Capital Cost,2026,5505.03
+Hydro Run-of-River >100MW,CM,Overnight Capital Cost,2027,5505.03
+Hydro Run-of-River >100MW,CM,Overnight Capital Cost,2028,5505.03
+Hydro Run-of-River >100MW,CM,Overnight Capital Cost,2029,5505.03
+Hydro Run-of-River >100MW,CM,Overnight Capital Cost,2030,5505.03
+Hydro Run-of-River >100MW,CM,Variable O&M Cost,2024,1.17
+Hydro Run-of-River >100MW,CM,Variable O&M Cost,2025,1.17
+Hydro Run-of-River >100MW,CM,Variable O&M Cost,2026,1.17
+Hydro Run-of-River >100MW,CM,Variable O&M Cost,2027,1.17
+Hydro Run-of-River >100MW,CM,Variable O&M Cost,2028,1.17
+Hydro Run-of-River >100MW,CM,Variable O&M Cost,2029,1.17
+Hydro Run-of-River >100MW,CM,Variable O&M Cost,2030,1.17
+Hydro Run-of-River >100MW,CM,Fixed O&M Cost,2024,74.85
+Hydro Run-of-River >100MW,CM,Fixed O&M Cost,2025,74.85
+Hydro Run-of-River >100MW,CM,Fixed O&M Cost,2026,74.85
+Hydro Run-of-River >100MW,CM,Fixed O&M Cost,2027,74.85
+Hydro Run-of-River >100MW,CM,Fixed O&M Cost,2028,74.85
+Hydro Run-of-River >100MW,CM,Fixed O&M Cost,2029,74.85
+Hydro Run-of-River >100MW,CM,Fixed O&M Cost,2030,74.85
+Hydro Run-of-River >100MW,CNZ,Overnight Capital Cost,2024,5505.03
+Hydro Run-of-River >100MW,CNZ,Overnight Capital Cost,2025,5505.03
+Hydro Run-of-River >100MW,CNZ,Overnight Capital Cost,2026,5449.98
+Hydro Run-of-River >100MW,CNZ,Overnight Capital Cost,2027,5394.93
+Hydro Run-of-River >100MW,CNZ,Overnight Capital Cost,2028,5339.88
+Hydro Run-of-River >100MW,CNZ,Overnight Capital Cost,2029,5284.83
+Hydro Run-of-River >100MW,CNZ,Overnight Capital Cost,2030,5229.77
+Hydro Run-of-River >100MW,CNZ,Variable O&M Cost,2024,1.17
+Hydro Run-of-River >100MW,CNZ,Variable O&M Cost,2025,1.17
+Hydro Run-of-River >100MW,CNZ,Variable O&M Cost,2026,1.17
+Hydro Run-of-River >100MW,CNZ,Variable O&M Cost,2027,1.17
+Hydro Run-of-River >100MW,CNZ,Variable O&M Cost,2028,1.17
+Hydro Run-of-River >100MW,CNZ,Variable O&M Cost,2029,1.17
+Hydro Run-of-River >100MW,CNZ,Variable O&M Cost,2030,1.17
+Hydro Run-of-River >100MW,CNZ,Fixed O&M Cost,2024,74.85
+Hydro Run-of-River >100MW,CNZ,Fixed O&M Cost,2025,74.85
+Hydro Run-of-River >100MW,CNZ,Fixed O&M Cost,2026,74.85
+Hydro Run-of-River >100MW,CNZ,Fixed O&M Cost,2027,74.85
+Hydro Run-of-River >100MW,CNZ,Fixed O&M Cost,2028,74.85
+Hydro Run-of-River >100MW,CNZ,Fixed O&M Cost,2029,74.85
+Hydro Run-of-River >100MW,CNZ,Fixed O&M Cost,2030,74.85
+Hydro Run-of-River >10MW,CM,Overnight Capital Cost,2024,10502.7
+Hydro Run-of-River >10MW,CM,Overnight Capital Cost,2025,10502.7
+Hydro Run-of-River >10MW,CM,Overnight Capital Cost,2026,10502.7
+Hydro Run-of-River >10MW,CM,Overnight Capital Cost,2027,10502.7
+Hydro Run-of-River >10MW,CM,Overnight Capital Cost,2028,10502.7
+Hydro Run-of-River >10MW,CM,Overnight Capital Cost,2029,10502.7
+Hydro Run-of-River >10MW,CM,Overnight Capital Cost,2030,10502.7
+Hydro Run-of-River >10MW,CM,Variable O&M Cost,2024,1.17
+Hydro Run-of-River >10MW,CM,Variable O&M Cost,2025,1.17
+Hydro Run-of-River >10MW,CM,Variable O&M Cost,2026,1.17
+Hydro Run-of-River >10MW,CM,Variable O&M Cost,2027,1.17
+Hydro Run-of-River >10MW,CM,Variable O&M Cost,2028,1.17
+Hydro Run-of-River >10MW,CM,Variable O&M Cost,2029,1.17
+Hydro Run-of-River >10MW,CM,Variable O&M Cost,2030,1.17
+Hydro Run-of-River >10MW,CM,Fixed O&M Cost,2024,215.2
+Hydro Run-of-River >10MW,CM,Fixed O&M Cost,2025,215.2
+Hydro Run-of-River >10MW,CM,Fixed O&M Cost,2026,215.2
+Hydro Run-of-River >10MW,CM,Fixed O&M Cost,2027,215.2
+Hydro Run-of-River >10MW,CM,Fixed O&M Cost,2028,215.2
+Hydro Run-of-River >10MW,CM,Fixed O&M Cost,2029,215.2
+Hydro Run-of-River >10MW,CM,Fixed O&M Cost,2030,215.2
+Hydro Run-of-River >10MW,CNZ,Overnight Capital Cost,2024,10502.7
+Hydro Run-of-River >10MW,CNZ,Overnight Capital Cost,2025,10502.7
+Hydro Run-of-River >10MW,CNZ,Overnight Capital Cost,2026,10397.68
+Hydro Run-of-River >10MW,CNZ,Overnight Capital Cost,2027,10292.65
+Hydro Run-of-River >10MW,CNZ,Overnight Capital Cost,2028,10187.62
+Hydro Run-of-River >10MW,CNZ,Overnight Capital Cost,2029,10082.59
+Hydro Run-of-River >10MW,CNZ,Overnight Capital Cost,2030,9977.57
+Hydro Run-of-River >10MW,CNZ,Variable O&M Cost,2024,1.17
+Hydro Run-of-River >10MW,CNZ,Variable O&M Cost,2025,1.17
+Hydro Run-of-River >10MW,CNZ,Variable O&M Cost,2026,1.17
+Hydro Run-of-River >10MW,CNZ,Variable O&M Cost,2027,1.17
+Hydro Run-of-River >10MW,CNZ,Variable O&M Cost,2028,1.17
+Hydro Run-of-River >10MW,CNZ,Variable O&M Cost,2029,1.17
+Hydro Run-of-River >10MW,CNZ,Variable O&M Cost,2030,1.17
+Hydro Run-of-River >10MW,CNZ,Fixed O&M Cost,2024,215.2
+Hydro Run-of-River >10MW,CNZ,Fixed O&M Cost,2025,215.2
+Hydro Run-of-River >10MW,CNZ,Fixed O&M Cost,2026,215.2
+Hydro Run-of-River >10MW,CNZ,Fixed O&M Cost,2027,215.2
+Hydro Run-of-River >10MW,CNZ,Fixed O&M Cost,2028,215.2
+Hydro Run-of-River >10MW,CNZ,Fixed O&M Cost,2029,215.2
+Hydro Run-of-River >10MW,CNZ,Fixed O&M Cost,2030,215.2
+Hydro Run-of-River >1MW,CM,Overnight Capital Cost,2024,11719.76
+Hydro Run-of-River >1MW,CM,Overnight Capital Cost,2025,11719.76
+Hydro Run-of-River >1MW,CM,Overnight Capital Cost,2026,11719.76
+Hydro Run-of-River >1MW,CM,Overnight Capital Cost,2027,11719.76
+Hydro Run-of-River >1MW,CM,Overnight Capital Cost,2028,11719.76
+Hydro Run-of-River >1MW,CM,Overnight Capital Cost,2029,11719.76
+Hydro Run-of-River >1MW,CM,Overnight Capital Cost,2030,11719.76
+Hydro Run-of-River >1MW,CM,Variable O&M Cost,2024,1.17
+Hydro Run-of-River >1MW,CM,Variable O&M Cost,2025,1.17
+Hydro Run-of-River >1MW,CM,Variable O&M Cost,2026,1.17
+Hydro Run-of-River >1MW,CM,Variable O&M Cost,2027,1.17
+Hydro Run-of-River >1MW,CM,Variable O&M Cost,2028,1.17
+Hydro Run-of-River >1MW,CM,Variable O&M Cost,2029,1.17
+Hydro Run-of-River >1MW,CM,Variable O&M Cost,2030,1.17
+Hydro Run-of-River >1MW,CM,Fixed O&M Cost,2024,280.71
+Hydro Run-of-River >1MW,CM,Fixed O&M Cost,2025,280.71
+Hydro Run-of-River >1MW,CM,Fixed O&M Cost,2026,280.71
+Hydro Run-of-River >1MW,CM,Fixed O&M Cost,2027,280.71
+Hydro Run-of-River >1MW,CM,Fixed O&M Cost,2028,280.71
+Hydro Run-of-River >1MW,CM,Fixed O&M Cost,2029,280.71
+Hydro Run-of-River >1MW,CM,Fixed O&M Cost,2030,280.71
+Hydro Run-of-River >1MW,CNZ,Overnight Capital Cost,2024,11719.76
+Hydro Run-of-River >1MW,CNZ,Overnight Capital Cost,2025,11719.76
+Hydro Run-of-River >1MW,CNZ,Overnight Capital Cost,2026,11602.56
+Hydro Run-of-River >1MW,CNZ,Overnight Capital Cost,2027,11485.36
+Hydro Run-of-River >1MW,CNZ,Overnight Capital Cost,2028,11368.16
+Hydro Run-of-River >1MW,CNZ,Overnight Capital Cost,2029,11250.96
+Hydro Run-of-River >1MW,CNZ,Overnight Capital Cost,2030,11133.77
+Hydro Run-of-River >1MW,CNZ,Variable O&M Cost,2024,1.17
+Hydro Run-of-River >1MW,CNZ,Variable O&M Cost,2025,1.17
+Hydro Run-of-River >1MW,CNZ,Variable O&M Cost,2026,1.17
+Hydro Run-of-River >1MW,CNZ,Variable O&M Cost,2027,1.17
+Hydro Run-of-River >1MW,CNZ,Variable O&M Cost,2028,1.17
+Hydro Run-of-River >1MW,CNZ,Variable O&M Cost,2029,1.17
+Hydro Run-of-River >1MW,CNZ,Variable O&M Cost,2030,1.17
+Hydro Run-of-River >1MW,CNZ,Fixed O&M Cost,2024,280.71
+Hydro Run-of-River >1MW,CNZ,Fixed O&M Cost,2025,280.71
+Hydro Run-of-River >1MW,CNZ,Fixed O&M Cost,2026,280.71
+Hydro Run-of-River >1MW,CNZ,Fixed O&M Cost,2027,280.71
+Hydro Run-of-River >1MW,CNZ,Fixed O&M Cost,2028,280.71
+Hydro Run-of-River >1MW,CNZ,Fixed O&M Cost,2029,280.71
+Hydro Run-of-River >1MW,CNZ,Fixed O&M Cost,2030,280.71
+Hydrogen Energy Storage (PEM),CM,Overnight Capital Cost,2024,8324.98
+Hydrogen Energy Storage (PEM),CM,Overnight Capital Cost,2025,8324.98
+Hydrogen Energy Storage (PEM),CM,Overnight Capital Cost,2026,7870.89
+Hydrogen Energy Storage (PEM),CM,Overnight Capital Cost,2027,7416.8
+Hydrogen Energy Storage (PEM),CM,Overnight Capital Cost,2028,6962.71
+Hydrogen Energy Storage (PEM),CM,Overnight Capital Cost,2029,6508.62
+Hydrogen Energy Storage (PEM),CM,Overnight Capital Cost,2030,6054.53
+Hydrogen Energy Storage (PEM),CM,Variable O&M Cost,2024,0.69
+Hydrogen Energy Storage (PEM),CM,Variable O&M Cost,2025,0.69
+Hydrogen Energy Storage (PEM),CM,Variable O&M Cost,2026,0.69
+Hydrogen Energy Storage (PEM),CM,Variable O&M Cost,2027,0.69
+Hydrogen Energy Storage (PEM),CM,Variable O&M Cost,2028,0.69
+Hydrogen Energy Storage (PEM),CM,Variable O&M Cost,2029,0.69
+Hydrogen Energy Storage (PEM),CM,Variable O&M Cost,2030,0.69
+Hydrogen Energy Storage (PEM),CM,Fixed O&M Cost,2024,86.37
+Hydrogen Energy Storage (PEM),CM,Fixed O&M Cost,2025,86.37
+Hydrogen Energy Storage (PEM),CM,Fixed O&M Cost,2026,86.37
+Hydrogen Energy Storage (PEM),CM,Fixed O&M Cost,2027,86.37
+Hydrogen Energy Storage (PEM),CM,Fixed O&M Cost,2028,86.37
+Hydrogen Energy Storage (PEM),CM,Fixed O&M Cost,2029,86.37
+Hydrogen Energy Storage (PEM),CM,Fixed O&M Cost,2030,86.37
+Hydrogen Energy Storage (PEM),CNZ,Overnight Capital Cost,2024,8324.98
+Hydrogen Energy Storage (PEM),CNZ,Overnight Capital Cost,2025,8324.98
+Hydrogen Energy Storage (PEM),CNZ,Overnight Capital Cost,2026,7870.89
+Hydrogen Energy Storage (PEM),CNZ,Overnight Capital Cost,2027,7416.8
+Hydrogen Energy Storage (PEM),CNZ,Overnight Capital Cost,2028,6962.71
+Hydrogen Energy Storage (PEM),CNZ,Overnight Capital Cost,2029,6508.62
+Hydrogen Energy Storage (PEM),CNZ,Overnight Capital Cost,2030,6054.53
+Hydrogen Energy Storage (PEM),CNZ,Variable O&M Cost,2024,0.69
+Hydrogen Energy Storage (PEM),CNZ,Variable O&M Cost,2025,0.69
+Hydrogen Energy Storage (PEM),CNZ,Variable O&M Cost,2026,0.69
+Hydrogen Energy Storage (PEM),CNZ,Variable O&M Cost,2027,0.69
+Hydrogen Energy Storage (PEM),CNZ,Variable O&M Cost,2028,0.69
+Hydrogen Energy Storage (PEM),CNZ,Variable O&M Cost,2029,0.69
+Hydrogen Energy Storage (PEM),CNZ,Variable O&M Cost,2030,0.69
+Hydrogen Energy Storage (PEM),CNZ,Fixed O&M Cost,2024,86.37
+Hydrogen Energy Storage (PEM),CNZ,Fixed O&M Cost,2025,86.37
+Hydrogen Energy Storage (PEM),CNZ,Fixed O&M Cost,2026,86.37
+Hydrogen Energy Storage (PEM),CNZ,Fixed O&M Cost,2027,86.37
+Hydrogen Energy Storage (PEM),CNZ,Fixed O&M Cost,2028,86.37
+Hydrogen Energy Storage (PEM),CNZ,Fixed O&M Cost,2029,86.37
+Hydrogen Energy Storage (PEM),CNZ,Fixed O&M Cost,2030,86.37
+Hydropower >100MW,CM,Overnight Capital Cost,2024,8827.03
+Hydropower >100MW,CM,Overnight Capital Cost,2025,8827.03
+Hydropower >100MW,CM,Overnight Capital Cost,2026,8827.03
+Hydropower >100MW,CM,Overnight Capital Cost,2027,8827.03
+Hydropower >100MW,CM,Overnight Capital Cost,2028,8827.03
+Hydropower >100MW,CM,Overnight Capital Cost,2029,8827.03
+Hydropower >100MW,CM,Overnight Capital Cost,2030,8827.03
+Hydropower >100MW,CM,Variable O&M Cost,2024,1.07
+Hydropower >100MW,CM,Variable O&M Cost,2025,1.07
+Hydropower >100MW,CM,Variable O&M Cost,2026,1.07
+Hydropower >100MW,CM,Variable O&M Cost,2027,1.07
+Hydropower >100MW,CM,Variable O&M Cost,2028,1.07
+Hydropower >100MW,CM,Variable O&M Cost,2029,1.07
+Hydropower >100MW,CM,Variable O&M Cost,2030,1.07
+Hydropower >100MW,CM,Fixed O&M Cost,2024,59.9
+Hydropower >100MW,CM,Fixed O&M Cost,2025,59.9
+Hydropower >100MW,CM,Fixed O&M Cost,2026,59.9
+Hydropower >100MW,CM,Fixed O&M Cost,2027,59.9
+Hydropower >100MW,CM,Fixed O&M Cost,2028,59.9
+Hydropower >100MW,CM,Fixed O&M Cost,2029,59.9
+Hydropower >100MW,CM,Fixed O&M Cost,2030,59.9
+Hydropower >100MW,CNZ,Overnight Capital Cost,2024,8827.03
+Hydropower >100MW,CNZ,Overnight Capital Cost,2025,8827.03
+Hydropower >100MW,CNZ,Overnight Capital Cost,2026,8738.76
+Hydropower >100MW,CNZ,Overnight Capital Cost,2027,8650.49
+Hydropower >100MW,CNZ,Overnight Capital Cost,2028,8562.22
+Hydropower >100MW,CNZ,Overnight Capital Cost,2029,8473.95
+Hydropower >100MW,CNZ,Overnight Capital Cost,2030,8385.68
+Hydropower >100MW,CNZ,Variable O&M Cost,2024,1.07
+Hydropower >100MW,CNZ,Variable O&M Cost,2025,1.07
+Hydropower >100MW,CNZ,Variable O&M Cost,2026,1.07
+Hydropower >100MW,CNZ,Variable O&M Cost,2027,1.07
+Hydropower >100MW,CNZ,Variable O&M Cost,2028,1.07
+Hydropower >100MW,CNZ,Variable O&M Cost,2029,1.07
+Hydropower >100MW,CNZ,Variable O&M Cost,2030,1.07
+Hydropower >100MW,CNZ,Fixed O&M Cost,2024,59.9
+Hydropower >100MW,CNZ,Fixed O&M Cost,2025,59.9
+Hydropower >100MW,CNZ,Fixed O&M Cost,2026,59.9
+Hydropower >100MW,CNZ,Fixed O&M Cost,2027,59.9
+Hydropower >100MW,CNZ,Fixed O&M Cost,2028,59.9
+Hydropower >100MW,CNZ,Fixed O&M Cost,2029,59.9
+Hydropower >100MW,CNZ,Fixed O&M Cost,2030,59.9
+Hydropower >10MW,CM,Overnight Capital Cost,2024,10344.99
+Hydropower >10MW,CM,Overnight Capital Cost,2025,10344.99
+Hydropower >10MW,CM,Overnight Capital Cost,2026,10344.99
+Hydropower >10MW,CM,Overnight Capital Cost,2027,10344.99
+Hydropower >10MW,CM,Overnight Capital Cost,2028,10344.99
+Hydropower >10MW,CM,Overnight Capital Cost,2029,10344.99
+Hydropower >10MW,CM,Overnight Capital Cost,2030,10344.99
+Hydropower >10MW,CM,Variable O&M Cost,2024,1.17
+Hydropower >10MW,CM,Variable O&M Cost,2025,1.17
+Hydropower >10MW,CM,Variable O&M Cost,2026,1.17
+Hydropower >10MW,CM,Variable O&M Cost,2027,1.17
+Hydropower >10MW,CM,Variable O&M Cost,2028,1.17
+Hydropower >10MW,CM,Variable O&M Cost,2029,1.17
+Hydropower >10MW,CM,Variable O&M Cost,2030,1.17
+Hydropower >10MW,CM,Fixed O&M Cost,2024,127.24
+Hydropower >10MW,CM,Fixed O&M Cost,2025,127.24
+Hydropower >10MW,CM,Fixed O&M Cost,2026,127.24
+Hydropower >10MW,CM,Fixed O&M Cost,2027,127.24
+Hydropower >10MW,CM,Fixed O&M Cost,2028,127.24
+Hydropower >10MW,CM,Fixed O&M Cost,2029,127.24
+Hydropower >10MW,CM,Fixed O&M Cost,2030,127.24
+Hydropower >10MW,CNZ,Overnight Capital Cost,2024,10344.99
+Hydropower >10MW,CNZ,Overnight Capital Cost,2025,10344.99
+Hydropower >10MW,CNZ,Overnight Capital Cost,2026,10241.54
+Hydropower >10MW,CNZ,Overnight Capital Cost,2027,10138.09
+Hydropower >10MW,CNZ,Overnight Capital Cost,2028,10034.64
+Hydropower >10MW,CNZ,Overnight Capital Cost,2029,9931.19
+Hydropower >10MW,CNZ,Overnight Capital Cost,2030,9827.74
+Hydropower >10MW,CNZ,Variable O&M Cost,2024,1.17
+Hydropower >10MW,CNZ,Variable O&M Cost,2025,1.17
+Hydropower >10MW,CNZ,Variable O&M Cost,2026,1.17
+Hydropower >10MW,CNZ,Variable O&M Cost,2027,1.17
+Hydropower >10MW,CNZ,Variable O&M Cost,2028,1.17
+Hydropower >10MW,CNZ,Variable O&M Cost,2029,1.17
+Hydropower >10MW,CNZ,Variable O&M Cost,2030,1.17
+Hydropower >10MW,CNZ,Fixed O&M Cost,2024,127.24
+Hydropower >10MW,CNZ,Fixed O&M Cost,2025,127.24
+Hydropower >10MW,CNZ,Fixed O&M Cost,2026,127.24
+Hydropower >10MW,CNZ,Fixed O&M Cost,2027,127.24
+Hydropower >10MW,CNZ,Fixed O&M Cost,2028,127.24
+Hydropower >10MW,CNZ,Fixed O&M Cost,2029,127.24
+Hydropower >10MW,CNZ,Fixed O&M Cost,2030,127.24
+Natural Gas Combined Cycle,CM,Overnight Capital Cost,2024,2180.28
+Natural Gas Combined Cycle,CM,Overnight Capital Cost,2025,2158.47
+Natural Gas Combined Cycle,CM,Overnight Capital Cost,2026,2140.81
+Natural Gas Combined Cycle,CM,Overnight Capital Cost,2027,2123.15
+Natural Gas Combined Cycle,CM,Overnight Capital Cost,2028,2105.48
+Natural Gas Combined Cycle,CM,Overnight Capital Cost,2029,2087.82
+Natural Gas Combined Cycle,CM,Overnight Capital Cost,2030,2070.16
+Natural Gas Combined Cycle,CM,Variable O&M Cost,2024,3.55
+Natural Gas Combined Cycle,CM,Variable O&M Cost,2025,3.55
+Natural Gas Combined Cycle,CM,Variable O&M Cost,2026,3.55
+Natural Gas Combined Cycle,CM,Variable O&M Cost,2027,3.55
+Natural Gas Combined Cycle,CM,Variable O&M Cost,2028,3.55
+Natural Gas Combined Cycle,CM,Variable O&M Cost,2029,3.55
+Natural Gas Combined Cycle,CM,Variable O&M Cost,2030,3.55
+Natural Gas Combined Cycle,CM,Fixed O&M Cost,2024,74.01
+Natural Gas Combined Cycle,CM,Fixed O&M Cost,2025,73.4
+Natural Gas Combined Cycle,CM,Fixed O&M Cost,2026,73.03
+Natural Gas Combined Cycle,CM,Fixed O&M Cost,2027,72.67
+Natural Gas Combined Cycle,CM,Fixed O&M Cost,2028,72.3
+Natural Gas Combined Cycle,CM,Fixed O&M Cost,2029,71.93
+Natural Gas Combined Cycle,CM,Fixed O&M Cost,2030,71.56
+Natural Gas Combined Cycle,CNZ,Overnight Capital Cost,2024,2180.28
+Natural Gas Combined Cycle,CNZ,Overnight Capital Cost,2025,2136.68
+Natural Gas Combined Cycle,CNZ,Overnight Capital Cost,2026,2119.23
+Natural Gas Combined Cycle,CNZ,Overnight Capital Cost,2027,2101.79
+Natural Gas Combined Cycle,CNZ,Overnight Capital Cost,2028,2084.34
+Natural Gas Combined Cycle,CNZ,Overnight Capital Cost,2029,2066.9
+Natural Gas Combined Cycle,CNZ,Overnight Capital Cost,2030,2049.45
+Natural Gas Combined Cycle,CNZ,Variable O&M Cost,2024,3.55
+Natural Gas Combined Cycle,CNZ,Variable O&M Cost,2025,3.48
+Natural Gas Combined Cycle,CNZ,Variable O&M Cost,2026,3.46
+Natural Gas Combined Cycle,CNZ,Variable O&M Cost,2027,3.43
+Natural Gas Combined Cycle,CNZ,Variable O&M Cost,2028,3.41
+Natural Gas Combined Cycle,CNZ,Variable O&M Cost,2029,3.39
+Natural Gas Combined Cycle,CNZ,Variable O&M Cost,2030,3.37
+Natural Gas Combined Cycle,CNZ,Fixed O&M Cost,2024,74.01
+Natural Gas Combined Cycle,CNZ,Fixed O&M Cost,2025,72.8
+Natural Gas Combined Cycle,CNZ,Fixed O&M Cost,2026,72.44
+Natural Gas Combined Cycle,CNZ,Fixed O&M Cost,2027,72.07
+Natural Gas Combined Cycle,CNZ,Fixed O&M Cost,2028,71.71
+Natural Gas Combined Cycle,CNZ,Fixed O&M Cost,2029,71.34
+Natural Gas Combined Cycle,CNZ,Fixed O&M Cost,2030,70.97
+Natural Gas Combined Cycle with CCUS,CM,Overnight Capital Cost,2024,4367.91
+Natural Gas Combined Cycle with CCUS,CM,Overnight Capital Cost,2025,4302.39
+Natural Gas Combined Cycle with CCUS,CM,Overnight Capital Cost,2026,4266.72
+Natural Gas Combined Cycle with CCUS,CM,Overnight Capital Cost,2027,4231.04
+Natural Gas Combined Cycle with CCUS,CM,Overnight Capital Cost,2028,4195.37
+Natural Gas Combined Cycle with CCUS,CM,Overnight Capital Cost,2029,4159.69
+Natural Gas Combined Cycle with CCUS,CM,Overnight Capital Cost,2030,4124.02
+Natural Gas Combined Cycle with CCUS,CM,Variable O&M Cost,2024,13.96
+Natural Gas Combined Cycle with CCUS,CM,Variable O&M Cost,2025,14.0
+Natural Gas Combined Cycle with CCUS,CM,Variable O&M Cost,2026,14.03
+Natural Gas Combined Cycle with CCUS,CM,Variable O&M Cost,2027,14.06
+Natural Gas Combined Cycle with CCUS,CM,Variable O&M Cost,2028,14.09
+Natural Gas Combined Cycle with CCUS,CM,Variable O&M Cost,2029,14.12
+Natural Gas Combined Cycle with CCUS,CM,Variable O&M Cost,2030,14.15
+Natural Gas Combined Cycle with CCUS,CM,Fixed O&M Cost,2024,144.33
+Natural Gas Combined Cycle with CCUS,CM,Fixed O&M Cost,2025,142.53
+Natural Gas Combined Cycle with CCUS,CM,Fixed O&M Cost,2026,141.57
+Natural Gas Combined Cycle with CCUS,CM,Fixed O&M Cost,2027,140.61
+Natural Gas Combined Cycle with CCUS,CM,Fixed O&M Cost,2028,139.65
+Natural Gas Combined Cycle with CCUS,CM,Fixed O&M Cost,2029,138.68
+Natural Gas Combined Cycle with CCUS,CM,Fixed O&M Cost,2030,137.72
+Natural Gas Combined Cycle with CCUS,CNZ,Overnight Capital Cost,2024,4367.91
+Natural Gas Combined Cycle with CCUS,CNZ,Overnight Capital Cost,2025,4236.88
+Natural Gas Combined Cycle with CCUS,CNZ,Overnight Capital Cost,2026,4201.93
+Natural Gas Combined Cycle with CCUS,CNZ,Overnight Capital Cost,2027,4166.99
+Natural Gas Combined Cycle with CCUS,CNZ,Overnight Capital Cost,2028,4132.05
+Natural Gas Combined Cycle with CCUS,CNZ,Overnight Capital Cost,2029,4097.1
+Natural Gas Combined Cycle with CCUS,CNZ,Overnight Capital Cost,2030,4062.16
+Natural Gas Combined Cycle with CCUS,CNZ,Variable O&M Cost,2024,13.96
+Natural Gas Combined Cycle with CCUS,CNZ,Variable O&M Cost,2025,13.63
+Natural Gas Combined Cycle with CCUS,CNZ,Variable O&M Cost,2026,13.54
+Natural Gas Combined Cycle with CCUS,CNZ,Variable O&M Cost,2027,13.46
+Natural Gas Combined Cycle with CCUS,CNZ,Variable O&M Cost,2028,13.37
+Natural Gas Combined Cycle with CCUS,CNZ,Variable O&M Cost,2029,13.28
+Natural Gas Combined Cycle with CCUS,CNZ,Variable O&M Cost,2030,13.19
+Natural Gas Combined Cycle with CCUS,CNZ,Fixed O&M Cost,2024,144.33
+Natural Gas Combined Cycle with CCUS,CNZ,Fixed O&M Cost,2025,140.77
+Natural Gas Combined Cycle with CCUS,CNZ,Fixed O&M Cost,2026,139.83
+Natural Gas Combined Cycle with CCUS,CNZ,Fixed O&M Cost,2027,138.88
+Natural Gas Combined Cycle with CCUS,CNZ,Fixed O&M Cost,2028,137.94
+Natural Gas Combined Cycle with CCUS,CNZ,Fixed O&M Cost,2029,136.99
+Natural Gas Combined Cycle with CCUS,CNZ,Fixed O&M Cost,2030,136.04
+Natural Gas Simple Cycle,CM,Overnight Capital Cost,2024,1633.0
+Natural Gas Simple Cycle,CM,Overnight Capital Cost,2025,1616.67
+Natural Gas Simple Cycle,CM,Overnight Capital Cost,2026,1603.44
+Natural Gas Simple Cycle,CM,Overnight Capital Cost,2027,1590.22
+Natural Gas Simple Cycle,CM,Overnight Capital Cost,2028,1576.99
+Natural Gas Simple Cycle,CM,Overnight Capital Cost,2029,1563.76
+Natural Gas Simple Cycle,CM,Overnight Capital Cost,2030,1550.53
+Natural Gas Simple Cycle,CM,Variable O&M Cost,2024,9.82
+Natural Gas Simple Cycle,CM,Variable O&M Cost,2025,9.82
+Natural Gas Simple Cycle,CM,Variable O&M Cost,2026,9.82
+Natural Gas Simple Cycle,CM,Variable O&M Cost,2027,9.82
+Natural Gas Simple Cycle,CM,Variable O&M Cost,2028,9.82
+Natural Gas Simple Cycle,CM,Variable O&M Cost,2029,9.82
+Natural Gas Simple Cycle,CM,Variable O&M Cost,2030,9.82
+Natural Gas Simple Cycle,CM,Fixed O&M Cost,2024,48.11
+Natural Gas Simple Cycle,CM,Fixed O&M Cost,2025,47.72
+Natural Gas Simple Cycle,CM,Fixed O&M Cost,2026,47.48
+Natural Gas Simple Cycle,CM,Fixed O&M Cost,2027,47.24
+Natural Gas Simple Cycle,CM,Fixed O&M Cost,2028,47.0
+Natural Gas Simple Cycle,CM,Fixed O&M Cost,2029,46.76
+Natural Gas Simple Cycle,CM,Fixed O&M Cost,2030,46.52
+Natural Gas Simple Cycle,CNZ,Overnight Capital Cost,2024,1633.0
+Natural Gas Simple Cycle,CNZ,Overnight Capital Cost,2025,1600.34
+Natural Gas Simple Cycle,CNZ,Overnight Capital Cost,2026,1587.27
+Natural Gas Simple Cycle,CNZ,Overnight Capital Cost,2027,1574.21
+Natural Gas Simple Cycle,CNZ,Overnight Capital Cost,2028,1561.15
+Natural Gas Simple Cycle,CNZ,Overnight Capital Cost,2029,1548.09
+Natural Gas Simple Cycle,CNZ,Overnight Capital Cost,2030,1535.03
+Natural Gas Simple Cycle,CNZ,Variable O&M Cost,2024,9.82
+Natural Gas Simple Cycle,CNZ,Variable O&M Cost,2025,9.63
+Natural Gas Simple Cycle,CNZ,Variable O&M Cost,2026,9.57
+Natural Gas Simple Cycle,CNZ,Variable O&M Cost,2027,9.51
+Natural Gas Simple Cycle,CNZ,Variable O&M Cost,2028,9.45
+Natural Gas Simple Cycle,CNZ,Variable O&M Cost,2029,9.39
+Natural Gas Simple Cycle,CNZ,Variable O&M Cost,2030,9.33
+Natural Gas Simple Cycle,CNZ,Fixed O&M Cost,2024,48.11
+Natural Gas Simple Cycle,CNZ,Fixed O&M Cost,2025,47.32
+Natural Gas Simple Cycle,CNZ,Fixed O&M Cost,2026,47.08
+Natural Gas Simple Cycle,CNZ,Fixed O&M Cost,2027,46.85
+Natural Gas Simple Cycle,CNZ,Fixed O&M Cost,2028,46.61
+Natural Gas Simple Cycle,CNZ,Fixed O&M Cost,2029,46.38
+Natural Gas Simple Cycle,CNZ,Fixed O&M Cost,2030,46.14
+Nuclear Power Large Reactor,CM,Overnight Capital Cost,2024,11401.58
+Nuclear Power Large Reactor,CM,Overnight Capital Cost,2025,11401.58
+Nuclear Power Large Reactor,CM,Overnight Capital Cost,2026,11401.58
+Nuclear Power Large Reactor,CM,Overnight Capital Cost,2027,11401.58
+Nuclear Power Large Reactor,CM,Overnight Capital Cost,2028,11401.58
+Nuclear Power Large Reactor,CM,Overnight Capital Cost,2029,11401.58
+Nuclear Power Large Reactor,CM,Overnight Capital Cost,2030,11401.58
+Nuclear Power Large Reactor,CM,Variable O&M Cost,2024,3.51
+Nuclear Power Large Reactor,CM,Variable O&M Cost,2025,3.51
+Nuclear Power Large Reactor,CM,Variable O&M Cost,2026,3.51
+Nuclear Power Large Reactor,CM,Variable O&M Cost,2027,3.51
+Nuclear Power Large Reactor,CM,Variable O&M Cost,2028,3.51
+Nuclear Power Large Reactor,CM,Variable O&M Cost,2029,3.51
+Nuclear Power Large Reactor,CM,Variable O&M Cost,2030,3.51
+Nuclear Power Large Reactor,CM,Fixed O&M Cost,2024,260.16
+Nuclear Power Large Reactor,CM,Fixed O&M Cost,2025,260.16
+Nuclear Power Large Reactor,CM,Fixed O&M Cost,2026,260.16
+Nuclear Power Large Reactor,CM,Fixed O&M Cost,2027,260.16
+Nuclear Power Large Reactor,CM,Fixed O&M Cost,2028,260.16
+Nuclear Power Large Reactor,CM,Fixed O&M Cost,2029,260.16
+Nuclear Power Large Reactor,CM,Fixed O&M Cost,2030,260.16
+Nuclear Power Large Reactor,CNZ,Overnight Capital Cost,2024,11401.58
+Nuclear Power Large Reactor,CNZ,Overnight Capital Cost,2025,11401.58
+Nuclear Power Large Reactor,CNZ,Overnight Capital Cost,2026,11401.58
+Nuclear Power Large Reactor,CNZ,Overnight Capital Cost,2027,11401.58
+Nuclear Power Large Reactor,CNZ,Overnight Capital Cost,2028,11401.58
+Nuclear Power Large Reactor,CNZ,Overnight Capital Cost,2029,11401.58
+Nuclear Power Large Reactor,CNZ,Overnight Capital Cost,2030,11401.58
+Nuclear Power Large Reactor,CNZ,Variable O&M Cost,2024,3.51
+Nuclear Power Large Reactor,CNZ,Variable O&M Cost,2025,3.51
+Nuclear Power Large Reactor,CNZ,Variable O&M Cost,2026,3.51
+Nuclear Power Large Reactor,CNZ,Variable O&M Cost,2027,3.51
+Nuclear Power Large Reactor,CNZ,Variable O&M Cost,2028,3.51
+Nuclear Power Large Reactor,CNZ,Variable O&M Cost,2029,3.51
+Nuclear Power Large Reactor,CNZ,Variable O&M Cost,2030,3.51
+Nuclear Power Large Reactor,CNZ,Fixed O&M Cost,2024,260.16
+Nuclear Power Large Reactor,CNZ,Fixed O&M Cost,2025,260.16
+Nuclear Power Large Reactor,CNZ,Fixed O&M Cost,2026,260.16
+Nuclear Power Large Reactor,CNZ,Fixed O&M Cost,2027,260.16
+Nuclear Power Large Reactor,CNZ,Fixed O&M Cost,2028,260.16
+Nuclear Power Large Reactor,CNZ,Fixed O&M Cost,2029,260.16
+Nuclear Power Large Reactor,CNZ,Fixed O&M Cost,2030,260.16
+Nuclear Power Small Modular Reactor,CM,Overnight Capital Cost,2024,13240.55
+Nuclear Power Small Modular Reactor,CM,Overnight Capital Cost,2025,13240.55
+Nuclear Power Small Modular Reactor,CM,Overnight Capital Cost,2026,13240.55
+Nuclear Power Small Modular Reactor,CM,Overnight Capital Cost,2027,13240.55
+Nuclear Power Small Modular Reactor,CM,Overnight Capital Cost,2028,13240.55
+Nuclear Power Small Modular Reactor,CM,Overnight Capital Cost,2029,13240.55
+Nuclear Power Small Modular Reactor,CM,Overnight Capital Cost,2030,13240.55
+Nuclear Power Small Modular Reactor,CM,Variable O&M Cost,2024,4.34
+Nuclear Power Small Modular Reactor,CM,Variable O&M Cost,2025,4.34
+Nuclear Power Small Modular Reactor,CM,Variable O&M Cost,2026,4.34
+Nuclear Power Small Modular Reactor,CM,Variable O&M Cost,2027,4.34
+Nuclear Power Small Modular Reactor,CM,Variable O&M Cost,2028,4.34
+Nuclear Power Small Modular Reactor,CM,Variable O&M Cost,2029,4.34
+Nuclear Power Small Modular Reactor,CM,Variable O&M Cost,2030,4.34
+Nuclear Power Small Modular Reactor,CM,Fixed O&M Cost,2024,205.39
+Nuclear Power Small Modular Reactor,CM,Fixed O&M Cost,2025,205.39
+Nuclear Power Small Modular Reactor,CM,Fixed O&M Cost,2026,205.39
+Nuclear Power Small Modular Reactor,CM,Fixed O&M Cost,2027,205.39
+Nuclear Power Small Modular Reactor,CM,Fixed O&M Cost,2028,205.39
+Nuclear Power Small Modular Reactor,CM,Fixed O&M Cost,2029,205.39
+Nuclear Power Small Modular Reactor,CM,Fixed O&M Cost,2030,205.39
+Nuclear Power Small Modular Reactor,CNZ,Overnight Capital Cost,2024,13240.55
+Nuclear Power Small Modular Reactor,CNZ,Overnight Capital Cost,2025,13240.55
+Nuclear Power Small Modular Reactor,CNZ,Overnight Capital Cost,2026,13240.55
+Nuclear Power Small Modular Reactor,CNZ,Overnight Capital Cost,2027,13240.55
+Nuclear Power Small Modular Reactor,CNZ,Overnight Capital Cost,2028,13240.55
+Nuclear Power Small Modular Reactor,CNZ,Overnight Capital Cost,2029,13240.55
+Nuclear Power Small Modular Reactor,CNZ,Overnight Capital Cost,2030,13240.55
+Nuclear Power Small Modular Reactor,CNZ,Variable O&M Cost,2024,4.34
+Nuclear Power Small Modular Reactor,CNZ,Variable O&M Cost,2025,4.34
+Nuclear Power Small Modular Reactor,CNZ,Variable O&M Cost,2026,4.34
+Nuclear Power Small Modular Reactor,CNZ,Variable O&M Cost,2027,4.34
+Nuclear Power Small Modular Reactor,CNZ,Variable O&M Cost,2028,4.34
+Nuclear Power Small Modular Reactor,CNZ,Variable O&M Cost,2029,4.34
+Nuclear Power Small Modular Reactor,CNZ,Variable O&M Cost,2030,4.34
+Nuclear Power Small Modular Reactor,CNZ,Fixed O&M Cost,2024,205.39
+Nuclear Power Small Modular Reactor,CNZ,Fixed O&M Cost,2025,205.39
+Nuclear Power Small Modular Reactor,CNZ,Fixed O&M Cost,2026,203.71
+Nuclear Power Small Modular Reactor,CNZ,Fixed O&M Cost,2027,202.03
+Nuclear Power Small Modular Reactor,CNZ,Fixed O&M Cost,2028,200.34
+Nuclear Power Small Modular Reactor,CNZ,Fixed O&M Cost,2029,198.66
+Nuclear Power Small Modular Reactor,CNZ,Fixed O&M Cost,2030,196.97
+Pumped Hydro Storage,CM,Overnight Capital Cost,2024,6200.32
+Pumped Hydro Storage,CM,Overnight Capital Cost,2025,6200.32
+Pumped Hydro Storage,CM,Overnight Capital Cost,2026,6200.32
+Pumped Hydro Storage,CM,Overnight Capital Cost,2027,6200.32
+Pumped Hydro Storage,CM,Overnight Capital Cost,2028,6200.32
+Pumped Hydro Storage,CM,Overnight Capital Cost,2029,6200.32
+Pumped Hydro Storage,CM,Overnight Capital Cost,2030,6200.32
+Pumped Hydro Storage,CM,Variable O&M Cost,2024,2.14
+Pumped Hydro Storage,CM,Variable O&M Cost,2025,2.14
+Pumped Hydro Storage,CM,Variable O&M Cost,2026,2.14
+Pumped Hydro Storage,CM,Variable O&M Cost,2027,2.14
+Pumped Hydro Storage,CM,Variable O&M Cost,2028,2.14
+Pumped Hydro Storage,CM,Variable O&M Cost,2029,2.14
+Pumped Hydro Storage,CM,Variable O&M Cost,2030,2.14
+Pumped Hydro Storage,CM,Fixed O&M Cost,2024,32.0
+Pumped Hydro Storage,CM,Fixed O&M Cost,2025,32.0
+Pumped Hydro Storage,CM,Fixed O&M Cost,2026,32.0
+Pumped Hydro Storage,CM,Fixed O&M Cost,2027,32.0
+Pumped Hydro Storage,CM,Fixed O&M Cost,2028,32.0
+Pumped Hydro Storage,CM,Fixed O&M Cost,2029,32.0
+Pumped Hydro Storage,CM,Fixed O&M Cost,2030,32.0
+Pumped Hydro Storage,CNZ,Overnight Capital Cost,2024,6200.32
+Pumped Hydro Storage,CNZ,Overnight Capital Cost,2025,6200.32
+Pumped Hydro Storage,CNZ,Overnight Capital Cost,2026,6200.32
+Pumped Hydro Storage,CNZ,Overnight Capital Cost,2027,6200.32
+Pumped Hydro Storage,CNZ,Overnight Capital Cost,2028,6200.32
+Pumped Hydro Storage,CNZ,Overnight Capital Cost,2029,6200.32
+Pumped Hydro Storage,CNZ,Overnight Capital Cost,2030,6200.32
+Pumped Hydro Storage,CNZ,Variable O&M Cost,2024,2.14
+Pumped Hydro Storage,CNZ,Variable O&M Cost,2025,2.14
+Pumped Hydro Storage,CNZ,Variable O&M Cost,2026,2.14
+Pumped Hydro Storage,CNZ,Variable O&M Cost,2027,2.14
+Pumped Hydro Storage,CNZ,Variable O&M Cost,2028,2.14
+Pumped Hydro Storage,CNZ,Variable O&M Cost,2029,2.14
+Pumped Hydro Storage,CNZ,Variable O&M Cost,2030,2.14
+Pumped Hydro Storage,CNZ,Fixed O&M Cost,2024,32.0
+Pumped Hydro Storage,CNZ,Fixed O&M Cost,2025,32.0
+Pumped Hydro Storage,CNZ,Fixed O&M Cost,2026,32.0
+Pumped Hydro Storage,CNZ,Fixed O&M Cost,2027,32.0
+Pumped Hydro Storage,CNZ,Fixed O&M Cost,2028,32.0
+Pumped Hydro Storage,CNZ,Fixed O&M Cost,2029,32.0
+Pumped Hydro Storage,CNZ,Fixed O&M Cost,2030,32.0
+Solar PV Utility,CM,Overnight Capital Cost,2024,2181.74
+Solar PV Utility,CM,Overnight Capital Cost,2025,2127.2
+Solar PV Utility,CM,Overnight Capital Cost,2026,2095.59
+Solar PV Utility,CM,Overnight Capital Cost,2027,2063.98
+Solar PV Utility,CM,Overnight Capital Cost,2028,2032.38
+Solar PV Utility,CM,Overnight Capital Cost,2029,2000.77
+Solar PV Utility,CM,Overnight Capital Cost,2030,1969.17
+Solar PV Utility,CM,Variable O&M Cost,2024,0.53
+Solar PV Utility,CM,Variable O&M Cost,2025,0.53
+Solar PV Utility,CM,Variable O&M Cost,2026,0.53
+Solar PV Utility,CM,Variable O&M Cost,2027,0.53
+Solar PV Utility,CM,Variable O&M Cost,2028,0.53
+Solar PV Utility,CM,Variable O&M Cost,2029,0.53
+Solar PV Utility,CM,Variable O&M Cost,2030,0.53
+Solar PV Utility,CM,Fixed O&M Cost,2024,39.76
+Solar PV Utility,CM,Fixed O&M Cost,2025,39.32
+Solar PV Utility,CM,Fixed O&M Cost,2026,39.01
+Solar PV Utility,CM,Fixed O&M Cost,2027,38.71
+Solar PV Utility,CM,Fixed O&M Cost,2028,38.4
+Solar PV Utility,CM,Fixed O&M Cost,2029,38.1
+Solar PV Utility,CM,Fixed O&M Cost,2030,37.8
+Solar PV Utility,CNZ,Overnight Capital Cost,2024,2181.74
+Solar PV Utility,CNZ,Overnight Capital Cost,2025,1985.39
+Solar PV Utility,CNZ,Overnight Capital Cost,2026,1919.93
+Solar PV Utility,CNZ,Overnight Capital Cost,2027,1854.48
+Solar PV Utility,CNZ,Overnight Capital Cost,2028,1789.03
+Solar PV Utility,CNZ,Overnight Capital Cost,2029,1723.58
+Solar PV Utility,CNZ,Overnight Capital Cost,2030,1658.12
+Solar PV Utility,CNZ,Variable O&M Cost,2024,0.53
+Solar PV Utility,CNZ,Variable O&M Cost,2025,0.53
+Solar PV Utility,CNZ,Variable O&M Cost,2026,0.53
+Solar PV Utility,CNZ,Variable O&M Cost,2027,0.53
+Solar PV Utility,CNZ,Variable O&M Cost,2028,0.53
+Solar PV Utility,CNZ,Variable O&M Cost,2029,0.53
+Solar PV Utility,CNZ,Variable O&M Cost,2030,0.53
+Solar PV Utility,CNZ,Fixed O&M Cost,2024,39.76
+Solar PV Utility,CNZ,Fixed O&M Cost,2025,37.7
+Solar PV Utility,CNZ,Fixed O&M Cost,2026,37.05
+Solar PV Utility,CNZ,Fixed O&M Cost,2027,36.4
+Solar PV Utility,CNZ,Fixed O&M Cost,2028,35.75
+Solar PV Utility,CNZ,Fixed O&M Cost,2029,35.11
+Solar PV Utility,CNZ,Fixed O&M Cost,2030,34.46
+Wind Offshore (Fixed),CM,Overnight Capital Cost,2024,3727.06
+Wind Offshore (Fixed),CM,Overnight Capital Cost,2025,3391.63
+Wind Offshore (Fixed),CM,Overnight Capital Cost,2026,3352.22
+Wind Offshore (Fixed),CM,Overnight Capital Cost,2027,3312.82
+Wind Offshore (Fixed),CM,Overnight Capital Cost,2028,3273.42
+Wind Offshore (Fixed),CM,Overnight Capital Cost,2029,3234.02
+Wind Offshore (Fixed),CM,Overnight Capital Cost,2030,3194.62
+Wind Offshore (Fixed),CM,Variable O&M Cost,2024,0.58
+Wind Offshore (Fixed),CM,Variable O&M Cost,2025,0.58
+Wind Offshore (Fixed),CM,Variable O&M Cost,2026,0.58
+Wind Offshore (Fixed),CM,Variable O&M Cost,2027,0.58
+Wind Offshore (Fixed),CM,Variable O&M Cost,2028,0.58
+Wind Offshore (Fixed),CM,Variable O&M Cost,2029,0.58
+Wind Offshore (Fixed),CM,Variable O&M Cost,2030,0.58
+Wind Offshore (Fixed),CM,Fixed O&M Cost,2024,174.93
+Wind Offshore (Fixed),CM,Fixed O&M Cost,2025,174.93
+Wind Offshore (Fixed),CM,Fixed O&M Cost,2026,174.63
+Wind Offshore (Fixed),CM,Fixed O&M Cost,2027,174.33
+Wind Offshore (Fixed),CM,Fixed O&M Cost,2028,174.03
+Wind Offshore (Fixed),CM,Fixed O&M Cost,2029,173.73
+Wind Offshore (Fixed),CM,Fixed O&M Cost,2030,173.43
+Wind Offshore (Fixed),CNZ,Overnight Capital Cost,2024,3727.06
+Wind Offshore (Fixed),CNZ,Overnight Capital Cost,2025,2981.64
+Wind Offshore (Fixed),CNZ,Overnight Capital Cost,2026,2929.47
+Wind Offshore (Fixed),CNZ,Overnight Capital Cost,2027,2877.29
+Wind Offshore (Fixed),CNZ,Overnight Capital Cost,2028,2825.11
+Wind Offshore (Fixed),CNZ,Overnight Capital Cost,2029,2772.93
+Wind Offshore (Fixed),CNZ,Overnight Capital Cost,2030,2720.75
+Wind Offshore (Fixed),CNZ,Variable O&M Cost,2024,0.58
+Wind Offshore (Fixed),CNZ,Variable O&M Cost,2025,0.58
+Wind Offshore (Fixed),CNZ,Variable O&M Cost,2026,0.58
+Wind Offshore (Fixed),CNZ,Variable O&M Cost,2027,0.58
+Wind Offshore (Fixed),CNZ,Variable O&M Cost,2028,0.58
+Wind Offshore (Fixed),CNZ,Variable O&M Cost,2029,0.58
+Wind Offshore (Fixed),CNZ,Variable O&M Cost,2030,0.58
+Wind Offshore (Fixed),CNZ,Fixed O&M Cost,2024,174.93
+Wind Offshore (Fixed),CNZ,Fixed O&M Cost,2025,164.0
+Wind Offshore (Fixed),CNZ,Fixed O&M Cost,2026,161.82
+Wind Offshore (Fixed),CNZ,Fixed O&M Cost,2027,159.64
+Wind Offshore (Fixed),CNZ,Fixed O&M Cost,2028,157.46
+Wind Offshore (Fixed),CNZ,Fixed O&M Cost,2029,155.27
+Wind Offshore (Fixed),CNZ,Fixed O&M Cost,2030,153.09
+Wind Onshore,CM,Overnight Capital Cost,2024,2133.2
+Wind Onshore,CM,Overnight Capital Cost,2025,1973.21
+Wind Onshore,CM,Overnight Capital Cost,2026,1956.78
+Wind Onshore,CM,Overnight Capital Cost,2027,1940.35
+Wind Onshore,CM,Overnight Capital Cost,2028,1923.91
+Wind Onshore,CM,Overnight Capital Cost,2029,1907.48
+Wind Onshore,CM,Overnight Capital Cost,2030,1891.05
+Wind Onshore,CM,Variable O&M Cost,2024,0.53
+Wind Onshore,CM,Variable O&M Cost,2025,0.53
+Wind Onshore,CM,Variable O&M Cost,2026,0.53
+Wind Onshore,CM,Variable O&M Cost,2027,0.53
+Wind Onshore,CM,Variable O&M Cost,2028,0.53
+Wind Onshore,CM,Variable O&M Cost,2029,0.53
+Wind Onshore,CM,Variable O&M Cost,2030,0.53
+Wind Onshore,CM,Fixed O&M Cost,2024,59.9
+Wind Onshore,CM,Fixed O&M Cost,2025,59.9
+Wind Onshore,CM,Fixed O&M Cost,2026,59.9
+Wind Onshore,CM,Fixed O&M Cost,2027,59.9
+Wind Onshore,CM,Fixed O&M Cost,2028,59.9
+Wind Onshore,CM,Fixed O&M Cost,2029,59.9
+Wind Onshore,CM,Fixed O&M Cost,2030,59.9
+Wind Onshore,CNZ,Overnight Capital Cost,2024,2133.2
+Wind Onshore,CNZ,Overnight Capital Cost,2025,1749.23
+Wind Onshore,CNZ,Overnight Capital Cost,2026,1719.36
+Wind Onshore,CNZ,Overnight Capital Cost,2027,1689.5
+Wind Onshore,CNZ,Overnight Capital Cost,2028,1659.63
+Wind Onshore,CNZ,Overnight Capital Cost,2029,1629.76
+Wind Onshore,CNZ,Overnight Capital Cost,2030,1599.9
+Wind Onshore,CNZ,Variable O&M Cost,2024,0.53
+Wind Onshore,CNZ,Variable O&M Cost,2025,0.53
+Wind Onshore,CNZ,Variable O&M Cost,2026,0.53
+Wind Onshore,CNZ,Variable O&M Cost,2027,0.53
+Wind Onshore,CNZ,Variable O&M Cost,2028,0.53
+Wind Onshore,CNZ,Variable O&M Cost,2029,0.53
+Wind Onshore,CNZ,Variable O&M Cost,2030,0.53
+Wind Onshore,CNZ,Fixed O&M Cost,2024,59.9
+Wind Onshore,CNZ,Fixed O&M Cost,2025,58.05
+Wind Onshore,CNZ,Fixed O&M Cost,2026,57.49
+Wind Onshore,CNZ,Fixed O&M Cost,2027,56.93
+Wind Onshore,CNZ,Fixed O&M Cost,2028,56.38
+Wind Onshore,CNZ,Fixed O&M Cost,2029,55.82
+Wind Onshore,CNZ,Fixed O&M Cost,2030,55.26
