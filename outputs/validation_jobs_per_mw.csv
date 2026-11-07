@@ -1,0 +1,8 @@
+tech,phase,ours,published,ratio,source
+wind,construction,3.1,2.0,1.55,"Ontario, Wolfe Island project (construction only)"
+wind,construction,3.1,3.3,0.94,"Delphi Group 2017 for CanWEA, Alberta, ~15,000 jobs at ~4,500 MW"
+wind,construction,3.1,10.6,0.29,"Pembina 2015, BC, direct + indirect"
+solar,construction,3.22,11.0,0.29,"Ontario, 9.1 MW solar park (construction only)"
+solar,construction,3.22,28.5,0.11,"Pembina 2015, BC, direct + indirect, 2013-era solar costs"
+wind,operations,0.139,0.37,0.38,"Pembina 2015, BC, direct + indirect, includes a transmission share"
+solar,operations,0.09,0.3,0.3,"Pembina 2015, BC, direct + indirect, includes a transmission share"

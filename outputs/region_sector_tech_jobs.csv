@@ -1,0 +1,1282 @@
+region,sector,tech,jobs
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,21,cogen,0.023
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,21,data_centre,7.942
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,21,distribution_load,0.063
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,21,gas,2.023
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,21,industrial_load,0.087
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,21,other_gen,0.001
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,21,solar,0.272
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,21,solar_storage,0.055
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,21,storage,0.09
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,21,storage_long,0.134
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,21,wind,0.042
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,22,cogen,0.031
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,22,gas,3.182
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,22,solar,0.328
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,22,solar_storage,0.039
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,22,storage,0.416
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,22,storage_long,0.002
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,22,wind,0.034
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,23,cogen,0.492
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,23,data_centre,361.104
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,23,distribution_load,4.64
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,23,gas,143.994
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,23,industrial_load,5.505
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,23,other_gen,0.06
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,23,solar,16.022
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,23,solar_storage,2.922
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,23,storage,5.245
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,23,storage_long,4.768
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,23,wind,2.14
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,31-33,cogen,0.069
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,31-33,data_centre,23.825
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,31-33,distribution_load,0.19
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,31-33,gas,6.07
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,31-33,industrial_load,0.261
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,31-33,other_gen,0.003
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,31-33,solar,0.817
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,31-33,solar_storage,0.166
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,31-33,storage,0.269
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,31-33,storage_long,0.401
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,31-33,wind,0.125
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,41,cogen,0.046
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,41,data_centre,15.883
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,41,distribution_load,0.127
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,41,gas,4.046
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,41,industrial_load,0.174
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,41,other_gen,0.002
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,41,solar,0.545
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,41,solar_storage,0.111
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,41,storage,0.18
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,41,storage_long,0.268
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,41,wind,0.083
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,44-45,cogen,0.047
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,44-45,data_centre,15.977
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,44-45,distribution_load,0.188
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,44-45,gas,5.951
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,44-45,industrial_load,0.258
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,44-45,other_gen,0.003
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,44-45,solar,0.801
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,44-45,solar_storage,0.163
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,44-45,storage,0.261
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,44-45,storage_long,0.282
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,44-45,wind,0.123
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,48-49,cogen,0.069
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,48-49,data_centre,23.889
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,48-49,distribution_load,0.221
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,48-49,gas,7.028
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,48-49,industrial_load,0.303
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,48-49,other_gen,0.004
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,48-49,solar,0.946
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,48-49,solar_storage,0.193
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,48-49,storage,0.31
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,48-49,storage_long,0.409
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,48-49,wind,0.145
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,51,cogen,0.019
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,51,data_centre,11.59
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,51,distribution_load,0.059
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,51,gas,1.88
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,51,industrial_load,0.081
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,51,other_gen,0.001
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,51,solar,0.253
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,51,solar_storage,0.052
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,51,storage,0.083
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,51,storage_long,0.112
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,51,wind,0.039
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,52,cogen,0.045
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,52,data_centre,15.645
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,52,distribution_load,0.142
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,52,gas,4.519
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,52,industrial_load,0.195
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,52,other_gen,0.003
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,52,solar,0.608
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,52,solar_storage,0.124
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,52,storage,0.2
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,52,storage_long,0.267
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,52,wind,0.093
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,53,cogen,0.03
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,53,data_centre,10.461
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,53,distribution_load,0.093
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,53,gas,2.962
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,53,industrial_load,0.128
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,53,other_gen,0.002
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,53,solar,0.399
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,53,solar_storage,0.081
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,53,storage,0.131
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,53,storage_long,0.178
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,53,wind,0.061
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,54,cogen,0.138
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,54,data_centre,47.65
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,54,distribution_load,0.381
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,54,gas,12.139
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,54,industrial_load,0.523
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,54,other_gen,0.007
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,54,solar,1.634
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,54,solar_storage,0.332
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,54,storage,0.539
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,54,storage_long,0.803
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,54,wind,0.25
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,56,cogen,0.046
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,56,data_centre,15.883
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,56,distribution_load,0.127
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,56,gas,4.046
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,56,industrial_load,0.174
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,56,other_gen,0.002
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,56,solar,0.545
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,56,solar_storage,0.111
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,56,storage,0.18
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,56,storage_long,0.268
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,56,wind,0.083
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,61,cogen,0.028
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,61,data_centre,9.659
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,61,distribution_load,0.113
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,61,gas,3.598
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,61,industrial_load,0.156
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,61,other_gen,0.002
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,61,solar,0.484
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,61,solar_storage,0.099
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,61,storage,0.158
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,61,storage_long,0.17
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,61,wind,0.074
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,62,cogen,0.055
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,62,data_centre,18.682
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,62,distribution_load,0.219
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,62,gas,6.959
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,62,industrial_load,0.301
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,62,other_gen,0.004
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,62,solar,0.936
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,62,solar_storage,0.191
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,62,storage,0.305
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,62,storage_long,0.329
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,62,wind,0.143
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,71,cogen,0.006
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,71,data_centre,2.068
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,71,distribution_load,0.024
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,71,gas,0.77
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,71,industrial_load,0.033
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,71,other_gen,0.0
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,71,solar,0.104
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,71,solar_storage,0.021
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,71,storage,0.034
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,71,storage_long,0.036
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,71,wind,0.016
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,72,cogen,0.021
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,72,data_centre,7.259
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,72,distribution_load,0.085
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,72,gas,2.704
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,72,industrial_load,0.117
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,72,other_gen,0.002
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,72,solar,0.364
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,72,solar_storage,0.074
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,72,storage,0.118
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,72,storage_long,0.128
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,72,wind,0.056
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,81,cogen,0.042
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,81,data_centre,14.354
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,81,distribution_load,0.139
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,81,gas,4.412
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,81,industrial_load,0.191
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,81,other_gen,0.002
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,81,solar,0.594
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,81,solar_storage,0.121
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,81,storage,0.194
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,81,storage_long,0.247
+Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,81,wind,0.091
+Calgary,21,cogen,0.158
+Calgary,21,data_centre,38.491
+Calgary,21,distribution_load,0.211
+Calgary,21,gas,2.425
+Calgary,21,industrial_load,0.327
+Calgary,21,other_gen,0.006
+Calgary,21,solar,1.559
+Calgary,21,solar_storage,0.3
+Calgary,21,storage,0.383
+Calgary,21,storage_long,0.742
+Calgary,21,wind,0.231
+Calgary,22,cogen,0.279
+Calgary,22,gas,1.908
+Calgary,22,solar,2.609
+Calgary,22,solar_storage,0.239
+Calgary,22,storage,2.791
+Calgary,22,storage_long,0.011
+Calgary,22,wind,0.187
+Calgary,23,cogen,3.667
+Calgary,23,data_centre,1701.083
+Calgary,23,distribution_load,14.504
+Calgary,23,gas,129.938
+Calgary,23,industrial_load,18.123
+Calgary,23,other_gen,0.335
+Calgary,23,solar,91.203
+Calgary,23,solar_storage,15.627
+Calgary,23,storage,19.01
+Calgary,23,storage_long,26.428
+Calgary,23,wind,11.862
+Calgary,31-33,cogen,0.473
+Calgary,31-33,data_centre,115.474
+Calgary,31-33,distribution_load,0.632
+Calgary,31-33,gas,7.276
+Calgary,31-33,industrial_load,0.981
+Calgary,31-33,other_gen,0.019
+Calgary,31-33,solar,4.677
+Calgary,31-33,solar_storage,0.901
+Calgary,31-33,storage,1.149
+Calgary,31-33,storage_long,2.225
+Calgary,31-33,wind,0.692
+Calgary,41,cogen,0.316
+Calgary,41,data_centre,76.983
+Calgary,41,distribution_load,0.421
+Calgary,41,gas,4.85
+Calgary,41,industrial_load,0.654
+Calgary,41,other_gen,0.013
+Calgary,41,solar,3.118
+Calgary,41,solar_storage,0.601
+Calgary,41,storage,0.766
+Calgary,41,storage_long,1.483
+Calgary,41,wind,0.461
+Calgary,44-45,cogen,0.321
+Calgary,44-45,data_centre,77.188
+Calgary,44-45,distribution_load,0.623
+Calgary,44-45,gas,7.145
+Calgary,44-45,industrial_load,0.968
+Calgary,44-45,other_gen,0.019
+Calgary,44-45,solar,4.577
+Calgary,44-45,solar_storage,0.885
+Calgary,44-45,storage,1.101
+Calgary,44-45,storage_long,1.561
+Calgary,44-45,wind,0.68
+Calgary,48-49,cogen,0.476
+Calgary,48-49,data_centre,115.662
+Calgary,48-49,distribution_load,0.733
+Calgary,48-49,gas,8.431
+Calgary,48-49,industrial_load,1.139
+Calgary,48-49,other_gen,0.022
+Calgary,48-49,solar,5.411
+Calgary,48-49,solar_storage,1.044
+Calgary,48-49,storage,1.318
+Calgary,48-49,storage_long,2.265
+Calgary,48-49,wind,0.802
+Calgary,51,cogen,0.131
+Calgary,51,data_centre,45.363
+Calgary,51,distribution_load,0.196
+Calgary,51,gas,2.255
+Calgary,51,industrial_load,0.305
+Calgary,51,other_gen,0.006
+Calgary,51,solar,1.448
+Calgary,51,solar_storage,0.279
+Calgary,51,storage,0.353
+Calgary,51,storage_long,0.62
+Calgary,51,wind,0.215
+Calgary,52,cogen,0.312
+Calgary,52,data_centre,75.759
+Calgary,52,distribution_load,0.471
+Calgary,52,gas,5.42
+Calgary,52,industrial_load,0.732
+Calgary,52,other_gen,0.014
+Calgary,52,solar,3.479
+Calgary,52,solar_storage,0.671
+Calgary,52,storage,0.848
+Calgary,52,storage_long,1.48
+Calgary,52,wind,0.516
+Calgary,53,cogen,0.208
+Calgary,53,data_centre,50.663
+Calgary,53,distribution_load,0.309
+Calgary,53,gas,3.552
+Calgary,53,industrial_load,0.48
+Calgary,53,other_gen,0.009
+Calgary,53,solar,2.281
+Calgary,53,solar_storage,0.44
+Calgary,53,storage,0.557
+Calgary,53,storage_long,0.988
+Calgary,53,wind,0.338
+Calgary,54,cogen,0.947
+Calgary,54,data_centre,230.948
+Calgary,54,distribution_load,1.263
+Calgary,54,gas,14.551
+Calgary,54,industrial_load,1.963
+Calgary,54,other_gen,0.038
+Calgary,54,solar,9.354
+Calgary,54,solar_storage,1.803
+Calgary,54,storage,2.297
+Calgary,54,storage_long,4.45
+Calgary,54,wind,1.384
+Calgary,56,cogen,0.316
+Calgary,56,data_centre,76.983
+Calgary,56,distribution_load,0.421
+Calgary,56,gas,4.85
+Calgary,56,industrial_load,0.654
+Calgary,56,other_gen,0.013
+Calgary,56,solar,3.118
+Calgary,56,solar_storage,0.601
+Calgary,56,storage,0.766
+Calgary,56,storage_long,1.483
+Calgary,56,wind,0.461
+Calgary,61,cogen,0.194
+Calgary,61,data_centre,46.667
+Calgary,61,distribution_load,0.377
+Calgary,61,gas,4.32
+Calgary,61,industrial_load,0.585
+Calgary,61,other_gen,0.011
+Calgary,61,solar,2.767
+Calgary,61,solar_storage,0.535
+Calgary,61,storage,0.666
+Calgary,61,storage_long,0.944
+Calgary,61,wind,0.411
+Calgary,62,cogen,0.375
+Calgary,62,data_centre,90.256
+Calgary,62,distribution_load,0.728
+Calgary,62,gas,8.355
+Calgary,62,industrial_load,1.131
+Calgary,62,other_gen,0.022
+Calgary,62,solar,5.351
+Calgary,62,solar_storage,1.035
+Calgary,62,storage,1.287
+Calgary,62,storage_long,1.825
+Calgary,62,wind,0.795
+Calgary,71,cogen,0.042
+Calgary,71,data_centre,9.99
+Calgary,71,distribution_load,0.081
+Calgary,71,gas,0.925
+Calgary,71,industrial_load,0.125
+Calgary,71,other_gen,0.002
+Calgary,71,solar,0.592
+Calgary,71,solar_storage,0.115
+Calgary,71,storage,0.143
+Calgary,71,storage_long,0.202
+Calgary,71,wind,0.088
+Calgary,72,cogen,0.146
+Calgary,72,data_centre,35.072
+Calgary,72,distribution_load,0.283
+Calgary,72,gas,3.246
+Calgary,72,industrial_load,0.44
+Calgary,72,other_gen,0.009
+Calgary,72,solar,2.079
+Calgary,72,solar_storage,0.402
+Calgary,72,storage,0.5
+Calgary,72,storage_long,0.709
+Calgary,72,wind,0.309
+Calgary,81,cogen,0.287
+Calgary,81,data_centre,69.472
+Calgary,81,distribution_load,0.461
+Calgary,81,gas,5.293
+Calgary,81,industrial_load,0.716
+Calgary,81,other_gen,0.014
+Calgary,81,solar,3.396
+Calgary,81,solar_storage,0.656
+Calgary,81,storage,0.825
+Calgary,81,storage_long,1.368
+Calgary,81,wind,0.503
+Camrose-Drumheller,21,cogen,0.013
+Camrose-Drumheller,21,data_centre,4.164
+Camrose-Drumheller,21,distribution_load,0.009
+Camrose-Drumheller,21,gas,0.24
+Camrose-Drumheller,21,industrial_load,0.039
+Camrose-Drumheller,21,other_gen,0.001
+Camrose-Drumheller,21,solar,0.478
+Camrose-Drumheller,21,solar_storage,0.473
+Camrose-Drumheller,21,storage,0.072
+Camrose-Drumheller,21,storage_long,0.078
+Camrose-Drumheller,21,wind,0.418
+Camrose-Drumheller,22,cogen,0.018
+Camrose-Drumheller,22,gas,0.214
+Camrose-Drumheller,22,solar,0.691
+Camrose-Drumheller,22,solar_storage,0.201
+Camrose-Drumheller,22,storage,0.368
+Camrose-Drumheller,22,storage_long,0.001
+Camrose-Drumheller,22,wind,0.185
+Camrose-Drumheller,23,cogen,0.287
+Camrose-Drumheller,23,data_centre,184.565
+Camrose-Drumheller,23,distribution_load,0.47
+Camrose-Drumheller,23,gas,12.463
+Camrose-Drumheller,23,industrial_load,2.26
+Camrose-Drumheller,23,other_gen,0.035
+Camrose-Drumheller,23,solar,33.733
+Camrose-Drumheller,23,solar_storage,36.411
+Camrose-Drumheller,23,storage,4.402
+Camrose-Drumheller,23,storage_long,2.783
+Camrose-Drumheller,23,wind,32.255
+Camrose-Drumheller,31-33,cogen,0.04
+Camrose-Drumheller,31-33,data_centre,12.491
+Camrose-Drumheller,31-33,distribution_load,0.027
+Camrose-Drumheller,31-33,gas,0.721
+Camrose-Drumheller,31-33,industrial_load,0.117
+Camrose-Drumheller,31-33,other_gen,0.002
+Camrose-Drumheller,31-33,solar,1.434
+Camrose-Drumheller,31-33,solar_storage,1.42
+Camrose-Drumheller,31-33,storage,0.217
+Camrose-Drumheller,31-33,storage_long,0.234
+Camrose-Drumheller,31-33,wind,1.255
+Camrose-Drumheller,41,cogen,0.027
+Camrose-Drumheller,41,data_centre,8.328
+Camrose-Drumheller,41,distribution_load,0.018
+Camrose-Drumheller,41,gas,0.481
+Camrose-Drumheller,41,industrial_load,0.078
+Camrose-Drumheller,41,other_gen,0.001
+Camrose-Drumheller,41,solar,0.956
+Camrose-Drumheller,41,solar_storage,0.947
+Camrose-Drumheller,41,storage,0.145
+Camrose-Drumheller,41,storage_long,0.156
+Camrose-Drumheller,41,wind,0.837
+Camrose-Drumheller,44-45,cogen,0.027
+Camrose-Drumheller,44-45,data_centre,8.379
+Camrose-Drumheller,44-45,distribution_load,0.026
+Camrose-Drumheller,44-45,gas,0.708
+Camrose-Drumheller,44-45,industrial_load,0.115
+Camrose-Drumheller,44-45,other_gen,0.002
+Camrose-Drumheller,44-45,solar,1.406
+Camrose-Drumheller,44-45,solar_storage,1.398
+Camrose-Drumheller,44-45,storage,0.21
+Camrose-Drumheller,44-45,storage_long,0.164
+Camrose-Drumheller,44-45,wind,1.236
+Camrose-Drumheller,48-49,cogen,0.04
+Camrose-Drumheller,48-49,data_centre,12.526
+Camrose-Drumheller,48-49,distribution_load,0.031
+Camrose-Drumheller,48-49,gas,0.835
+Camrose-Drumheller,48-49,industrial_load,0.135
+Camrose-Drumheller,48-49,other_gen,0.002
+Camrose-Drumheller,48-49,solar,1.66
+Camrose-Drumheller,48-49,solar_storage,1.647
+Camrose-Drumheller,48-49,storage,0.25
+Camrose-Drumheller,48-49,storage_long,0.239
+Camrose-Drumheller,48-49,wind,1.456
+Camrose-Drumheller,51,cogen,0.011
+Camrose-Drumheller,51,data_centre,6.134
+Camrose-Drumheller,51,distribution_load,0.008
+Camrose-Drumheller,51,gas,0.223
+Camrose-Drumheller,51,industrial_load,0.036
+Camrose-Drumheller,51,other_gen,0.001
+Camrose-Drumheller,51,solar,0.444
+Camrose-Drumheller,51,solar_storage,0.441
+Camrose-Drumheller,51,storage,0.067
+Camrose-Drumheller,51,storage_long,0.065
+Camrose-Drumheller,51,wind,0.389
+Camrose-Drumheller,52,cogen,0.027
+Camrose-Drumheller,52,data_centre,8.204
+Camrose-Drumheller,52,distribution_load,0.02
+Camrose-Drumheller,52,gas,0.537
+Camrose-Drumheller,52,industrial_load,0.087
+Camrose-Drumheller,52,other_gen,0.001
+Camrose-Drumheller,52,solar,1.067
+Camrose-Drumheller,52,solar_storage,1.059
+Camrose-Drumheller,52,storage,0.161
+Camrose-Drumheller,52,storage_long,0.156
+Camrose-Drumheller,52,wind,0.936
+Camrose-Drumheller,53,cogen,0.018
+Camrose-Drumheller,53,data_centre,5.485
+Camrose-Drumheller,53,distribution_load,0.013
+Camrose-Drumheller,53,gas,0.352
+Camrose-Drumheller,53,industrial_load,0.057
+Camrose-Drumheller,53,other_gen,0.001
+Camrose-Drumheller,53,solar,0.7
+Camrose-Drumheller,53,solar_storage,0.694
+Camrose-Drumheller,53,storage,0.105
+Camrose-Drumheller,53,storage_long,0.104
+Camrose-Drumheller,53,wind,0.613
+Camrose-Drumheller,54,cogen,0.081
+Camrose-Drumheller,54,data_centre,24.983
+Camrose-Drumheller,54,distribution_load,0.053
+Camrose-Drumheller,54,gas,1.442
+Camrose-Drumheller,54,industrial_load,0.233
+Camrose-Drumheller,54,other_gen,0.004
+Camrose-Drumheller,54,solar,2.867
+Camrose-Drumheller,54,solar_storage,2.84
+Camrose-Drumheller,54,storage,0.434
+Camrose-Drumheller,54,storage_long,0.469
+Camrose-Drumheller,54,wind,2.511
+Camrose-Drumheller,56,cogen,0.027
+Camrose-Drumheller,56,data_centre,8.328
+Camrose-Drumheller,56,distribution_load,0.018
+Camrose-Drumheller,56,gas,0.481
+Camrose-Drumheller,56,industrial_load,0.078
+Camrose-Drumheller,56,other_gen,0.001
+Camrose-Drumheller,56,solar,0.956
+Camrose-Drumheller,56,solar_storage,0.947
+Camrose-Drumheller,56,storage,0.145
+Camrose-Drumheller,56,storage_long,0.156
+Camrose-Drumheller,56,wind,0.837
+Camrose-Drumheller,61,cogen,0.016
+Camrose-Drumheller,61,data_centre,5.066
+Camrose-Drumheller,61,distribution_load,0.016
+Camrose-Drumheller,61,gas,0.428
+Camrose-Drumheller,61,industrial_load,0.07
+Camrose-Drumheller,61,other_gen,0.001
+Camrose-Drumheller,61,solar,0.85
+Camrose-Drumheller,61,solar_storage,0.845
+Camrose-Drumheller,61,storage,0.127
+Camrose-Drumheller,61,storage_long,0.099
+Camrose-Drumheller,61,wind,0.747
+Camrose-Drumheller,62,cogen,0.032
+Camrose-Drumheller,62,data_centre,9.798
+Camrose-Drumheller,62,distribution_load,0.031
+Camrose-Drumheller,62,gas,0.828
+Camrose-Drumheller,62,industrial_load,0.134
+Camrose-Drumheller,62,other_gen,0.002
+Camrose-Drumheller,62,solar,1.644
+Camrose-Drumheller,62,solar_storage,1.635
+Camrose-Drumheller,62,storage,0.245
+Camrose-Drumheller,62,storage_long,0.192
+Camrose-Drumheller,62,wind,1.445
+Camrose-Drumheller,71,cogen,0.004
+Camrose-Drumheller,71,data_centre,1.084
+Camrose-Drumheller,71,distribution_load,0.003
+Camrose-Drumheller,71,gas,0.092
+Camrose-Drumheller,71,industrial_load,0.015
+Camrose-Drumheller,71,other_gen,0.0
+Camrose-Drumheller,71,solar,0.182
+Camrose-Drumheller,71,solar_storage,0.181
+Camrose-Drumheller,71,storage,0.027
+Camrose-Drumheller,71,storage_long,0.021
+Camrose-Drumheller,71,wind,0.16
+Camrose-Drumheller,72,cogen,0.012
+Camrose-Drumheller,72,data_centre,3.807
+Camrose-Drumheller,72,distribution_load,0.012
+Camrose-Drumheller,72,gas,0.322
+Camrose-Drumheller,72,industrial_load,0.052
+Camrose-Drumheller,72,other_gen,0.001
+Camrose-Drumheller,72,solar,0.639
+Camrose-Drumheller,72,solar_storage,0.635
+Camrose-Drumheller,72,storage,0.095
+Camrose-Drumheller,72,storage_long,0.075
+Camrose-Drumheller,72,wind,0.561
+Camrose-Drumheller,81,cogen,0.024
+Camrose-Drumheller,81,data_centre,7.527
+Camrose-Drumheller,81,distribution_load,0.019
+Camrose-Drumheller,81,gas,0.524
+Camrose-Drumheller,81,industrial_load,0.085
+Camrose-Drumheller,81,other_gen,0.001
+Camrose-Drumheller,81,solar,1.042
+Camrose-Drumheller,81,solar_storage,1.034
+Camrose-Drumheller,81,storage,0.157
+Camrose-Drumheller,81,storage_long,0.144
+Camrose-Drumheller,81,wind,0.914
+Edmonton,21,cogen,0.238
+Edmonton,21,data_centre,49.141
+Edmonton,21,distribution_load,0.103
+Edmonton,21,gas,4.985
+Edmonton,21,industrial_load,0.838
+Edmonton,21,other_gen,0.021
+Edmonton,21,solar,0.995
+Edmonton,21,solar_storage,0.289
+Edmonton,21,storage,0.218
+Edmonton,21,storage_long,0.628
+Edmonton,21,wind,0.195
+Edmonton,22,cogen,0.684
+Edmonton,22,gas,5.206
+Edmonton,22,solar,1.738
+Edmonton,22,solar_storage,0.187
+Edmonton,22,storage,0.764
+Edmonton,22,storage_long,0.009
+Edmonton,22,wind,0.158
+Edmonton,23,cogen,6.266
+Edmonton,23,data_centre,2359.97
+Edmonton,23,distribution_load,6.31
+Edmonton,23,gas,336.06
+Edmonton,23,industrial_load,59.948
+Edmonton,23,other_gen,1.528
+Edmonton,23,solar,52.276
+Edmonton,23,solar_storage,16.011
+Edmonton,23,storage,10.747
+Edmonton,23,storage_long,22.378
+Edmonton,23,wind,10.044
+Edmonton,31-33,cogen,0.714
+Edmonton,31-33,data_centre,147.424
+Edmonton,31-33,distribution_load,0.31
+Edmonton,31-33,gas,14.954
+Edmonton,31-33,industrial_load,2.515
+Edmonton,31-33,other_gen,0.063
+Edmonton,31-33,solar,2.984
+Edmonton,31-33,solar_storage,0.867
+Edmonton,31-33,storage,0.654
+Edmonton,31-33,storage_long,1.884
+Edmonton,31-33,wind,0.586
+Edmonton,41,cogen,0.476
+Edmonton,41,data_centre,98.283
+Edmonton,41,distribution_load,0.206
+Edmonton,41,gas,9.969
+Edmonton,41,industrial_load,1.676
+Edmonton,41,other_gen,0.042
+Edmonton,41,solar,1.989
+Edmonton,41,solar_storage,0.578
+Edmonton,41,storage,0.436
+Edmonton,41,storage_long,1.256
+Edmonton,41,wind,0.391
+Edmonton,44-45,cogen,0.487
+Edmonton,44-45,data_centre,98.566
+Edmonton,44-45,distribution_load,0.305
+Edmonton,44-45,gas,14.684
+Edmonton,44-45,industrial_load,2.479
+Edmonton,44-45,other_gen,0.062
+Edmonton,44-45,solar,2.917
+Edmonton,44-45,solar_storage,0.852
+Edmonton,44-45,storage,0.634
+Edmonton,44-45,storage_long,1.321
+Edmonton,44-45,wind,0.575
+Edmonton,48-49,cogen,0.72
+Edmonton,48-49,data_centre,147.675
+Edmonton,48-49,distribution_load,0.359
+Edmonton,48-49,gas,17.328
+Edmonton,48-49,industrial_load,2.919
+Edmonton,48-49,other_gen,0.073
+Edmonton,48-49,solar,3.451
+Edmonton,48-49,solar_storage,1.005
+Edmonton,48-49,storage,0.754
+Edmonton,48-49,storage_long,1.918
+Edmonton,48-49,wind,0.679
+Edmonton,51,cogen,0.197
+Edmonton,51,data_centre,60.633
+Edmonton,51,distribution_load,0.096
+Edmonton,51,gas,4.635
+Edmonton,51,industrial_load,0.781
+Edmonton,51,other_gen,0.02
+Edmonton,51,solar,0.924
+Edmonton,51,solar_storage,0.269
+Edmonton,51,storage,0.202
+Edmonton,51,storage_long,0.525
+Edmonton,51,wind,0.182
+Edmonton,52,cogen,0.471
+Edmonton,52,data_centre,96.726
+Edmonton,52,distribution_load,0.231
+Edmonton,52,gas,11.139
+Edmonton,52,industrial_load,1.876
+Edmonton,52,other_gen,0.047
+Edmonton,52,solar,2.219
+Edmonton,52,solar_storage,0.646
+Edmonton,52,storage,0.485
+Edmonton,52,storage_long,1.254
+Edmonton,52,wind,0.436
+Edmonton,53,cogen,0.315
+Edmonton,53,data_centre,64.684
+Edmonton,53,distribution_load,0.151
+Edmonton,53,gas,7.3
+Edmonton,53,industrial_load,1.229
+Edmonton,53,other_gen,0.031
+Edmonton,53,solar,1.455
+Edmonton,53,solar_storage,0.423
+Edmonton,53,storage,0.318
+Edmonton,53,storage_long,0.836
+Edmonton,53,wind,0.286
+Edmonton,54,cogen,1.428
+Edmonton,54,data_centre,294.848
+Edmonton,54,distribution_load,0.619
+Edmonton,54,gas,29.908
+Edmonton,54,industrial_load,5.029
+Edmonton,54,other_gen,0.126
+Edmonton,54,solar,5.968
+Edmonton,54,solar_storage,1.734
+Edmonton,54,storage,1.309
+Edmonton,54,storage_long,3.768
+Edmonton,54,wind,1.172
+Edmonton,56,cogen,0.476
+Edmonton,56,data_centre,98.283
+Edmonton,56,distribution_load,0.206
+Edmonton,56,gas,9.969
+Edmonton,56,industrial_load,1.676
+Edmonton,56,other_gen,0.042
+Edmonton,56,solar,1.989
+Edmonton,56,solar_storage,0.578
+Edmonton,56,storage,0.436
+Edmonton,56,storage_long,1.256
+Edmonton,56,wind,0.391
+Edmonton,61,cogen,0.294
+Edmonton,61,data_centre,59.592
+Edmonton,61,distribution_load,0.185
+Edmonton,61,gas,8.878
+Edmonton,61,industrial_load,1.499
+Edmonton,61,other_gen,0.038
+Edmonton,61,solar,1.764
+Edmonton,61,solar_storage,0.515
+Edmonton,61,storage,0.383
+Edmonton,61,storage_long,0.799
+Edmonton,61,wind,0.348
+Edmonton,62,cogen,0.569
+Edmonton,62,data_centre,115.254
+Edmonton,62,distribution_load,0.357
+Edmonton,62,gas,17.17
+Edmonton,62,industrial_load,2.899
+Edmonton,62,other_gen,0.073
+Edmonton,62,solar,3.411
+Edmonton,62,solar_storage,0.996
+Edmonton,62,storage,0.742
+Edmonton,62,storage_long,1.545
+Edmonton,62,wind,0.673
+Edmonton,71,cogen,0.063
+Edmonton,71,data_centre,12.757
+Edmonton,71,distribution_load,0.039
+Edmonton,71,gas,1.9
+Edmonton,71,industrial_load,0.321
+Edmonton,71,other_gen,0.008
+Edmonton,71,solar,0.378
+Edmonton,71,solar_storage,0.11
+Edmonton,71,storage,0.082
+Edmonton,71,storage_long,0.171
+Edmonton,71,wind,0.074
+Edmonton,72,cogen,0.221
+Edmonton,72,data_centre,44.785
+Edmonton,72,distribution_load,0.139
+Edmonton,72,gas,6.672
+Edmonton,72,industrial_load,1.126
+Edmonton,72,other_gen,0.028
+Edmonton,72,solar,1.326
+Edmonton,72,solar_storage,0.387
+Edmonton,72,storage,0.288
+Edmonton,72,storage_long,0.6
+Edmonton,72,wind,0.261
+Edmonton,81,cogen,0.433
+Edmonton,81,data_centre,88.703
+Edmonton,81,distribution_load,0.226
+Edmonton,81,gas,10.878
+Edmonton,81,industrial_load,1.833
+Edmonton,81,other_gen,0.046
+Edmonton,81,solar,2.166
+Edmonton,81,solar_storage,0.631
+Edmonton,81,storage,0.473
+Edmonton,81,storage_long,1.158
+Edmonton,81,wind,0.426
+Lethbridge-Medicine Hat,21,cogen,0.029
+Lethbridge-Medicine Hat,21,data_centre,8.776
+Lethbridge-Medicine Hat,21,distribution_load,0.013
+Lethbridge-Medicine Hat,21,gas,0.525
+Lethbridge-Medicine Hat,21,industrial_load,0.045
+Lethbridge-Medicine Hat,21,other_gen,0.001
+Lethbridge-Medicine Hat,21,solar,1.648
+Lethbridge-Medicine Hat,21,solar_storage,0.28
+Lethbridge-Medicine Hat,21,storage,0.248
+Lethbridge-Medicine Hat,21,storage_long,0.111
+Lethbridge-Medicine Hat,21,wind,0.211
+Lethbridge-Medicine Hat,22,cogen,0.026
+Lethbridge-Medicine Hat,22,gas,0.665
+Lethbridge-Medicine Hat,22,solar,5.526
+Lethbridge-Medicine Hat,22,solar_storage,0.639
+Lethbridge-Medicine Hat,22,storage,0.522
+Lethbridge-Medicine Hat,22,storage_long,0.002
+Lethbridge-Medicine Hat,22,wind,0.557
+Lethbridge-Medicine Hat,23,cogen,0.737
+Lethbridge-Medicine Hat,23,data_centre,419.712
+Lethbridge-Medicine Hat,23,distribution_load,0.669
+Lethbridge-Medicine Hat,23,gas,31.58
+Lethbridge-Medicine Hat,23,industrial_load,2.362
+Lethbridge-Medicine Hat,23,other_gen,0.05
+Lethbridge-Medicine Hat,23,solar,116.204
+Lethbridge-Medicine Hat,23,solar_storage,19.841
+Lethbridge-Medicine Hat,23,storage,17.785
+Lethbridge-Medicine Hat,23,storage_long,3.962
+Lethbridge-Medicine Hat,23,wind,14.812
+Lethbridge-Medicine Hat,31-33,cogen,0.086
+Lethbridge-Medicine Hat,31-33,data_centre,26.329
+Lethbridge-Medicine Hat,31-33,distribution_load,0.038
+Lethbridge-Medicine Hat,31-33,gas,1.575
+Lethbridge-Medicine Hat,31-33,industrial_load,0.134
+Lethbridge-Medicine Hat,31-33,other_gen,0.003
+Lethbridge-Medicine Hat,31-33,solar,4.945
+Lethbridge-Medicine Hat,31-33,solar_storage,0.84
+Lethbridge-Medicine Hat,31-33,storage,0.744
+Lethbridge-Medicine Hat,31-33,storage_long,0.334
+Lethbridge-Medicine Hat,31-33,wind,0.634
+Lethbridge-Medicine Hat,41,cogen,0.058
+Lethbridge-Medicine Hat,41,data_centre,17.553
+Lethbridge-Medicine Hat,41,distribution_load,0.025
+Lethbridge-Medicine Hat,41,gas,1.05
+Lethbridge-Medicine Hat,41,industrial_load,0.089
+Lethbridge-Medicine Hat,41,other_gen,0.002
+Lethbridge-Medicine Hat,41,solar,3.297
+Lethbridge-Medicine Hat,41,solar_storage,0.56
+Lethbridge-Medicine Hat,41,storage,0.496
+Lethbridge-Medicine Hat,41,storage_long,0.222
+Lethbridge-Medicine Hat,41,wind,0.423
+Lethbridge-Medicine Hat,44-45,cogen,0.058
+Lethbridge-Medicine Hat,44-45,data_centre,17.699
+Lethbridge-Medicine Hat,44-45,distribution_load,0.037
+Lethbridge-Medicine Hat,44-45,gas,1.545
+Lethbridge-Medicine Hat,44-45,industrial_load,0.132
+Lethbridge-Medicine Hat,44-45,other_gen,0.003
+Lethbridge-Medicine Hat,44-45,solar,4.82
+Lethbridge-Medicine Hat,44-45,solar_storage,0.821
+Lethbridge-Medicine Hat,44-45,storage,0.727
+Lethbridge-Medicine Hat,44-45,storage_long,0.234
+Lethbridge-Medicine Hat,44-45,wind,0.62
+Lethbridge-Medicine Hat,48-49,cogen,0.087
+Lethbridge-Medicine Hat,48-49,data_centre,26.422
+Lethbridge-Medicine Hat,48-49,distribution_load,0.044
+Lethbridge-Medicine Hat,48-49,gas,1.824
+Lethbridge-Medicine Hat,48-49,industrial_load,0.155
+Lethbridge-Medicine Hat,48-49,other_gen,0.003
+Lethbridge-Medicine Hat,48-49,solar,5.712
+Lethbridge-Medicine Hat,48-49,solar_storage,0.971
+Lethbridge-Medicine Hat,48-49,storage,0.86
+Lethbridge-Medicine Hat,48-49,storage_long,0.34
+Lethbridge-Medicine Hat,48-49,wind,0.733
+Lethbridge-Medicine Hat,51,cogen,0.024
+Lethbridge-Medicine Hat,51,data_centre,14.808
+Lethbridge-Medicine Hat,51,distribution_load,0.012
+Lethbridge-Medicine Hat,51,gas,0.488
+Lethbridge-Medicine Hat,51,industrial_load,0.042
+Lethbridge-Medicine Hat,51,other_gen,0.001
+Lethbridge-Medicine Hat,51,solar,1.529
+Lethbridge-Medicine Hat,51,solar_storage,0.26
+Lethbridge-Medicine Hat,51,storage,0.23
+Lethbridge-Medicine Hat,51,storage_long,0.093
+Lethbridge-Medicine Hat,51,wind,0.196
+Lethbridge-Medicine Hat,52,cogen,0.057
+Lethbridge-Medicine Hat,52,data_centre,17.302
+Lethbridge-Medicine Hat,52,distribution_load,0.028
+Lethbridge-Medicine Hat,52,gas,1.173
+Lethbridge-Medicine Hat,52,industrial_load,0.1
+Lethbridge-Medicine Hat,52,other_gen,0.002
+Lethbridge-Medicine Hat,52,solar,3.673
+Lethbridge-Medicine Hat,52,solar_storage,0.624
+Lethbridge-Medicine Hat,52,storage,0.553
+Lethbridge-Medicine Hat,52,storage_long,0.222
+Lethbridge-Medicine Hat,52,wind,0.472
+Lethbridge-Medicine Hat,53,cogen,0.038
+Lethbridge-Medicine Hat,53,data_centre,11.567
+Lethbridge-Medicine Hat,53,distribution_load,0.019
+Lethbridge-Medicine Hat,53,gas,0.769
+Lethbridge-Medicine Hat,53,industrial_load,0.065
+Lethbridge-Medicine Hat,53,other_gen,0.001
+Lethbridge-Medicine Hat,53,solar,2.408
+Lethbridge-Medicine Hat,53,solar_storage,0.409
+Lethbridge-Medicine Hat,53,storage,0.363
+Lethbridge-Medicine Hat,53,storage_long,0.148
+Lethbridge-Medicine Hat,53,wind,0.309
+Lethbridge-Medicine Hat,54,cogen,0.173
+Lethbridge-Medicine Hat,54,data_centre,52.658
+Lethbridge-Medicine Hat,54,distribution_load,0.076
+Lethbridge-Medicine Hat,54,gas,3.15
+Lethbridge-Medicine Hat,54,industrial_load,0.267
+Lethbridge-Medicine Hat,54,other_gen,0.006
+Lethbridge-Medicine Hat,54,solar,9.89
+Lethbridge-Medicine Hat,54,solar_storage,1.679
+Lethbridge-Medicine Hat,54,storage,1.487
+Lethbridge-Medicine Hat,54,storage_long,0.667
+Lethbridge-Medicine Hat,54,wind,1.268
+Lethbridge-Medicine Hat,56,cogen,0.058
+Lethbridge-Medicine Hat,56,data_centre,17.553
+Lethbridge-Medicine Hat,56,distribution_load,0.025
+Lethbridge-Medicine Hat,56,gas,1.05
+Lethbridge-Medicine Hat,56,industrial_load,0.089
+Lethbridge-Medicine Hat,56,other_gen,0.002
+Lethbridge-Medicine Hat,56,solar,3.297
+Lethbridge-Medicine Hat,56,solar_storage,0.56
+Lethbridge-Medicine Hat,56,storage,0.496
+Lethbridge-Medicine Hat,56,storage_long,0.222
+Lethbridge-Medicine Hat,56,wind,0.423
+Lethbridge-Medicine Hat,61,cogen,0.035
+Lethbridge-Medicine Hat,61,data_centre,10.701
+Lethbridge-Medicine Hat,61,distribution_load,0.023
+Lethbridge-Medicine Hat,61,gas,0.934
+Lethbridge-Medicine Hat,61,industrial_load,0.08
+Lethbridge-Medicine Hat,61,other_gen,0.002
+Lethbridge-Medicine Hat,61,solar,2.914
+Lethbridge-Medicine Hat,61,solar_storage,0.497
+Lethbridge-Medicine Hat,61,storage,0.44
+Lethbridge-Medicine Hat,61,storage_long,0.141
+Lethbridge-Medicine Hat,61,wind,0.375
+Lethbridge-Medicine Hat,62,cogen,0.068
+Lethbridge-Medicine Hat,62,data_centre,20.695
+Lethbridge-Medicine Hat,62,distribution_load,0.044
+Lethbridge-Medicine Hat,62,gas,1.806
+Lethbridge-Medicine Hat,62,industrial_load,0.154
+Lethbridge-Medicine Hat,62,other_gen,0.003
+Lethbridge-Medicine Hat,62,solar,5.636
+Lethbridge-Medicine Hat,62,solar_storage,0.96
+Lethbridge-Medicine Hat,62,storage,0.85
+Lethbridge-Medicine Hat,62,storage_long,0.274
+Lethbridge-Medicine Hat,62,wind,0.725
+Lethbridge-Medicine Hat,71,cogen,0.008
+Lethbridge-Medicine Hat,71,data_centre,2.291
+Lethbridge-Medicine Hat,71,distribution_load,0.005
+Lethbridge-Medicine Hat,71,gas,0.2
+Lethbridge-Medicine Hat,71,industrial_load,0.017
+Lethbridge-Medicine Hat,71,other_gen,0.0
+Lethbridge-Medicine Hat,71,solar,0.624
+Lethbridge-Medicine Hat,71,solar_storage,0.106
+Lethbridge-Medicine Hat,71,storage,0.094
+Lethbridge-Medicine Hat,71,storage_long,0.03
+Lethbridge-Medicine Hat,71,wind,0.08
+Lethbridge-Medicine Hat,72,cogen,0.026
+Lethbridge-Medicine Hat,72,data_centre,8.042
+Lethbridge-Medicine Hat,72,distribution_load,0.017
+Lethbridge-Medicine Hat,72,gas,0.702
+Lethbridge-Medicine Hat,72,industrial_load,0.06
+Lethbridge-Medicine Hat,72,other_gen,0.001
+Lethbridge-Medicine Hat,72,solar,2.19
+Lethbridge-Medicine Hat,72,solar_storage,0.373
+Lethbridge-Medicine Hat,72,storage,0.33
+Lethbridge-Medicine Hat,72,storage_long,0.106
+Lethbridge-Medicine Hat,72,wind,0.282
+Lethbridge-Medicine Hat,81,cogen,0.052
+Lethbridge-Medicine Hat,81,data_centre,15.88
+Lethbridge-Medicine Hat,81,distribution_load,0.028
+Lethbridge-Medicine Hat,81,gas,1.145
+Lethbridge-Medicine Hat,81,industrial_load,0.097
+Lethbridge-Medicine Hat,81,other_gen,0.002
+Lethbridge-Medicine Hat,81,solar,3.583
+Lethbridge-Medicine Hat,81,solar_storage,0.609
+Lethbridge-Medicine Hat,81,storage,0.54
+Lethbridge-Medicine Hat,81,storage_long,0.205
+Lethbridge-Medicine Hat,81,wind,0.46
+Red Deer,21,cogen,0.157
+Red Deer,21,data_centre,6.517
+Red Deer,21,distribution_load,0.01
+Red Deer,21,gas,0.682
+Red Deer,21,industrial_load,0.035
+Red Deer,21,other_gen,0.001
+Red Deer,21,solar,0.14
+Red Deer,21,solar_storage,0.035
+Red Deer,21,storage,0.09
+Red Deer,21,storage_long,0.087
+Red Deer,21,wind,0.027
+Red Deer,22,cogen,0.02
+Red Deer,22,gas,0.296
+Red Deer,22,solar,0.226
+Red Deer,22,solar_storage,0.026
+Red Deer,22,storage,0.095
+Red Deer,22,storage_long,0.001
+Red Deer,22,wind,0.022
+Red Deer,23,cogen,5.131
+Red Deer,23,data_centre,311.149
+Red Deer,23,distribution_load,0.524
+Red Deer,23,gas,46.665
+Red Deer,23,industrial_load,1.849
+Red Deer,23,other_gen,0.039
+Red Deer,23,solar,7.432
+Red Deer,23,solar_storage,1.779
+Red Deer,23,storage,6.291
+Red Deer,23,storage_long,3.101
+Red Deer,23,wind,1.392
+Red Deer,31-33,cogen,0.472
+Red Deer,31-33,data_centre,19.55
+Red Deer,31-33,distribution_load,0.03
+Red Deer,31-33,gas,2.045
+Red Deer,31-33,industrial_load,0.105
+Red Deer,31-33,other_gen,0.002
+Red Deer,31-33,solar,0.42
+Red Deer,31-33,solar_storage,0.104
+Red Deer,31-33,storage,0.271
+Red Deer,31-33,storage_long,0.261
+Red Deer,31-33,wind,0.081
+Red Deer,41,cogen,0.315
+Red Deer,41,data_centre,13.033
+Red Deer,41,distribution_load,0.02
+Red Deer,41,gas,1.363
+Red Deer,41,industrial_load,0.07
+Red Deer,41,other_gen,0.001
+Red Deer,41,solar,0.28
+Red Deer,41,solar_storage,0.069
+Red Deer,41,storage,0.181
+Red Deer,41,storage_long,0.174
+Red Deer,41,wind,0.054
+Red Deer,44-45,cogen,0.316
+Red Deer,44-45,data_centre,13.054
+Red Deer,44-45,distribution_load,0.029
+Red Deer,44-45,gas,2.012
+Red Deer,44-45,industrial_load,0.103
+Red Deer,44-45,other_gen,0.002
+Red Deer,44-45,solar,0.41
+Red Deer,44-45,solar_storage,0.102
+Red Deer,44-45,storage,0.266
+Red Deer,44-45,storage_long,0.183
+Red Deer,44-45,wind,0.08
+Red Deer,48-49,cogen,0.473
+Red Deer,48-49,data_centre,19.575
+Red Deer,48-49,distribution_load,0.034
+Red Deer,48-49,gas,2.372
+Red Deer,48-49,industrial_load,0.121
+Red Deer,48-49,other_gen,0.003
+Red Deer,48-49,solar,0.485
+Red Deer,48-49,solar_storage,0.12
+Red Deer,48-49,storage,0.314
+Red Deer,48-49,storage_long,0.266
+Red Deer,48-49,wind,0.094
+Red Deer,51,cogen,0.13
+Red Deer,51,data_centre,7.313
+Red Deer,51,distribution_load,0.009
+Red Deer,51,gas,0.634
+Red Deer,51,industrial_load,0.032
+Red Deer,51,other_gen,0.001
+Red Deer,51,solar,0.13
+Red Deer,51,solar_storage,0.032
+Red Deer,51,storage,0.084
+Red Deer,51,storage_long,0.073
+Red Deer,51,wind,0.025
+Red Deer,52,cogen,0.31
+Red Deer,52,data_centre,12.822
+Red Deer,52,distribution_load,0.022
+Red Deer,52,gas,1.524
+Red Deer,52,industrial_load,0.078
+Red Deer,52,other_gen,0.002
+Red Deer,52,solar,0.312
+Red Deer,52,solar_storage,0.077
+Red Deer,52,storage,0.202
+Red Deer,52,storage_long,0.174
+Red Deer,52,wind,0.06
+Red Deer,53,cogen,0.207
+Red Deer,53,data_centre,8.575
+Red Deer,53,distribution_load,0.014
+Red Deer,53,gas,0.999
+Red Deer,53,industrial_load,0.051
+Red Deer,53,other_gen,0.001
+Red Deer,53,solar,0.205
+Red Deer,53,solar_storage,0.051
+Red Deer,53,storage,0.132
+Red Deer,53,storage_long,0.116
+Red Deer,53,wind,0.04
+Red Deer,54,cogen,0.944
+Red Deer,54,data_centre,39.1
+Red Deer,54,distribution_load,0.059
+Red Deer,54,gas,4.09
+Red Deer,54,industrial_load,0.209
+Red Deer,54,other_gen,0.004
+Red Deer,54,solar,0.839
+Red Deer,54,solar_storage,0.207
+Red Deer,54,storage,0.542
+Red Deer,54,storage_long,0.522
+Red Deer,54,wind,0.162
+Red Deer,56,cogen,0.315
+Red Deer,56,data_centre,13.033
+Red Deer,56,distribution_load,0.02
+Red Deer,56,gas,1.363
+Red Deer,56,industrial_load,0.07
+Red Deer,56,other_gen,0.001
+Red Deer,56,solar,0.28
+Red Deer,56,solar_storage,0.069
+Red Deer,56,storage,0.181
+Red Deer,56,storage_long,0.174
+Red Deer,56,wind,0.054
+Red Deer,61,cogen,0.191
+Red Deer,61,data_centre,7.892
+Red Deer,61,distribution_load,0.018
+Red Deer,61,gas,1.216
+Red Deer,61,industrial_load,0.062
+Red Deer,61,other_gen,0.001
+Red Deer,61,solar,0.248
+Red Deer,61,solar_storage,0.061
+Red Deer,61,storage,0.161
+Red Deer,61,storage_long,0.111
+Red Deer,61,wind,0.048
+Red Deer,62,cogen,0.369
+Red Deer,62,data_centre,15.264
+Red Deer,62,distribution_load,0.034
+Red Deer,62,gas,2.353
+Red Deer,62,industrial_load,0.121
+Red Deer,62,other_gen,0.003
+Red Deer,62,solar,0.48
+Red Deer,62,solar_storage,0.119
+Red Deer,62,storage,0.311
+Red Deer,62,storage_long,0.214
+Red Deer,62,wind,0.093
+Red Deer,71,cogen,0.041
+Red Deer,71,data_centre,1.689
+Red Deer,71,distribution_load,0.004
+Red Deer,71,gas,0.26
+Red Deer,71,industrial_load,0.013
+Red Deer,71,other_gen,0.0
+Red Deer,71,solar,0.053
+Red Deer,71,solar_storage,0.013
+Red Deer,71,storage,0.034
+Red Deer,71,storage_long,0.024
+Red Deer,71,wind,0.01
+Red Deer,72,cogen,0.143
+Red Deer,72,data_centre,5.931
+Red Deer,72,distribution_load,0.013
+Red Deer,72,gas,0.914
+Red Deer,72,industrial_load,0.047
+Red Deer,72,other_gen,0.001
+Red Deer,72,solar,0.186
+Red Deer,72,solar_storage,0.046
+Red Deer,72,storage,0.121
+Red Deer,72,storage_long,0.083
+Red Deer,72,wind,0.036
+Red Deer,81,cogen,0.284
+Red Deer,81,data_centre,11.756
+Red Deer,81,distribution_load,0.022
+Red Deer,81,gas,1.489
+Red Deer,81,industrial_load,0.076
+Red Deer,81,other_gen,0.002
+Red Deer,81,solar,0.305
+Red Deer,81,solar_storage,0.075
+Red Deer,81,storage,0.197
+Red Deer,81,storage_long,0.161
+Red Deer,81,wind,0.059
+Wood Buffalo-Cold Lake,21,cogen,0.012
+Wood Buffalo-Cold Lake,21,data_centre,2.309
+Wood Buffalo-Cold Lake,21,distribution_load,0.008
+Wood Buffalo-Cold Lake,21,gas,0.168
+Wood Buffalo-Cold Lake,21,industrial_load,0.101
+Wood Buffalo-Cold Lake,21,other_gen,0.0
+Wood Buffalo-Cold Lake,21,solar,0.079
+Wood Buffalo-Cold Lake,21,solar_storage,0.023
+Wood Buffalo-Cold Lake,21,storage,0.027
+Wood Buffalo-Cold Lake,21,storage_long,1.891
+Wood Buffalo-Cold Lake,21,wind,0.017
+Wood Buffalo-Cold Lake,22,cogen,0.013
+Wood Buffalo-Cold Lake,22,gas,0.141
+Wood Buffalo-Cold Lake,22,solar,0.137
+Wood Buffalo-Cold Lake,22,solar_storage,0.016
+Wood Buffalo-Cold Lake,22,storage,0.066
+Wood Buffalo-Cold Lake,22,storage_long,0.041
+Wood Buffalo-Cold Lake,22,wind,0.014
+Wood Buffalo-Cold Lake,23,cogen,0.299
+Wood Buffalo-Cold Lake,23,data_centre,94.638
+Wood Buffalo-Cold Lake,23,distribution_load,0.506
+Wood Buffalo-Cold Lake,23,gas,8.632
+Wood Buffalo-Cold Lake,23,industrial_load,7.427
+Wood Buffalo-Cold Lake,23,other_gen,0.025
+Wood Buffalo-Cold Lake,23,solar,3.904
+Wood Buffalo-Cold Lake,23,solar_storage,1.2
+Wood Buffalo-Cold Lake,23,storage,1.602
+Wood Buffalo-Cold Lake,23,storage_long,100.105
+Wood Buffalo-Cold Lake,23,wind,0.893
+Wood Buffalo-Cold Lake,31-33,cogen,0.037
+Wood Buffalo-Cold Lake,31-33,data_centre,6.927
+Wood Buffalo-Cold Lake,31-33,distribution_load,0.025
+Wood Buffalo-Cold Lake,31-33,gas,0.504
+Wood Buffalo-Cold Lake,31-33,industrial_load,0.303
+Wood Buffalo-Cold Lake,31-33,other_gen,0.001
+Wood Buffalo-Cold Lake,31-33,solar,0.236
+Wood Buffalo-Cold Lake,31-33,solar_storage,0.069
+Wood Buffalo-Cold Lake,31-33,storage,0.082
+Wood Buffalo-Cold Lake,31-33,storage_long,5.674
+Wood Buffalo-Cold Lake,31-33,wind,0.052
+Wood Buffalo-Cold Lake,41,cogen,0.025
+Wood Buffalo-Cold Lake,41,data_centre,4.618
+Wood Buffalo-Cold Lake,41,distribution_load,0.017
+Wood Buffalo-Cold Lake,41,gas,0.336
+Wood Buffalo-Cold Lake,41,industrial_load,0.202
+Wood Buffalo-Cold Lake,41,other_gen,0.001
+Wood Buffalo-Cold Lake,41,solar,0.157
+Wood Buffalo-Cold Lake,41,solar_storage,0.046
+Wood Buffalo-Cold Lake,41,storage,0.055
+Wood Buffalo-Cold Lake,41,storage_long,3.783
+Wood Buffalo-Cold Lake,41,wind,0.035
+Wood Buffalo-Cold Lake,44-45,cogen,0.025
+Wood Buffalo-Cold Lake,44-45,data_centre,4.658
+Wood Buffalo-Cold Lake,44-45,distribution_load,0.025
+Wood Buffalo-Cold Lake,44-45,gas,0.495
+Wood Buffalo-Cold Lake,44-45,industrial_load,0.298
+Wood Buffalo-Cold Lake,44-45,other_gen,0.001
+Wood Buffalo-Cold Lake,44-45,solar,0.231
+Wood Buffalo-Cold Lake,44-45,solar_storage,0.067
+Wood Buffalo-Cold Lake,44-45,storage,0.08
+Wood Buffalo-Cold Lake,44-45,storage_long,3.98
+Wood Buffalo-Cold Lake,44-45,wind,0.051
+Wood Buffalo-Cold Lake,48-49,cogen,0.037
+Wood Buffalo-Cold Lake,48-49,data_centre,6.952
+Wood Buffalo-Cold Lake,48-49,distribution_load,0.03
+Wood Buffalo-Cold Lake,48-49,gas,0.584
+Wood Buffalo-Cold Lake,48-49,industrial_load,0.351
+Wood Buffalo-Cold Lake,48-49,other_gen,0.002
+Wood Buffalo-Cold Lake,48-49,solar,0.273
+Wood Buffalo-Cold Lake,48-49,solar_storage,0.08
+Wood Buffalo-Cold Lake,48-49,storage,0.095
+Wood Buffalo-Cold Lake,48-49,storage_long,5.777
+Wood Buffalo-Cold Lake,48-49,wind,0.06
+Wood Buffalo-Cold Lake,51,cogen,0.01
+Wood Buffalo-Cold Lake,51,data_centre,3.823
+Wood Buffalo-Cold Lake,51,distribution_load,0.008
+Wood Buffalo-Cold Lake,51,gas,0.156
+Wood Buffalo-Cold Lake,51,industrial_load,0.094
+Wood Buffalo-Cold Lake,51,other_gen,0.0
+Wood Buffalo-Cold Lake,51,solar,0.073
+Wood Buffalo-Cold Lake,51,solar_storage,0.021
+Wood Buffalo-Cold Lake,51,storage,0.025
+Wood Buffalo-Cold Lake,51,storage_long,1.581
+Wood Buffalo-Cold Lake,51,wind,0.016
+Wood Buffalo-Cold Lake,52,cogen,0.024
+Wood Buffalo-Cold Lake,52,data_centre,4.552
+Wood Buffalo-Cold Lake,52,distribution_load,0.019
+Wood Buffalo-Cold Lake,52,gas,0.376
+Wood Buffalo-Cold Lake,52,industrial_load,0.226
+Wood Buffalo-Cold Lake,52,other_gen,0.001
+Wood Buffalo-Cold Lake,52,solar,0.175
+Wood Buffalo-Cold Lake,52,solar_storage,0.051
+Wood Buffalo-Cold Lake,52,storage,0.061
+Wood Buffalo-Cold Lake,52,storage_long,3.776
+Wood Buffalo-Cold Lake,52,wind,0.039
+Wood Buffalo-Cold Lake,53,cogen,0.016
+Wood Buffalo-Cold Lake,53,data_centre,3.044
+Wood Buffalo-Cold Lake,53,distribution_load,0.012
+Wood Buffalo-Cold Lake,53,gas,0.246
+Wood Buffalo-Cold Lake,53,industrial_load,0.148
+Wood Buffalo-Cold Lake,53,other_gen,0.001
+Wood Buffalo-Cold Lake,53,solar,0.115
+Wood Buffalo-Cold Lake,53,solar_storage,0.034
+Wood Buffalo-Cold Lake,53,storage,0.04
+Wood Buffalo-Cold Lake,53,storage_long,2.519
+Wood Buffalo-Cold Lake,53,wind,0.025
+Wood Buffalo-Cold Lake,54,cogen,0.074
+Wood Buffalo-Cold Lake,54,data_centre,13.854
+Wood Buffalo-Cold Lake,54,distribution_load,0.051
+Wood Buffalo-Cold Lake,54,gas,1.008
+Wood Buffalo-Cold Lake,54,industrial_load,0.605
+Wood Buffalo-Cold Lake,54,other_gen,0.003
+Wood Buffalo-Cold Lake,54,solar,0.472
+Wood Buffalo-Cold Lake,54,solar_storage,0.137
+Wood Buffalo-Cold Lake,54,storage,0.165
+Wood Buffalo-Cold Lake,54,storage_long,11.348
+Wood Buffalo-Cold Lake,54,wind,0.104
+Wood Buffalo-Cold Lake,56,cogen,0.025
+Wood Buffalo-Cold Lake,56,data_centre,4.618
+Wood Buffalo-Cold Lake,56,distribution_load,0.017
+Wood Buffalo-Cold Lake,56,gas,0.336
+Wood Buffalo-Cold Lake,56,industrial_load,0.202
+Wood Buffalo-Cold Lake,56,other_gen,0.001
+Wood Buffalo-Cold Lake,56,solar,0.157
+Wood Buffalo-Cold Lake,56,solar_storage,0.046
+Wood Buffalo-Cold Lake,56,storage,0.055
+Wood Buffalo-Cold Lake,56,storage_long,3.783
+Wood Buffalo-Cold Lake,56,wind,0.035
+Wood Buffalo-Cold Lake,61,cogen,0.015
+Wood Buffalo-Cold Lake,61,data_centre,2.816
+Wood Buffalo-Cold Lake,61,distribution_load,0.015
+Wood Buffalo-Cold Lake,61,gas,0.299
+Wood Buffalo-Cold Lake,61,industrial_load,0.18
+Wood Buffalo-Cold Lake,61,other_gen,0.001
+Wood Buffalo-Cold Lake,61,solar,0.139
+Wood Buffalo-Cold Lake,61,solar_storage,0.041
+Wood Buffalo-Cold Lake,61,storage,0.049
+Wood Buffalo-Cold Lake,61,storage_long,2.406
+Wood Buffalo-Cold Lake,61,wind,0.031
+Wood Buffalo-Cold Lake,62,cogen,0.029
+Wood Buffalo-Cold Lake,62,data_centre,5.447
+Wood Buffalo-Cold Lake,62,distribution_load,0.029
+Wood Buffalo-Cold Lake,62,gas,0.579
+Wood Buffalo-Cold Lake,62,industrial_load,0.349
+Wood Buffalo-Cold Lake,62,other_gen,0.002
+Wood Buffalo-Cold Lake,62,solar,0.27
+Wood Buffalo-Cold Lake,62,solar_storage,0.079
+Wood Buffalo-Cold Lake,62,storage,0.094
+Wood Buffalo-Cold Lake,62,storage_long,4.654
+Wood Buffalo-Cold Lake,62,wind,0.06
+Wood Buffalo-Cold Lake,71,cogen,0.003
+Wood Buffalo-Cold Lake,71,data_centre,0.603
+Wood Buffalo-Cold Lake,71,distribution_load,0.003
+Wood Buffalo-Cold Lake,71,gas,0.064
+Wood Buffalo-Cold Lake,71,industrial_load,0.039
+Wood Buffalo-Cold Lake,71,other_gen,0.0
+Wood Buffalo-Cold Lake,71,solar,0.03
+Wood Buffalo-Cold Lake,71,solar_storage,0.009
+Wood Buffalo-Cold Lake,71,storage,0.01
+Wood Buffalo-Cold Lake,71,storage_long,0.515
+Wood Buffalo-Cold Lake,71,wind,0.007
+Wood Buffalo-Cold Lake,72,cogen,0.011
+Wood Buffalo-Cold Lake,72,data_centre,2.117
+Wood Buffalo-Cold Lake,72,distribution_load,0.011
+Wood Buffalo-Cold Lake,72,gas,0.225
+Wood Buffalo-Cold Lake,72,industrial_load,0.136
+Wood Buffalo-Cold Lake,72,other_gen,0.001
+Wood Buffalo-Cold Lake,72,solar,0.105
+Wood Buffalo-Cold Lake,72,solar_storage,0.031
+Wood Buffalo-Cold Lake,72,storage,0.037
+Wood Buffalo-Cold Lake,72,storage_long,1.808
+Wood Buffalo-Cold Lake,72,wind,0.023
+Wood Buffalo-Cold Lake,81,cogen,0.022
+Wood Buffalo-Cold Lake,81,data_centre,4.179
+Wood Buffalo-Cold Lake,81,distribution_load,0.019
+Wood Buffalo-Cold Lake,81,gas,0.367
+Wood Buffalo-Cold Lake,81,industrial_load,0.221
+Wood Buffalo-Cold Lake,81,other_gen,0.001
+Wood Buffalo-Cold Lake,81,solar,0.171
+Wood Buffalo-Cold Lake,81,solar_storage,0.05
+Wood Buffalo-Cold Lake,81,storage,0.06
+Wood Buffalo-Cold Lake,81,storage_long,3.489
+Wood Buffalo-Cold Lake,81,wind,0.038

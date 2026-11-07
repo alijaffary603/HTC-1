@@ -1,0 +1,12 @@
+change,total_jobs_per_year,vs_base,rank_correlation,top_100_overlap,worst_region_rank_correlation
+no data centres at all,2301,0.21,0.92,0.86,0.993
+data centres: Phase 1 only,4411,0.4,0.961,0.88,0.998
+data centres: high case,22300,2.05,0.993,0.98,1.0
+ignore completion odds (build the whole queue),130297,11.96,0.989,0.95,1.0
+local spend share x0.7,7663,0.7,1.0,1.0,1.0
+local spend share x1.3,14124,1.3,1.0,1.0,1.0
+CER net-zero costs instead of current measures,10805,0.99,1.0,0.99,1.0
+no induced jobs,9473,0.87,0.973,0.98,0.953
+indirect jobs split evenly across supplier sectors,10903,1.0,0.981,0.95,0.954
+all jobs stay in the project's region,10845,1.0,0.98,0.96,1.0
+no jobs are tied to the project's region,10953,1.01,0.974,0.93,1.0

@@ -1,0 +1,283 @@
+project_id,name,tech,region,pa_code,mw,isd,state,p_low,p_base,p_high,jobs_per_year,expected_mw
+P2936,GLDC Load Phase 1.1,data_centre,Edmonton,33.0,970.0,2028-01,early,0.6,0.85,0.95,1283.827,824.5
+P3083,Keephills Data Centre Phase 1.1,data_centre,Edmonton,40.0,230.0,2029-11,isd_review,0.6,0.85,0.95,874.467,195.5
+P3066,Leedale Data Load,data_centre,Red Deer,38.0,1864.0,2029-11,isd_review,0.01,0.05,0.15,416.881,93.2
+P3204,Lynx Data Load Phase 2,data_centre,Edmonton,33.0,1800.0,2029-11,isd_review,0.01,0.05,0.15,402.568,90.0
+P3198,Lynx Data Load,data_centre,Edmonton,33.0,1800.0,2029-11,isd_review,0.01,0.05,0.15,402.568,90.0
+P2970,Beacon Langdon A.I. Hub 2 Load,data_centre,Calgary,6.0,1400.0,2029-11,isd_review,0.01,0.05,0.15,313.108,70.0
+P3108,Wild Rose Power Hub Load,data_centre,Calgary,6.0,1300.0,2029-11,isd_review,0.01,0.05,0.15,290.743,65.0
+P3284,ResiliON MPC Gas Data Load,data_centre,Edmonton,40.0,1600.0,2030-09,cluster,0.03,0.1,0.25,281.025,160.0
+P3109,Newell Data Center MPC Load,data_centre,Lethbridge-Medicine Hat,47.0,1200.0,2029-11,isd_review,0.01,0.05,0.15,268.379,60.0
+P3326,Ursa Major Gas Data Load,data_centre,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,26.0,932.0,2029-09,cluster,0.03,0.1,0.25,255.366,93.2
+P2942,Genesee Data Center 1 MPC Load,data_centre,Edmonton,40.0,1000.0,2029-11,isd_review,0.01,0.05,0.15,223.649,50.0
+P3102,Goldfinch Technology Park MPC Load,data_centre,Calgary,45.0,950.0,2029-11,isd_review,0.01,0.05,0.15,212.466,47.5
+P3101,Carstairs Technology Park MPC Load,data_centre,Calgary,39.0,950.0,2029-11,isd_review,0.01,0.05,0.15,212.466,47.5
+P3151,GLDC Load Phase 1.2,data_centre,Edmonton,33.0,830.0,2029-11,isd_review,0.01,0.05,0.15,185.629,41.5
+P3137,Sheerness Data MPC Load,data_centre,Camrose-Drumheller,43.0,800.0,2029-11,isd_review,0.01,0.05,0.15,178.919,40.0
+P3116,Rocky View Data Center MPC Load,data_centre,Calgary,6.0,800.0,2029-11,isd_review,0.01,0.05,0.15,178.919,40.0
+P2845,Marguerite Lake CAE Storage,storage_long,Wood Buffalo-Cold Lake,28.0,320.0,2029-11,mid,0.132,0.162,0.203,145.621,51.952
+P3312,Travers Battery Data Load,data_centre,Lethbridge-Medicine Hat,49.0,500.0,2028-08,cluster,0.03,0.1,0.25,140.933,50.0
+P2975,Genesee MPC Gas,gas,Edmonton,40.0,1463.0,2029-12,mid,0.078,0.096,0.12,136.105,140.292
+P3046,Marguerite Lake Compressed Air Phase 2,storage_long,Wood Buffalo-Cold Lake,28.0,320.0,2030-05,mid,0.113,0.139,0.174,128.572,44.559
+P3211,Black Bear Gas Data Load,data_centre,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,26.0,666.0,2030-02,cluster,0.03,0.1,0.25,124.225,66.6
+P2454,Flipi MPC Gas,gas,Edmonton,30.0,466.0,2030-04,late,0.255,0.314,0.392,122.758,146.093
+P2946,Genesee Data Center 2 MPC Load,data_centre,Edmonton,40.0,500.0,2029-11,isd_review,0.01,0.05,0.15,111.824,25.0
+P3282,Nexus West MPC Gas Data Load,data_centre,Red Deer,38.0,1200.0,2030-07,cluster,0.03,0.1,0.25,111.386,120.0
+P3095,Keephills Data Centre Phase 2,data_centre,Edmonton,40.0,466.0,2029-11,isd_review,0.01,0.05,0.15,104.22,23.3
+P3112,North Calgary Three Data Centre MPC Load,data_centre,Calgary,6.0,450.0,2029-11,isd_review,0.01,0.05,0.15,100.642,22.5
+P3281,Rimbey MPC Gas Data Load,data_centre,Red Deer,35.0,1200.0,2030-05,cluster,0.03,0.1,0.25,99.577,120.0
+P2445,Homestead MPC Solar,solar,Lethbridge-Medicine Hat,53.0,400.0,2027-11,late,0.305,0.375,0.469,99.102,149.942
+P3110,Mihta Askiy Data Load,data_centre,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,19.0,950.0,2029-11,isd_review,0.01,0.05,0.15,98.749,47.5
+P3283,BBPI MPC Gas Data Load,data_centre,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,26.0,1200.0,2030-11,cluster,0.03,0.1,0.25,96.755,120.0
+P3136,Sundance Data MPC Load,data_centre,Edmonton,40.0,401.0,2029-11,isd_review,0.01,0.05,0.15,89.683,20.05
+P3107,Chestermere Enterprise A.I. Load,data_centre,Calgary,6.0,400.0,2029-11,isd_review,0.01,0.05,0.15,89.46,20.0
+P3106,Alberta South A.I. Load,data_centre,Lethbridge-Medicine Hat,54.0,400.0,2029-11,isd_review,0.01,0.05,0.15,89.46,20.0
+P2934,Beacon Heartland A.I. Hub Load,data_centre,Edmonton,33.0,400.0,2029-11,isd_review,0.01,0.05,0.15,89.46,20.0
+P3175,Beacon Heartland Data Load,data_centre,Edmonton,33.0,400.0,2029-11,isd_review,0.01,0.05,0.15,89.46,20.0
+P2935,Beacon Saunders Lake A.I. Hub Load,data_centre,Edmonton,60.0,400.0,2029-11,isd_review,0.01,0.05,0.15,89.46,20.0
+P2926,Beacon Foothills A.I. Hub Load,data_centre,Calgary,46.0,400.0,2029-11,isd_review,0.01,0.05,0.15,89.46,20.0
+P2928,Beacon Langdon A.I. Hub Load,data_centre,Calgary,6.0,400.0,2029-11,isd_review,0.01,0.05,0.15,89.46,20.0
+P2927,Beacon Harry Smith A.I. Hub Load,data_centre,Edmonton,40.0,400.0,2029-11,isd_review,0.01,0.05,0.15,89.46,20.0
+P3157,Clearwater Technology Park Data Load,data_centre,Calgary,6.0,74.9,2029-07,early,0.1,0.25,0.5,84.563,18.725
+P3353,EA Link Data Load,data_centre,Edmonton,33.0,74.9,2029-07,early,0.1,0.25,0.5,84.485,18.725
+P3078,Calgary A.I. Centre Load,data_centre,Calgary,6.0,74.9,2029-09,early,0.1,0.25,0.5,84.121,18.725
+P3077,Calgary Enterprise A.I. Load,data_centre,Calgary,6.0,74.9,2029-09,early,0.1,0.25,0.5,84.121,18.725
+P3338,Clearwater Area Data Load,data_centre,Wood Buffalo-Cold Lake,25.0,74.9,2028-11,early,0.1,0.25,0.5,80.987,18.725
+P3227,Sheerness Data Load,data_centre,Camrose-Drumheller,43.0,74.9,2028-10,early,0.1,0.25,0.5,76.737,18.725
+P2953,North Calgary Two Data Centre MPC Load,data_centre,Calgary,6.0,74.9,2030-03,early,0.1,0.25,0.5,76.441,18.725
+P2952,North Calgary One Data Centre MPC Load,data_centre,Calgary,6.0,74.9,2030-03,early,0.1,0.25,0.5,76.441,18.725
+P3074,Genesee 330P Modification,gas,Edmonton,40.0,200.0,2029-11,isd_review,0.319,0.392,0.491,76.44,78.483
+P2533,Greenlight Gas,gas,Edmonton,33.0,466.0,2029-02,mid,0.152,0.187,0.233,73.836,87.046
+P2958,Hydrogen Canada MPC Load,industrial_load,Edmonton,33.0,320.0,2029-11,isd_review,0.48,0.59,0.738,73.732,188.919
+P3280,Nexus East MPC Gas Data Load,data_centre,Lethbridge-Medicine Hat,48.0,1200.0,2030-11,cluster,0.03,0.1,0.25,72.891,120.0
+P2356,Oyen Wind,wind,Camrose-Drumheller,42.0,250.0,2029-11,isd_review,0.223,0.275,0.344,71.656,68.719
+P3236,AEC Mill 844S Data Load,data_centre,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,21.0,60.0,2029-03,early,0.1,0.25,0.5,68.53,15.0
+P3216,Georgetown Data Load,data_centre,Calgary,45.0,72.9,2030-04,early,0.1,0.25,0.5,67.853,18.225
+P3156,High Plains East Industrial Park,data_centre,Calgary,6.0,300.0,2029-11,isd_review,0.01,0.05,0.15,67.095,15.0
+P3114,Banshee Data MPC Load,data_centre,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,29.0,74.9,2028-07,mid,0.1,0.25,0.5,66.643,18.725
+P2796,Greenlight U2 Gas,gas,Edmonton,33.0,466.0,2029-02,mid,0.131,0.161,0.201,63.593,74.971
+P2797,Greenlight U3 Gas,gas,Edmonton,33.0,466.0,2029-02,mid,0.131,0.161,0.201,63.593,74.971
+P3079,Captus Load,data_centre,Lethbridge-Medicine Hat,55.0,74.9,2028-05,mid,0.1,0.25,0.5,60.162,18.725
+P2337,Dunmore Solar,solar,Lethbridge-Medicine Hat,4.0,216.0,2029-01,late,0.197,0.243,0.304,57.8,52.471
+P3174,Sovereign Cloud Data Load,data_centre,Edmonton,60.0,74.9,2030-08,early,0.1,0.25,0.5,55.692,18.725
+P3285,Wildcat MPC Gas Data Load,data_centre,Calgary,44.0,342.0,2030-03,cluster,0.03,0.1,0.25,55.341,34.2
+P2461,Aira Solar,solar,Lethbridge-Medicine Hat,4.0,450.0,2028-08,late,0.085,0.104,0.13,52.378,46.96
+P3348,Vulcan Data Load,data_centre,Lethbridge-Medicine Hat,49.0,74.0,2030-10,early,0.1,0.25,0.5,51.531,18.5
+P3349,High River Data Load,data_centre,Lethbridge-Medicine Hat,53.0,74.0,2030-10,early,0.1,0.25,0.5,51.531,18.5
+P3350,Fulton Data Load,data_centre,Calgary,46.0,74.0,2030-10,early,0.1,0.25,0.5,51.531,18.5
+P2396,Georgetown Solar,solar,Calgary,45.0,230.0,2029-08,late,0.166,0.205,0.256,51.134,47.058
+P3069,Prairie Lights Power Unit 2 MPC Gas,gas,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,20.0,466.0,2030-02,mid,0.087,0.107,0.134,46.722,50.056
+P3352,Cypress Pine Data Load,data_centre,Calgary,6.0,200.0,2029-11,isd_review,0.01,0.05,0.15,44.73,10.0
+P3341,Maple Rose Data Load,data_centre,Lethbridge-Medicine Hat,47.0,200.0,2029-11,isd_review,0.01,0.05,0.15,44.73,10.0
+P2843,Prairie Lights Power Gas,gas,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,20.0,310.0,2029-02,mid,0.138,0.17,0.212,44.62,52.604
+P3347,Brooks Area Data Load,data_centre,Lethbridge-Medicine Hat,47.0,40.0,2028-08,early,0.1,0.25,0.5,37.35,10.0
+P3152,Keephills Data Centre Phase 1.2,data_centre,Edmonton,40.0,165.0,2029-11,isd_review,0.01,0.05,0.15,36.902,8.25
+P2614,Dow Fort Sask. Load,industrial_load,Edmonton,33.0,231.0,2028-05,late,0.366,0.451,0.564,36.08,104.162
+P1828,hep Energy Alderson MPC Solar,solar,Lethbridge-Medicine Hat,4.0,100.0,2028-02,late,0.344,0.423,0.529,35.457,42.313
+P2378,RESC Nova MPC Solar,solar,Calgary,45.0,150.0,2028-04,late,0.202,0.249,0.311,35.301,37.28
+P2464,Sunnynook Solar Battery,solar_storage,Camrose-Drumheller,43.0,280.0,2030-04,late,0.13,0.159,0.199,31.96,44.629
+P2520,Laramide MPC Battery,storage,Calgary,46.0,100.0,2027-09,mid,0.392,0.483,0.604,26.057,48.29
+P2467,Pteragen Peace Butte Wind,wind,Lethbridge-Medicine Hat,4.0,120.0,2029-08,late,0.166,0.204,0.255,25.784,24.515
+P2456,Opal Gas,gas,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,24.0,98.5,2028-03,late,0.354,0.436,0.545,24.151,42.959
+P2553,Dolcy MPC Solar and Storage,solar_storage,Camrose-Drumheller,37.0,300.0,2030-08,late,0.115,0.142,0.177,23.866,42.554
+P2619,Sweetgrass MPC Solar Battery,solar_storage,Lethbridge-Medicine Hat,53.0,315.0,2029-02,mid,0.065,0.08,0.099,23.804,25.066
+P2091,Arenosum Solar,solar,Lethbridge-Medicine Hat,48.0,150.0,2029-01,mid,0.113,0.14,0.175,23.083,20.947
+P2611,UK Solar East,solar,Camrose-Drumheller,42.0,268.0,2029-04,mid,0.063,0.077,0.096,22.635,20.641
+P2418,Greencells Estuary Solar,solar,Lethbridge-Medicine Hat,48.0,200.0,2028-09,late,0.078,0.096,0.121,21.432,19.28
+P2411,Northland Power Jurassic MPC Solar Battery,solar_storage,Lethbridge-Medicine Hat,48.0,220.0,2028-09,late,0.081,0.099,0.124,21.073,21.86
+P3006,Clairmont Energy Gas,gas,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,20.0,178.0,2030-02,mid,0.1,0.123,0.153,20.365,21.818
+P2566,Eastervale Solar,solar,Camrose-Drumheller,37.0,300.0,2028-06,mid,0.051,0.063,0.079,20.155,18.987
+P2602,Collisard MPC Gas,gas,Red Deer,35.0,120.0,2029-09,mid,0.139,0.172,0.215,20.149,20.601
+P2983,Moraine MPC Gas,gas,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,26.0,465.0,2028-10,mid,0.046,0.056,0.071,19.275,26.246
+P2713,Little Smoky 1 Solar,solar,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,23.0,448.0,2030-04,mid,0.036,0.045,0.056,16.861,20.054
+P3040,AHI Prairie Eagle Cogen,cogen,Red Deer,35.0,150.0,2030-06,mid,0.092,0.113,0.141,16.462,16.915
+P2789,Red Willow Solar Battery,solar_storage,Camrose-Drumheller,36.0,225.0,2029-04,mid,0.056,0.069,0.087,14.695,15.625
+P2552,Lone Butte Solar,solar,Calgary,39.0,450.0,2030-07,mid,0.038,0.047,0.059,14.072,21.245
+P3342,Brooks 121S Data Load,data_centre,Lethbridge-Medicine Hat,47.0,18.0,2028-03,early,0.1,0.25,0.5,12.901,4.5
+P3034,Valley Edge Battery,storage,Red Deer,35.0,250.0,2030-06,mid,0.116,0.143,0.178,12.683,35.669
+P2707,Sounding Creek Solar Battery,solar_storage,Camrose-Drumheller,42.0,250.0,2030-02,mid,0.044,0.054,0.067,11.559,13.392
+P3170,Harmattan Gas,gas,Calgary,39.0,932.0,2030-04,cluster,0.01,0.013,0.016,10.478,12.031
+P3001,Midnight MPC Battery,storage,Lethbridge-Medicine Hat,4.0,200.0,2030-06,mid,0.118,0.146,0.182,9.625,29.129
+P2488,Kâpîsimotêt Solar,solar,Edmonton,31.0,80.0,2029-03,mid,0.086,0.106,0.133,9.338,8.499
+P2758,UK Solar West,solar,Camrose-Drumheller,42.0,162.0,2030-02,mid,0.045,0.056,0.07,9.152,9.032
+P2921,SS-54 Area Load,distribution_load,Calgary,6.0,60.0,2029-08,late,0.395,0.486,0.608,9.114,29.189
+P3343,West Brooks 28S Data Load,data_centre,Lethbridge-Medicine Hat,47.0,12.5,2028-03,early,0.1,0.25,0.5,8.959,3.125
+P2616,Jumbo Battery,storage,Lethbridge-Medicine Hat,53.0,218.0,2028-12,mid,0.048,0.059,0.074,8.684,12.897
+P2540,Rising Sun Solar,solar,Camrose-Drumheller,37.0,125.0,2030-02,mid,0.054,0.066,0.083,7.935,8.262
+P2741,Great Plains Load,industrial_load,Wood Buffalo-Cold Lake,25.0,51.0,2027-07,late,0.494,0.608,0.76,7.667,30.999
+P3031,Oyen Wind Ph 2,wind,Camrose-Drumheller,42.0,216.0,2030-06,mid,0.034,0.042,0.052,7.267,9.07
+P3296,Ohm Alpha MPC Gas,gas,Edmonton,33.0,400.0,2029-09,cluster,0.015,0.019,0.023,7.265,7.4
+P3304,Ohm Phi MPC Gas,gas,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,23.0,400.0,2029-09,cluster,0.015,0.019,0.023,7.265,7.4
+P2628,Foster Creek Load,industrial_load,Wood Buffalo-Cold Lake,28.0,41.0,2028-01,late,0.508,0.625,0.781,6.666,25.618
+P2453,EDTI Edmonton 3 H2 Plant Cogen,cogen,Edmonton,60.0,20.0,2028-01,late,0.453,0.558,0.698,6.581,11.162
+P3138,Balzac Area Distribution Load,distribution_load,Calgary,6.0,75.0,2029-04,early,0.224,0.276,0.345,6.466,20.71
+P2805,High River 65S DER Gas,gas,Calgary,46.0,16.1,2029-11,isd_review,0.319,0.392,0.491,6.154,6.318
+P3219,Clearwater Industrial Load,industrial_load,Calgary,39.0,74.0,2030-03,early,0.189,0.233,0.291,5.992,17.207
+P2517,Hutchison MPC Battery,storage,Lethbridge-Medicine Hat,4.0,100.0,2030-07,mid,0.163,0.201,0.251,5.496,20.098
+P3177,Dow P2Z MPC Cogen,cogen,Edmonton,33.0,466.0,2030-09,cluster,0.01,0.013,0.016,5.167,5.903
+P2256,ATCO Poplar Hill Load,distribution_load,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,20.0,34.5,2028-01,late,0.537,0.66,0.825,5.054,22.783
+P3295,Ohm Rho MPC Gas,gas,Edmonton,30.0,250.0,2029-09,cluster,0.016,0.02,0.025,4.907,4.999
+P3126,Sollair Load,data_centre,Calgary,57.0,4.99,2028-08,early,0.1,0.25,0.5,4.723,1.248
+P3039,Evolve Battery,storage,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,26.0,25.0,2028-02,mid,0.208,0.256,0.32,4.59,6.409
+P2827,Vilna 777S DER Solar,solar,Camrose-Drumheller,56.0,27.3,2030-04,late,0.143,0.176,0.221,4.051,4.818
+P3014,Meadowview Solar Battery,solar_storage,Edmonton,60.0,135.0,2030-06,mid,0.037,0.045,0.056,4.041,6.098
+P2747,Vegreville 709S DER Battery,storage,Camrose-Drumheller,56.0,10.0,2027-12,late,0.483,0.595,0.744,4.033,5.95
+P2806,Piikani Wind,wind,Lethbridge-Medicine Hat,53.0,153.0,2028-10,mid,0.021,0.026,0.032,3.938,3.944
+P2826,Paul Band Solar,solar,Edmonton,40.0,37.0,2029-03,mid,0.076,0.094,0.117,3.808,3.472
+P3331,Enoch MPC Battery,storage,Edmonton,33.0,250.0,2029-03,cluster,0.018,0.022,0.028,3.637,5.554
+P3258,Snake Valley MPC Battery,storage,Lethbridge-Medicine Hat,49.0,250.0,2029-05,cluster,0.017,0.021,0.026,3.355,5.162
+P3259,Horsethief MPC Battery,storage,Camrose-Drumheller,42.0,250.0,2029-05,cluster,0.017,0.021,0.026,3.355,5.162
+P3257,Red Rock MPC Battery,storage,Lethbridge-Medicine Hat,4.0,250.0,2029-05,cluster,0.017,0.021,0.026,3.355,5.162
+P2465,Enerfin Winnifred Wind + Solar Modification,wind,Lethbridge-Medicine Hat,4.0,60.0,2027-07,late,0.121,0.149,0.187,3.342,8.97
+P2627,Sundre 575S DER Solar,solar,Red Deer,38.0,12.6,2029-07,late,0.197,0.242,0.303,3.32,3.055
+P3213,East Airdrie 199S Distribution Load,distribution_load,Calgary,57.0,17.671,2029-11,isd_review,0.48,0.59,0.738,3.257,10.433
+P3333,Summerside 657S Contract Change,distribution_load,Edmonton,60.0,40.5,2027-10,early,0.407,0.501,0.627,3.158,20.3
+P3015,Spruce Grove North Solar Battery,solar_storage,Edmonton,60.0,100.0,2030-06,mid,0.038,0.047,0.059,3.134,4.73
+P2944,Mowat 2033S DER Gas,gas,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,20.0,19.0,2027-12,mid,0.296,0.364,0.455,3.114,6.917
+P2369,ATCO Anderson 801S DER Solar,solar,Camrose-Drumheller,43.0,12.3,2028-07,late,0.184,0.226,0.282,3.11,2.78
+P3249,Gilby Gas,gas,Red Deer,35.0,178.0,2030-02,cluster,0.015,0.018,0.023,2.991,3.204
+P3251,Alsike Gas,gas,Edmonton,30.0,178.0,2030-02,cluster,0.015,0.018,0.023,2.991,3.204
+P3250,Myers Gas,gas,Red Deer,35.0,178.0,2030-02,cluster,0.015,0.018,0.023,2.991,3.204
+P3172,Greenlight U4 Gas,gas,Edmonton,33.0,466.0,2031-02,cluster,0.009,0.011,0.014,2.872,5.252
+P3085,Dow Fort Sask. Load Phase 2,industrial_load,Edmonton,33.0,73.0,2028-12,early,0.081,0.1,0.125,2.85,7.302
+P2457,Fortis Moon Lake DER Solar,solar,Edmonton,30.0,16.75,2028-09,late,0.12,0.148,0.185,2.762,2.48
+P3316,Highmark Battery,storage,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,26.0,250.0,2029-08,cluster,0.014,0.017,0.021,2.68,4.215
+P2829,Coronation 773S DER Solar,solar,Camrose-Drumheller,42.0,17.0,2030-04,late,0.151,0.186,0.233,2.663,3.167
+P3233,Saddle Hills Gas,gas,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,20.0,100.0,2029-06,cluster,0.021,0.026,0.032,2.482,2.585
+P2941,WFS Cogen,cogen,Edmonton,33.0,30.0,2028-10,mid,0.073,0.089,0.112,2.427,2.681
+P3303,Ohm Epsilon MPC Gas,gas,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,29.0,100.0,2029-09,cluster,0.019,0.023,0.029,2.281,2.323
+P2503,Willow Ridge Battery,storage,Lethbridge-Medicine Hat,53.0,50.0,2030-09,mid,0.179,0.22,0.276,2.257,11.023
+P3075,Balzac Area Load,distribution_load,Calgary,6.0,45.0,2027-08,early,0.218,0.268,0.335,2.238,12.075
+P3232,Scoria 318S Industrial Load,industrial_load,Edmonton,33.0,20.0,2029-08,early,0.229,0.281,0.352,2.195,5.625
+P2471,Fortis Buford 538S DER Solar,solar,Edmonton,31.0,12.9,2028-09,late,0.123,0.151,0.189,2.172,1.951
+P3215,Sturgeon Gas,gas,Edmonton,33.0,1864.0,2032-02,cluster,0.006,0.007,0.009,2.146,13.377
+P3217,Sturgeon Gas 2,gas,Edmonton,33.0,1864.0,2032-02,cluster,0.006,0.007,0.009,2.146,13.377
+P2462,Fortis Stony Plain 434S DER Solar,solar,Edmonton,40.0,12.2,2028-09,late,0.125,0.153,0.192,2.084,1.872
+P3255,Marguerite Lake 826S Battery,storage,Wood Buffalo-Cold Lake,28.0,250.0,2029-11,cluster,0.011,0.013,0.017,2.064,3.346
+P3076,Thornton Area Load,distribution_load,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,22.0,26.5,2028-05,mid,0.226,0.278,0.347,2.041,7.364
+P3056,Onoway 352S DER Gas Battery,gas,Edmonton,40.0,20.0,2028-05,mid,0.138,0.17,0.212,2.009,3.394
+P2754,Tucuman 478S DER Solar Battery,solar_storage,Camrose-Drumheller,32.0,13.8,2028-07,late,0.121,0.149,0.187,1.997,2.061
+P2259,FortisAlberta Metiskow 648S DER Solar,solar,Camrose-Drumheller,37.0,15.1,2028-12,late,0.096,0.119,0.148,1.98,1.79
+P3329,Murray Lake MPC Battery,storage,Lethbridge-Medicine Hat,4.0,250.0,2030-01,cluster,0.01,0.013,0.016,1.946,3.18
+P3206,Wolf Industrial Load,industrial_load,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,29.0,17.0,2029-08,early,0.226,0.279,0.348,1.849,4.739
+P2192,ENMAX FMC Change,cogen,Calgary,6.0,4.99,2028-07,late,0.361,0.444,0.555,1.844,2.215
+P3263,Waxwing 1 Gas,gas,Calgary,57.0,466.0,2031-07,cluster,0.008,0.01,0.013,1.842,4.744
+P3209,Stony Plain Industrial Load,industrial_load,Edmonton,40.0,15.5,2029-05,early,0.246,0.303,0.378,1.83,4.69
+P2751,Hussar 431S Battery,storage,Calgary,45.0,20.0,2030-04,mid,0.178,0.219,0.274,1.81,4.387
+P2195,FortisAlberta Bassano 435S DER Solar,solar,Lethbridge-Medicine Hat,47.0,4.65,2028-02,late,0.378,0.465,0.582,1.805,2.164
+P3301,Harrier MPC Solar Battery,solar_storage,Camrose-Drumheller,42.0,400.0,2029-08,cluster,0.004,0.005,0.006,1.761,1.898
+P3313,Pigeon Lake MPC Geothermal,other_gen,Edmonton,31.0,150.0,2030-08,cluster,0.003,0.003,0.004,1.742,0.465
+P3334,Riverview Contract Change,distribution_load,Edmonton,60.0,22.7,2027-09,early,0.448,0.552,0.69,1.735,12.526
+P3262,Whitla MPC Battery,storage,Lethbridge-Medicine Hat,4.0,200.0,2029-12,cluster,0.011,0.014,0.017,1.712,2.777
+P3261,Halkirk MPC Battery,storage,Camrose-Drumheller,42.0,200.0,2029-12,cluster,0.011,0.014,0.017,1.712,2.777
+P2354,ENMAX FMC DER Cogen,cogen,Calgary,6.0,4.99,2028-07,late,0.334,0.411,0.514,1.708,2.051
+P3026,Pigeon Lake 964S DER Solar,solar,Edmonton,31.0,15.2,2028-03,mid,0.1,0.123,0.154,1.662,1.87
+P3205,Obed Industrial Load,industrial_load,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,29.0,13.0,2029-05,early,0.25,0.308,0.385,1.561,3.999
+P3278,Elkwater 264S MPC Battery,storage,Lethbridge-Medicine Hat,4.0,250.0,2030-03,cluster,0.009,0.012,0.014,1.485,2.895
+P3131,Sollair 1055S Solar Modification,solar,Calgary,57.0,4.99,2029-11,isd_review,0.223,0.275,0.344,1.48,1.372
+P3201,Jasper Area Industrial Load,industrial_load,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,29.0,12.2,2029-05,early,0.252,0.311,0.388,1.479,3.79
+P3210,Chip Lake Industrial Load,industrial_load,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,29.0,12.0,2029-05,early,0.252,0.31,0.387,1.451,3.719
+P3336,Freer 2043S Contract Change,industrial_load,Wood Buffalo-Cold Lake,25.0,13.5,2027-12,early,0.354,0.435,0.544,1.445,5.878
+P2997,Three Hills 770S DER Solar,solar,Camrose-Drumheller,42.0,18.0,2028-06,mid,0.06,0.074,0.093,1.415,1.333
+P2729,Coaldale 254S DER Solar & Wind,wind,Lethbridge-Medicine Hat,54.0,12.3,2029-04,mid,0.087,0.107,0.134,1.408,1.321
+P2753,Jarrow 252S DER Solar Battery,solar_storage,Camrose-Drumheller,32.0,5.5,2029-04,late,0.217,0.267,0.334,1.386,1.47
+P3212,Dry Creek 186S Distribution Load,distribution_load,Calgary,6.0,7.3,2029-11,isd_review,0.48,0.59,0.738,1.346,4.31
+P3264,Waxwing 2 Gas,gas,Calgary,57.0,466.0,2031-10,cluster,0.008,0.01,0.012,1.307,4.494
+P3317,Battle Lake MPC Geothermal,other_gen,Edmonton,31.0,400.0,2031-10,cluster,0.001,0.002,0.002,1.306,0.673
+P3183,Chestermere Area Distribution Load,distribution_load,Calgary,6.0,30.0,2028-10,early,0.112,0.138,0.172,1.292,4.139
+P3302,Medicine Hat MPC Battery,storage,Lethbridge-Medicine Hat,4.0,150.0,2030-01,cluster,0.011,0.014,0.017,1.269,2.075
+P2334,TCE Saddlebrook Solar Storage,solar_storage,Calgary,46.0,6.5,2028-07,late,0.15,0.185,0.231,1.169,1.204
+P3300,Pincher Creek MPC Cogen,cogen,Lethbridge-Medicine Hat,55.0,75.0,2030-08,cluster,0.014,0.017,0.021,1.124,1.282
+P3072,Greenview Area Load,distribution_load,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,22.0,33.75,2028-11,mid,0.085,0.105,0.131,1.107,3.544
+P3345,Aurum Park 1007S Contract Change,cogen,Edmonton,60.0,4.99,2027-09,early,0.375,0.461,0.576,1.099,2.301
+P3275,Nighthawk MPC Solar Battery,solar_storage,Lethbridge-Medicine Hat,54.0,217.0,2029-08,cluster,0.004,0.005,0.007,1.059,1.141
+P2716,Wapiti 823S Load,distribution_load,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,20.0,28.0,2028-12,mid,0.098,0.12,0.15,1.052,3.37
+P3173,Battle Sands Gas,gas,Camrose-Drumheller,32.0,4.9,2029-02,early,0.204,0.251,0.313,1.041,1.228
+P3307,Northern Heartland Battery,storage,Edmonton,33.0,110.0,2029-12,cluster,0.012,0.015,0.019,1.038,1.684
+P3355,Strathmore 151S Contract Change,distribution_load,Calgary,45.0,11.137,2027-12,early,0.363,0.447,0.559,1.004,4.979
+P3279,Granum 604S MPC Battery,storage,Lethbridge-Medicine Hat,49.0,150.0,2030-03,cluster,0.01,0.013,0.016,0.969,1.889
+P2757,Sturgeon 734S DER Battery,storage,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,23.0,22.0,2029-01,mid,0.053,0.065,0.082,0.96,1.436
+P3084,SW Edmonton Area Load and Reliability,distribution_load,Edmonton,60.0,28.0,2030-12,early,0.224,0.275,0.344,0.891,7.707
+P3265,Waxwing 3 Gas,gas,Calgary,57.0,466.0,2032-01,cluster,0.007,0.009,0.011,0.827,4.277
+P3328,Togo Lake MPC Solar Battery,solar_storage,Camrose-Drumheller,42.0,600.0,2030-08,cluster,0.002,0.002,0.003,0.825,1.472
+P3207,Gainford Industrial Load,industrial_load,Edmonton,40.0,6.5,2029-08,early,0.247,0.304,0.38,0.771,1.976
+P3181,Strome 223S Contract Change,industrial_load,Camrose-Drumheller,56.0,6.0,2029-08,early,0.259,0.318,0.398,0.745,1.909
+P3245,Heritage Trail Battery,storage,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,19.0,100.0,2030-02,cluster,0.011,0.013,0.017,0.692,1.345
+P3290,Benbow 397S DER Gas,gas,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,24.0,23.34,2029-09,cluster,0.024,0.029,0.037,0.672,0.684
+P3354,Canmore 118S Contract Change,distribution_load,Calgary,44.0,7.23,2027-11,early,0.401,0.494,0.617,0.663,3.569
+P3351,Leduc 325S Contract Change,distribution_load,Edmonton,60.0,7.0,2027-10,early,0.435,0.535,0.669,0.612,3.744
+P2956,High River 65S Gas DER,gas,Calgary,46.0,1.5,2029-11,isd_review,0.319,0.392,0.491,0.573,0.589
+P3277,Prairie Lights Unit 3 MPC Gas,gas,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,20.0,466.0,2032-03,cluster,0.007,0.009,0.011,0.538,4.149
+P3013,Raymond Reservoir Battery,storage,Lethbridge-Medicine Hat,55.0,8.1,2028-10,mid,0.077,0.095,0.118,0.521,0.767
+P3135,"Battlesands 594S, Clipper 656S & Rosyth 296S Contract Change",industrial_load,Camrose-Drumheller,32.0,11.7,2027-12,early,0.1,0.123,0.154,0.512,1.443
+P3325,West Crossfield 316S DER Gas,gas,Calgary,57.0,14.9,2029-08,cluster,0.026,0.031,0.039,0.46,0.468
+P2969,Cadomin Area Load,distribution_load,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,29.0,2.5,2029-05,late,0.46,0.566,0.708,0.442,1.415
+P3244,Acadia Valley MPC Solar Battery,solar_storage,Lethbridge-Medicine Hat,48.0,120.0,2030-02,cluster,0.003,0.004,0.005,0.441,0.511
+P3029,Irrican Chin Battery,storage,Lethbridge-Medicine Hat,54.0,6.5,2028-10,mid,0.079,0.097,0.122,0.43,0.633
+P3218,Waddel 907S Distribution Load,distribution_load,Wood Buffalo-Cold Lake,25.0,12.3,2028-12,early,0.091,0.112,0.14,0.43,1.376
+P3306,Hutchison 2 MPC Battery,storage,Lethbridge-Medicine Hat,4.0,150.0,2030-07,cluster,0.008,0.01,0.013,0.426,1.557
+P3305,Evolve Battery 2,storage,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,26.0,22.5,2029-05,cluster,0.023,0.028,0.035,0.412,0.638
+P3235,Willow Ridge Battery,storage,Lethbridge-Medicine Hat,53.0,200.0,2030-09,cluster,0.008,0.01,0.012,0.393,1.918
+P3208,Hinton Industrial Load,industrial_load,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,29.0,3.0,2029-08,early,0.272,0.334,0.418,0.392,1.003
+P3322,Clearstead Solar Battery,solar_storage,Camrose-Drumheller,43.0,448.8,2030-12,cluster,0.002,0.002,0.003,0.347,0.995
+P3319,Evercrest Solar Battery,solar_storage,Edmonton,40.0,448.8,2030-12,cluster,0.002,0.002,0.003,0.347,0.995
+P3321,Corestead Solar Battery,solar_storage,Edmonton,33.0,448.8,2030-12,cluster,0.002,0.002,0.003,0.347,0.995
+P3176,Leming Lake 715S DER Wasteheat,cogen,Wood Buffalo-Cold Lake,28.0,3.0,2031-02,early,0.136,0.167,0.209,0.32,0.501
+P2678,SS-37 DER Gas,gas,Calgary,6.0,1.1,2028-05,late,0.396,0.487,0.609,0.317,0.536
+P3318,Northreach Solar Battery,solar_storage,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,19.0,396.0,2030-12,cluster,0.002,0.002,0.003,0.313,0.897
+P3148,Updike 886S DER Gas,gas,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,20.0,2.0,2028-06,early,0.182,0.224,0.28,0.278,0.448
+P3134,Baseline 317S & Knightsbridge 216S Contract Change,industrial_load,Edmonton,60.0,6.0,2027-12,early,0.109,0.134,0.168,0.274,0.806
+P3182,Sunken Lake 221S Contract Change,industrial_load,Camrose-Drumheller,37.0,2.0,2029-12,early,0.272,0.335,0.419,0.262,0.67
+P3246,Gilmore Battery,storage,Edmonton,60.0,150.0,2030-10,cluster,0.008,0.01,0.012,0.226,1.462
+P3239,AHEC Gas,gas,Edmonton,33.0,364.0,2032-04,cluster,0.007,0.009,0.011,0.217,3.281
+P3260,Fieldgate 824S DER Gas,gas,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,26.0,17.4,2028-08,cluster,0.014,0.017,0.022,0.213,0.302
+P3234,Willow Ridge Wind,wind,Lethbridge-Medicine Hat,53.0,82.9,2030-09,cluster,0.003,0.003,0.004,0.188,0.273
+P3243,Prairie Horizon Battery,storage,Lethbridge-Medicine Hat,4.0,200.0,2030-11,cluster,0.007,0.009,0.011,0.185,1.807
+P3297,Kâpîsimotêt 1058S Solar Battery,solar_storage,Edmonton,31.0,32.0,2028-09,cluster,0.004,0.006,0.007,0.17,0.177
+P3247,Silver Sage Battery,storage,Lethbridge-Medicine Hat,47.0,100.0,2030-10,cluster,0.008,0.01,0.013,0.161,1.042
+P3276,Prairie Lights 1052S Gas,gas,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,20.0,50.0,2031-12,cluster,0.011,0.013,0.017,0.152,0.672
+P3320,Polaris Solar Battery,solar_storage,Wood Buffalo-Cold Lake,28.0,162.8,2030-12,cluster,0.002,0.003,0.003,0.149,0.428
+P3287,Red Deer 63S DER Solar,solar,Red Deer,35.0,14.8,2029-08,cluster,0.007,0.008,0.01,0.131,0.121
+P3310,Fort Saskatchewan 54S DER Gas 2,gas,Edmonton,33.0,7.0,2030-08,cluster,0.021,0.025,0.032,0.129,0.177
+P3309,Fort Saskatchewan 54S DER Gas 1,gas,Edmonton,33.0,7.0,2030-08,cluster,0.021,0.025,0.032,0.129,0.177
+P3308,Mannix Solar Battery,solar_storage,Camrose-Drumheller,36.0,59.0,2030-07,cluster,0.003,0.004,0.005,0.12,0.214
+P3133,Bernese 293S Contract Change,industrial_load,Edmonton,60.0,2.0,2028-12,mid,0.109,0.134,0.168,0.105,0.269
+P3291,Provost 545S DER Battery,storage,Camrose-Drumheller,37.0,18.3,2030-05,cluster,0.013,0.016,0.019,0.104,0.285
+P3292,Sundre 575S DER Battery,storage,Red Deer,38.0,17.9,2030-05,cluster,0.013,0.016,0.02,0.102,0.28
+P3324,Amelia 108S DER Biomass,other_gen,Edmonton,33.0,9.0,2031-03,cluster,0.003,0.004,0.005,0.098,0.034
+P3241,Wesley Creek MPC Solar Battery,solar_storage,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,19.0,150.0,2031-02,cluster,0.002,0.002,0.003,0.094,0.374
+P3266,Tsuu T'ina Solar Battery,solar_storage,Calgary,6.0,44.4,2030-08,cluster,0.003,0.004,0.005,0.085,0.162
+P3256,Kersey Solar,solar,Calgary,57.0,200.0,2031-04,cluster,0.002,0.002,0.003,0.081,0.447
+P3323,Brighthold Solar Battery,solar_storage,Camrose-Drumheller,43.0,74.8,2030-12,cluster,0.002,0.003,0.004,0.078,0.224
+P3240,Hotchkiss MPC Solar Battery,solar_storage,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,19.0,100.0,2031-02,cluster,0.002,0.003,0.003,0.067,0.267
+P3288,Fort Macleod 15S DER Solar,solar,Lethbridge-Medicine Hat,53.0,21.3,2030-08,cluster,0.003,0.004,0.005,0.06,0.091
+P3238,Vegreville 709S DER Battery,storage,Camrose-Drumheller,56.0,7.0,2030-07,cluster,0.014,0.017,0.022,0.037,0.121
+P3237,Castor West Solar Battery,solar_storage,Camrose-Drumheller,42.0,47.0,2031-06,cluster,0.002,0.003,0.003,0.001,0.123
+P3163,South Edmonton Area Load Reliability,distribution_load,Edmonton,60.0,51.0,2031-12,early,0.194,0.238,0.298,0.0,12.156
+P3332,Saddle Hills 865S DER Battery,storage,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,20.0,14.0,2031-01,cluster,0.01,0.013,0.016,0.0,0.179
+P3225,Warbler Battery,storage,Red Deer,35.0,100.0,2031-11,cluster,0.006,0.008,0.01,0.0,0.791
+P3229,Cypress MPC Battery,storage,Lethbridge-Medicine Hat,4.0,250.0,2031-08,cluster,0.006,0.007,0.009,0.0,1.757
+P3221,Kinglet Battery,storage,Lethbridge-Medicine Hat,48.0,100.0,2031-11,cluster,0.006,0.008,0.01,0.0,0.791
+P3222,Osprey Battery,storage,Camrose-Drumheller,32.0,100.0,2031-11,cluster,0.006,0.008,0.01,0.0,0.791
+P3223,Siskin Battery,storage,Red Deer,35.0,100.0,2031-11,cluster,0.006,0.008,0.01,0.0,0.791
+P3224,Vireo Battery,storage,Lethbridge-Medicine Hat,53.0,100.0,2031-11,cluster,0.006,0.008,0.01,0.0,0.791
+P3230,Lanfine MPC Battery,storage,Camrose-Drumheller,42.0,248.0,2031-08,cluster,0.006,0.007,0.009,0.0,1.745
+P3231,Vegreville MPC Battery,storage,Camrose-Drumheller,56.0,100.0,2031-08,cluster,0.007,0.008,0.01,0.0,0.816
+P3167,West Edmonton Area Load Reliability (Poundmaker),distribution_load,Edmonton,60.0,30.58,2032-01,early,0.204,0.25,0.313,0.0,7.66
+P3220,Cowbird Battery,storage,Lethbridge-Medicine Hat,47.0,100.0,2031-11,cluster,0.006,0.008,0.01,0.0,0.791
+P3253,Atlas Battery,storage,Calgary,6.0,75.0,2031-07,cluster,0.007,0.009,0.011,0.0,0.664
+P3252,Apollo Battery,storage,Camrose-Drumheller,43.0,75.0,2031-07,cluster,0.007,0.009,0.011,0.0,0.664
+P3254,Artemis Battery,storage,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,20.0,75.0,2031-07,cluster,0.007,0.009,0.011,0.0,0.664
+P3242,Granum MPC Solar,solar,Lethbridge-Medicine Hat,53.0,350.0,2031-07,cluster,0.001,0.002,0.002,0.0,0.635
+P3294,eReserve 10 MPC Battery,storage,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,20.0,100.0,2031-06,cluster,0.007,0.008,0.011,0.0,0.845
+P3293,eReserve 11 MPC Battery,storage,Camrose-Drumheller,32.0,100.0,2031-06,cluster,0.007,0.008,0.011,0.0,0.845
+P3289,Meridian Battery,storage,Lethbridge-Medicine Hat,4.0,250.0,2031-06,cluster,0.006,0.007,0.009,0.0,1.853
+P3270,Lamoureux Agri MPC Solar Battery,solar_storage,Edmonton,33.0,150.0,2032-03,cluster,0.001,0.002,0.002,0.0,0.258
+P3271,Nose Hill Wind Battery,wind_storage,Camrose-Drumheller,42.0,129.2,2032-01,cluster,0.002,0.002,0.002,0.0,0.244
+P3274,Proteus Alberta MPC Solar Battery,solar_storage,Lethbridge-Medicine Hat,52.0,206.5,2031-09,cluster,0.002,0.002,0.002,0.0,0.399
+P3272,Smoky River Wind,wind,Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River,19.0,175.0,2032-01,cluster,0.001,0.002,0.002,0.0,0.314
+P3286,East Nevis Solar Battery,solar_storage,Camrose-Drumheller,42.0,400.0,2031-12,cluster,0.001,0.002,0.002,0.0,0.64
+P3269,Rich Valley Agri MPC Solar Battery,solar_storage,Edmonton,40.0,100.0,2032-03,cluster,0.001,0.002,0.002,0.0,0.184
+P3268,Castor North MPC Solar Battery,solar_storage,Camrose-Drumheller,42.0,250.0,2032-03,cluster,0.001,0.002,0.002,0.0,0.394
+P3267,St. Albert Agri MPC Solar Battery,solar_storage,Edmonton,60.0,225.0,2032-03,cluster,0.001,0.002,0.002,0.0,0.361
+P3314,Fox Meadows Wind Battery,wind_storage,Camrose-Drumheller,37.0,151.0,2032-01,cluster,0.001,0.002,0.002,0.0,0.278

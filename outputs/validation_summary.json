@@ -1,0 +1,26 @@
+{
+  "queue_vs_load": {
+    "planning_areas": 42,
+    "spearman_all_queued": 0.423,
+    "spearman_included_only": 0.345,
+    "spearman_previous_trend_baseline": 0.675,
+    "partial_queue_given_trend": 0.22
+  },
+  "built_vs_hiring": {
+    "spearman_jobs_vs_change": 0.107,
+    "spearman_pct_vs_pct": -0.429,
+    "spearman_region_size_baseline": 0.714
+  },
+  "load_vs_employment": {
+    "spearman": -0.107
+  },
+  "sector_trend_persistence": {
+    "pairs": 121,
+    "spearman_region_sector": 0.058,
+    "spearman_alberta_sector": 0.388
+  },
+  "tailwind_vs_occupation_growth": {
+    "groups": 34,
+    "spearman": -0.051
+  }
+}

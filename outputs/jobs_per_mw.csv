@@ -1,0 +1,13 @@
+tech,capex_per_kw,local_share,construction_direct,construction_total,operations_direct,operations_total
+solar,2064,0.4,2.12,3.22,0.046,0.09
+solar_storage,2009,0.35,1.81,2.74,0.059,0.114
+wind,1940,0.41,2.05,3.1,0.072,0.139
+wind_storage,1929,0.4,1.98,3.01,0.075,0.145
+storage,1881,0.25,1.21,1.84,0.088,0.17
+storage_long,4788,0.5,6.89,11.54,0.044,0.085
+gas,1857,0.4,1.91,2.9,0.072,0.139
+cogen,2123,0.4,1.74,3.58,0.087,0.169
+other_gen,7146,0.5,9.19,13.95,0.268,0.519
+data_centre,12000,0.2,8.16,13.34,0.3,0.454
+industrial_load,500,0.6,0.77,1.17,0.0,0.0
+distribution_load,400,0.6,0.62,0.94,0.0,0.0

@@ -1,0 +1,135 @@
+{
+  "snapshot": "2026-11-01",
+  "horizon": [
+    2027,
+    2029
+  ],
+  "jobs_per_year": {
+    "low": 3326,
+    "base": 11443,
+    "high": 36271
+  },
+  "queued_mw": 70241,
+  "expected_mw_base": 6096,
+  "by_region": [
+    {
+      "region": "Calgary",
+      "workforce": 1046500,
+      "jobs_per_year": {
+        "low": 844,
+        "base": 3408,
+        "high": 11868
+      },
+      "pct_of_workforce_base": 0.326,
+      "load_growth_pct_2019_2025": 0.78,
+      "top_technologies": {
+        "data_centre": 2856,
+        "gas": 215,
+        "solar": 147,
+        "storage_long": 49
+      }
+    },
+    {
+      "region": "Edmonton",
+      "workforce": 886100,
+      "jobs_per_year": {
+        "low": 1446,
+        "base": 4655,
+        "high": 13766
+      },
+      "pct_of_workforce_base": 0.525,
+      "load_growth_pct_2019_2025": 0.89,
+      "top_technologies": {
+        "data_centre": 3837,
+        "gas": 512,
+        "industrial_load": 89,
+        "solar": 88
+      }
+    },
+    {
+      "region": "Lethbridge-Medicine Hat",
+      "workforce": 156900,
+      "jobs_per_year": {
+        "low": 309,
+        "base": 1009,
+        "high": 3191
+      },
+      "pct_of_workforce_base": 0.643,
+      "load_growth_pct_2019_2025": 0.13,
+      "top_technologies": {
+        "data_centre": 688,
+        "solar": 178,
+        "gas": 50,
+        "solar_storage": 30
+      }
+    },
+    {
+      "region": "Camrose-Drumheller",
+      "workforce": 110200,
+      "jobs_per_year": {
+        "low": 169,
+        "base": 500,
+        "high": 1498
+      },
+      "pct_of_workforce_base": 0.453,
+      "load_growth_pct_2019_2025": -1.86,
+      "top_technologies": {
+        "data_centre": 311,
+        "solar_storage": 53,
+        "solar": 51,
+        "wind": 47
+      }
+    },
+    {
+      "region": "Red Deer",
+      "workforce": 122800,
+      "jobs_per_year": {
+        "low": 139,
+        "base": 623,
+        "high": 2285
+      },
+      "pct_of_workforce_base": 0.508,
+      "load_growth_pct_2019_2025": 0.96,
+      "top_technologies": {
+        "data_centre": 506,
+        "gas": 70,
+        "solar": 12,
+        "cogen": 10
+      }
+    },
+    {
+      "region": "Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River",
+      "workforce": 188800,
+      "jobs_per_year": {
+        "low": 257,
+        "base": 886,
+        "high": 2778
+      },
+      "pct_of_workforce_base": 0.469,
+      "load_growth_pct_2019_2025": -0.1,
+      "top_technologies": {
+        "data_centre": 602,
+        "gas": 216,
+        "solar": 26,
+        "storage_long": 9
+      }
+    },
+    {
+      "region": "Wood Buffalo-Cold Lake",
+      "workforce": 78800,
+      "jobs_per_year": {
+        "low": 162,
+        "base": 362,
+        "high": 886
+      },
+      "pct_of_workforce_base": 0.459,
+      "load_growth_pct_2019_2025": 2.08,
+      "top_technologies": {
+        "data_centre": 165,
+        "storage_long": 157,
+        "gas": 15,
+        "industrial_load": 11
+      }
+    }
+  ]
+}
