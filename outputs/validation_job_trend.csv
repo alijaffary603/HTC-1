@@ -1,0 +1,4 @@
+windows,groups,alberta_rank_corr,alberta_median_error_trend,alberta_median_error_average,regional_cells,region_own_trend_rank_corr,region_alberta_trend_rank_corr,region_alberta_plus_region_rank_corr
+"2012-14 to 2017-19, then to 2023-25",48,0.269,2.58,1.51,231,0.038,0.208,0.268
+"2011-13 to 2016-18, then to 2023-25",48,0.292,2.2,1.29,233,0.059,0.214,0.258
+"2014-16 to 2017-19, then to 2023-25",48,0.146,2.63,1.51,231,-0.12,0.11,0.174

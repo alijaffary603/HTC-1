@@ -39,6 +39,14 @@
       "share_in_mining_oil_gas": 0.0,
       "region_load_growth_pct_per_year": 0.94
     },
+    "job_trend": {
+      "score": 52,
+      "growth_pct_per_year": 0.98,
+      "occupation_growth_pct_per_year_alberta": 2.28,
+      "region_employment_growth_pct_per_year": 0.45,
+      "period": "2017-19 to 2023-25",
+      "based_on_group": "Professional occupations in education services [412]"
+    },
     "adjacent_roles": [
       {
         "code": "4120",
@@ -114,6 +122,14 @@
       "sector_growth_pct_per_year": 1.28,
       "share_in_mining_oil_gas": 0.07,
       "region_load_growth_pct_per_year": 0.89
+    },
+    "job_trend": {
+      "score": 39,
+      "growth_pct_per_year": 0.34,
+      "occupation_growth_pct_per_year_alberta": 0.43,
+      "region_employment_growth_pct_per_year": 1.66,
+      "period": "2017-19 to 2023-25",
+      "based_on_group": "Technical trades and transportation officers and controllers [72]"
     },
     "adjacent_roles": [
       {
@@ -191,6 +207,14 @@
       "share_in_mining_oil_gas": 0.004,
       "region_load_growth_pct_per_year": 0.78
     },
+    "job_trend": {
+      "score": 71,
+      "growth_pct_per_year": 1.96,
+      "occupation_growth_pct_per_year_alberta": 1.15,
+      "region_employment_growth_pct_per_year": 2.56,
+      "period": "2017-19 to 2023-25",
+      "based_on_group": "Sales and service representatives and other customer and personal services occupations [64]"
+    },
     "adjacent_roles": [
       {
         "code": "1440",
@@ -267,6 +291,14 @@
       "share_in_mining_oil_gas": 0.079,
       "region_load_growth_pct_per_year": 0.13
     },
+    "job_trend": {
+      "score": 68,
+      "growth_pct_per_year": 1.74,
+      "occupation_growth_pct_per_year_alberta": 2.32,
+      "region_employment_growth_pct_per_year": 1.18,
+      "period": "2017-19 to 2023-25",
+      "based_on_group": "Professional occupations in finance [111]"
+    },
     "adjacent_roles": [
       {
         "code": "2121",
@@ -342,6 +374,14 @@
       "sector_growth_pct_per_year": 0.8,
       "share_in_mining_oil_gas": 0.806,
       "region_load_growth_pct_per_year": -0.1
+    },
+    "job_trend": {
+      "score": 7,
+      "growth_pct_per_year": -2.39,
+      "occupation_growth_pct_per_year_alberta": -1.15,
+      "region_employment_growth_pct_per_year": 0.52,
+      "period": "2017-19 to 2023-25",
+      "based_on_group": "Supervisors and occupations in natural resources, agriculture and related production [82-83]"
     },
     "adjacent_roles": [
       {
