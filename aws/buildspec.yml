@@ -1,0 +1,23 @@
+# Monthly refresh, run by the CodeBuild project in aws/template.yaml.
+# Any failing step stops the build before publish, so the app keeps last month's numbers.
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.12
+    commands:
+      - pip install --quiet -e ".[dev]" boto3 moto
+
+  pre_build:
+    commands:
+      # raw data lives in S3, not git. The census extract is already processed, so the 12 GB file isn't needed here.
+      - aws s3 sync "s3://$DATA_BUCKET/raw/" data/ --only-show-errors
+      - python scripts/fetch_aeso.py
+      - aws s3 sync data/aeso_project_lists/ "s3://$DATA_BUCKET/raw/aeso_project_lists/" --only-show-errors
+
+  build:
+    commands:
+      - python scripts/build_all.py
+      - python -m pytest -q
+      - python scripts/publish.py --bucket "$DATA_BUCKET"
