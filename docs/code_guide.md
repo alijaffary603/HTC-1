@@ -39,6 +39,8 @@ One package, deployed as two Lambda functions. Tests are in `tests/backend/` and
 | `alerts.py` | Alerts Lambda handler. After each monthly refresh, emails people whose outlook moved |
 | `config.py` | Environment variables set by the template |
 
+`backend/advisor_handler.py` is the advisor Lambda's entry point. It loads the Gemini key from SSM, then hands over to `gridskills/server.py`.
+
 ## `aws/`
 
 | File | What it does |
@@ -66,7 +68,7 @@ Inside the build, data moves through the package in this order:
 | `load.py` | Reads the hourly AESO load files into yearly averages by planning area. Display and validation only, it doesn't feed any score | `build_yearly`, `region_growth` |
 | `scores.py` | Produces the four results: tailwind, exposure, job trend and adjacent roles | `tailwind`, `exposure`, `job_trend`, `adjacent_roles` |
 | `api.py` | One job's result in plain Python. Looks up the job and place, reads `outputs/`. Holds the `ALIASES` lookup for everyday job names | `score`, `find_occupation`, `occupations` |
-| `contract.py` | Converts results into the exact shape `frontend/src/types.ts` expects, for every job and all 8 economic regions | `build`, `summary` |
+| `contract.py` | Runs `score()` for every job and region so the API can serve it. That output is the app's `ModelScore` type | `build`, `summary` |
 | `checks.py` | Sanity checks a monthly build must pass before it's published | `check_outputs`, `check_bundle` |
 
 ## `scripts/`, things you run
@@ -83,7 +85,6 @@ Run these from the project folder with the virtual environment's Python, for exa
 | `fetch_aeso.py` | Downloads any monthly AESO project lists we don't have yet | Monthly, CodeBuild runs it |
 | `publish.py` | Runs the checks, then uploads the app's answers to S3. `--dry-run` checks without uploading | Monthly, CodeBuild runs it |
 | `deploy.py` | Deploys the whole AWS stack, data and web app. See [aws.md](aws.md) | When the code or template changes |
-| `generate_skills.py` | Asks Gemini for each occupation's key skills, writes `config/skills.json` for "skills to build" | Once, then review the output |
 
 `validate.py` holds one function per check: `completion_backtest`, `queue_vs_load`, `load_vs_employment`, `sector_trend_persistence`, `built_vs_hiring`, `job_trend_backtest`, `tailwind_vs_occupation_growth` and `cross_check`. Results are explained in [validation.md](validation.md).
 

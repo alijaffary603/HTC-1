@@ -1,4 +1,4 @@
-# Running GridSkills on AWS
+# Running Signal on AWS
 
 Everything is in one CloudFormation stack, [`aws/template.yaml`](../aws/template.yaml), deployed by [`scripts/deploy.py`](../scripts/deploy.py). Nothing is clicked together in the console.
 
@@ -16,17 +16,21 @@ Browser -> CloudFront -> S3 (the React app)
                                        |                      -> DynamoDB (pathways, alerts)
                               Cognito JWT check               -> Gemini API (résumés)
                                                               -> SES (intro emails)
+                                    -> /api/advisor, /resources, /mentors
+                                           -> Advisor Lambda (gridskills/server.py) -> Gemini API
 ```
 
 | Piece | Service | Why this one |
 |---|---|---|
 | Monthly refresh | CodeBuild on an EventBridge schedule | The model needs pandas and scikit-learn and takes a few minutes. CodeBuild runs it as-is with no container to build. |
-| Published scores | S3 | All 1,296 answers (162 jobs × 8 regions) are worked out once a month, so the API only looks them up |
-| API | API Gateway (HTTP API) + one Lambda | Tiny, spiky traffic. Costs nothing when idle |
+| Published scores | S3 | All 1,134 answers (162 jobs × 7 regions) are worked out once a month, so the API only looks them up |
+| API | API Gateway (HTTP API) + one Lambda | Tiny, spiky traffic. Costs nothing when idle. `/api/score` returns `gridskills.api.score()` output, which is the app's `ModelScore` type |
+| Career advisor | A second Lambda running `gridskills/server.py` | It needs pandas and the model files, so it's kept apart from the light API Lambda. It uses the `outputs/` from the last deploy, so redeploy after a monthly refresh to give it the new numbers |
 | Accounts | Cognito | Email sign-up with a confirmation code. API Gateway checks the token before the Lambda runs |
 | Saved pathways, alerts | DynamoDB | Small per-user records, one table |
 | Email | SES | Monthly "your outlook changed" and introduction emails |
 | Résumé matching | Gemini API (`gemini-3.5-flash-lite`) | Picks from our 162 occupation codes, enforced by the response schema |
+| Advisor model | Gemini API (`gemini-3.1-flash-lite`, the advisor's own default) | Both read the same key from SSM Parameter Store |
 | Web app | S3 + CloudFront | `/api/*` goes to the API on the same domain, so there's no CORS to configure |
 
 No SageMaker, Kinesis, Redshift or containers. The data is small and changes monthly.
