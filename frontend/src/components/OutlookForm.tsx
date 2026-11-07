@@ -2,14 +2,14 @@ import { useState, type ChangeEvent, type FormEvent } from 'react'
 import { Alert, Autocomplete, Box, Button, Chip, CircularProgress, Link, Stack, TextField, Typography } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import { extractSkills } from '../api/client'
-import { OCCUPATIONS, TOWNS, findOccupation, findRegion, findTown } from '../mocks/reference'
+import { OCCUPATIONS, TOWNS, findOccupation, findRegion, findTown, matchesOccupation } from '../data/reference'
 import type { Occupation, SkillsResult, Town } from '../types'
 import { blankSx, sentenceSx } from './sentenceStyles'
 
 const EXAMPLES = [
-  { label: 'a teacher in Edmonton', occupation: '41221', town: 'Edmonton' },
-  { label: 'a retail manager in Lethbridge', occupation: '60020', town: 'Lethbridge' },
-  { label: 'an accountant in Calgary', occupation: '11100', town: 'Calgary' },
+  { label: 'a teacher in Edmonton', occupation: '4122', town: 'Edmonton' },
+  { label: 'a retail manager in Lethbridge', occupation: '6002', town: 'Lethbridge' },
+  { label: 'an accountant in Calgary', occupation: '1110', town: 'Calgary' },
 ]
 
 // Each half of the sentence wraps as a unit: "I work as [job]" / "in [town]".
@@ -101,6 +101,7 @@ export default function OutlookForm() {
             value={occupation ? (findOccupation(occupation.code) ?? null) : null}
             onChange={(_, v) => setOccupation(v)}
             getOptionLabel={(o) => o.title}
+            filterOptions={(opts, { inputValue }) => opts.filter((o) => matchesOccupation(o, inputValue))}
             isOptionEqualToValue={(a, b) => a.code === b.code}
             sx={{ flex: '1 1 220px', minWidth: 0 }}
             renderInput={(params) => (

@@ -16,7 +16,7 @@ import { Link as RouterLink, useLocation, useSearchParams } from 'react-router-d
 import { createAlert, deleteAlert, getPostings, getScore, listAlerts, updateAlert, USING_MOCKS } from '../api/client'
 import { useAuth } from '../auth/useAuth'
 import { useAsync } from '../hooks/useAsync'
-import { OCCUPATIONS, REGIONS, findOccupation, findRegion } from '../mocks/reference'
+import { OCCUPATIONS, REGIONS, findOccupation, findRegion, matchesOccupation, regionRef } from '../data/reference'
 import { blankSx, sentenceSx } from '../components/sentenceStyles'
 import EmailPreview from '../components/EmailPreview'
 import { buildAlertEmail, frequencyLabel, windowDays } from '../email/alertEmail'
@@ -75,6 +75,7 @@ function NewAlertForm({
             value={occupation ? (findOccupation(occupation.code) ?? null) : null}
             onChange={(_, v) => setOccupation(v)}
             getOptionLabel={(o) => o.title}
+            filterOptions={(opts, { inputValue }) => opts.filter((o) => matchesOccupation(o, inputValue))}
             isOptionEqualToValue={(a, b) => a.code === b.code}
             sx={{ flex: { xs: '1 1 auto', sm: '0 0 320px' }, minWidth: 0 }}
             renderInput={(p) => (
@@ -105,7 +106,7 @@ function NewAlertForm({
                 displayEmpty: true,
                 renderValue: (v) =>
                   v ? (
-                    findRegion(String(v))?.name
+                    findRegion(String(v))?.short
                   ) : (
                     <Box component="span" sx={{ color: 'text.secondary', fontWeight: 500 }}>
                       your region
@@ -117,7 +118,7 @@ function NewAlertForm({
           >
             {REGIONS.map((r) => (
               <MenuItem key={r.id} value={r.id}>
-                {r.name}
+                {r.short}
               </MenuItem>
             ))}
           </TextField>
@@ -191,14 +192,14 @@ function AlertRow({
       >
         <Typography variant="h4">{alert.occupation.title}</Typography>
         <Typography variant="body2" color="text.secondary" sx={{ mt: 0.25 }}>
-          {alert.region.name} region. {alert.active ? frequencyLabel(alert.frequency) : 'Paused'}.
+          {alert.region.short} region. {alert.active ? frequencyLabel(alert.frequency) : 'Paused'}.
         </Typography>
       </Box>
       <Stack direction="row" sx={{ alignItems: 'center' }}>
         <Switch
           checked={alert.active}
           onChange={(e) => onToggle(e.target.checked)}
-          slotProps={{ input: { 'aria-label': `Email me about ${alert.occupation.title} in ${alert.region.name}` } }}
+          slotProps={{ input: { 'aria-label': `Email me about ${alert.occupation.title} in ${alert.region.short}` } }}
         />
         <Button color="inherit" size="small" onClick={onDelete} sx={{ color: 'text.secondary' }}>
           Delete
@@ -247,7 +248,7 @@ function Preview({ alert, user }: { alert: JobAlert; user: User }) {
               user,
               alert,
               postings: state.data[0],
-              tailwind: state.data[1].tailwind.range,
+              tailwind: { low: state.data[1].tailwind.range[0], base: state.data[1].tailwind.score, high: state.data[1].tailwind.range[1] },
               appUrl: window.location.origin,
               now,
             })
@@ -327,7 +328,7 @@ export default function AlertsPage() {
     frequency: AlertFrequency
   }) =>
     run(async () => {
-      const region = findRegion(regionId)!
+      const region = regionRef(regionId)!
       const { alert, created } = await createAlert({ occupation, region, frequency })
       setSelectedId(alert.id)
       setToast({ message: created ? 'Alert created.' : 'You already have an alert for this job and region.' })

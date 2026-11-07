@@ -63,10 +63,10 @@ export function postedAgo(iso: string, now = new Date()) {
 
 export function buildAlertEmail({ user, alert, postings, tailwind, appUrl, now = new Date() }: AlertEmailInput): AlertEmail {
   const job = lowerFirst(alert.occupation.title)
-  const where = `the ${alert.region.name} region`
+  const where = `the ${alert.region.short} region`
   const period = alert.frequency === 'daily' ? 'since yesterday' : 'this week'
   const n = postings.length
-  const subject = `${n} new posting${n === 1 ? '' : 's'} for ${job} in ${alert.region.name}`
+  const subject = `${n} new posting${n === 1 ? '' : 's'} for ${job} in ${alert.region.short}`
   const preheader =
     n === 0
       ? `No new postings ${period}.`

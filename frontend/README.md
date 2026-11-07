@@ -9,23 +9,28 @@ npm run dev        # http://localhost:5173
 npm run build      # type-check + production build
 ```
 
-## Mock mode
-With no `VITE_API_URL` set, the app runs entirely on local mock data (`src/mocks/`).
-To call the real backend, copy `.env.example` to `.env.local` and set `VITE_API_URL`.
-All backend calls go through `src/api/client.ts`, so swapping mocks for the real API needs no UI changes.
+## Data
+- **Scores are real.** `scripts/export_app_data.py` (repo root) runs `gridskills.api.score()` for all 162 jobs and
+  7 regions and writes `src/data/reference.json` (jobs, regions, towns, aliases) and `public/data/scores/<code>.json`.
+  The app reads those files, so no Python or server is needed. After the model's outputs change, rerun:
+  `python -m venv .venv && .venv/bin/pip install pandas && .venv/bin/python scripts/export_app_data.py`
+- **Still mocked:** accounts (browser storage), résumé skills, people to connect with, and job postings.
+- Set `VITE_API_URL` (copy `.env.example` to `.env.local`) to send every call to a real backend instead.
+  All backend calls go through `src/api/client.ts`, so the switch needs no UI changes.
 
 ## Layout
 | Path | What |
 |---|---|
-| `src/types.ts` | Draft data contracts (score, skills/gap, pathways, matches). Agree with DS + CS. |
+| `src/types.ts` | Data contracts. `ModelScore` mirrors `gridskills.api.score()` exactly. |
 | `src/api/client.ts` | API layer: `getScore`, `extractSkills`, `getMatches`, pathways CRUD |
-| `src/mocks/` | Mock score model, resume parser, people; reference lists (occupations, regions, towns) |
+| `src/data/` | Real jobs, regions and towns exported from the model |
+| `src/mocks/` | Sample résumé parser, people and job postings |
 | `src/pages/` | Home (input), Results, Saved pathways, People like you |
 | `src/components/` | Layout, ScoreCard, RangeBar, AdjacentRoleCard |
 | `src/theme.ts` | Placeholder theme until the design system lands |
 
 ## Expected API (when not mocked)
-- `GET  /score?occupation=<NOC>&region=<id>` → `ScoreResult`
+- `GET  /score?occupation=<4-digit NOC>&region=<region name>` → `ModelScore` (the output of `gridskills.api.score()`)
 - `POST /skills` (multipart `resume`) → `SkillsResult`
 - `GET  /matches?region=<id>&from=<NOC>&to=<NOC>` → `Match[]`
 - `GET/POST /pathways`, `DELETE /pathways/:id` → `Pathway`

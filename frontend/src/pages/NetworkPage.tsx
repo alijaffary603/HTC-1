@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router-dom'
 import { getMatches } from '../api/client'
 import { useAsync } from '../hooks/useAsync'
 import { useAuth, useSignInRedirect } from '../auth/useAuth'
-import { OCCUPATIONS, REGIONS } from '../mocks/reference'
+import { OCCUPATIONS, REGIONS } from '../data/reference'
 import type { Match } from '../types'
 
 const lower = (s: string) => s.charAt(0).toLowerCase() + s.slice(1)
@@ -18,8 +18,8 @@ function describe(m: Match) {
 // Kept deliberately small for v1 (see Team_split.md: networking scope creep risk).
 export default function NetworkPage() {
   const [params, setParams] = useSearchParams()
-  const region = params.get('region') ?? '4830'
-  const from = params.get('from') ?? '11100'
+  const region = params.get('region') ?? 'Calgary'
+  const from = params.get('from') ?? '1110'
   const to = params.get('to') ?? undefined
   const [toast, setToast] = useState<string | null>(null)
   const [requested, setRequested] = useState<Set<string>>(new Set())
@@ -61,7 +61,7 @@ export default function NetworkPage() {
         >
           {REGIONS.map((r) => (
             <MenuItem key={r.id} value={r.id}>
-              {r.name}
+              {r.short}
             </MenuItem>
           ))}
         </TextField>
@@ -130,7 +130,7 @@ export default function NetworkPage() {
                     )}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    {describe(m)}, {m.region.name} region.
+                    {describe(m)}, {m.region.short} region.
                   </Typography>
                   <Typography sx={{ mt: 1 }}>{m.blurb}</Typography>
                 </Box>

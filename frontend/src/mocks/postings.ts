@@ -1,5 +1,5 @@
 import type { JobPosting } from '../types'
-import { TOWNS, findOccupation, findRegion, type Sector } from './reference'
+import { TOWNS, findOccupation, findRegion, type Sector } from '../data/reference'
 
 // MOCK job postings until a postings source is chosen (see Data_availability.md:
 // "Job postings data (licensing/cost)" is still open). Employers are fictional.
@@ -15,37 +15,42 @@ function hash01(s: string): number {
 }
 
 const TITLES: Record<string, string[]> = {
-  '11100': ['Staff Accountant', 'Audit Senior (CPA)'],
-  '11101': ['Financial Analyst', 'Energy Market Analyst'],
-  '12200': ['Bookkeeper', 'Accounts Payable Clerk'],
-  '11200': ['HR Generalist', 'Training Coordinator'],
-  '13110': ['Administrative Assistant', 'Office Coordinator'],
-  '13201': ['Logistics Coordinator', 'Materials Coordinator'],
-  '60020': ['Store Manager', 'Assistant Store Manager'],
-  '64100': ['Retail Sales Associate', 'Visual Merchandiser'],
-  '41220': ['High School Science Teacher', 'Secondary Math Teacher'],
-  '41221': ['Grade 3 Teacher', 'Kindergarten Teacher'],
-  '41210': ['Electrical Program Instructor', 'Adult Education Instructor'],
-  '31301': ['Registered Nurse', 'Community Health Nurse'],
-  '21211': ['Data Scientist', 'Grid Analytics Specialist'],
-  '21232': ['Software Developer', 'Full-Stack Developer'],
-  '21223': ['Database Analyst', 'Data Engineer'],
-  '22220': ['Network Technician', 'IT Support Technician'],
-  '21300': ['Civil Engineer (EIT)', 'Project Engineer'],
-  '21310': ['Electrical Engineer', 'Protection and Controls Engineer'],
-  '22310': ['Electrical Technologist', 'SCADA Technician'],
-  '22303': ['Construction Estimator', 'Junior Estimator'],
-  '70010': ['Construction Manager', 'Site Superintendent'],
-  '70012': ['Facility Maintenance Manager', 'Site Operations Lead'],
-  '72200': ['Journeyperson Electrician', 'Electrician Apprentice'],
-  '72201': ['Industrial Electrician', 'Instrumentation Electrician'],
-  '72202': ['Powerline Technician', 'Substation Electrician'],
-  '72106': ['Pipe Welder', 'Structural Welder'],
-  '72300': ['Plumber', 'Plumbing Apprentice'],
-  '72310': ['Carpenter', 'Formwork Carpenter'],
-  '72400': ['Millwright', 'Industrial Mechanic'],
-  '73400': ['Heavy Equipment Operator', 'Excavator Operator'],
-  '92100': ['Power Engineer (4th Class)', 'Plant Operator'],
+  '1002': ['Finance Manager', 'Controller'],
+  '1110': ['Staff Accountant', 'Financial Analyst', 'Audit Senior (CPA)'],
+  '1120': ['HR Generalist', 'Training Coordinator'],
+  '1220': ['Bookkeeper', 'Accounts Payable Clerk'],
+  '1311': ['Administrative Assistant', 'Office Coordinator'],
+  '1320': ['Logistics Coordinator', 'Materials Coordinator'],
+  '1440': ['Scheduling Coordinator', 'Supply Chain Coordinator'],
+  '2121': ['Data Scientist', 'Grid Analytics Specialist'],
+  '2122': ['Systems Analyst', 'Database Analyst'],
+  '2123': ['Software Developer', 'Full-Stack Developer'],
+  '2130': ['Civil Engineer (EIT)', 'Mechanical Engineer'],
+  '2131': ['Electrical Engineer', 'Protection and Controls Engineer'],
+  '2222': ['Network Technician', 'IT Support Technician'],
+  '2230': ['Construction Estimator', 'Engineering Technologist'],
+  '2231': ['Electrical Technologist', 'SCADA Technician'],
+  '3130': ['Registered Nurse', 'Community Health Nurse'],
+  '4121': ['Electrical Program Instructor', 'Adult Education Instructor'],
+  '4122': ['Grade 3 Teacher', 'High School Science Teacher', 'Kindergarten Teacher'],
+  '6002': ['Store Manager', 'Assistant Store Manager'],
+  '6410': ['Retail Sales Associate', 'Visual Merchandiser'],
+  '7001': ['Construction Manager', 'Facility Maintenance Manager'],
+  '7201': ['Electrical Foreman', 'Site Superintendent'],
+  '7210': ['Pipe Welder', 'Structural Welder'],
+  '7220': ['Journeyperson Electrician', 'Powerline Technician', 'Substation Electrician'],
+  '7230': ['Plumber', 'Pipefitter'],
+  '7231': ['Carpenter', 'Formwork Carpenter'],
+  '7240': ['Millwright', 'Industrial Mechanic'],
+  '7330': ['Class 1 Truck Driver', 'Transit Operator'],
+  '7340': ['Heavy Equipment Operator', 'Excavator Operator'],
+  '9210': ['Power Engineer (4th Class)', 'Plant Operator'],
+}
+
+/** A plausible single job title from a group title when we have no hand-written one. */
+function fallbackTitle(groupTitle: string) {
+  const first = groupTitle.split(/,| and | \(/)[0].trim()
+  return first.endsWith('ss') || !first.endsWith('s') ? first : first.slice(0, -1)
 }
 
 const EMPLOYERS: Record<Sector, string[]> = {
@@ -71,7 +76,7 @@ const ANNUAL: Record<Sector, [number, number]> = {
   admin: [45000, 72000],
 }
 const HOURLY: [number, number] = [32, 52]
-const isHourly = (code: string) => code.startsWith('72') || code.startsWith('73')
+const isHourly = (code: string) => /^[789]/.test(code) && !/^[789]00/.test(code)
 
 const DAY = 24 * 60 * 60 * 1000
 
@@ -81,7 +86,7 @@ export function mockPostings(occupationCode: string, regionId: string, now = new
   const region = findRegion(regionId)
   if (!occ || !region) return []
   const towns = TOWNS.filter((t) => t.regionId === regionId)
-  const titles = TITLES[occ.code] ?? [occ.title]
+  const titles = TITLES[occ.code] ?? [fallbackTitle(occ.title)]
   const employers = EMPLOYERS[occ.sector]
   const dayKey = Math.floor(now.getTime() / DAY)
   const count = 2 + Math.floor(hash01(`${occ.code}|${regionId}|${dayKey}`) * 6)

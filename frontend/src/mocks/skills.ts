@@ -2,6 +2,7 @@ import type { SkillsResult } from '../types'
 
 // MOCK stand-in for the computer scientist’s extract_skills(text).
 // Ignores the file contents and returns a fixed example (an accountant).
+// Codes are NOC 2021 4-digit groups, the same ones gridskills.api.score() takes.
 export function mockExtractSkills(_fileName: string): SkillsResult {
   return {
     skills: [
@@ -12,9 +13,9 @@ export function mockExtractSkills(_fileName: string): SkillsResult {
       { name: 'Team leadership', confidence: 0.6 },
     ],
     suggestedOccupations: [
-      { code: '11100', title: 'Financial auditors and accountants', confidence: 0.88 },
-      { code: '12200', title: 'Accounting technicians and bookkeepers', confidence: 0.64 },
-      { code: '11101', title: 'Financial and investment analysts', confidence: 0.52 },
+      { code: '1110', title: 'Auditors, accountants and investment professionals', confidence: 0.88 },
+      { code: '1220', title: 'Accounting, insurance and related business administrative occupations', confidence: 0.64 },
+      { code: '1002', title: 'Managers in financial and business services', confidence: 0.52 },
     ],
   }
 }
