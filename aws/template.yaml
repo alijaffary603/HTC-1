@@ -154,6 +154,9 @@ Resources:
         "POST /api/skills":
           ThrottlingBurstLimit: 5
           ThrottlingRateLimit: 1
+        "POST /api/advisor":
+          ThrottlingBurstLimit: 5
+          ThrottlingRateLimit: 1
 
   # CodeUri has to be set on each function: `aws cloudformation package` ignores it under Globals
   ApiFunction:
@@ -198,6 +201,34 @@ Resources:
         CreateAlert: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: /api/alerts, Method: POST } }
         UpdateAlert: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: "/api/alerts/{id}", Method: PATCH } }
         DeleteAlert: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: "/api/alerts/{id}", Method: DELETE } }
+
+  # Gemini career advisor (gridskills/server.py). Separate from ApiFunction because it
+  # runs the model's own score() and needs pandas. It uses the outputs/ baked in at
+  # deploy time, so redeploy after a monthly refresh to give it the new numbers.
+  AdvisorFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ../build/advisor
+      Handler: advisor_handler.handler
+      MemorySize: 1536
+      Timeout: 29
+      Environment:
+        Variables:
+          GEMINI_KEY_PARAM: !Ref GeminiKeyParam
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action: ssm:GetParameter
+              Resource: !Sub "arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter${GeminiKeyParam}"
+            - Effect: Allow
+              Action: kms:Decrypt
+              Resource: "*"
+              Condition:
+                StringEquals: { kms:ViaService: !Sub "ssm.${AWS::Region}.amazonaws.com" }
+      Events:
+        Advisor: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: /api/advisor, Method: POST, Auth: { Authorizer: NONE } } }
+        Resources: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: /api/resources, Method: GET, Auth: { Authorizer: NONE } } }
+        Mentors: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: /api/mentors, Method: GET, Auth: { Authorizer: NONE } } }
 
   # email
 

@@ -30,6 +30,7 @@ from botocore.exceptions import ClientError
 ROOT = Path(__file__).resolve().parent.parent
 BUILD = ROOT / "build"
 LAMBDA_DIR = BUILD / "lambda"
+ADVISOR_DIR = BUILD / "advisor"
 FRONTEND = ROOT / "frontend"
 
 # raw inputs the monthly job needs, relative to data/. The 12 GB census zip isn't one.
@@ -102,6 +103,22 @@ def package_lambda():
         "--only-binary=:all:", "google-genai")
     shutil.copytree(ROOT / "backend" / "gridapi", LAMBDA_DIR / "gridapi",
                     ignore=shutil.ignore_patterns("__pycache__"))
+
+
+def package_advisor():
+    """The advisor runs the model's own score(), so it needs pandas, gridskills and outputs/."""
+    shutil.rmtree(ADVISOR_DIR, ignore_errors=True)
+    ADVISOR_DIR.mkdir(parents=True)
+    run(sys.executable, "-m", "pip", "install", "--quiet", "--target", ADVISOR_DIR,
+        "--platform", "manylinux2014_x86_64", "--implementation", "cp", "--python-version", "3.12",
+        "--only-binary=:all:", "pandas>=2.2")
+    shutil.copytree(ROOT / "gridskills", ADVISOR_DIR / "gridskills", ignore=shutil.ignore_patterns("__pycache__"))
+    for folder, pattern in (("outputs", "*.csv"), ("outputs", "*.json"), ("config", "advisor_*.json")):
+        (ADVISOR_DIR / folder).mkdir(exist_ok=True)
+        for f in (ROOT / folder).glob(pattern):
+            if f.name != "api_bundle.json":
+                shutil.copy2(f, ADVISOR_DIR / folder / f.name)
+    shutil.copy2(ROOT / "backend" / "advisor_handler.py", ADVISOR_DIR / "advisor_handler.py")
 
 
 def stack_outputs(cfn, stack):
@@ -180,8 +197,9 @@ def main():
     step("Gemini API key")
     ensure_gemini_key(session.client("ssm"), "/gridskills/gemini-api-key")
 
-    step("Lambda package")
+    step("Lambda packages")
     package_lambda()
+    package_advisor()
 
     step("CloudFormation")
     artifacts = ensure_artifact_bucket(s3, account, args.region)
