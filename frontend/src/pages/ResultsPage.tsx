@@ -47,7 +47,8 @@ const STAGE_LABEL: Record<Driver['stage'], string> = {
 }
 
 const NBSP = ' '
-const rangeText = (r: { low: number; high: number }) => `${r.low}–${r.high}`
+// scores without scenarios come through as low = base = high, show those as one number
+const rangeText = (r: { low: number; high: number }) => (r.low === r.high ? `${r.low}` : `${r.low}–${r.high}`)
 
 function Section({ id, title, intro, children }: { id: string; title: string; intro?: string; children: ReactNode }) {
   return (
