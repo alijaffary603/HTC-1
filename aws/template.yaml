@@ -1,0 +1,435 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  GridSkills. Monthly model refresh (CodeBuild), published scores (S3), API (API Gateway
+  + Lambda), accounts (Cognito), saved pathways and alerts (DynamoDB), email (SES) and the
+  web app (S3 + CloudFront). Deploy with scripts/deploy.py, not by hand.
+
+Parameters:
+  SenderEmail:
+    Type: String
+    Description: Address alert and introduction emails come from. SES sends a verification link to it.
+  AdminEmail:
+    Type: String
+    Default: ""
+    Description: Gets an email when the monthly refresh fails. Leave empty to skip.
+  GeminiModel:
+    Type: String
+    Default: gemini-3.5-flash-lite
+  GeminiKeyParam:
+    Type: String
+    Default: /gridskills/gemini-api-key
+    Description: SSM SecureString holding the Gemini API key. deploy.py creates it.
+  SourceKey:
+    Type: String
+    Default: code/source.zip
+    Description: Where deploy.py uploads the repo for the monthly CodeBuild job.
+
+Conditions:
+  HasAdminEmail: !Not [!Equals [!Ref AdminEmail, ""]]
+
+Globals:
+  Function:
+    Runtime: python3.12
+    Architectures: [x86_64]
+    CodeUri: ../build/lambda
+    Environment:
+      Variables:
+        DATA_BUCKET: !Ref DataBucket
+        TABLE_NAME: !Ref UsersTable
+        SENDER_EMAIL: !Ref SenderEmail
+
+Resources:
+  # storage
+
+  DataBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      VersioningConfiguration: { Status: Enabled }
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault: { SSEAlgorithm: AES256 }
+      LifecycleConfiguration:
+        Rules:
+          - Id: old-versions
+            Status: Enabled
+            NoncurrentVersionExpiration: { NoncurrentDays: 90 }
+
+  SiteBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault: { SSEAlgorithm: AES256 }
+
+  SiteBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref SiteBucket
+      PolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal: { Service: cloudfront.amazonaws.com }
+            Action: s3:GetObject
+            Resource: !Sub "${SiteBucket.Arn}/*"
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${Distribution}"
+
+  UsersTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - { AttributeName: pk, KeyType: HASH }
+        - { AttributeName: sk, KeyType: RANGE }
+      AttributeDefinitions:
+        - { AttributeName: pk, AttributeType: S }
+        - { AttributeName: sk, AttributeType: S }
+        - { AttributeName: gsi1pk, AttributeType: S }
+        - { AttributeName: gsi1sk, AttributeType: S }
+      GlobalSecondaryIndexes:
+        - IndexName: gsi1
+          KeySchema:
+            - { AttributeName: gsi1pk, KeyType: HASH }
+            - { AttributeName: gsi1sk, KeyType: RANGE }
+          Projection: { ProjectionType: ALL }
+      PointInTimeRecoverySpecification: { PointInTimeRecoveryEnabled: true }
+      SSESpecification: { SSEEnabled: true }
+
+  # accounts
+
+  UserPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      UsernameAttributes: [email]
+      AutoVerifiedAttributes: [email]
+      AccountRecoverySetting:
+        RecoveryMechanisms:
+          - { Name: verified_email, Priority: 1 }
+      Policies:
+        PasswordPolicy:
+          MinimumLength: 8
+          RequireLowercase: false
+          RequireUppercase: false
+          RequireNumbers: false
+          RequireSymbols: false
+      Schema:
+        - { Name: name, AttributeDataType: String, Mutable: true, Required: true }
+
+  UserPoolClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties:
+      UserPoolId: !Ref UserPool
+      GenerateSecret: false
+      ExplicitAuthFlows: [ALLOW_USER_PASSWORD_AUTH, ALLOW_REFRESH_TOKEN_AUTH]
+      PreventUserExistenceErrors: ENABLED
+
+  # API
+
+  HttpApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      Auth:
+        DefaultAuthorizer: Cognito
+        Authorizers:
+          Cognito:
+            IdentitySource: $request.header.Authorization
+            JwtConfiguration:
+              issuer: !Sub "https://cognito-idp.${AWS::Region}.amazonaws.com/${UserPool}"
+              audience: [!Ref UserPoolClient]
+      DefaultRouteSettings:
+        ThrottlingBurstLimit: 50
+        ThrottlingRateLimit: 20
+      RouteSettings:
+        "POST /api/skills":
+          ThrottlingBurstLimit: 5
+          ThrottlingRateLimit: 1
+
+  ApiFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: gridapi.api.handler
+      MemorySize: 1024
+      Timeout: 29
+      Environment:
+        Variables:
+          GEMINI_MODEL: !Ref GeminiModel
+          GEMINI_KEY_PARAM: !Ref GeminiKeyParam
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref UsersTable }
+        - S3ReadPolicy: { BucketName: !Ref DataBucket }
+        - Statement:
+            - Effect: Allow
+              Action: ssm:GetParameter
+              Resource: !Sub "arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter${GeminiKeyParam}"
+            - Effect: Allow
+              Action: kms:Decrypt
+              Resource: "*"
+              Condition:
+                StringEquals: { kms:ViaService: !Sub "ssm.${AWS::Region}.amazonaws.com" }
+            - Effect: Allow
+              Action: [ses:SendEmail, ses:SendRawEmail]
+              Resource: "*"
+              Condition:
+                StringEquals: { ses:FromAddress: !Ref SenderEmail }
+      Events:
+        Score: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: /api/score, Method: GET, Auth: { Authorizer: NONE } } }
+        Skills: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: /api/skills, Method: POST, Auth: { Authorizer: NONE } } }
+        Postings: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: /api/postings, Method: GET, Auth: { Authorizer: NONE } } }
+        Matches: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: /api/matches, Method: GET } }
+        Intros: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: /api/intros, Method: POST } }
+        ListPathways: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: /api/pathways, Method: GET } }
+        SavePathway: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: /api/pathways, Method: POST } }
+        SharePathway: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: "/api/pathways/{id}", Method: PATCH } }
+        DeletePathway: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: "/api/pathways/{id}", Method: DELETE } }
+        ListAlerts: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: /api/alerts, Method: GET } }
+        CreateAlert: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: /api/alerts, Method: POST } }
+        UpdateAlert: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: "/api/alerts/{id}", Method: PATCH } }
+        DeleteAlert: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: "/api/alerts/{id}", Method: DELETE } }
+
+  # email
+
+  SenderIdentity:
+    Type: AWS::SES::EmailIdentity
+    Properties:
+      EmailIdentity: !Ref SenderEmail
+
+  # monthly refresh
+
+  PipelineRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal: { Service: codebuild.amazonaws.com }
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: pipeline
+          PolicyDocument:
+            Statement:
+              - Effect: Allow
+                Action: [logs:CreateLogGroup, logs:CreateLogStream, logs:PutLogEvents]
+                Resource: !Sub "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/codebuild/*"
+              - Effect: Allow
+                Action: [s3:GetObject, s3:GetObjectVersion, s3:PutObject, s3:ListBucket]
+                Resource: [!GetAtt DataBucket.Arn, !Sub "${DataBucket.Arn}/*"]
+
+  PipelineProject:
+    Type: AWS::CodeBuild::Project
+    Properties:
+      Description: Fetch the new AESO list, rebuild the model, test, and publish if the checks pass
+      ServiceRole: !GetAtt PipelineRole.Arn
+      Source:
+        Type: S3
+        Location: !Sub "${DataBucket}/${SourceKey}"
+        BuildSpec: aws/buildspec.yml
+      Artifacts: { Type: NO_ARTIFACTS }
+      Environment:
+        Type: LINUX_CONTAINER
+        ComputeType: BUILD_GENERAL1_MEDIUM
+        Image: aws/codebuild/standard:7.0
+        EnvironmentVariables:
+          - { Name: DATA_BUCKET, Value: !Ref DataBucket }
+      TimeoutInMinutes: 30
+
+  ScheduleRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal: { Service: events.amazonaws.com }
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: start-build
+          PolicyDocument:
+            Statement:
+              - Effect: Allow
+                Action: codebuild:StartBuild
+                Resource: !GetAtt PipelineProject.Arn
+
+  MonthlySchedule:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: AESO usually posts the new list in the first week or so. Run on the 12th to be safe.
+      ScheduleExpression: cron(0 15 12 * ? *)
+      Targets:
+        - Id: pipeline
+          Arn: !GetAtt PipelineProject.Arn
+          RoleArn: !GetAtt ScheduleRole.Arn
+
+  AlertsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: gridapi.alerts.handler
+      MemorySize: 512
+      Timeout: 300
+      Environment:
+        Variables:
+          APP_URL: !Sub "https://${Distribution.DomainName}"
+      Policies:
+        - DynamoDBReadPolicy: { TableName: !Ref UsersTable }
+        - S3CrudPolicy: { BucketName: !Ref DataBucket }
+        - Statement:
+            - Effect: Allow
+              Action: [ses:SendEmail, ses:SendRawEmail]
+              Resource: "*"
+              Condition:
+                StringEquals: { ses:FromAddress: !Ref SenderEmail }
+      Events:
+        AfterRefresh:
+          Type: EventBridgeRule
+          Properties:
+            Pattern:
+              source: [aws.codebuild]
+              detail-type: [CodeBuild Build State Change]
+              detail:
+                build-status: [SUCCEEDED]
+                project-name: [!Ref PipelineProject]
+
+  FailureTopic:
+    Type: AWS::SNS::Topic
+    Condition: HasAdminEmail
+    Properties:
+      Subscription:
+        - { Protocol: email, Endpoint: !Ref AdminEmail }
+
+  FailureTopicPolicy:
+    Type: AWS::SNS::TopicPolicy
+    Condition: HasAdminEmail
+    Properties:
+      Topics: [!Ref FailureTopic]
+      PolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal: { Service: events.amazonaws.com }
+            Action: sns:Publish
+            Resource: !Ref FailureTopic
+
+  RefreshFailed:
+    Type: AWS::Events::Rule
+    Condition: HasAdminEmail
+    Properties:
+      Description: Tell the admin when the monthly refresh fails. The app keeps last month's numbers.
+      EventPattern:
+        source: [aws.codebuild]
+        detail-type: [CodeBuild Build State Change]
+        detail:
+          build-status: [FAILED, STOPPED]
+          project-name: [!Ref PipelineProject]
+      Targets:
+        - Id: admin
+          Arn: !Ref FailureTopic
+
+  # web app
+
+  SiteOriginAccess:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub "${AWS::StackName}-site"
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+
+  SpaRewrite:
+    Type: AWS::CloudFront::Function
+    Properties:
+      Name: !Sub "${AWS::StackName}-spa"
+      AutoPublish: true
+      FunctionConfig:
+        Comment: Send app routes like /results to index.html, leave files alone
+        Runtime: cloudfront-js-2.0
+      FunctionCode: |
+        function handler(event) {
+          var request = event.request;
+          if (request.uri.indexOf('.') === -1) {
+            request.uri = '/index.html';
+          }
+          return request;
+        }
+
+  # API responses are never cached, but the Authorization header has to be part of the
+  # cache policy for CloudFront to pass it on, and that needs a non-zero max TTL.
+  ApiCachePolicy:
+    Type: AWS::CloudFront::CachePolicy
+    Properties:
+      CachePolicyConfig:
+        Name: !Sub "${AWS::StackName}-api"
+        MinTTL: 0
+        DefaultTTL: 0
+        MaxTTL: 1
+        ParametersInCacheKeyAndForwardedToOrigin:
+          EnableAcceptEncodingGzip: true
+          EnableAcceptEncodingBrotli: true
+          HeadersConfig:
+            HeaderBehavior: whitelist
+            Headers: [Authorization]
+          QueryStringsConfig: { QueryStringBehavior: all }
+          CookiesConfig: { CookieBehavior: none }
+
+  Distribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        Comment: GridSkills
+        DefaultRootObject: index.html
+        HttpVersion: http2and3
+        PriceClass: PriceClass_100
+        Origins:
+          - Id: site
+            DomainName: !GetAtt SiteBucket.RegionalDomainName
+            OriginAccessControlId: !GetAtt SiteOriginAccess.Id
+            S3OriginConfig: { OriginAccessIdentity: "" }
+          - Id: api
+            DomainName: !Sub "${HttpApi}.execute-api.${AWS::Region}.amazonaws.com"
+            CustomOriginConfig:
+              OriginProtocolPolicy: https-only
+              OriginSSLProtocols: [TLSv1.2]
+        DefaultCacheBehavior:
+          TargetOriginId: site
+          ViewerProtocolPolicy: redirect-to-https
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6  # managed CachingOptimized
+          Compress: true
+          FunctionAssociations:
+            - EventType: viewer-request
+              FunctionARN: !GetAtt SpaRewrite.FunctionMetadata.FunctionARN
+        CacheBehaviors:
+          - PathPattern: /api/*
+            TargetOriginId: api
+            ViewerProtocolPolicy: https-only
+            AllowedMethods: [GET, HEAD, OPTIONS, PUT, PATCH, POST, DELETE]
+            CachePolicyId: !Ref ApiCachePolicy
+            OriginRequestPolicyId: b689b0a8-53d0-40ab-baf2-68738e2966ac  # managed AllViewerExceptHostHeader
+            Compress: true
+
+Outputs:
+  SiteUrl:
+    Value: !Sub "https://${Distribution.DomainName}"
+  DistributionId:
+    Value: !Ref Distribution
+  SiteBucket:
+    Value: !Ref SiteBucket
+  DataBucket:
+    Value: !Ref DataBucket
+  UserPoolId:
+    Value: !Ref UserPool
+  UserPoolClientId:
+    Value: !Ref UserPoolClient
+  PipelineProject:
+    Value: !Ref PipelineProject
+  ApiEndpoint:
+    Value: !Sub "https://${HttpApi}.execute-api.${AWS::Region}.amazonaws.com"
