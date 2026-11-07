@@ -20,30 +20,52 @@ Bad input raises `ValueError` with a readable message, so it's fine to show that
 
 ```json
 {
-  "occupation": {"code": "4122", "title": "Secondary, elementary and kindergarten school teachers"},
+  "occupation": {
+    "code": "4122",
+    "title": "Secondary, elementary and kindergarten school teachers"
+  },
   "region": "Red Deer",
   "tailwind": {
     "score": 10,
-    "range": [3, 48],
-    "added_jobs_per_year": {"low": 1.0, "base": 4.6, "high": 15.1},
-    "percent_of_workforce": 0.14,
+    "range": [
+      4,
+      52
+    ],
+    "added_jobs_per_year": {
+      "low": 0.8,
+      "base": 3.2,
+      "high": 11.6
+    },
+    "percent_of_workforce": 0.1,
     "workforce": 3276,
-    "top_technologies": [{"technology": "data_centre", "share": 0.826}]
+    "top_technologies": [
+      {
+        "technology": "data_centre",
+        "share": 0.789
+      }
+    ]
   },
   "exposure": {
-    "score": 3,
-    "sector_growth_pct_per_year": 2.63,
+    "score": 9,
+    "sector_growth_pct_per_year": 2.46,
     "share_in_mining_oil_gas": 0.0,
-    "region_load_growth_pct_per_year": 0.96
+    "region_load_growth_pct_per_year": 0.94
   },
   "adjacent_roles": [
-    {"code": "4120", "title": "University professors and post-secondary assistants", "closeness": 1.0, "tailwind": 63}
+    {
+      "code": "4120",
+      "title": "University professors and post-secondary assistants",
+      "closeness": 1.0,
+      "tailwind": 63
+    }
   ],
-  "caveats": ["Most of this comes from data centres. ..."]
+  "caveats": [
+    "Most of this comes from data centres. None has connected to the Alberta grid yet, so it's the least certain part."
+  ]
 }
 ```
 
-Values above are illustrative, the sample file has the current ones. The scores are percentiles, so 10 means this job and region sit above about 10% of all job-region pairs. `adjacent_roles` can be empty, and when it is there's a caveat explaining why.
+Trimmed to one technology and one role here, the sample file has the full version. The scores are percentiles, so 10 means this job and region sit above about 10% of all job-region pairs. `adjacent_roles` can be empty, and when it is there's a caveat explaining why.
 
 ## Files
 
@@ -64,7 +86,7 @@ Rebuild with `python scripts/build_all.py`, once the raw data is in place.
 
 This matters as much as the numbers. See [validation.md](validation.md) for why.
 
-- **Lead with the score and range, not the job count.** "4.6 new teaching jobs" reads as a promise and it isn't one. If you show counts, show the low to high range next to them.
+- **Lead with the score and range, not the job count.** "3.2 new teaching jobs" reads as a promise and it isn't one. If you show counts, show the low to high range next to them.
 - **Always show the range.** It's wide because the uncertainty is real.
 - **Show `caveats`.** Especially the data centre one, since most results depend on it.
 - **Use "demand from energy projects", not "job growth".** Tailwind only covers this one source. A teacher with a low score doesn't have a bad outlook overall. It just means energy projects won't change much for them.

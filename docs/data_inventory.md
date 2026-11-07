@@ -7,7 +7,7 @@ What each source is, what it can answer, and the traps. Download links are in [D
 45 monthly Excel files, January 2023 to November 2026. November 2023 and December 2024 aren't published. 13,533 project-months across 933 projects.
 
 - **Columns:** status, project number and name, planning area, cluster, project type, MW type, stage, CA modelled, inclusion, applied date, then STS MW, DTS MW and in-service date for up to three energizations. Definitions are in the guide PDF.
-- **Location:** planning area only (42 of them). Nothing finer in the Excel. The shapefile wasn't checked.
+- **Location:** planning area only (41 of them). Nothing finer in the Excel. The shapefile wasn't checked.
 - **Good for:** what's being built, and from the archive, what happened to earlier projects.
 
 Traps:
@@ -38,7 +38,7 @@ Traps:
 
 ## StatCan Labour Force Survey
 
-Tables 14-10-0464 and 14-10-0466, annual, 2011 to 2025, Alberta's economic regions. Tables 14-10-0392 and 0393, used at first, are archived and stop at 2024.
+Table 14-10-0466, annual, 2011 to 2025, Alberta's economic regions, is what the code reads. 14-10-0464 has the same geography for labour force characteristics. Tables 14-10-0392 and 0393 are archived and stop at 2024.
 
 Traps:
 - LFS counts people where they live, not where they work.
