@@ -50,6 +50,20 @@ def test_exposure_ranks_resource_jobs_higher():
     assert calgary.region_load_growth_pct["8222"] == 1.0
 
 
+def test_job_trend_adds_regional_gap():
+    occupations = pd.DataFrame(dict(
+        code=["7220", "4122"], trend_group=["Trades [72]", "Education [412]"],
+        occupation_growth_pct=[1.0, 3.0], trend_group_people=[200_000.0, 9_000.0],
+    ))
+    out = scores.job_trend(occupations, pd.Series({"Calgary": 3.0, "Red Deer": 0.0}), 2.0, ["Calgary", "Red Deer"])
+    out = out.set_index(["region", "code"])
+    assert out.trend_growth_pct["Calgary", "7220"] == pytest.approx(2.0)
+    assert out.trend_growth_pct["Red Deer", "7220"] == pytest.approx(-1.0)
+    assert out.job_trend["Calgary", "4122"] > out.job_trend["Red Deer", "4122"]
+    assert out.thin_trend_data["Calgary", "4122"]
+    assert not out.thin_trend_data["Calgary", "7220"]
+
+
 def test_adjacent_roles_respect_training_level_and_tailwind():
     sectors = pd.DataFrame(
         {"23": [1.0, 0.9, 1.0], "62": [0.0, 0.1, 0.0]},

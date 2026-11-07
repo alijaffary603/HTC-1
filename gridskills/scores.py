@@ -6,6 +6,7 @@ import pandas as pd
 EXPOSURE_WEIGHTS = {"sector_trend": 0.6, "resource_reliance": 0.4}
 RESOURCE_SECTORS = ["21"]
 THIN_WORKFORCE = 500
+THIN_TREND_GROUP = 15000  # survey estimates for smaller groups jump around from year to year
 
 
 def jobs_by_occupation(sector_jobs, occ_given_sector):
@@ -76,6 +77,21 @@ def exposure(sector_given_occ, momentum, load_growth, regions):
 
     df = pd.concat([jobs.assign(region=r) for r in regions], ignore_index=True)
     df["region_load_growth_pct"] = df.region.map(load_growth)
+    return df
+
+
+def job_trend(occupation_trend, region_growth, alberta_growth, regions):
+    """How this job has been doing lately, for every job whether energy touches it or not.
+
+    Alberta's trend for the occupation group, shifted by how far the region's total
+    employment ran ahead of or behind Alberta's. A region's own figure per occupation is
+    too noisy to use. This describes the recent past. It's not a forecast, see validation.
+    """
+    df = pd.concat([occupation_trend.assign(region=r) for r in regions], ignore_index=True)
+    df["region_growth_pct"] = df.region.map(region_growth)
+    df["trend_growth_pct"] = df.occupation_growth_pct + df.region_growth_pct - alberta_growth
+    df["job_trend"] = percentile_rank(df.trend_growth_pct)
+    df["thin_trend_data"] = df.trend_group_people < THIN_TREND_GROUP
     return df
 
 
