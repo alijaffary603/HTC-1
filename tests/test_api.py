@@ -16,6 +16,8 @@ def test_score_shape():
     added = out["tailwind"]["added_jobs_per_year"]
     assert added["low"] <= added["base"] <= added["high"]
     assert 0 <= out["exposure"]["score"] <= 100
+    assert 0 <= out["job_trend"]["score"] <= 100
+    assert out["job_trend"]["based_on_group"].endswith("[412]")
     assert isinstance(out["adjacent_roles"], list)
 
 

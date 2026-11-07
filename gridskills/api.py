@@ -107,6 +107,8 @@ def score(occupation, region):
         caveats.append("Most of this comes from data centres. None has connected to the Alberta grid yet, so it's the least certain part.")
     if not roles:
         caveats.append("No similar job nearby has a stronger outlook than this one.")
+    if row.thin_trend_data:
+        caveats.append("The recent trend comes from a small survey group, so it can swing a lot from year to year.")
 
     return {
         "occupation": {"code": code, "title": row.title},
@@ -128,6 +130,14 @@ def score(occupation, region):
             "sector_growth_pct_per_year": round(float(row.sector_growth_pct), 2),
             "share_in_mining_oil_gas": round(float(row.resource_share), 3),
             "region_load_growth_pct_per_year": round(float(row.region_load_growth_pct), 2),
+        },
+        "job_trend": {
+            "score": round(float(row.job_trend)),
+            "growth_pct_per_year": round(float(row.trend_growth_pct), 2),
+            "occupation_growth_pct_per_year_alberta": round(float(row.occupation_growth_pct), 2),
+            "region_employment_growth_pct_per_year": round(float(row.region_growth_pct), 2),
+            "period": "2017-19 to 2023-25",
+            "based_on_group": row.trend_group,
         },
         "adjacent_roles": roles,
         "caveats": caveats,

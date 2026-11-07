@@ -63,8 +63,10 @@ def main():
     growth = load.region_growth(inputs["yearly"])
     exp = scores.exposure(sector_occ, momentum, growth, REGIONS)
     adj = scores.adjacent_roles(sector_occ, tw)
+    by_region, overall = labour.employment_growth(lfs)
+    trend = scores.job_trend(labour.occupation_trend(lfs, titles.index), by_region, overall, REGIONS)
 
-    table = tw.merge(exp, on=["region", "code"])
+    table = tw.merge(exp, on=["region", "code"]).merge(trend, on=["region", "code"])
     table.insert(2, "title", table.code.map(titles))
     table["thin_data"] = table.workforce < scores.THIN_WORKFORCE
 
