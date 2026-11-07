@@ -88,7 +88,7 @@ CENSUS_GEO_TO_REGION = {
 
 # lowercase name -> region, for the front end's "where do you live" box
 PLACES = {
-    "airdrie": CALGARY, "athabasca": NORTHEAST, "banff": NORTHWEST, "beaumont": EDMONTON,
+    "airdrie": CALGARY, "athabasca": NORTHWEST, "banff": NORTHWEST, "beaumont": EDMONTON,
     "blackie": CALGARY, "bonnyville": NORTHEAST, "brooks": SOUTH, "calgary": CALGARY,
     "camrose": EAST_CENTRAL, "canmore": NORTHWEST, "caroline": RED_DEER, "chestermere": CALGARY,
     "cochrane": CALGARY, "cold lake": NORTHEAST, "didsbury": CALGARY, "drayton valley": EDMONTON,
@@ -101,11 +101,41 @@ PLACES = {
     "olds": CALGARY, "peace river": NORTHWEST, "pincher creek": SOUTH, "ponoka": RED_DEER,
     "provost": EAST_CENTRAL, "rainbow lake": NORTHWEST, "red deer": RED_DEER,
     "rocky mountain house": NORTHWEST, "sherwood park": EDMONTON, "slave lake": NORTHWEST,
-    "spruce grove": EDMONTON, "st. albert": EDMONTON, "st albert": EDMONTON, "stettler": EAST_CENTRAL,
+    "spruce grove": EDMONTON, "st. albert": EDMONTON, "st albert": EDMONTON, "st. paul": NORTHEAST,
+    "stettler": EAST_CENTRAL,
     "stony plain": EDMONTON, "strathmore": CALGARY, "swan hills": NORTHWEST, "sylvan lake": RED_DEER,
     "taber": SOUTH, "valleyview": NORTHWEST, "vauxhall": SOUTH, "vegreville": EAST_CENTRAL,
     "wabamun": EDMONTON, "wainwright": EAST_CENTRAL, "wetaskiwin": EDMONTON, "whitecourt": NORTHWEST,
 }
+
+
+# StatCan's eight economic region codes, which is what the app uses as region ids.
+# The LFS reports 4840 and 4870 as one region, so both map to the same model region.
+ECONOMIC_REGIONS = {
+    "4810": ("Lethbridge–Medicine Hat", SOUTH),
+    "4820": ("Camrose–Drumheller", EAST_CENTRAL),
+    "4830": ("Calgary", CALGARY),
+    "4840": ("Banff–Jasper–Rocky Mountain House", NORTHWEST),
+    "4850": ("Red Deer", RED_DEER),
+    "4860": ("Edmonton", EDMONTON),
+    "4870": ("Athabasca–Grande Prairie–Peace River", NORTHWEST),
+    "4880": ("Wood Buffalo–Cold Lake", NORTHEAST),
+}
+MERGED_NOTE = (
+    "Statistics Canada reports Banff–Jasper–Rocky Mountain House and Athabasca–Grande Prairie–Peace River "
+    "together, so both show the same numbers."
+)
+
+# the model's northwest region is two economic regions, these towns are in the mountain one
+MOUNTAIN_TOWNS = {"banff", "canmore", "jasper", "rocky mountain house", "hinton", "edson"}
+
+
+def economic_region_id(place):
+    """Economic region code for a town in PLACES."""
+    region = PLACES[place]
+    if region == NORTHWEST:
+        return "4840" if place in MOUNTAIN_TOWNS else "4870"
+    return next(code for code, (_, r) in ECONOMIC_REGIONS.items() if r == region)
 
 
 def lfs_region(geo):

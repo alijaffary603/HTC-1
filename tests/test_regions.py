@@ -29,6 +29,19 @@ def test_find_region_unknown():
         find_region("Atlantis")
 
 
+def test_economic_regions_cover_every_model_region():
+    from gridskills.regions import ECONOMIC_REGIONS
+    assert {r for _, r in ECONOMIC_REGIONS.values()} == set(REGIONS)
+
+
+def test_economic_region_id_splits_the_merged_northwest():
+    from gridskills.regions import economic_region_id
+    assert economic_region_id("canmore") == "4840"
+    assert economic_region_id("grande prairie") == "4870"
+    assert economic_region_id("athabasca") == "4870"
+    assert economic_region_id("calgary") == "4830"
+
+
 def test_lfs_region():
     assert lfs_region("Red Deer, Alberta") == "Red Deer"
     assert lfs_region("Alberta") is None
