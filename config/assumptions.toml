@@ -1,0 +1,137 @@
+# Every judgement call in the model lives here. Measured inputs (completion odds,
+# multipliers, CER costs, census, LFS) are computed from data and aren't in this file.
+#
+# Tag on each block:   [cer] Canada Energy Regulator   [study] published study
+#                      [fit] tuned to a backtest       [judgement] our call, no source
+
+horizon_start = 2027
+horizon_end = 2029     # inclusive
+
+# Measured from the project lists: mean change in a project's final in-service date
+# while it stays open is 8.1 months. [fit]
+isd_slip_months = 8
+
+# Projects under review have no date at all. [judgement]
+no_date_months = 36
+
+# CER costs are in recent dollars, multipliers are per 2022 dollar. [judgement]
+deflator_to_2022 = 0.88
+
+# Spread of p_built around the model. Over the backtests the logit predicted 1.02x to
+# 1.84x the real number of completions, so low is roughly 1/1.84 and high is modest. [fit]
+p_scale_low = 0.55
+p_scale_high = 1.2
+
+# Share of a project's jobs that land in its own region. Remainder is spread across
+# Alberta by employment. Direct is all local because crews work on site. [judgement]
+local_capture = { direct = 1.0, indirect = 0.5, induced = 0.5 }
+
+# Who supplies a construction project. Multipliers give the total indirect jobs but
+# not the sectors, that needs the full IO table, which isn't published in this file. [judgement]
+indirect_mix = { "54" = 0.30, "31-33" = 0.15, "41" = 0.10, "48-49" = 0.10, "56" = 0.10, "52" = 0.07, "53" = 0.05, "81" = 0.05, "21" = 0.05, "51" = 0.03 }
+
+# Where households spend. Weighted by Alberta employment in these sectors.
+induced_sectors = ["44-45", "72", "62", "61", "71", "81", "52", "53", "48-49", "51"]
+
+# Keep the local share of operating spend separate from capex, parts travel but crews don't. [judgement]
+ops_local_share = 0.8
+
+# capex_blend: CER technologies and weights, from config/cer_costs_alberta.csv, scenario CM, 2027.
+# local_share: part of capex spent in Alberta (low, base, high). Wind's base comes from the
+# Delphi Group 2017 Alberta wind study: up to $3.6B local on 4,500 MW is about $0.8M/MW,
+# which is 41% of CER's $1.94M/MW. The rest are [judgement] based on how equipment heavy each one is.
+# build_years: Pembina has 2.0 for wind and 3.0 for biomass, the rest are [judgement].
+
+[tech.solar]
+capex_blend = { "Solar PV Utility" = 1.0 }
+local_share = [0.30, 0.40, 0.55]
+build_years = 1.5
+construction_code = "BS23C300"
+
+[tech.solar_storage]
+capex_blend = { "Solar PV Utility" = 0.7, "Battery Energy Storage System" = 0.3 }
+local_share = [0.25, 0.35, 0.50]
+build_years = 1.5
+construction_code = "BS23C300"
+
+[tech.wind]
+capex_blend = { "Wind Onshore" = 1.0 }
+local_share = [0.30, 0.41, 0.50]
+build_years = 2.0
+construction_code = "BS23C300"
+
+[tech.wind_storage]
+capex_blend = { "Wind Onshore" = 0.8, "Battery Energy Storage System" = 0.2 }
+local_share = [0.30, 0.40, 0.50]
+build_years = 2.0
+construction_code = "BS23C300"
+
+[tech.storage]
+capex_blend = { "Battery Energy Storage System" = 1.0 }
+local_share = [0.15, 0.25, 0.35]
+build_years = 1.0
+construction_code = "BS23C300"
+
+[tech.storage_long]
+capex_blend = { "Compressed Air Energy Storage" = 0.5, "Pumped Hydro Storage" = 0.5 }
+local_share = [0.40, 0.50, 0.65]
+build_years = 4.0
+construction_code = "BS23C500"
+
+[tech.gas]
+capex_blend = { "Natural Gas Combined Cycle" = 0.5, "Natural Gas Simple Cycle" = 0.5 }
+local_share = [0.30, 0.40, 0.50]
+build_years = 2.5
+construction_code = "BS23C300"
+
+[tech.cogen]
+capex_blend = { "Natural Gas Combined Cycle" = 1.0 }
+local_share = [0.30, 0.40, 0.50]
+build_years = 2.5
+construction_code = "BS23C200"
+
+[tech.other_gen]
+capex_blend = { "Biomass Steam Cycle" = 0.5, "Geothermal Binary Cycle" = 0.5 }
+local_share = [0.40, 0.50, 0.60]
+build_years = 3.0
+construction_code = "BS23C300"
+
+# Load side. CER doesn't cover these so capex is [judgement]. Data centre capex is the
+# building and electrical plant, excluding IT gear. ATB describes a Beacon facility as
+# about 1,500 construction and 300 operating jobs, no MW given, so ops_jobs_per_mw is rough.
+[tech.data_centre]
+capex_per_kw = 12000
+local_share = [0.20, 0.30, 0.40]
+build_years = 2.0
+construction_code = "BS23B000"
+ops_jobs_per_mw = [0.1, 0.3, 0.5]
+ops_code = "BS518000"
+ops_sector = "51"
+
+# These only count the grid connection. A new factory or a growing town also adds jobs but
+# the MW don't tell us how many, and for a town the load is more an effect than a cause.
+[tech.industrial_load]
+capex_per_kw = 500
+local_share = [0.50, 0.60, 0.70]
+build_years = 1.5
+construction_code = "BS23C300"
+
+[tech.distribution_load]
+capex_per_kw = 400
+local_share = [0.50, 0.60, 0.70]
+build_years = 1.5
+construction_code = "BS23C300"
+
+# Nobody has connected a data centre yet, so history can't price these. All [judgement],
+# informed by AESO's 1,200 MW interim limit and its statement that it can't connect them
+# all in the short term. Values are (low, base, high) chance of being built.
+[data_centres]
+# P2936 and P3083 hold executed contracts from Phase 1 of large load integration
+phase1_projects = ["P2936", "P3083"]
+phase1_p = [0.60, 0.85, 0.95]
+# in the Active column but no Phase 1 allocation. Most are sized just under 75 MW.
+active_p = [0.10, 0.25, 0.50]
+# bring-your-own-generation projects in Cluster 3
+cluster_p = [0.03, 0.10, 0.25]
+# under review, no date. Over 21,000 MW, so the base case is about 1,000 MW of it.
+review_p = [0.01, 0.05, 0.15]
