@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Alert, Avatar, Box, Button, Chip, MenuItem, Skeleton, Snackbar, Stack, TextField, Typography } from '@mui/material'
 import { useSearchParams } from 'react-router-dom'
-import { getMatches } from '../api/client'
+import { USING_MOCKS, getMatches } from '../api/client'
 import { useAsync } from '../hooks/useAsync'
 import { useAuth, useSignInRedirect } from '../auth/useAuth'
 import { OCCUPATIONS, REGIONS } from '../data/reference'
@@ -83,6 +83,7 @@ export default function NetworkPage() {
         <Chip label={`Moving to ${lower(toTitle)}`} onDelete={clearTo} sx={{ mt: 2 }} />
       )}
 
+      {USING_MOCKS && <Alert severity="info" sx={{ mt: 3 }}>These are fictional sample profiles. No introductions are sent. For real career coaching, use the resources in your action plan.</Alert>}
       <Box sx={{ mt: 4 }}>
         {state.status === 'loading' && <Skeleton variant="rounded" height={120} />}
         {state.status === 'error' && <Alert severity="error">People didn’t load: {state.error.message}</Alert>}
@@ -144,7 +145,7 @@ export default function NetworkPage() {
                         return
                       }
                       setRequested((s) => new Set(s).add(m.id))
-                      setToast(`Intro requested from ${m.firstName}.`)
+                      setToast(USING_MOCKS ? `Demo only: no request was sent to ${m.firstName}.` : `Introduction request noted for ${m.firstName}.`)
                     }}
                   >
                     {requested.has(m.id) ? 'Requested' : 'Request intro'}

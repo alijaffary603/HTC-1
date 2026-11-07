@@ -5,6 +5,7 @@ import { createAlert, getScore, listAlerts, savePathway } from '../api/client'
 import { useAsync } from '../hooks/useAsync'
 import { useAuth, useSignInRedirect } from '../auth/useAuth'
 import RangeBar from '../components/RangeBar'
+import AdvisorPanel from '../components/AdvisorPanel'
 import { DISPLAY } from '../theme'
 import { HORIZON, SNAPSHOT, TECH_LABEL, findRegion, regionRef } from '../data/reference'
 import type { ModelScore, Occupation } from '../types'
@@ -342,6 +343,7 @@ function Results({ data, town }: { data: ModelScore; town: string | null }) {
         </Alert>
       )}
 
+      <AdvisorPanel key={`${data.occupation.code}|${data.region}`} result={data} />
       <Section
         id="moves"
         title="Roles you could move into"

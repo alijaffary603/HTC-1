@@ -5,3 +5,13 @@ __pycache__/
 .pytest_cache/
 *.egg-info/
 .ipynb_checkpoints/
+
+.env
+.env.*
+!.env.example
+.aws-sam/
+frontend/node_modules/
+frontend/dist/
+deployment/package/
+frontend/test-results/
+frontend/playwright-report/

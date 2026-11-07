@@ -24,6 +24,7 @@ import { DISPLAY } from '../theme'
 import { useAuth } from '../auth/useAuth'
 
 const NAV = [
+  { to: '/plans', label: 'Plans' },
   { to: '/saved', label: 'Saved' },
   { to: '/network', label: 'People' },
 ]
@@ -210,7 +211,7 @@ export default function Layout() {
           <Stack direction={{ xs: 'column', md: 'row' }} spacing={{ xs: 1, md: 4 }} sx={{ justifyContent: 'space-between' }}>
             <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 560 }}>
               GridSkills was built at HTC-2026. Estimates come from the AESO connection project list and Statistics
-              Canada tables.{USING_MOCKS && ' This preview runs on sample data.'}
+              Canada tables.{USING_MOCKS && ' Accounts, postings and the People page use sample data; regional scores use the model.'}
             </Typography>
             <Typography variant="body2" color="text.secondary">
               <Link href="https://www.aeso.ca/grid/transmission-projects/connection-project-reporting/" target="_blank" rel="noopener" color="inherit">

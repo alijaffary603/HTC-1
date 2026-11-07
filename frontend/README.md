@@ -55,3 +55,9 @@ active alert, fetches postings from the alert's window and, only if there are an
 `buildAlertEmail()` from `src/email/alertEmail.ts` and sends `subject`, `html` and `text` through SES.
 The template is plain TypeScript with no browser or React dependencies, so the Lambda can import it as is.
 Job postings are sample data (`src/mocks/postings.ts`, fictional employers) until a postings source is chosen.
+
+## Gemini action plans
+
+The results page includes a Gemini career advisor with follow-up questions, catalog-backed resources, opted-in mentor suggestions and introduction drafts. Start `python -m gridskills.server` at the repository root to enable it locally. Scores continue to load from the real static model exports, and resume parsing continues to run in the browser.
+
+Vite proxies advisor requests at `/api` to the local Python server. For AWS, set `VITE_MODEL_API_URL` to the advisor API Gateway URL. Keep Gemini credentials in the backend `.env` or Secrets Manager. `/plans` stores plans and checklist progress in this browser/device. Existing account and posting services remain separately configurable through `VITE_API_URL`.

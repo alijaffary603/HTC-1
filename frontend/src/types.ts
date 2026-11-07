@@ -129,3 +129,38 @@ export interface JobPosting {
   salary: { min: number; max: number; per: 'year' | 'hour' }
   url: string
 }
+
+export interface AdvisorRequest {
+  occupation: string
+  region: string
+  target: string
+  preferences: { experience: string; hoursPerWeek: number; budget: number; format: string }
+  question: string
+  history: { role: 'user' | 'assistant'; text: string }[]
+}
+export interface AdvisorResource {
+  id: string; title: string; provider: string; url: string
+  kind: 'requirements' | 'training' | 'network'; description: string; checkedOn: string
+}
+export interface AdvisorPlan {
+  summary: string
+  transferableSkills: string[]
+  skillGaps: { skill: string; reason: string; resourceIds: string[] }[]
+  steps: { title: string; detail: string; week: number; resourceIds: string[] }[]
+  outreachDraft: string
+  questions: string[]
+  resourceIds: string[]
+  mentorIds: string[]
+  resources: AdvisorResource[]
+  mentors: { id: string; name: string; url: string; reason: string }[]
+  current: Occupation
+  target: Occupation
+  region: string
+  limitations: string[]
+}
+export interface SavedAdvisorPlan {
+  id: string
+  savedAt: string
+  completedSteps: number[]
+  plan: AdvisorPlan
+}
