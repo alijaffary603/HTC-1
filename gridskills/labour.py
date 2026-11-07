@@ -116,6 +116,14 @@ def region_occupation_employment(census, lfs, year=2025):
     return pd.DataFrame(out)
 
 
+def annual_growth(wide, start, end):
+    """Percent growth per year between two multi-year averages. Columns are years."""
+    span = (sum(end) - sum(start)) / 2
+    before = wide[list(range(start[0], start[1] + 1))].mean(axis=1)
+    after = wide[list(range(end[0], end[1] + 1))].mean(axis=1)
+    return ((after / before) ** (1 / span) - 1) * 100
+
+
 def sector_momentum(lfs, start=(2017, 2019), end=(2023, 2025)):
     """Annual employment growth by sector in Alberta, in percent.
 
@@ -125,8 +133,58 @@ def sector_momentum(lfs, start=(2017, 2019), end=(2023, 2025)):
     """
     groups = sorted(set(LFS_GROUP.values()))
     rows = lfs[lfs.series.isin(groups) & (lfs.GEO == "Alberta")]
-    wide = rows.pivot_table(index="series", columns="year", values="VALUE")
-    span = (sum(end) - sum(start)) / 2
-    before = wide[list(range(start[0], start[1] + 1))].mean(axis=1)
-    after = wide[list(range(end[0], end[1] + 1))].mean(axis=1)
-    return ((after / before) ** (1 / span) - 1) * 100
+    return annual_growth(rows.pivot_table(index="series", columns="year", values="VALUE"), start, end)
+
+
+def bracket_codes(series):
+    """'Care providers [44-45]' -> ['44', '45']. Empty if the name has no NOC codes."""
+    m = re.search(r"\[([\d, -]+)\]$", series)
+    if not m:
+        return []
+    codes = []
+    for part in m[1].replace(" ", "").split(","):
+        if "-" in part:
+            low, high = part.split("-")
+            codes += [str(n).zfill(len(low)) for n in range(int(low), int(high) + 1)]
+        else:
+            codes.append(part)
+    return codes
+
+
+def occupation_series(lfs):
+    """NOC prefix -> LFS occupation row, for both the 2 and 3 digit groups."""
+    industries = set(LFS_GROUP.values())
+    out = {}
+    for series in lfs.series.unique():
+        # the headline groups overlap the detailed ones, so leave them out
+        if series in industries or "except management" in series or series.startswith("Management occupations"):
+            continue
+        for code in bracket_codes(series):
+            out[code] = series
+    return out
+
+
+def series_for_code(code, mapping):
+    """The most detailed LFS group for a 4-digit minor group. 4122 uses [412], 7220 uses [72]."""
+    return mapping.get(code[:3]) or mapping[code[:2]]
+
+
+def occupation_trend(lfs, codes, start=(2017, 2019), end=(2023, 2025)):
+    """Alberta employment trend for the LFS group each occupation belongs to."""
+    mapping = occupation_series(lfs)
+    rows = lfs[lfs.GEO == "Alberta"]
+    wide = rows[rows.series.isin(set(mapping.values()))].pivot_table(index="series", columns="year", values="VALUE")
+    growth = annual_growth(wide, start, end)
+    table = pd.DataFrame({"code": list(codes)})
+    table["trend_group"] = [series_for_code(c, mapping) for c in table.code]
+    table["occupation_growth_pct"] = table.trend_group.map(growth)
+    table["trend_group_people"] = table.trend_group.map(wide[end[1]]) * 1000
+    return table
+
+
+def employment_growth(lfs, start=(2017, 2019), end=(2023, 2025)):
+    """Annual growth in total employment, in percent. Returns (by region, Alberta)."""
+    rows = lfs[lfs.series == "Total employed"]
+    growth = annual_growth(rows.pivot_table(index="GEO", columns="year", values="VALUE"), start, end)
+    by_region = {lfs_region(geo): value for geo, value in growth.items() if lfs_region(geo)}
+    return pd.Series(by_region).reindex(REGIONS), growth["Alberta"]
