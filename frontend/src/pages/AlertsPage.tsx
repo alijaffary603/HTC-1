@@ -423,10 +423,15 @@ export default function AlertsPage() {
         {selected && <Preview key={selected.id} alert={selected} user={user} />}
       </Box>
 
-      {USING_MOCKS && (
+      {USING_MOCKS ? (
         <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 6, maxWidth: '70ch' }}>
           This prototype shows sample postings from fictional employers and doesn’t send real emails yet. The email
           above is the exact template the backend will send.
+        </Typography>
+      ) : (
+        <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 6, maxWidth: '70ch' }}>
+          Job postings aren’t connected yet, so for now these alerts send one email a month when the grid data moves
+          the outlook for your job by 5 points or more.
         </Typography>
       )}
 
