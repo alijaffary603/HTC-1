@@ -1,6 +1,6 @@
-# GridSkills
+# Signal
 
-GridSkills connects Alberta energy-investment scenarios and historical labour-market data to practical career exploration. The React app uses real exported regional scores, browser-side resume matching and a Gemini-powered career advisor.
+Signal connects Alberta energy-investment scenarios and historical labour-market data to practical career exploration. The React app uses real exported regional scores, browser-side resume matching and a Gemini-powered career advisor.
 
 ## Run locally
 
@@ -81,3 +81,9 @@ See [deployment/README.md](deployment/README.md). The repository includes a Lamb
 Energy-project scenarios estimate one possible source of demand; they have **not** demonstrated that they forecast hiring. Job trend describes past employment. Adjacent roles use industry overlap, not validated skill-transfer percentages. The app and advisor retain these distinctions and uncertainty ranges.
 
 See [docs/validation.md](docs/validation.md), [docs/using_the_scores.md](docs/using_the_scores.md), and [DATA_README.md](DATA_README.md) for methodology, data and rebuilding instructions.
+
+## Branding
+
+The product is **Signal**. Its primary logo is `Signal_Logo_Vector_Whole_Transparent.png`, served from `frontend/public/` for the app header, favicon and touch icon. The logo is inverted for contrast on dark backgrounds.
+
+The internal Python import namespace (`gridskills`) and existing browser-storage keys are retained for compatibility with model scripts and saved user data; the Python distribution is named `signal-careers` and the frontend package is `signal-web`.

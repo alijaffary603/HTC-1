@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: GridSkills model and Gemini career advisor API
+Description: Signal model and Gemini career advisor API
 Parameters:
   GeminiSecretArn:
     Type: String

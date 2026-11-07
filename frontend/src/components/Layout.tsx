@@ -20,8 +20,8 @@ import DarkModeIcon from '@mui/icons-material/DarkModeOutlined'
 import LightModeIcon from '@mui/icons-material/LightModeOutlined'
 import { NavLink, Link as RouterLink, Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { USING_MOCKS } from '../api/client'
-import { DISPLAY } from '../theme'
 import { useAuth } from '../auth/useAuth'
+import { theme } from '../theme'
 
 const NAV = [
   { to: '/plans', label: 'Plans' },
@@ -135,22 +135,26 @@ export default function Layout() {
         }}
       >
         <Container maxWidth="lg" disableGutters>
-          <Toolbar sx={{ gap: 0.5 }}>
-            <Typography
+          <Toolbar sx={{ gap: { xs: 0, sm: 0.5 } }}>
+            <Box
               component={NavLink}
               to="/"
-              sx={{
-                fontFamily: DISPLAY,
-                fontWeight: 700,
-                fontSize: '1.375rem',
-                letterSpacing: '-0.01em',
-                color: 'inherit',
-                textDecoration: 'none',
-                mr: 'auto',
-              }}
+              aria-label="Signal home"
+              sx={{ mr: 'auto', display: 'inline-flex', alignItems: 'center', py: 1, flexShrink: 0 }}
             >
-              GridSkills
-            </Typography>
+              <Box
+                component="img"
+                src={`${import.meta.env.BASE_URL}Signal_Logo_Vector_Whole_Transparent.png`}
+                alt="Signal"
+                width={122}
+                height={32}
+                sx={{
+                  width: 'clamp(64px, 21vw, 122px)', height: 'auto', display: 'block',
+                  filter: overHero ? 'invert(1)' : 'none',
+                  ...theme.applyStyles('dark', { filter: 'invert(1)' }),
+                }}
+              />
+            </Box>
             {NAV.map((n) => (
               <Button
                 key={n.to}
@@ -159,7 +163,9 @@ export default function Layout() {
                 color="inherit"
                 sx={{
                   fontWeight: 500,
-                  px: { xs: 1, sm: 1.25 },
+                  px: { xs: 0.5, sm: 1.25 },
+                  flexShrink: 0,
+                  fontSize: { xs: '0.75rem', sm: '0.9375rem' },
                   minWidth: 0,
                   borderRadius: 0,
                   borderBottom: '2px solid transparent',
@@ -183,7 +189,8 @@ export default function Layout() {
                   sx={{
                     ml: 0.5,
                     px: { xs: 1.25, sm: 1.75 },
-                    fontSize: '0.9375rem',
+                    fontSize: { xs: '0.8125rem', sm: '0.9375rem' },
+                    whiteSpace: 'nowrap',
                     borderColor: overHero ? 'rgba(255,255,255,0.7)' : 'divider',
                     '&:hover': { borderColor: overHero ? '#fff' : 'text.primary', bgcolor: 'transparent' },
                   }}
@@ -210,7 +217,7 @@ export default function Layout() {
         <Container maxWidth="lg" sx={{ py: 4 }}>
           <Stack direction={{ xs: 'column', md: 'row' }} spacing={{ xs: 1, md: 4 }} sx={{ justifyContent: 'space-between' }}>
             <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 560 }}>
-              GridSkills was built at HTC-2026. Estimates come from the AESO connection project list and Statistics
+              Signal was built at HTC-2026. Estimates come from the AESO connection project list and Statistics
               Canada tables.{USING_MOCKS && ' Accounts, postings and the People page use sample data; regional scores use the model.'}
             </Typography>
             <Typography variant="body2" color="text.secondary">

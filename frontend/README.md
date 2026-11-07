@@ -1,4 +1,4 @@
-# GridSkills frontend
+# Signal frontend
 
 React + TypeScript (Vite), MUI components, React Router.
 

@@ -22,7 +22,7 @@ import EmailPreview from '../components/EmailPreview'
 import { buildAlertEmail, frequencyLabel, windowDays } from '../email/alertEmail'
 import type { AlertFrequency, JobAlert, Occupation, User } from '../types'
 
-const FROM = 'GridSkills alerts <alerts@gridskills.example>'
+const FROM = 'Signal alerts <alerts@signal.example>'
 
 // A phrase of the sentence form that wraps as one unit.
 const phraseSx = {

@@ -153,7 +153,7 @@ export default function HomePage() {
           >
             <Typography variant="h1">See the jobs coming before they’re posted</Typography>
             <Typography color="text.secondary" sx={{ mt: 2.5, maxWidth: '54ch' }}>
-              Power projects are planned years before anyone hires for them. GridSkills reads Alberta’s grid connection
+              Power projects are planned years before anyone hires for them. Signal reads Alberta’s grid connection
               list to estimate which regions will grow, and what that means for your work.
             </Typography>
             <Box sx={{ mt: 4 }}>

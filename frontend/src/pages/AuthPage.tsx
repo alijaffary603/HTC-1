@@ -166,7 +166,7 @@ export default function AuthPage({ mode }: { mode: Mode }) {
         </Box>
 
         <Typography color="text.secondary" sx={{ mt: 3 }}>
-          {mode === 'sign-in' ? 'New to GridSkills? ' : 'Already have an account? '}
+          {mode === 'sign-in' ? 'New to Signal? ' : 'Already have an account? '}
           <Link component={RouterLink} to={`/${other}`} state={state} color="text.primary">
             {mode === 'sign-in' ? 'Create an account' : 'Sign in'}
           </Link>
@@ -174,7 +174,7 @@ export default function AuthPage({ mode }: { mode: Mode }) {
 
         {USING_MOCKS && (
           <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 4 }}>
-            While GridSkills is a prototype, accounts are stored in this browser only.
+            While Signal is a prototype, accounts are stored in this browser only.
           </Typography>
         )}
       </Box>

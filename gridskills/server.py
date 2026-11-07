@@ -1,4 +1,4 @@
-﻿"""HTTP API for local development and AWS API Gateway HTTP API v2."""
+"""HTTP API for local development and AWS API Gateway HTTP API v2."""
 import base64
 import json
 import os
@@ -103,5 +103,5 @@ def load_local_env():
 
 if __name__ == "__main__":
     load_local_env()
-    print("GridSkills API listening on http://127.0.0.1:8000", flush=True)
+    print("Signal API listening on http://127.0.0.1:8000", flush=True)
     ThreadingHTTPServer(("127.0.0.1", 8000), Handler).serve_forever()

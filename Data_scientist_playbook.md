@@ -1,4 +1,4 @@
-# Data scientist playbook (GridSkills)
+# Data scientist playbook (Signal)
 
 Goal: ship `score(occupation, region) -> {tailwind, exposure, adjacent_roles, range}` with a documented, defensible method.
 
