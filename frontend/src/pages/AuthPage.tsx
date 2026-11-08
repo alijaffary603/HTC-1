@@ -107,7 +107,7 @@ export default function AuthPage({ mode }: { mode: Mode }) {
         alignItems: 'start',
       }}
     >
-      <Box sx={{ maxWidth: 440, pt: { md: 4 } }}>
+      <Box sx={{ maxWidth: 440 }}>
         <Typography variant="h1" sx={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
           {copy.title}
         </Typography>
