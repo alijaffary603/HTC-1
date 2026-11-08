@@ -81,7 +81,7 @@ export default function EmailPreview({ from, to, subject, preheader, date, html,
         />
       )}
 
-      <Box sx={{ px: { xs: 1, sm: 2 }, py: 1, borderTop: 1, borderColor: 'divider' }}>
+      <Box sx={{ px: { xs: 0.75, sm: 1.75 }, py: 1, borderTop: 1, borderColor: 'divider' }}>
         <Button size="small" onClick={() => setPlain((p) => !p)}>
           {plain ? 'Show formatted email' : 'Show plain-text version'}
         </Button>

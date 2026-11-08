@@ -15,7 +15,7 @@ export default function PlansPage() {
     <Typography variant="h1">Your action plans</Typography>
     <Typography color="text.secondary" sx={{ mt: 2 }}>Plans and progress are saved in this browser on this device. They are not synced to an account.</Typography>
     {error && <Alert severity="error" sx={{ mt: 2 }}>{error}</Alert>}
-    {plans.length === 0 && <Box sx={{ mt: 4 }}><Typography>No plans saved here yet. Open your results to plan a career move.</Typography><Button component={RouterLink} to="/">Explore my options</Button></Box>}
+    {plans.length === 0 && <Box sx={{ mt: 4 }}><Typography>No plans saved here yet. Open your results to plan a career move.</Typography><Button component={RouterLink} to="/" sx={{ ml: -1.25 }}>Explore my options</Button></Box>}
     <Stack spacing={5} sx={{ mt: 4 }}>{plans.map(p => <Box key={p.id} sx={{ borderTop: 1, borderColor: 'divider', pt: 3 }}>
       <Typography variant="h2">{p.plan.current.title} → {p.plan.target.title}</Typography>
       <Typography color="text.secondary">{p.plan.region} · Saved {new Date(p.savedAt).toLocaleDateString()}</Typography>
@@ -29,7 +29,7 @@ export default function PlansPage() {
       </Box>)}
       <Typography sx={{ mt: 3, whiteSpace: 'pre-wrap' }}>{p.plan.outreachDraft}</Typography>
       <Alert severity="info" sx={{ mt: 2 }}>{p.plan.limitations[0]}</Alert>
-      <Button color="inherit" onClick={() => update(() => deleteAdvisorPlan(p.id))} sx={{ mt: 2 }}>Remove plan</Button>
+      <Button color="inherit" onClick={() => update(() => deleteAdvisorPlan(p.id))} sx={{ mt: 2, ml: -1.25 }}>Remove plan</Button>
     </Box>)}</Stack>
   </Box>
 }
