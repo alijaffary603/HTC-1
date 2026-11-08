@@ -23,13 +23,8 @@ import { NavLink, Link as RouterLink, Outlet, useLocation, useNavigate } from 'r
 import { USING_MOCKS } from '../api/client'
 import { useAuth } from '../auth/useAuth'
 import { theme } from '../theme'
+import { PAGE_GUTTERS } from './pageGutters'
 
-// Responsive margins shared by the header, pages, and footer.
-const PAGE_GUTTERS = {
-  xs: 2,
-  sm: 3,
-  md: 'clamp(32px, 4vw, 96px)',
-}
 
 const NAV = [
   { to: '/plans', label: 'Plans' },

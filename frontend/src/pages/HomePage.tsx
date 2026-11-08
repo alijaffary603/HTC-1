@@ -3,6 +3,7 @@ import { Box, Container, Typography } from '@mui/material'
 import { keyframes } from '@emotion/react'
 import OutlookForm from '../components/OutlookForm'
 import { DISPLAY } from '../theme'
+import { PAGE_GUTTERS } from '../components/pageGutters'
 import { PROVINCE } from '../data/reference'
 import hero1200 from '../assets/linework-1200.jpg'
 import hero2400 from '../assets/linework-2400.jpg'
@@ -85,6 +86,7 @@ function useHeroScroll() {
 }
 
 const twoColumn = {
+  px: PAGE_GUTTERS,
   display: 'grid',
   gridTemplateColumns: { xs: '1fr', md: '4fr 7fr' },
   columnGap: { md: 10 },
@@ -144,7 +146,7 @@ export default function HomePage() {
           }}
         />
 
-        <Container maxWidth="lg" sx={{ position: 'relative', pt: 12, pb: { xs: 2, sm: 6, md: 9 } }}>
+        <Container maxWidth={false} disableGutters sx={{ px: PAGE_GUTTERS, position: 'relative', pt: 12, pb: { xs: 2, sm: 6, md: 9 } }}>
           <Box
             sx={{
               maxWidth: 680,
@@ -169,7 +171,7 @@ export default function HomePage() {
       </Box>
 
       <Box component="section" aria-labelledby="method" sx={{ py: { xs: 8, md: 14 } }}>
-        <Container maxWidth="lg" sx={twoColumn}>
+        <Container maxWidth={false} disableGutters sx={twoColumn}>
           <Box sx={{ position: { md: 'sticky' }, top: { md: 104 }, alignSelf: 'start' }}>
             <Typography id="method" variant="h2">
               How a power project reaches your job
@@ -219,7 +221,7 @@ export default function HomePage() {
           bgcolor: 'color-mix(in srgb, var(--mui-palette-primary-main) 8%, var(--mui-palette-background-default))',
         }}
       >
-        <Container maxWidth="lg" sx={twoColumn}>
+        <Container maxWidth={false} disableGutters sx={twoColumn}>
           <Typography id="limits" variant="h2">
             What this can’t tell you
           </Typography>
