@@ -9,6 +9,7 @@ def env(name, default=None):
 
 
 DATA_BUCKET = lambda: env("DATA_BUCKET")
+RESUME_BUCKET = lambda: env("RESUME_BUCKET")
 TABLE_NAME = lambda: env("TABLE_NAME")
 SENDER_EMAIL = lambda: env("SENDER_EMAIL", "")
 APP_URL = lambda: env("APP_URL", "")

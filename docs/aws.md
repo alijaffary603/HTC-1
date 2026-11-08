@@ -13,8 +13,9 @@ EventBridge (12th of each month)
 
 Browser -> CloudFront -> S3 (the React app)
                       -> /api/* -> API Gateway -> API Lambda -> S3 (scores)
-                                       |                      -> DynamoDB (pathways, alerts)
-                              Cognito JWT check               -> Gemini API (résumés)
+                                       |                      -> DynamoDB (pathways, alerts, saved résumé record)
+                              Cognito JWT check               -> S3 (saved résumé files, opt-in)
+                                                              -> Gemini API (résumés)
                                                               -> SES (intro emails)
                                     -> /api/advisor, /resources, /mentors
                                            -> Advisor Lambda (gridskills/server.py) -> Gemini API
@@ -27,7 +28,8 @@ Browser -> CloudFront -> S3 (the React app)
 | API | API Gateway (HTTP API) + one Lambda | Tiny, spiky traffic. Costs nothing when idle. `/api/score` returns `gridskills.api.score()` output, which is the app's `ModelScore` type |
 | Career advisor | A second Lambda running `gridskills/server.py` | It needs pandas and the model files, so it's kept apart from the light API Lambda. It uses the `outputs/` from the last deploy, so redeploy after a monthly refresh to give it the new numbers |
 | Accounts | Cognito | Email sign-up with a confirmation code. API Gateway checks the token before the Lambda runs |
-| Saved pathways, alerts | DynamoDB | Small per-user records, one table |
+| Saved pathways, alerts, saved résumé record | DynamoDB | Small per-user records, one table |
+| Saved résumé files | S3 (résumé bucket) | Only for signed-in people who tick "Save it to my account". Private, encrypted, no versioning, one file per person |
 | Email | SES | Monthly "your outlook changed" and introduction emails |
 | Résumé matching | Gemini API (`gemini-3.5-flash-lite`) | Picks from our 162 occupation codes, enforced by the response schema |
 | Advisor model | Gemini API (`gemini-3.1-flash-lite`, the advisor's own default) | Both read the same key from SSM Parameter Store |
@@ -72,10 +74,11 @@ Watch it in the CodeBuild console. If the checks fail, the log says which one (s
 
 ## Privacy
 
-- **Résumés** go to Google's Gemini API for the one request and aren't stored by us. Say so on the upload screen before launch. Check that Gemini's data terms for your key's tier are acceptable. Free tier keys may let Google use inputs to improve its products.
+- **Résumés** go to Google's Gemini API to be read. The upload screen says so. Check that Gemini's data terms for your key's tier are acceptable. Free tier keys may let Google use inputs to improve its products.
+- **Saved résumés.** Signed-out people's résumés aren't stored. Signed-in people can tick "Save it to my account" (on by default, shown before they pick a file). Then the file goes to the résumé bucket under `resumes/<their Cognito id>/` and a record with the file name, size, skills and matched jobs goes to DynamoDB. A new upload replaces the old file. Delete on the Saved page removes both, and the bucket has no versioning, so nothing is kept. Downloads use a link that expires after 5 minutes.
 - **Shared pathways** are off until the user turns them on. Others see only a first name and the move.
 - **Intro emails** are sent by us. The requester's email is only revealed as the reply-to address, after the requester clicked to send.
-- Everything else (accounts, pathways, alerts) stays in `ca-central-1`.
+- Everything else (accounts, pathways, alerts, saved résumés) stays in `ca-central-1`.
 
 ## Cost
 
@@ -87,4 +90,4 @@ At hackathon scale this is close to free. Lambda, API Gateway, DynamoDB and Cogn
 aws cloudformation delete-stack --stack-name gridskills
 ```
 
-The two S3 buckets must be emptied first or the delete fails. The Gemini key stays in Parameter Store until you delete `/gridskills/gemini-api-key`.
+The S3 buckets (site, data and résumés) must be emptied first or the delete fails. The Gemini key stays in Parameter Store until you delete `/gridskills/gemini-api-key`.

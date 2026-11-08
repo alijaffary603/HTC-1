@@ -59,6 +59,29 @@ Resources:
             Status: Enabled
             NoncurrentVersionExpiration: { NoncurrentDays: 90 }
 
+  # Résumés that signed-in people chose to save to their account, one per person under
+  # resumes/<cognito sub>/. No versioning on purpose: when someone deletes their résumé,
+  # it's gone, not kept as an old version.
+  ResumeBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerEnforced
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault: { SSEAlgorithm: AES256 }
+      LifecycleConfiguration:
+        Rules:
+          - Id: abandoned-uploads
+            Status: Enabled
+            AbortIncompleteMultipartUpload: { DaysAfterInitiation: 1 }
+
   SiteBucket:
     Type: AWS::S3::Bucket
     Properties:
@@ -170,9 +193,11 @@ Resources:
         Variables:
           GEMINI_MODEL: !Ref GeminiModel
           GEMINI_KEY_PARAM: !Ref GeminiKeyParam
+          RESUME_BUCKET: !Ref ResumeBucket
       Policies:
         - DynamoDBCrudPolicy: { TableName: !Ref UsersTable }
         - S3ReadPolicy: { BucketName: !Ref DataBucket }
+        - S3CrudPolicy: { BucketName: !Ref ResumeBucket }
         - Statement:
             - Effect: Allow
               Action: ssm:GetParameter
@@ -201,6 +226,10 @@ Resources:
         CreateAlert: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: /api/alerts, Method: POST } }
         UpdateAlert: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: "/api/alerts/{id}", Method: PATCH } }
         DeleteAlert: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: "/api/alerts/{id}", Method: DELETE } }
+        GetResume: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: /api/resume, Method: GET } }
+        SaveResume: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: /api/resume, Method: POST } }
+        DeleteResume: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: /api/resume, Method: DELETE } }
+        ResumeFile: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: /api/resume/file, Method: GET } }
 
   # Gemini career advisor (gridskills/server.py). Separate from ApiFunction because it
   # runs the model's own score() and needs pandas. It uses the outputs/ baked in at
@@ -458,6 +487,8 @@ Outputs:
     Value: !Ref SiteBucket
   DataBucket:
     Value: !Ref DataBucket
+  ResumeBucket:
+    Value: !Ref ResumeBucket
   UserPoolId:
     Value: !Ref UserPool
   UserPoolClientId:

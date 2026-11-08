@@ -137,6 +137,14 @@ function AccountMenu() {
         </MenuItem>
 
         <MenuItem
+          component={RouterLink}
+          to="/saved#resume"
+          onClick={close}
+        >
+          Your résumé
+        </MenuItem>
+
+        <MenuItem
           onClick={async () => {
             close()
             await signOut()

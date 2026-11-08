@@ -18,6 +18,10 @@ npm run build      # type-check + production build
   .txt, matches it against a skills dictionary mapped to the model's job codes, and suggests the closest jobs with
   the skills that matched. The file never leaves the device. Abdullah's `extract_skills()` can replace
   `matchResume()` later with the same output shape (`SkillsResult`).
+- **Saved résumé:** signed-in people can keep one résumé on their account ("Save it to my account" on the upload
+  screen, on by default). It shows up as "Use your saved résumé" next time and under Your résumé on the Saved page,
+  with download and delete. On AWS the file is stored in a private S3 bucket and the record in DynamoDB; in mock mode
+  only the file name and what was read from it are kept, in this browser.
 - **Still mocked:** accounts (browser storage), people to connect with, and job postings.
 - Set `VITE_API_URL` (copy `.env.example` to `.env.local`) to send every call to a real backend instead.
   All backend calls go through `src/api/client.ts`, so the switch needs no UI changes.
@@ -36,6 +40,8 @@ npm run build      # type-check + production build
 ## Expected API (when not mocked)
 - `GET  /score?occupation=<4-digit NOC>&region=<region name>` → `ModelScore` (the output of `gridskills.api.score()`)
 - `POST /skills` (multipart `resume`) → `SkillsResult`
+- `GET /resume` → `{ resume: SavedResume | null }`, `POST /resume` (multipart `resume`, signed in) reads and saves it
+  → `{ resume: SavedResume }`, `GET /resume/file` → `{ url }` (5-minute download link), `DELETE /resume`
 - `GET  /matches?region=<id>&from=<NOC>&to=<NOC>` → `Match[]`
 - `GET/POST /pathways`, `DELETE /pathways/:id` → `Pathway`
 

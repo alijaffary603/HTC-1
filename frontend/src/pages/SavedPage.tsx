@@ -3,6 +3,7 @@ import { Link as RouterLink } from 'react-router-dom'
 import { deletePathway, listPathways, setPathwayShare } from '../api/client'
 import { useAsync } from '../hooks/useAsync'
 import { useAuth } from '../auth/useAuth'
+import SavedResumeSection from '../components/SavedResumeSection'
 
 const fmtDate = (iso: string) => new Date(iso).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
 
@@ -86,7 +87,7 @@ export default function SavedPage() {
                   <Box>
                     <Typography variant="h3">{p.to.title}</Typography>
                     <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
-                      From {p.from.title.toLowerCase()}, in the {p.region.short} region. Saved {fmtDate(p.savedAt)}.
+                      From {p.from.title.toLowerCase()}, in the {p.region.short ?? p.region.name} region. Saved {fmtDate(p.savedAt)}.
                     </Typography>
                     <FormControlLabel
                       sx={{ mt: 0.5 }}
@@ -119,6 +120,7 @@ export default function SavedPage() {
               ))}
             </Box>
           )}
+          <SavedResumeSection />
         </Box>
       )}
     </Box>

@@ -1,7 +1,22 @@
 import { useState, type ChangeEvent, type FormEvent } from 'react'
-import { Alert, Autocomplete, Box, Button, Chip, CircularProgress, Link, Stack, TextField, Typography } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
-import { extractSkills, USING_MOCKS } from '../api/client'
+import {
+  Alert,
+  Autocomplete,
+  Box,
+  Button,
+  Checkbox,
+  Chip,
+  CircularProgress,
+  FormControlLabel,
+  Link,
+  Stack,
+  TextField,
+  Typography,
+} from '@mui/material'
+import { Link as RouterLink, useNavigate } from 'react-router-dom'
+import { extractSkills, getSavedResume, saveResume, USING_MOCKS } from '../api/client'
+import { useAuth } from '../auth/useAuth'
+import { useAsync } from '../hooks/useAsync'
 import { OCCUPATIONS, TOWNS, findOccupation, findRegion, findTown, matchesOccupation } from '../data/reference'
 import type { Occupation, SkillsResult, Town } from '../types'
 import { blankSx, sentenceSx } from './sentenceStyles'
@@ -35,6 +50,17 @@ export default function OutlookForm() {
   const [parsing, setParsing] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
+  // Signed-in people can keep their résumé on their account (one per account).
+  const { user } = useAuth()
+  const [saveToAccount, setSaveToAccount] = useState(true)
+  const [justSaved, setJustSaved] = useState(false)
+  const saved = useAsync(
+    () => (user && mode === 'resume' ? getSavedResume() : Promise.resolve(null)),
+    `resume|${user?.id ?? ''}|${mode}`,
+  )
+  const savedResume = saved.status === 'success' ? saved.data : null
+  const saving = !!user && saveToAccount
+
   const region = town ? findRegion(town.regionId) : undefined
 
   const go = (occCode: string, t: Town) =>
@@ -52,12 +78,15 @@ export default function OutlookForm() {
     setFileName(file.name)
     setSkills(null)
     setError(null)
+    setJustSaved(false)
     setParsing(true)
     try {
-      const result = await extractSkills(file)
-      setSkills(result)
-      const top = result.suggestedOccupations[0]
-      if (top) setOccupation(findOccupation(top.code) ?? null)
+      const result = saving ? await saveResume(file) : await extractSkills(file)
+      applyResult(result)
+      if (saving) {
+        setJustSaved(true)
+        saved.reload()
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'We couldn’t read that file. Try a PDF or Word file.')
     } finally {
@@ -65,6 +94,20 @@ export default function OutlookForm() {
       e.target.value = ''
     }
   }
+
+  const applyResult = (result: SkillsResult) => {
+    setSkills(result)
+    const top = result.suggestedOccupations[0]
+    if (top) setOccupation(findOccupation(top.code) ?? null)
+  }
+
+  const uploadNote = USING_MOCKS
+    ? saving
+      ? 'PDF, Word (.docx) or plain text. It’s read on this device, and what we find is saved to your account in this browser.'
+      : 'PDF, Word (.docx) or plain text. It’s read on this device and never uploaded.'
+    : saving
+      ? 'PDF, Word (.docx) or plain text. Google’s Gemini reads it to find your skills, and we save it to your account so you don’t have to upload it again. You can delete it any time from Saved.'
+      : 'PDF, Word (.docx) or plain text. Google’s Gemini reads it to find your skills. We don’t keep it.'
 
   const townField = (
     <Autocomplete
@@ -124,16 +167,56 @@ export default function OutlookForm() {
         </Box>
       ) : (
         <Stack spacing={2.5}>
+          {savedResume && !skills && !parsing && (
+            <Box sx={{ border: 1, borderColor: 'divider', borderRadius: '6px', px: 2, py: 1.5 }}>
+              <Typography sx={{ fontWeight: 600 }}>Use your saved résumé</Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ mt: 0.25, mb: 1.25 }}>
+                {savedResume.fileName}, saved{' '}
+                {new Date(savedResume.uploadedAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}.
+                Uploading a new one replaces it.
+              </Typography>
+              <Button
+                variant="contained"
+                size="small"
+                onClick={() => {
+                  setFileName(savedResume.fileName)
+                  setError(null)
+                  setJustSaved(false)
+                  applyResult(savedResume)
+                }}
+              >
+                Use saved résumé
+              </Button>
+            </Box>
+          )}
           <Box>
             <Button component="label" variant="outlined" disabled={parsing}>
-              {fileName ? 'Choose a different file' : 'Choose your résumé'}
+              {fileName || savedResume ? 'Upload a different résumé' : 'Choose your résumé'}
               <input hidden type="file" accept=".pdf,.docx,.txt,application/pdf" onChange={onFile} />
             </Button>
-            <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 1 }}>
-              {fileName ??
-                (USING_MOCKS
-                  ? 'PDF, Word (.docx) or plain text. It’s read on this device and never uploaded.'
-                  : 'PDF, Word (.docx) or plain text. We only use it to find your skills.')}
+            {fileName && (
+              <Typography variant="body2" sx={{ mt: 1 }}>
+                {fileName}
+              </Typography>
+            )}
+            {user ? (
+              <FormControlLabel
+                sx={{ display: 'flex', mt: 1, mr: 0 }}
+                control={
+                  <Checkbox size="small" checked={saveToAccount} disabled={parsing} onChange={(e) => setSaveToAccount(e.target.checked)} />
+                }
+                label={<Typography variant="body2">Save it to my account so I don’t have to upload it again</Typography>}
+              />
+            ) : (
+              <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+                <Link component={RouterLink} to="/sign-in" state={{ from: '/' }} color="text.primary">
+                  Sign in
+                </Link>{' '}
+                to keep your résumé for next time.
+              </Typography>
+            )}
+            <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 0.5 }}>
+              {uploadNote}
             </Typography>
           </Box>
           {parsing && (
@@ -143,6 +226,15 @@ export default function OutlookForm() {
             </Stack>
           )}
           {error && <Alert severity="error">{error}</Alert>}
+          {justSaved && (
+            <Alert severity="success">
+              Saved to your account. You can see or delete it on the{' '}
+              <Link component={RouterLink} to="/saved" color="inherit">
+                Saved page
+              </Link>
+              .
+            </Alert>
+          )}
           {skills && skills.suggestedOccupations.length === 0 && (
             <Alert severity="info">
               We read your résumé but couldn’t match it to a job.{' '}

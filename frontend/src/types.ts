@@ -72,6 +72,14 @@ export interface SkillsResult {
   suggestedOccupations: (Occupation & { confidence: number; because?: string[] })[]
 }
 
+/** A résumé the person chose to save to their account (one per account, replaced on each upload) */
+export interface SavedResume extends SkillsResult {
+  fileName: string
+  /** Bytes */
+  size: number
+  uploadedAt: string
+}
+
 /** A saved pathway: user's current role -> a target role in a region */
 export interface Pathway {
   id: string

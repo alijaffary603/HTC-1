@@ -1,4 +1,4 @@
-import type { AlertFrequency, JobAlert, JobPosting, Match, ModelScore, Occupation, Pathway, Region, SkillsResult } from '../types'
+import type { AlertFrequency, JobAlert, JobPosting, Match, ModelScore, Occupation, Pathway, Region, SavedResume, SkillsResult } from '../types'
 import { mockMatches } from '../mocks/network'
 import { mockPostings } from '../mocks/postings'
 import { sessionStore } from '../auth/session'
@@ -266,4 +266,71 @@ export async function deleteAlert(id: string): Promise<void> {
     return
   }
   await http(`/alerts/${id}`, { method: 'DELETE' })
+}
+
+// --- Saved résumé ---------------------------------------------------------------
+// One per account, replaced by each new upload, and only when the person chooses to save it.
+// Real API: the file goes to a private S3 bucket and the record to DynamoDB (POST /resume).
+// Mock mode: only the file name and what was read from it are kept, in this browser.
+
+/** Only the real API keeps the file itself, so only it can offer a download. */
+export const CAN_DOWNLOAD_RESUME = !USING_MOCKS
+
+function resumeKey(): string {
+  const s = sessionStore.get()
+  if (!s) throw new SignInRequiredError()
+  return `gridskills.v2.resume.${s.user.id}`
+}
+
+export async function getSavedResume(): Promise<SavedResume | null> {
+  if (!sessionStore.get()) return null
+  if (USING_MOCKS) {
+    try {
+      return JSON.parse(localStorage.getItem(resumeKey()) ?? 'null') as SavedResume | null
+    } catch {
+      return null
+    }
+  }
+  const { resume } = await http<{ resume: SavedResume | null }>('/resume')
+  return resume
+}
+
+/** Reads the résumé and saves it to the signed-in person's account in one step. */
+export async function saveResume(file: File): Promise<SavedResume> {
+  if (!sessionStore.get()) throw new SignInRequiredError()
+  if (USING_MOCKS) {
+    const result = await extractSkills(file)
+    const saved: SavedResume = { ...result, fileName: file.name, size: file.size, uploadedAt: new Date().toISOString() }
+    try {
+      localStorage.setItem(resumeKey(), JSON.stringify(saved))
+    } catch {
+      throw new Error('Your browser couldn’t save the résumé. Check that site storage is allowed.')
+    }
+    return saved
+  }
+  const body = new FormData()
+  body.append('resume', file)
+  const res = await fetch(`${API_URL}/resume`, { method: 'POST', body, headers: await authHeader() })
+  if (!res.ok) throw await apiError(res)
+  return ((await res.json()) as { resume: SavedResume }).resume
+}
+
+export async function deleteSavedResume(): Promise<void> {
+  if (!sessionStore.get()) throw new SignInRequiredError()
+  if (USING_MOCKS) {
+    try {
+      localStorage.removeItem(resumeKey())
+    } catch {
+      /* storage unavailable: nothing was saved */
+    }
+    return
+  }
+  await http('/resume', { method: 'DELETE' })
+}
+
+/** A link to download the saved file that works for a few minutes. */
+export async function getSavedResumeFileUrl(): Promise<string> {
+  if (!CAN_DOWNLOAD_RESUME) throw new Error('The file itself is only kept when the app runs on AWS.')
+  const { url } = await http<{ url: string }>('/resume/file')
+  return url
 }

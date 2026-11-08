@@ -10,7 +10,7 @@ import logging
 
 import boto3
 
-from . import config, data, emails, resume, store
+from . import config, data, emails, resume, resume_files, store
 from .uploads import UploadError, resume_file
 
 log = logging.getLogger()
@@ -68,6 +68,55 @@ def post_skills(event):
         # log the failure, never the résumé
         log.exception("resume extraction failed")
         return error(502, "We couldn't read that résumé right now. Pick your job from the list instead.")
+
+
+def post_resume(event, sub):
+    """Reads the résumé like /skills, then keeps it on the person's account.
+
+    Nothing is stored unless the read works. A new upload replaces the old one, file and all.
+    """
+    try:
+        name, mime, content = resume_file(event)
+    except UploadError as e:
+        return error(400, str(e))
+    try:
+        result = resume.extract(name, mime, content)
+    except Exception:
+        log.exception("resume extraction failed")
+        return error(502, "We couldn't read that résumé right now, so it wasn't saved. Try again, or pick your job from the list.")
+
+    previous = store.get_resume(sub)
+    key = resume_files.put(sub, name, mime, content)
+    try:
+        item = store.put_resume(sub, name, mime, len(content), key, result)
+    except Exception:
+        resume_files.delete(key)
+        raise
+    if previous and previous.get("fileKey") and previous["fileKey"] != key:
+        resume_files.delete(previous["fileKey"])
+    return respond(200, {"resume": store.resume_out(item)})
+
+
+def get_resume(sub):
+    item = store.get_resume(sub)
+    return respond(200, {"resume": store.resume_out(item) if item else None})
+
+
+def get_resume_file(sub):
+    item = store.get_resume(sub)
+    if not item:
+        return error(404, "You don't have a saved résumé.")
+    url = resume_files.download_url(item["fileKey"], item["fileName"], item.get("mimeType", "application/octet-stream"))
+    return respond(200, {"url": url})
+
+
+def delete_resume(sub):
+    item = store.get_resume(sub)
+    if item:
+        if item.get("fileKey"):
+            resume_files.delete(item["fileKey"])
+        store.delete_resume(sub)
+    return respond(204)
 
 
 def get_postings(event):
@@ -138,6 +187,14 @@ def handler(event, context):
         if route == "DELETE /api/alerts/{id}":
             store.delete_alert(sub, event["pathParameters"]["id"])
             return respond(204)
+        if route == "GET /api/resume":
+            return get_resume(sub)
+        if route == "POST /api/resume":
+            return post_resume(event, sub)
+        if route == "GET /api/resume/file":
+            return get_resume_file(sub)
+        if route == "DELETE /api/resume":
+            return delete_resume(sub)
     except (KeyError, ValueError, json.JSONDecodeError):
         return error(400, "That request is missing something or isn't valid JSON.")
     return error(404, f"No route for {route}")

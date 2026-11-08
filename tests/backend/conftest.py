@@ -10,6 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "backend"))
 
 REGION = "ca-central-1"
 BUCKET = "gridskills-data"
+RESUME_BUCKET = "gridskills-resumes"
 TABLE = "gridskills-users"
 SENDER = "alerts@example.com"
 
@@ -30,12 +31,13 @@ def response(code, region, title, tailwind=50, trend=50):
 @pytest.fixture
 def aws(monkeypatch):
     env = {"AWS_ACCESS_KEY_ID": "test", "AWS_SECRET_ACCESS_KEY": "test", "AWS_DEFAULT_REGION": REGION,
-           "DATA_BUCKET": BUCKET, "TABLE_NAME": TABLE, "SENDER_EMAIL": SENDER, "APP_URL": "https://app.example"}
+           "DATA_BUCKET": BUCKET, "RESUME_BUCKET": RESUME_BUCKET, "TABLE_NAME": TABLE, "SENDER_EMAIL": SENDER, "APP_URL": "https://app.example"}
     for k, v in env.items():
         monkeypatch.setenv(k, v)
     with mock_aws():
         s3 = boto3.client("s3", region_name=REGION)
         s3.create_bucket(Bucket=BUCKET, CreateBucketConfiguration={"LocationConstraint": REGION})
+        s3.create_bucket(Bucket=RESUME_BUCKET, CreateBucketConfiguration={"LocationConstraint": REGION})
         scores = {
             "4122|Red Deer": response("4122", "Red Deer", "Secondary, elementary and kindergarten school teachers"),
             "7220|Red Deer": response("7220", "Red Deer", "Technical electrical trades", 90, 40),

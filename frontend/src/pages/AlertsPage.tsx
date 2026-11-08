@@ -192,14 +192,14 @@ function AlertRow({
       >
         <Typography variant="h4">{alert.occupation.title}</Typography>
         <Typography variant="body2" color="text.secondary" sx={{ mt: 0.25 }}>
-          {alert.region.short} region. {alert.active ? frequencyLabel(alert.frequency) : 'Paused'}.
+          {(alert.region.short ?? alert.region.name)} region. {alert.active ? frequencyLabel(alert.frequency) : 'Paused'}.
         </Typography>
       </Box>
       <Stack direction="row" sx={{ alignItems: 'center' }}>
         <Switch
           checked={alert.active}
           onChange={(e) => onToggle(e.target.checked)}
-          slotProps={{ input: { 'aria-label': `Email me about ${alert.occupation.title} in ${alert.region.short}` } }}
+          slotProps={{ input: { 'aria-label': `Email me about ${alert.occupation.title} in ${(alert.region.short ?? alert.region.name)}` } }}
         />
         <Button color="inherit" size="small" onClick={onDelete} sx={{ color: 'text.secondary' }}>
           Delete

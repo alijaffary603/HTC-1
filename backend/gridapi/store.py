@@ -1,13 +1,17 @@
 """Everything we keep about users, in one DynamoDB table.
 
-    pk = USER#<cognito sub>   sk = PATHWAY#<id> | ALERT#<id>
+    pk = USER#<cognito sub>   sk = PATHWAY#<id> | ALERT#<id> | RESUME
 
 Pathways the owner chose to share also get gsi1pk = SHARE#<region id>, which is how
 "people making a similar move" finds them. Nothing is shared unless the owner turns
 it on.
+
+RESUME exists only if the person chose to save their résumé. It holds the file's name,
+size and where it is in the résumé bucket, plus the skills and jobs read from it.
 """
 import uuid
 from datetime import datetime, timezone
+from decimal import Decimal
 
 import boto3
 from boto3.dynamodb.conditions import Attr, Key
@@ -167,9 +171,61 @@ def active_alerts(table=None):
         kwargs["ExclusiveStartKey"] = page["LastEvaluatedKey"]
 
 
+# saved résumé (one per person, replaced on each new upload)
+
+RESUME = "RESUME"
+
+
+def _decimal(value):
+    # boto3 won't store Python floats in DynamoDB
+    return Decimal(str(round(float(value), 2)))
+
+
+def resume_out(item):
+    """The app's SavedResume shape. Leaves out where the file is stored."""
+    return {
+        "fileName": item["fileName"],
+        "size": int(item["size"]),
+        "uploadedAt": item["uploadedAt"],
+        "skills": [{"name": s["name"], "confidence": float(s["confidence"])} for s in item.get("skills", [])],
+        "suggestedOccupations": [
+            {"code": o["code"], "title": o["title"], "confidence": float(o["confidence"])}
+            for o in item.get("suggestedOccupations", [])
+        ],
+    }
+
+
+def get_resume(sub, table=None):
+    """The stored item, including fileKey, or None."""
+    return _table(table).get_item(Key={"pk": _user(sub), "sk": RESUME}).get("Item")
+
+
+def put_resume(sub, file_name, mime_type, size, file_key, result, table=None):
+    item = {
+        "pk": _user(sub), "sk": RESUME,
+        "fileName": str(file_name)[:200], "mimeType": mime_type, "size": int(size), "fileKey": file_key,
+        "uploadedAt": _now(),
+        "skills": [{"name": str(s["name"]), "confidence": _decimal(s["confidence"])} for s in result.get("skills", [])],
+        "suggestedOccupations": [
+            {"code": str(o["code"]), "title": str(o["title"]), "confidence": _decimal(o["confidence"])}
+            for o in result.get("suggestedOccupations", [])
+        ],
+    }
+    _table(table).put_item(Item=item)
+    return item
+
+
+def delete_resume(sub, table=None):
+    _table(table).delete_item(Key={"pk": _user(sub), "sk": RESUME})
+
+
 def _occupation(o):
     return {"code": str(o["code"]), "title": str(o["title"])}
 
 
 def _region(r):
-    return {"id": str(r["id"]), "name": str(r["name"])}
+    # keep the app's short name ("Northwest Alberta") so pages can say "in the ___ region"
+    out = {"id": str(r["id"]), "name": str(r["name"])}
+    if r.get("short"):
+        out["short"] = str(r["short"])
+    return out

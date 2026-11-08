@@ -1,8 +1,9 @@
 """Résumé -> skills and the closest occupations, using the Gemini API.
 
 The model may only answer with codes from our list (an enum in the response schema),
-so it can't invent an occupation. The file is sent to Google for this one request and
-we don't store it anywhere.
+so it can't invent an occupation. The file is sent to Google for this one request.
+This module never stores it. Signed-in people can choose to save their résumé to their
+account (POST /api/resume), which keeps it in the résumé bucket (resume_files.py).
 """
 import base64
 import json
