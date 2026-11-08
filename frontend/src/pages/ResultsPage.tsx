@@ -6,6 +6,7 @@ import { useAsync } from '../hooks/useAsync'
 import { useAuth, useSignInRedirect } from '../auth/useAuth'
 import RangeBar from '../components/RangeBar'
 import AdvisorPanel from '../components/AdvisorPanel'
+import EnergyMap from '../components/EnergyMap'
 import { DISPLAY } from '../theme'
 import { HORIZON, SNAPSHOT, TECH_LABEL, findRegion, regionRef } from '../data/reference'
 import type { ModelScore, Occupation } from '../types'
@@ -342,6 +343,8 @@ function Results({ data, town }: { data: ModelScore; town: string | null }) {
           </Box>
         </Alert>
       )}
+
+      <EnergyMap key={`map|${data.occupation.code}|${data.region}`} occupation={data.occupation.code} region={data.region} />
 
       <AdvisorPanel key={`${data.occupation.code}|${data.region}`} result={data} />
       <Section

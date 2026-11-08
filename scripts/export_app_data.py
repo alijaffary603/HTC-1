@@ -4,6 +4,7 @@ Runs gridskills.api.score() for every occupation and region and writes:
   frontend/src/data/reference.json        occupations, aliases, regions, towns, province totals
   frontend/public/data/scores/<code>.json  {region: score(...)} for one occupation
   frontend/public/data/projects.json       projects waiting on AESO's list (for grid update previews)
+  frontend/public/data/energy-map.json     map projects and regional occupation estimates
 
 The app reads these files directly, so it needs no Python or server at request time.
 Rerun after rebuilding outputs/ (python scripts/build_all.py):
@@ -108,6 +109,9 @@ def main():
             for r in csv.DictReader(f)
         ]
     PROJECTS.write_text(json.dumps(projects, ensure_ascii=False, separators=(",", ":")))
+
+    from export_map_data import export_map_data
+    export_map_data()
 
     print(f"{len(occs)} occupations x {len(REGIONS)} regions, {len(towns)} towns, {len(projects)} projects")
     print(f"wrote {REFERENCE.relative_to(ROOT)} and {SCORES_DIR.relative_to(ROOT)}/")

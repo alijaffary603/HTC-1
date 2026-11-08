@@ -87,3 +87,9 @@ See [docs/validation.md](docs/validation.md), [docs/using_the_scores.md](docs/us
 The product is **Signal**. Its primary logo is `Signal_Logo_Vector_Whole_Transparent.png`, served from `frontend/public/` for the app header, favicon and touch icon. The logo is inverted for contrast on dark backgrounds.
 
 The internal Python import namespace (`gridskills`) and existing browser-storage keys are retained for compatibility with model scripts and saved user data; the Python distribution is named `signal-careers` and the frontend package is `signal-web`.
+
+## Energy activity explorer
+
+The results page includes a Google Maps regional explorer and an accessible project list. Set `VITE_GOOGLE_MAPS_API_KEY` in `frontend/.env.local`, enable Maps JavaScript API and billing, restrict the browser key to your website origins and that API, and restart Vite. Optionally set `VITE_GOOGLE_MAPS_MAP_ID` for a production map ID. Without a key, the project list, filters and occupation estimates remain usable.
+
+`python scripts/export_map_data.py` rebuilds `frontend/public/data/energy-map.json` from committed outputs. The main frontend exporter also runs this step. Project records have planning areas but no site coordinates, so markers use representative regional anchors, not exact development sites. Selecting a development shows occupation estimates for its technology across the selected region; these are not project-specific hiring estimates. Estimates apply the Statistics Canada occupation-by-sector mix to the existing regional technology/sector job scenarios, including indirect and induced demand. Exact project pins require verified coordinates.
