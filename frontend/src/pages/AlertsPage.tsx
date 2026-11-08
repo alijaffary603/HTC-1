@@ -225,7 +225,9 @@ function Preview({ alert, user }: { alert: JobAlert; user: User }) {
 
   return (
     <Box>
-      <Typography variant="h3">Next email</Typography>
+      <Typography variant="h2" sx={{ fontSize: '1.75rem' }}>
+        Next email
+      </Typography>
       <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5, mb: 2 }}>
         {alert.active
           ? `Arrives ${sendAt.toLocaleString(undefined, { weekday: 'long', hour: 'numeric', minute: '2-digit' })} if there are new postings.`
@@ -393,6 +395,12 @@ export default function AlertsPage() {
           <Typography variant="h2" sx={{ fontSize: '1.75rem' }}>
             Your alerts
           </Typography>
+          {alerts.length > 0 && (
+            // one line, like the line under "Next email", so the list and the email start level
+            <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
+              Pick one to preview its next email.
+            </Typography>
+          )}
           <Box sx={{ mt: 2 }}>
             {state.status === 'loading' && <Skeleton variant="rounded" height={120} />}
             {state.status === 'error' && <Alert severity="error">Your alerts didn’t load: {state.error.message}</Alert>}
