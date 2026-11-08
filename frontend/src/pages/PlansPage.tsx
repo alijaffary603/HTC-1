@@ -12,8 +12,8 @@ export default function PlansPage() {
     try { action(); setVersion(version + 1); setError('') } catch { setError('Your browser could not update saved plans. Check available storage.') }
   }
   return <Box sx={{ maxWidth: 880 }}>
-    <Typography variant="h1">Your action plans</Typography>
-    <Typography color="text.secondary" sx={{ mt: 2 }}>Plans and progress are saved in this browser on this device. They are not synced to an account.</Typography>
+    <Typography variant="h1" sx={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>Your action plans</Typography>
+    <Typography color="text.secondary" sx={{ mt: 1.5 }}>Plans and progress are saved in this browser on this device. They are not synced to an account.</Typography>
     {error && <Alert severity="error" sx={{ mt: 2 }}>{error}</Alert>}
     {plans.length === 0 && <Box sx={{ mt: 4 }}><Typography>No plans saved here yet. Open your results to plan a career move.</Typography><Button component={RouterLink} to="/" sx={{ ml: -1.25 }}>Explore my options</Button></Box>}
     <Stack spacing={5} sx={{ mt: 4 }}>{plans.map(p => <Box key={p.id} sx={{ borderTop: 1, borderColor: 'divider', pt: 3 }}>
