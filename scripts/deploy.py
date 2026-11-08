@@ -174,8 +174,11 @@ def upload_frontend(aws, outputs):
     # changes, so it gets a short cache. index.html must always be fresh.
     run(aws, "s3", "sync", dist / "assets", f"{site}/assets", "--delete",
         "--cache-control", "public,max-age=31536000,immutable", "--only-show-errors")
-    run(aws, "s3", "sync", dist, site, "--delete", "--exclude", "assets/*", "--exclude", "index.html",
+    # cp, not sync: sync skips unchanged files, which would leave their old cache headers in place
+    run(aws, "s3", "cp", dist, site, "--recursive", "--exclude", "assets/*", "--exclude", "index.html",
         "--cache-control", "public,max-age=300", "--only-show-errors")
+    run(aws, "s3", "sync", dist, site, "--delete", "--exclude", "assets/*", "--exclude", "index.html",
+        "--only-show-errors")
     run(aws, "s3", "cp", dist / "index.html", f"{site}/index.html", "--cache-control", "no-cache")
     run(aws, "cloudfront", "create-invalidation", "--distribution-id", outputs["DistributionId"],
         "--paths", "/index.html", "/data/*", "/*.svg", "/*.png", "/*.jpg", "--output", "text", "--query", "Invalidation.Id")
