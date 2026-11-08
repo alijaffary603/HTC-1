@@ -6,7 +6,7 @@ import { Link as RouterLink, Navigate, useLocation, useNavigate } from 'react-ro
 import { USING_MOCKS } from '../api/client'
 import { AuthError } from '../auth/authClient'
 import { useAuth, type AuthRedirectState } from '../auth/useAuth'
-import hero1200 from '../assets/hero-1200.jpg'
+import hero1200 from '../assets/linework-1200.jpg'
 
 type Mode = 'sign-in' | 'sign-up'
 
@@ -233,7 +233,7 @@ export default function AuthPage({ mode }: { mode: Mode }) {
           width: '100%',
           height: 'min(620px, 72vh)',
           objectFit: 'cover',
-          objectPosition: 'center 65%',
+          objectPosition: '72% center',
           borderRadius: '10px',
         }}
       />

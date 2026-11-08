@@ -4,10 +4,10 @@ import { keyframes } from '@emotion/react'
 import OutlookForm from '../components/OutlookForm'
 import { DISPLAY } from '../theme'
 import { PROVINCE } from '../data/reference'
-import hero1200 from '../assets/hero-1200.jpg'
-import hero2400 from '../assets/hero-2400.jpg'
+import hero1200 from '../assets/linework-1200.jpg'
+import hero2400 from '../assets/linework-2400.jpg'
 
-// The page’s one motion moment: the landscape settles in, the panel follows,
+// The page’s one motion moment: the photo settles in, the panel follows,
 // and the image drifts slower than the page while scrolling.
 const settle = keyframes`
   from { scale: 1.06; opacity: 0; }
@@ -105,7 +105,7 @@ export default function HomePage() {
           display: 'flex',
           alignItems: 'flex-end',
           overflow: 'hidden',
-          bgcolor: '#4f7fb4',
+          background: 'linear-gradient(180deg, #b3a5d6 0%, #f3be7e 100%)',
         }}
       >
         <Box
@@ -122,7 +122,12 @@ export default function HomePage() {
               width: '100%',
               height: '100%',
               objectFit: 'cover',
-              objectPosition: { xs: '62% 40%', md: 'center 40%' },
+              // The crew and bucket trucks are on the right and the form covers the left.
+              // On wider screens the photo is nearly the screen's shape, so cropping can't move
+              // them; enlarging it from the left edge pushes the crew out from behind the form.
+              objectPosition: { xs: '72% 30%', md: '70% 30%' },
+              transform: { md: 'scale(1.16)' },
+              transformOrigin: '0% 35%',
               animation: `${settle} 1.4s cubic-bezier(.2,.7,.2,1) both`,
               '@media (prefers-reduced-motion: reduce)': { animation: 'none' },
             }}
