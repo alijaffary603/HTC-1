@@ -924,7 +924,7 @@
   },
   {
    "name": "Athabasca",
-   "region": "Wood Buffalo-Cold Lake"
+   "region": "Banff-Jasper-Rocky Mountain House and Athabasca-Grande Prairie-Peace River"
   },
   {
    "name": "Banff",
@@ -1125,6 +1125,10 @@
   {
    "name": "St. Albert",
    "region": "Edmonton"
+  },
+  {
+   "name": "St. Paul",
+   "region": "Wood Buffalo-Cold Lake"
   },
   {
    "name": "Stettler",
