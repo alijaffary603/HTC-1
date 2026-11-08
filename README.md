@@ -158,7 +158,7 @@ The whole app is one CloudFormation stack, [aws/template.yaml](aws/template.yaml
 Browser -> CloudFront -> S3: the React app
                       -> /api/* -> API Gateway, which checks the Cognito sign-in where needed
                                      -> API Lambda (backend/gridapi) -> S3 scores, DynamoDB, S3 resumes, Gemini, SES
-                                     -> Advisor Lambda (gridskills advisor) -> Gemini
+                                     -> Advisor Lambda (Signal advisor) -> Gemini
 
 12th of each month: EventBridge -> CodeBuild fetches AESO's new list, rebuilds the model, runs the tests and checks
                                 -> if they all pass: publish to S3 -> Alerts Lambda -> SES emails
@@ -225,9 +225,13 @@ Built by four people for a hackathon.
 
 | | Role | What they built |
 |---|---|---|
-| Uzair | Model and data | The `gridskills` model and its validation, the AWS backend and the monthly refresh |
+| Uzair | Model and data | The Signal model and its validation, the AWS backend and the monthly refresh |
 | Ali | Product | The web app, and the accounts, saved resumes and grid alerts behind it |
 | Abdullah | AI and data | The Gemini career advisor and action plans, the energy activity map, the Signal rebrand |
 | Ahmed | Design and story | The Signal logo and brand, layout design and the pitch |
 
-Signal was called GridSkills while we built it. The Python import name (`gridskills`), the AWS stack name and the browser storage keys keep the old name so scripts and saved data keep working. The Python distribution is `signal-careers` and the frontend package is `signal-web`.
+The product is Signal. Internal Python module names, AWS resource names and browser storage keys are retained for compatibility with existing scripts, deployments and saved data. Keep the module names and paths in the commands above as written. The Python distribution is `signal-careers` and the frontend package is `signal-web`.
+
+## AI use disclosure
+
+We used AI assistance for parts of the frontend, including the Gemini API and Google Maps API integrations.
