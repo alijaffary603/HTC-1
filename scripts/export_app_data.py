@@ -3,11 +3,13 @@
 Runs gridskills.api.score() for every occupation and region and writes:
   frontend/src/data/reference.json        occupations, aliases, regions, towns, province totals
   frontend/public/data/scores/<code>.json  {region: score(...)} for one occupation
+  frontend/public/data/projects.json       projects waiting on AESO's list (for grid update previews)
 
 The app reads these files directly, so it needs no Python or server at request time.
 Rerun after rebuilding outputs/ (python scripts/build_all.py):
   python scripts/export_app_data.py
 """
+import csv
 import json
 import sys
 from pathlib import Path
@@ -22,6 +24,7 @@ from gridskills.regions import NORTHWEST, PLACES, REGIONS  # noqa: E402
 FRONTEND = ROOT / "frontend"
 REFERENCE = FRONTEND / "src" / "data" / "reference.json"
 SCORES_DIR = FRONTEND / "public" / "data" / "scores"
+PROJECTS = FRONTEND / "public" / "data" / "projects.json"
 
 # Shorter names for sentences like "in the ___ region". Full names stay in `name`.
 SHORT = {NORTHWEST: "Northwest Alberta"}
@@ -90,7 +93,23 @@ def main():
         per_region = {r: score(occ["code"], r) for r in REGIONS}
         (SCORES_DIR / f"{occ['code']}.json").write_text(json.dumps(per_region, ensure_ascii=False, separators=(",", ":")))
 
-    print(f"{len(occs)} occupations x {len(REGIONS)} regions, {len(towns)} towns")
+    with open(OUTPUTS / "projects.csv", newline="") as f:
+        projects = [
+            {
+                "projectId": r["project_id"],
+                "name": r["name"].strip() or r["project_id"],
+                "tech": r["tech"],
+                "region": r["region"],
+                "mw": round(float(r["mw"] or 0), 1),
+                "isd": r["isd"] or "",
+                "state": r["state"],
+                "likelihood": round(float(r["p_base"] or 0), 2),
+            }
+            for r in csv.DictReader(f)
+        ]
+    PROJECTS.write_text(json.dumps(projects, ensure_ascii=False, separators=(",", ":")))
+
+    print(f"{len(occs)} occupations x {len(REGIONS)} regions, {len(towns)} towns, {len(projects)} projects")
     print(f"wrote {REFERENCE.relative_to(ROOT)} and {SCORES_DIR.relative_to(ROOT)}/")
 
 

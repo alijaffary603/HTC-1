@@ -1,6 +1,5 @@
-import type { AlertFrequency, JobAlert, JobPosting, Match, ModelScore, Occupation, Pathway, Region, SavedResume, SkillsResult } from '../types'
+import type { AlertFrequency, GridDevelopments, GridProject, JobAlert, Match, ModelScore, Occupation, Pathway, Region, SavedResume, SkillsResult } from '../types'
 import { mockMatches } from '../mocks/network'
-import { mockPostings } from '../mocks/postings'
 import { sessionStore } from '../auth/session'
 import { freshSession } from '../auth/cognito'
 
@@ -174,22 +173,33 @@ export async function deletePathway(id: string): Promise<void> {
   await http(`/pathways/${id}`, { method: 'DELETE' })
 }
 
-// --- Job postings and alerts ---------------------------------------------------
-// Alerts belong to an account. The backend sends the emails on a schedule
-// (EventBridge -> Lambda -> SES) using src/email/alertEmail.ts.
+// --- Grid developments and alerts ------------------------------------------------
+// Alerts belong to an account. Each month, after AESO's new list, the backend emails
+// what changed in the alert's region (backend/gridapi/alerts.py and emails.py).
+// src/email/alertEmail.ts renders the same email for the preview on the Alerts page.
 
-/** Postings for a job in a region, newest first. `sinceDays` limits how far back. */
-export async function getPostings(occupation: string, region: string, sinceDays?: number): Promise<JobPosting[]> {
-  if (USING_MOCKS) {
-    await delay(250)
-    const all = mockPostings(occupation, region)
-    if (!sinceDays) return all
-    const cutoff = Date.now() - sinceDays * 24 * 60 * 60 * 1000
-    return all.filter((p) => new Date(p.postedAt).getTime() >= cutoff)
+let projectsFile: Promise<(GridProject & { region: string })[]> | null = null
+
+function loadProjects() {
+  if (!projectsFile) {
+    projectsFile = fetch(`${import.meta.env.BASE_URL}data/projects.json`).then((res) => {
+      if (!res.ok) throw new Error('The project list didn’t load.')
+      return res.json() as Promise<(GridProject & { region: string })[]>
+    })
+    projectsFile.catch(() => (projectsFile = null))
   }
-  const params = new URLSearchParams({ occupation, region })
-  if (sinceDays) params.set('sinceDays', String(sinceDays))
-  return http(`/postings?${params}`)
+  return projectsFile
+}
+
+/**
+ * What changed on AESO's list in a region between the two latest monthly lists.
+ * The real API compares the published months. Locally there's only one month, so the
+ * preview uses real projects with example changes, marked `example: true`.
+ */
+export async function getDevelopments(region: string): Promise<GridDevelopments> {
+  if (API_URL) return http(`/developments?${new URLSearchParams({ region })}`)
+  const [{ exampleDevelopments }, projects] = await Promise.all([import('../mocks/developments'), loadProjects()])
+  return exampleDevelopments(region, projects)
 }
 
 function alertsKey(): string {

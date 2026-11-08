@@ -128,7 +128,7 @@ function AccountMenu() {
           to="/alerts"
           onClick={close}
         >
-          Job alerts
+          Grid alerts
         </MenuItem>
 
         <MenuItem
@@ -383,7 +383,7 @@ export default function Layout() {
               from the AESO connection project list and
               Statistics Canada tables.
               {USING_MOCKS &&
-                ' Accounts, postings and the People page use sample data; regional scores use the model.'}
+                ' Accounts and the People page use sample data; regional scores and projects use the model.'}
             </Typography>
 
             <Typography

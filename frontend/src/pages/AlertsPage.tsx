@@ -13,16 +13,18 @@ import {
   Typography,
 } from '@mui/material'
 import { Link as RouterLink, useLocation, useSearchParams } from 'react-router-dom'
-import { createAlert, deleteAlert, getPostings, getScore, listAlerts, updateAlert, USING_MOCKS } from '../api/client'
+import { createAlert, deleteAlert, getDevelopments, listAlerts, updateAlert, USING_MOCKS } from '../api/client'
 import { useAuth } from '../auth/useAuth'
 import { useAsync } from '../hooks/useAsync'
 import { OCCUPATIONS, REGIONS, findOccupation, findRegion, matchesOccupation, regionRef } from '../data/reference'
 import { blankSx, sentenceSx } from '../components/sentenceStyles'
 import EmailPreview from '../components/EmailPreview'
-import { buildAlertEmail, frequencyLabel, windowDays } from '../email/alertEmail'
-import type { AlertFrequency, JobAlert, Occupation, User } from '../types'
+import { buildAlertEmail, monthLabel } from '../email/alertEmail'
+import type { JobAlert, Occupation, User } from '../types'
 
 const FROM = 'Signal alerts <alerts@signal.example>'
+const WHEN_SENT =
+  'Emails go out once a month, after AESO’s new list, when projects in your region change or your outlook moves by 5 points or more.'
 
 // A phrase of the sentence form that wraps as one unit.
 const phraseSx = {
@@ -33,35 +35,25 @@ const phraseSx = {
   '& > span': { whiteSpace: 'nowrap' },
 } as const
 
-function nextSendDate(frequency: AlertFrequency, now: Date) {
-  const d = new Date(now)
-  d.setHours(8, 0, 0, 0)
-  if (frequency === 'daily') {
-    if (d <= now) d.setDate(d.getDate() + 1)
-  } else {
-    const daysToMonday = (8 - d.getDay()) % 7 || 7
-    d.setDate(d.getDate() + daysToMonday)
-  }
+/** The monthly pipeline runs on the 12th (docs/aws.md) and the emails go out when it finishes. */
+function nextListDate(now: Date) {
+  const d = new Date(now.getFullYear(), now.getMonth(), 12, 9, 0, 0)
+  if (d <= now) d.setMonth(d.getMonth() + 1)
   return d
 }
 
-function NewAlertForm({
-  onCreate,
-}: {
-  onCreate: (a: { occupation: Occupation; regionId: string; frequency: AlertFrequency }) => void
-}) {
+function NewAlertForm({ onCreate }: { onCreate: (a: { occupation: Occupation; regionId: string }) => void }) {
   const [params] = useSearchParams()
   const [occupation, setOccupation] = useState<Occupation | null>(
     findOccupation(params.get('occupation') ?? '') ?? null,
   )
   const [regionId, setRegionId] = useState(findRegion(params.get('region') ?? '')?.id ?? '')
-  const [frequency, setFrequency] = useState<AlertFrequency>('weekly')
   const [tried, setTried] = useState(false)
 
   const submit = (e: FormEvent) => {
     e.preventDefault()
     setTried(true)
-    if (occupation && regionId) onCreate({ occupation, regionId, frequency })
+    if (occupation && regionId) onCreate({ occupation, regionId })
   }
   const missing = tried && (!occupation || !regionId)
 
@@ -69,7 +61,7 @@ function NewAlertForm({
     <Box component="form" onSubmit={submit} noValidate>
       <Box sx={{ ...sentenceSx, fontSize: { xs: '1.125rem', sm: '1.375rem' } }}>
         <Box sx={{ ...phraseSx, flex: { xs: '1 1 100%', sm: '0 1 auto' } }}>
-          <span>Email me new</span>
+          <span>Email me grid updates for</span>
           <Autocomplete
             options={OCCUPATIONS}
             value={occupation ? (findOccupation(occupation.code) ?? null) : null}
@@ -84,7 +76,7 @@ function NewAlertForm({
                 slotProps={{ ...p.slotProps, inputLabel: { ...p.slotProps.inputLabel, shrink: true } }}
                 variant="standard"
                 label="Job"
-                placeholder="job"
+                placeholder="your job"
                 error={tried && !occupation}
                 sx={blankSx}
               />
@@ -92,7 +84,7 @@ function NewAlertForm({
           />
         </Box>
         <Box sx={phraseSx}>
-          <span>postings in</span>
+          <span>in</span>
           <TextField
             select
             variant="standard"
@@ -123,18 +115,6 @@ function NewAlertForm({
             ))}
           </TextField>
         </Box>
-        <TextField
-          select
-          variant="standard"
-          label="How often"
-          value={frequency}
-          onChange={(e) => setFrequency(e.target.value as AlertFrequency)}
-          slotProps={{ inputLabel: { shrink: true } }}
-          sx={blankSx}
-        >
-          <MenuItem value="daily">every morning</MenuItem>
-          <MenuItem value="weekly">every Monday</MenuItem>
-        </TextField>
       </Box>
       <Typography variant="body2" color={missing ? 'error' : 'text.secondary'} sx={{ mt: 1.5, minHeight: '1.55em' }}>
         {missing ? (!occupation ? 'Choose a job for this alert.' : 'Choose a region for this alert.') : ''}
@@ -159,6 +139,7 @@ function AlertRow({
   onToggle: (active: boolean) => void
   onDelete: () => void
 }) {
+  const region = alert.region.short ?? alert.region.name
   return (
     <Box
       component="li"
@@ -192,14 +173,14 @@ function AlertRow({
       >
         <Typography variant="h4">{alert.occupation.title}</Typography>
         <Typography variant="body2" color="text.secondary" sx={{ mt: 0.25 }}>
-          {(alert.region.short ?? alert.region.name)} region. {alert.active ? frequencyLabel(alert.frequency) : 'Paused'}.
+          {region} region. {alert.active ? 'Monthly' : 'Paused'}.
         </Typography>
       </Box>
       <Stack direction="row" sx={{ alignItems: 'center' }}>
         <Switch
           checked={alert.active}
           onChange={(e) => onToggle(e.target.checked)}
-          slotProps={{ input: { 'aria-label': `Email me about ${alert.occupation.title} in ${(alert.region.short ?? alert.region.name)}` } }}
+          slotProps={{ input: { 'aria-label': `Email me grid updates about ${alert.occupation.title} in ${region}` } }}
         />
         <Button color="inherit" size="small" onClick={onDelete} sx={{ color: 'text.secondary' }}>
           Delete
@@ -210,18 +191,11 @@ function AlertRow({
 }
 
 function Preview({ alert, user }: { alert: JobAlert; user: User }) {
-  const days = windowDays(alert.frequency)
-  const state = useAsync(
-    () =>
-      Promise.all([
-        getPostings(alert.occupation.code, alert.region.id, days),
-        getScore(alert.occupation.code, alert.region.id),
-      ]),
-    `${alert.id}|${alert.frequency}`,
-  )
+  const state = useAsync(() => getDevelopments(alert.region.id), `${alert.id}|${alert.region.id}`)
   // Fixed for the life of this preview so re-renders don't shift the dates.
   const [now] = useState(() => new Date())
-  const sendAt = nextSendDate(alert.frequency, now)
+  const sendAt = nextListDate(now)
+  const region = alert.region.short ?? alert.region.name
 
   return (
     <Box>
@@ -230,18 +204,19 @@ function Preview({ alert, user }: { alert: JobAlert; user: User }) {
       </Typography>
       <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5, mb: 2 }}>
         {alert.active
-          ? `Arrives ${sendAt.toLocaleString(undefined, { weekday: 'long', hour: 'numeric', minute: '2-digit' })} if there are new postings.`
+          ? `Arrives after AESO’s next list, around ${sendAt.toLocaleDateString(undefined, { month: 'long', day: 'numeric' })}, if anything changes.`
           : 'This alert is paused. Turn it on to start getting these emails.'}
       </Typography>
 
       {state.status === 'loading' && <Skeleton variant="rounded" height={420} />}
       {state.status === 'error' && <Alert severity="error">The preview didn’t load: {state.error.message}</Alert>}
       {state.status === 'success' &&
-        (state.data[0].length === 0 ? (
+        (state.data.developments.length === 0 ? (
           <Box sx={{ border: 1, borderColor: 'divider', borderRadius: '10px', p: 3 }}>
             <Typography>
-              No new postings {alert.frequency === 'daily' ? 'since yesterday' : 'this week'}, so this email wouldn’t be
-              sent.
+              {state.data.previous
+                ? `No projects in the ${region} region changed between AESO’s ${monthLabel(state.data.previous)} and ${monthLabel(state.data.snapshot)} lists, so no email would go out unless the outlook moved.`
+                : 'The first email goes out once there are two monthly lists to compare.'}
             </Typography>
           </Box>
         ) : (
@@ -249,21 +224,27 @@ function Preview({ alert, user }: { alert: JobAlert; user: User }) {
             const email = buildAlertEmail({
               user,
               alert,
-              postings: state.data[0],
-              tailwind: { low: state.data[1].tailwind.range[0], base: state.data[1].tailwind.score, high: state.data[1].tailwind.range[1] },
+              developments: state.data.developments,
+              snapshot: state.data.snapshot,
               appUrl: window.location.origin,
-              now,
             })
             return (
-              <EmailPreview
-                from={FROM}
-                to={user.email}
-                date={sendAt}
-                subject={email.subject}
-                preheader={email.preheader}
-                html={email.html}
-                text={email.text}
-              />
+              <>
+                <EmailPreview
+                  from={FROM}
+                  to={user.email}
+                  date={sendAt}
+                  subject={email.subject}
+                  preheader={email.preheader}
+                  html={email.html}
+                  text={email.text}
+                />
+                <Typography variant="body2" color="text.secondary" sx={{ mt: 1.5 }}>
+                  {state.data.example
+                    ? `Example: these are real projects in the ${region} region from AESO’s ${monthLabel(state.data.snapshot)} list, but which ones count as new or moving ahead is made up for this preview. Real emails list what actually changed since the month before.`
+                    : `Based on what changed between AESO’s ${monthLabel(state.data.previous)} and ${monthLabel(state.data.snapshot)} lists.`}
+                </Typography>
+              </>
             )
           })()
         ))}
@@ -283,12 +264,13 @@ export default function AlertsPage() {
     return (
       <Box sx={{ maxWidth: 880 }}>
         <Typography variant="h1" sx={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
-          Job alerts
+          Grid alerts
         </Typography>
         <Box sx={{ mt: 5, borderTop: 1, borderBottom: 1, borderColor: 'divider', py: 5 }}>
-          <Typography variant="h3">Sign in to set up job alerts</Typography>
-          <Typography color="text.secondary" sx={{ mt: 1, mb: 3, maxWidth: '52ch' }}>
-            We’ll email you new postings for the jobs you choose, every morning or every Monday.
+          <Typography variant="h3">Sign in to set up grid alerts</Typography>
+          <Typography color="text.secondary" sx={{ mt: 1, mb: 3, maxWidth: '58ch' }}>
+            Each month, after AESO publishes its connection list, we’ll email you the grid projects that changed in
+            your region, for the job you choose.
           </Typography>
           <Stack direction="row" spacing={1.5}>
             <Button
@@ -320,18 +302,10 @@ export default function AlertsPage() {
     }
   }
 
-  const onCreate = ({
-    occupation,
-    regionId,
-    frequency,
-  }: {
-    occupation: Occupation
-    regionId: string
-    frequency: AlertFrequency
-  }) =>
+  const onCreate = ({ occupation, regionId }: { occupation: Occupation; regionId: string }) =>
     run(async () => {
       const region = regionRef(regionId)!
-      const { alert, created } = await createAlert({ occupation, region, frequency })
+      const { alert, created } = await createAlert({ occupation, region, frequency: 'monthly' })
       setSelectedId(alert.id)
       setToast({ message: created ? 'Alert created.' : 'You already have an alert for this job and region.' })
       state.reload()
@@ -365,10 +339,11 @@ export default function AlertsPage() {
   return (
     <Box>
       <Typography variant="h1" sx={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
-        Job alerts
+        Grid alerts
       </Typography>
-      <Typography color="text.secondary" sx={{ mt: 1.5, maxWidth: '62ch' }}>
-        We’ll email new postings to {user.email}. Each email only goes out when there’s something new.
+      <Typography color="text.secondary" sx={{ mt: 1.5, maxWidth: '66ch' }}>
+        Each month, after AESO publishes its connection list, we email {user.email} the projects that changed in
+        your region: new ones, ones moving ahead or delayed, and ones that dropped off. No changes, no email.
       </Typography>
 
       <Box sx={{ mt: 5, maxWidth: 1000 }}>
@@ -408,7 +383,7 @@ export default function AlertsPage() {
               <Box sx={{ borderTop: 1, borderBottom: 1, borderColor: 'divider', py: 3 }}>
                 <Typography>No alerts yet.</Typography>
                 <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
-                  Choose a job and region above, or use Job alerts on any outlook page.
+                  Choose a job and region above, or use Grid alerts on any outlook page.
                 </Typography>
               </Box>
             )}
@@ -432,17 +407,9 @@ export default function AlertsPage() {
         {selected && <Preview key={selected.id} alert={selected} user={user} />}
       </Box>
 
-      {USING_MOCKS ? (
-        <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 6, maxWidth: '70ch' }}>
-          This prototype shows sample postings from fictional employers and doesn’t send real emails yet. The email
-          above is the exact template the backend will send.
-        </Typography>
-      ) : (
-        <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 6, maxWidth: '70ch' }}>
-          Job postings aren’t connected yet, so for now these alerts send one email a month when the grid data moves
-          the outlook for your job by 5 points or more.
-        </Typography>
-      )}
+      <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 6, maxWidth: '70ch' }}>
+        {USING_MOCKS ? `This prototype doesn’t send emails. On the live site: ${WHEN_SENT.charAt(0).toLowerCase()}${WHEN_SENT.slice(1)}` : WHEN_SENT}
+      </Typography>
 
       <Snackbar
         open={!!toast}

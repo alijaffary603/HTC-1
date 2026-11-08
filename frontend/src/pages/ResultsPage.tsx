@@ -178,7 +178,7 @@ function RoleRow({
             Alerts on
           </Button>
         ) : (
-          <Button onClick={onAlert}>Job alerts</Button>
+          <Button onClick={onAlert}>Grid alerts</Button>
         )}
       </Stack>
     </Box>
@@ -253,12 +253,12 @@ function Results({ data, town }: { data: ModelScore; town: string | null }) {
   const onAlert = async (occupation: Occupation) => {
     const job = lower(occupation.title)
     if (!user) {
-      askToSignIn(`Sign in to get emails about new postings for ${job}. You’ll come back to this page.`)
+      askToSignIn(`Sign in to get monthly grid updates for ${job}. You’ll come back to this page.`)
       return
     }
-    await createAlert({ occupation, region, frequency: 'weekly' })
+    await createAlert({ occupation, region, frequency: 'monthly' })
     alerts.reload()
-    setToast({ message: `Every Monday we’ll email you new postings for ${job} in the ${region.short} region.`, to: '/alerts', label: 'Preview email' })
+    setToast({ message: `Each month we’ll email you what changed on AESO’s list in the ${region.short} region.`, to: '/alerts', label: 'Preview email' })
   }
 
   const onSave = async (role: Role) => {
@@ -291,10 +291,10 @@ function Results({ data, town }: { data: ModelScore; town: string | null }) {
       <Box sx={{ mt: 2, ml: -1.25 }}>
         {hasAlert(data.occupation.code) ? (
           <Button component={RouterLink} to="/alerts">
-            You get emails about new postings for this job
+            You get monthly grid updates for this job
           </Button>
         ) : (
-          <Button onClick={() => onAlert(data.occupation)}>Email me new postings for this job</Button>
+          <Button onClick={() => onAlert(data.occupation)}>Email me grid updates for this job</Button>
         )}
       </Box>
 

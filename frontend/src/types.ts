@@ -119,9 +119,10 @@ export interface Session {
   expiresAt?: number
 }
 
-export type AlertFrequency = 'daily' | 'weekly'
+/** Grid updates go out monthly, after AESO's new list. 'daily' and 'weekly' are from older alerts. */
+export type AlertFrequency = 'monthly' | 'daily' | 'weekly'
 
-/** A saved search that emails new postings for one job in one region. */
+/** A saved alert: a monthly email about grid project changes for one job in one region. */
 export interface JobAlert {
   id: string
   occupation: Occupation
@@ -131,17 +132,38 @@ export interface JobAlert {
   createdAt: string
 }
 
-/** A job posting (sample data until a postings source is chosen). */
-export interface JobPosting {
-  id: string
-  title: string
-  employer: string
-  occupation: Occupation
-  region: Region
-  town: string
-  postedAt: string
-  salary: { min: number; max: number; per: 'year' | 'hour' }
-  url: string
+/** How a project changed between two of AESO's monthly lists (backend/gridapi/developments.py). */
+export type DevelopmentKind = 'new' | 'advanced' | 'earlier' | 'delayed' | 'on_hold' | 'left'
+
+/** One project on AESO's connection list, as published by the model (outputs/projects.csv). */
+export interface GridProject {
+  projectId: string
+  name: string
+  /** Technology key, e.g. "solar", "data_centre" */
+  tech: string
+  mw: number
+  /** Expected in-service month, "YYYY-MM", or "" if none */
+  isd: string
+  /** Connection stage: cluster, early, mid, late, isd_review or on_hold */
+  state: string
+  /** Base-case chance of being built, 0 to 1 */
+  likelihood: number
+}
+
+export interface GridDevelopment extends GridProject {
+  kind: DevelopmentKind
+  previousState?: string
+  previousIsd?: string
+}
+
+/** Output of GET /api/developments: changes in a region between the two latest monthly lists */
+export interface GridDevelopments {
+  snapshot: string | null
+  previous: string | null
+  region: string
+  developments: GridDevelopment[]
+  /** Set by the local preview: real projects, made-up changes */
+  example?: boolean
 }
 
 export interface AdvisorRequest {
