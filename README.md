@@ -34,7 +34,7 @@ Open the Vite URL, choose an occupation and town, then use **Plan my next steps*
 
 Before a request, users explicitly choose to send their supplied skills/preferences/question and recent conversation to Google Gemini. The server supplies model results rather than accepting client-provided scores. Responses contain catalog IDs; unknown IDs and malformed plans are rejected. Provider errors never return credentials to the browser.
 
-The existing Accounts, People, postings and email-alert features still use prototype implementations unless separately connected. The People page's profiles are fictional and no introductions are sent. New advisor mentor matches come only from `config/advisor_mentors.json`.
+The existing Accounts, People and grid-alert email features still use prototype implementations unless separately connected. The People page's profiles are fictional and no introductions are sent. New advisor mentor matches come only from `config/advisor_mentors.json`.
 
 ## Configuration
 

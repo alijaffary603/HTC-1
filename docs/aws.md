@@ -30,7 +30,7 @@ Browser -> CloudFront -> S3 (the React app)
 | Accounts | Cognito | Email sign-up with a confirmation code. API Gateway checks the token before the Lambda runs |
 | Saved pathways, alerts, saved résumé record | DynamoDB | Small per-user records, one table |
 | Saved résumé files | S3 (résumé bucket) | Only for signed-in people who tick "Save it to my account". Private, encrypted, no versioning, one file per person |
-| Email | SES | Monthly "your outlook changed" and introduction emails |
+| Email | SES | Monthly grid updates (projects that changed in your region, and outlook moves) and introduction emails |
 | Résumé matching | Gemini API (`gemini-3.5-flash-lite`) | Picks from our 162 occupation codes, enforced by the response schema |
 | Advisor model | Gemini API (`gemini-3.1-flash-lite`, the advisor's own default) | Both read the same key from SSM Parameter Store |
 | Web app | S3 + CloudFront | `/api/*` goes to the API on the same domain, so there's no CORS to configure |
@@ -61,7 +61,7 @@ Re-running the script updates everything in place. `--skip-data` and `--skip-fro
 
 - **SES sandbox.** New accounts can only send to addresses you've verified in SES. Fine for a demo with your own emails. Ask AWS for production access before real users sign up.
 - **Cognito's own emails** (sign-up codes) come from Cognito's default sender, which is capped at 50 a day. Enough for a hackathon.
-- **First month.** Outlook alerts compare two published months, so the first email goes out after the second monthly refresh.
+- **First month.** Grid updates compare two published months (each month's `outputs/projects.csv` and `summary.json`), so the first email goes out after the second monthly refresh.
 - **The monthly job builds whatever was last deployed.** `deploy.py` uploads the current commit. Commit before deploying.
 
 ## Running the refresh by hand

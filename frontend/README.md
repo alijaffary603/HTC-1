@@ -22,7 +22,7 @@ npm run build      # type-check + production build
   screen, on by default). It shows up as "Use your saved resume" next time and under Your resume on the Saved page,
   with download and delete. On AWS the file is stored in a private S3 bucket and the record in DynamoDB; in mock mode
   only the file name and what was read from it are kept, in this browser.
-- **Still mocked:** accounts (browser storage), people to connect with, and job postings.
+- **Still mocked:** accounts (browser storage) and people to connect with.
 - Set `VITE_API_URL` (copy `.env.example` to `.env.local`) to send every call to a real backend instead.
   All backend calls go through `src/api/client.ts`, so the switch needs no UI changes.
 
@@ -32,7 +32,7 @@ npm run build      # type-check + production build
 | `src/types.ts` | Data contracts. `ModelScore` mirrors `gridskills.api.score()` exactly. |
 | `src/api/client.ts` | API layer: `getScore`, `extractSkills`, `getMatches`, pathways CRUD |
 | `src/data/` | Real jobs, regions and towns exported from the model |
-| `src/mocks/` | Sample resume parser, people and job postings |
+| `src/mocks/` | Sample people, and example grid changes for the alert preview |
 | `src/pages/` | Home (input), Results, Saved pathways, People like you |
 | `src/components/` | Layout, ScoreCard, RangeBar, AdjacentRoleCard |
 | `src/theme.ts` | Placeholder theme until the design system lands |
@@ -49,18 +49,21 @@ npm run build      # type-check + production build
 All requests send `Authorization: Bearer <token>` when signed in. Sign-up and sign-in live in
 `src/auth/authClient.ts` (mocked in the browser today); swap their bodies for Amazon Cognito calls.
 
-### Job alerts
-- `GET  /postings?occupation=<NOC>&region=<id>&sinceDays=<n>` → `JobPosting[]`
+### Grid alerts
+- `GET  /developments?region=<region>` → `GridDevelopments`: what changed on AESO's list in that region between the
+  two latest monthly lists (new, moving ahead, earlier, delayed, on hold, no longer waiting). Public.
 - `GET  /alerts` → `JobAlert[]` (signed-in user's alerts)
 - `POST /alerts` `{ occupation, region, frequency }` → `{ alert, created }` (returns the existing alert for the same job and region)
 - `PATCH /alerts/:id` `{ active?, frequency? }` → `JobAlert`
 - `DELETE /alerts/:id`
 
-Sending: an EventBridge schedule (daily 8 a.m., and Mondays for weekly alerts) triggers a Lambda that, for each
-active alert, fetches postings from the alert's window and, only if there are any, calls
-`buildAlertEmail()` from `src/email/alertEmail.ts` and sends `subject`, `html` and `text` through SES.
+Sending: when the monthly pipeline publishes AESO's new list, `backend/gridapi/alerts.py` compares it with the
+previous month (`developments.py`) and emails every active alert whose region had project changes, or whose outlook
+moved 5+ points, using `grid_update()` in `backend/gridapi/emails.py`. No changes, no email.
+`src/email/alertEmail.ts` is a copy of that email for the preview on the Alerts page; keep the two in step.
 The template is plain TypeScript with no browser or React dependencies, so the Lambda can import it as is.
-Job postings are sample data (`src/mocks/postings.ts`, fictional employers) until a postings source is chosen.
+Locally there's only one month of AESO's list, so the preview uses real projects with example changes, and says so.
+`public/data/projects.json` holds those projects; `scripts/export_app_data.py` writes it.
 
 ## Gemini action plans
 
