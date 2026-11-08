@@ -169,12 +169,16 @@ def build_frontend(outputs, region):
 def upload_frontend(aws, outputs):
     site = f"s3://{outputs['SiteBucket']}"
     dist = FRONTEND / "dist"
-    # hashed assets can be cached forever, index.html must always be fresh
-    run(aws, "s3", "sync", dist, site, "--delete", "--exclude", "index.html",
+    # Only files under assets/ have a content hash in their name, so only they can be cached
+    # forever. Everything else (public/data/*.json, the logo, photos) keeps its name when it
+    # changes, so it gets a short cache. index.html must always be fresh.
+    run(aws, "s3", "sync", dist / "assets", f"{site}/assets", "--delete",
         "--cache-control", "public,max-age=31536000,immutable", "--only-show-errors")
+    run(aws, "s3", "sync", dist, site, "--delete", "--exclude", "assets/*", "--exclude", "index.html",
+        "--cache-control", "public,max-age=300", "--only-show-errors")
     run(aws, "s3", "cp", dist / "index.html", f"{site}/index.html", "--cache-control", "no-cache")
     run(aws, "cloudfront", "create-invalidation", "--distribution-id", outputs["DistributionId"],
-        "--paths", "/index.html", "--output", "text", "--query", "Invalidation.Id")
+        "--paths", "/index.html", "/data/*", "/*.svg", "/*.png", "/*.jpg", "--output", "text", "--query", "Invalidation.Id")
 
 
 def main():
