@@ -15,7 +15,7 @@ def _wrap(title, body_html, footer_html):
 <html lang="en"><head><meta charset="utf-8"><title>{escape(title)}</title></head>
 <body style="margin:0;padding:24px 12px;background:#F1F3EE;">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;background:#fff;border:1px solid #D9DFD6;border-radius:8px;">
-<tr><td style="padding:24px 32px 4px;font-family:{FONT};font-size:20px;font-weight:bold;color:{INK};">GridSkills</td></tr>
+<tr><td style="padding:24px 32px 4px;font-family:{FONT};font-size:20px;font-weight:bold;color:{INK};">Signal</td></tr>
 <tr><td style="padding:12px 32px 24px;font-family:{FONT};font-size:16px;line-height:24px;color:{INK};">{body_html}</td></tr>
 </table>
 <p style="max-width:600px;margin:12px auto;font-family:{FONT};font-size:12px;line-height:18px;color:{MUTED};">{footer_html}</p>
@@ -73,7 +73,7 @@ def intro_request(requester_name, requester_email, pathway):
         f"<p style='margin:0;'>If you'd like to talk, just reply to this email. It goes straight to them. "
         "If not, you don't need to do anything.</p>"
     )
-    footer = "You're getting this because you chose to let others making a similar move find you on GridSkills. " \
+    footer = "You're getting this because you chose to let others making a similar move find you on Signal. " \
              "You can turn that off on your saved pathways page."
     text = (f"Hi {pathway['firstName']},\n\n{requester_name} saw that you're looking at a move from {move} in the "
             f"{pathway['region']['name']} region, and is making a similar one.\n\nIf you'd like to talk, reply to this "

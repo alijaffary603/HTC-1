@@ -140,7 +140,7 @@ def post_intro(event, sub):
     sender = config.SENDER_EMAIL()
     if not sender:
         return error(503, "Introductions aren't switched on yet.")
-    requester = claims.get("name") or "Someone on GridSkills"
+    requester = claims.get("name") or "Someone on Signal"
     emails.send(boto3.client("ses"), sender, pathway["email"],
                 emails.intro_request(requester, claims.get("email", ""), pathway), reply_to=claims.get("email"))
     return respond(204)
