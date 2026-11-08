@@ -1,7 +1,7 @@
 import type { SkillsResult } from '../types'
 import { findOccupation } from '../data/reference'
 
-// Matches résumé text to skills and to the model's job groups (NOC 2021, 4 digits).
+// Matches resume text to skills and to the model's job groups (NOC 2021, 4 digits).
 // Each skill lists the job groups it points to, with a weight from 1 (weak hint)
 // to 3 (strong signal). A job's score is the sum over the skills found, with a
 // small bonus when a skill shows up several times.

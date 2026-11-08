@@ -72,7 +72,7 @@ export interface SkillsResult {
   suggestedOccupations: (Occupation & { confidence: number; because?: string[] })[]
 }
 
-/** A résumé the person chose to save to their account (one per account, replaced on each upload) */
+/** A resume the person chose to save to their account (one per account, replaced on each upload) */
 export interface SavedResume extends SkillsResult {
   fileName: string
   /** Bytes */

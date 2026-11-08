@@ -8,7 +8,7 @@ import { useAsync } from '../hooks/useAsync'
 const fmtDate = (iso: string) => new Date(iso).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })
 const fmtSize = (bytes: number) => (bytes >= 1024 * 1024 ? `${(bytes / 1024 / 1024).toFixed(1)} MB` : `${Math.max(1, Math.round(bytes / 1024))} KB`)
 
-/** The résumé saved to the signed-in person's account, with download and delete. */
+/** The resume saved to the signed-in person's account, with download and delete. */
 export default function SavedResumeSection() {
   const { user } = useAuth()
   const state = useAsync(getSavedResume, `saved-resume|${user?.id ?? ''}`)
@@ -35,7 +35,7 @@ export default function SavedResumeSection() {
       setDeleted(true)
       state.reload()
     } catch (e) {
-      setError(e instanceof Error ? e.message : 'Your résumé wasn’t deleted. Try again.')
+      setError(e instanceof Error ? e.message : 'Your resume wasn’t deleted. Try again.')
     } finally {
       setBusy(false)
     }
@@ -54,12 +54,12 @@ export default function SavedResumeSection() {
   return (
     <Box id="resume" component="section" aria-labelledby="resume-heading" sx={{ mt: { xs: 7, md: 9 }, scrollMarginTop: 88 }}>
       <Typography id="resume-heading" variant="h2" sx={{ fontSize: '1.75rem' }}>
-        Your résumé
+        Your resume
       </Typography>
 
       <Box sx={{ mt: 2 }}>
         {state.status === 'loading' && <Skeleton variant="rounded" height={96} />}
-        {state.status === 'error' && <Alert severity="error">Your saved résumé didn’t load: {state.error.message}</Alert>}
+        {state.status === 'error' && <Alert severity="error">Your saved resume didn’t load: {state.error.message}</Alert>}
         {error && (
           <Alert severity="error" sx={{ mb: 2 }}>
             {error}
@@ -68,13 +68,13 @@ export default function SavedResumeSection() {
 
         {state.status === 'success' && !resume && (
           <Box sx={{ borderTop: 1, borderBottom: 1, borderColor: 'divider', py: 3 }}>
-            <Typography>{deleted ? 'Your résumé was deleted.' : 'No résumé saved.'}</Typography>
+            <Typography>{deleted ? 'Your resume was deleted.' : 'No resume saved.'}</Typography>
             <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5, mb: 2, maxWidth: '58ch' }}>
               Upload one from the home page with “Save it to my account” ticked, and you won’t have to upload it
               again.
             </Typography>
             <Button component={RouterLink} to="/" variant="outlined">
-              Upload a résumé
+              Upload a resume
             </Button>
           </Box>
         )}
@@ -118,11 +118,11 @@ export default function SavedResumeSection() {
             {confirming ? (
               <Box sx={{ mt: 2.5 }}>
                 <Typography variant="body2" sx={{ mb: 1 }}>
-                  Delete your saved résumé? This removes {CAN_DOWNLOAD_RESUME ? 'the file and ' : ''}the skills we found.
+                  Delete your saved resume? This removes {CAN_DOWNLOAD_RESUME ? 'the file and ' : ''}the skills we found.
                 </Typography>
                 <Stack direction="row" spacing={1}>
                   <Button variant="contained" color="error" onClick={remove} disabled={busy}>
-                    {busy ? 'Deleting' : 'Delete résumé'}
+                    {busy ? 'Deleting' : 'Delete resume'}
                   </Button>
                   <Button onClick={() => setConfirming(false)} disabled={busy}>
                     Keep it

@@ -347,7 +347,7 @@ function Results({ data, town }: { data: ModelScore; town: string | null }) {
       <Section
         id="moves"
         title="Roles you could move into"
-        intro="Nearby jobs with a stronger tailwind here. Treat these as a starting point: they’re matched on shared industries, not skills, until résumé matching is in."
+        intro="Nearby jobs with a stronger tailwind here. Treat these as a starting point: they’re matched on shared industries, not skills, until resume matching is in."
       >
         {data.adjacent_roles.length === 0 ? (
           <Typography color="text.secondary">No similar job in this region has a stronger tailwind than this one.</Typography>

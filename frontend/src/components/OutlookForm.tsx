@@ -50,7 +50,7 @@ export default function OutlookForm() {
   const [parsing, setParsing] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  // Signed-in people can keep their résumé on their account (one per account).
+  // Signed-in people can keep their resume on their account (one per account).
   const { user } = useAuth()
   const [saveToAccount, setSaveToAccount] = useState(true)
   const [justSaved, setJustSaved] = useState(false)
@@ -169,7 +169,7 @@ export default function OutlookForm() {
         <Stack spacing={2.5}>
           {savedResume && !skills && !parsing && (
             <Box sx={{ border: 1, borderColor: 'divider', borderRadius: '6px', px: 2, py: 1.5 }}>
-              <Typography sx={{ fontWeight: 600 }}>Use your saved résumé</Typography>
+              <Typography sx={{ fontWeight: 600 }}>Use your saved resume</Typography>
               <Typography variant="body2" color="text.secondary" sx={{ mt: 0.25, mb: 1.25 }}>
                 {savedResume.fileName}, saved{' '}
                 {new Date(savedResume.uploadedAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}.
@@ -185,13 +185,13 @@ export default function OutlookForm() {
                   applyResult(savedResume)
                 }}
               >
-                Use saved résumé
+                Use saved resume
               </Button>
             </Box>
           )}
           <Box>
             <Button component="label" variant="outlined" disabled={parsing}>
-              {fileName || savedResume ? 'Upload a different résumé' : 'Choose your résumé'}
+              {fileName || savedResume ? 'Upload a different resume' : 'Choose your resume'}
               <input hidden type="file" accept=".pdf,.docx,.txt,application/pdf" onChange={onFile} />
             </Button>
             {fileName && (
@@ -212,7 +212,7 @@ export default function OutlookForm() {
                 <Link component={RouterLink} to="/sign-in" state={{ from: '/' }} color="text.primary">
                   Sign in
                 </Link>{' '}
-                to keep your résumé for next time.
+                to keep your resume for next time.
               </Typography>
             )}
             <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 0.5 }}>
@@ -222,7 +222,7 @@ export default function OutlookForm() {
           {parsing && (
             <Stack direction="row" spacing={1.5} sx={{ alignItems: 'center' }}>
               <CircularProgress size={18} />
-              <Typography variant="body2">Reading your résumé</Typography>
+              <Typography variant="body2">Reading your resume</Typography>
             </Stack>
           )}
           {error && <Alert severity="error">{error}</Alert>}
@@ -237,7 +237,7 @@ export default function OutlookForm() {
           )}
           {skills && skills.suggestedOccupations.length === 0 && (
             <Alert severity="info">
-              We read your résumé but couldn’t match it to a job.{' '}
+              We read your resume but couldn’t match it to a job.{' '}
               <Link component="button" type="button" onClick={() => setMode('pick')} sx={{ font: 'inherit', verticalAlign: 'baseline' }}>
                 Pick your job instead
               </Link>
@@ -256,7 +256,7 @@ export default function OutlookForm() {
                   ))}
                 </Stack>
               </Box>
-              <Box role="radiogroup" aria-label="Closest jobs to your résumé">
+              <Box role="radiogroup" aria-label="Closest jobs to your resume">
                 <Typography variant="body2" sx={{ fontWeight: 600, mb: 1 }}>
                   Closest jobs. Pick the one that fits you best:
                 </Typography>
@@ -313,7 +313,7 @@ export default function OutlookForm() {
           ? !occupation
             ? mode === 'pick'
               ? 'Choose your job to continue.'
-              : 'Upload your résumé and pick the closest job to continue.'
+              : 'Upload your resume and pick the closest job to continue.'
             : 'Choose your town to continue.'
           : region
             ? `Results cover the ${region.name} region.`
@@ -331,7 +331,7 @@ export default function OutlookForm() {
             setTried(false)
           }}
         >
-          {mode === 'pick' ? 'Use my résumé instead' : 'Pick my job instead'}
+          {mode === 'pick' ? 'Use my resume instead' : 'Pick my job instead'}
         </Button>
       </Stack>
 

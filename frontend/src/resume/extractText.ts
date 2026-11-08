@@ -1,4 +1,4 @@
-// Pulls plain text out of a résumé file in the browser. Nothing is uploaded.
+// Pulls plain text out of a resume file in the browser. Nothing is uploaded.
 // PDF via pdf.js, Word (.docx) via mammoth, plain text as is. The readers are
 // loaded on demand so they don't slow down the first page load.
 

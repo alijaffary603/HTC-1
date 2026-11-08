@@ -14,12 +14,12 @@ npm run build      # type-check + production build
   7 regions and writes `src/data/reference.json` (jobs, regions, towns, aliases) and `public/data/scores/<code>.json`.
   The app reads those files, so no Python or server is needed. After the model's outputs change, rerun:
   `python -m venv .venv && .venv/bin/pip install pandas && .venv/bin/python scripts/export_app_data.py`
-- **Résumé reading runs in the browser:** `src/resume/` pulls text from PDF (pdf.js), Word .docx (mammoth) or
+- **Resume reading runs in the browser:** `src/resume/` pulls text from PDF (pdf.js), Word .docx (mammoth) or
   .txt, matches it against a skills dictionary mapped to the model's job codes, and suggests the closest jobs with
   the skills that matched. The file never leaves the device. Abdullah's `extract_skills()` can replace
   `matchResume()` later with the same output shape (`SkillsResult`).
-- **Saved résumé:** signed-in people can keep one résumé on their account ("Save it to my account" on the upload
-  screen, on by default). It shows up as "Use your saved résumé" next time and under Your résumé on the Saved page,
+- **Saved resume:** signed-in people can keep one resume on their account ("Save it to my account" on the upload
+  screen, on by default). It shows up as "Use your saved resume" next time and under Your resume on the Saved page,
   with download and delete. On AWS the file is stored in a private S3 bucket and the record in DynamoDB; in mock mode
   only the file name and what was read from it are kept, in this browser.
 - **Still mocked:** accounts (browser storage), people to connect with, and job postings.
@@ -32,7 +32,7 @@ npm run build      # type-check + production build
 | `src/types.ts` | Data contracts. `ModelScore` mirrors `gridskills.api.score()` exactly. |
 | `src/api/client.ts` | API layer: `getScore`, `extractSkills`, `getMatches`, pathways CRUD |
 | `src/data/` | Real jobs, regions and towns exported from the model |
-| `src/mocks/` | Sample résumé parser, people and job postings |
+| `src/mocks/` | Sample resume parser, people and job postings |
 | `src/pages/` | Home (input), Results, Saved pathways, People like you |
 | `src/components/` | Layout, ScoreCard, RangeBar, AdjacentRoleCard |
 | `src/theme.ts` | Placeholder theme until the design system lands |

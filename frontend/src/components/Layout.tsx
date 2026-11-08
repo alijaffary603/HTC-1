@@ -136,7 +136,7 @@ function AccountMenu() {
           to="/saved#resume"
           onClick={close}
         >
-          Your résumé
+          Your resume
         </MenuItem>
 
         <MenuItem

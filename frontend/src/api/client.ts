@@ -67,7 +67,7 @@ export async function getScore(occupation: string, region: string): Promise<Mode
   return result
 }
 
-/** Reads a résumé and suggests jobs. Runs in the browser unless VITE_API_URL is set. */
+/** Reads a resume and suggests jobs. Runs in the browser unless VITE_API_URL is set. */
 export async function extractSkills(file: File): Promise<SkillsResult> {
   if (USING_MOCKS) {
     const [{ extractResumeText }, { matchResume }] = await Promise.all([
@@ -268,7 +268,7 @@ export async function deleteAlert(id: string): Promise<void> {
   await http(`/alerts/${id}`, { method: 'DELETE' })
 }
 
-// --- Saved résumé ---------------------------------------------------------------
+// --- Saved resume ---------------------------------------------------------------
 // One per account, replaced by each new upload, and only when the person chooses to save it.
 // Real API: the file goes to a private S3 bucket and the record to DynamoDB (POST /resume).
 // Mock mode: only the file name and what was read from it are kept, in this browser.
@@ -295,7 +295,7 @@ export async function getSavedResume(): Promise<SavedResume | null> {
   return resume
 }
 
-/** Reads the résumé and saves it to the signed-in person's account in one step. */
+/** Reads the resume and saves it to the signed-in person's account in one step. */
 export async function saveResume(file: File): Promise<SavedResume> {
   if (!sessionStore.get()) throw new SignInRequiredError()
   if (USING_MOCKS) {
@@ -304,7 +304,7 @@ export async function saveResume(file: File): Promise<SavedResume> {
     try {
       localStorage.setItem(resumeKey(), JSON.stringify(saved))
     } catch {
-      throw new Error('Your browser couldn’t save the résumé. Check that site storage is allowed.')
+      throw new Error('Your browser couldn’t save the resume. Check that site storage is allowed.')
     }
     return saved
   }

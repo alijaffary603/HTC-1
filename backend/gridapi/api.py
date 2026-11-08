@@ -65,13 +65,13 @@ def post_skills(event):
     try:
         return respond(200, resume.extract(name, mime, content))
     except Exception:
-        # log the failure, never the résumé
+        # log the failure, never the resume
         log.exception("resume extraction failed")
-        return error(502, "We couldn't read that résumé right now. Pick your job from the list instead.")
+        return error(502, "We couldn't read that resume right now. Pick your job from the list instead.")
 
 
 def post_resume(event, sub):
-    """Reads the résumé like /skills, then keeps it on the person's account.
+    """Reads the resume like /skills, then keeps it on the person's account.
 
     Nothing is stored unless the read works. A new upload replaces the old one, file and all.
     """
@@ -83,7 +83,7 @@ def post_resume(event, sub):
         result = resume.extract(name, mime, content)
     except Exception:
         log.exception("resume extraction failed")
-        return error(502, "We couldn't read that résumé right now, so it wasn't saved. Try again, or pick your job from the list.")
+        return error(502, "We couldn't read that resume right now, so it wasn't saved. Try again, or pick your job from the list.")
 
     previous = store.get_resume(sub)
     key = resume_files.put(sub, name, mime, content)
@@ -105,7 +105,7 @@ def get_resume(sub):
 def get_resume_file(sub):
     item = store.get_resume(sub)
     if not item:
-        return error(404, "You don't have a saved résumé.")
+        return error(404, "You don't have a saved resume.")
     url = resume_files.download_url(item["fileKey"], item["fileName"], item.get("mimeType", "application/octet-stream"))
     return respond(200, {"url": url})
 
