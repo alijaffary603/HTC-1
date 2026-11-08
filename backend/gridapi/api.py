@@ -10,7 +10,7 @@ import logging
 
 import boto3
 
-from . import config, data, emails, resume, resume_files, store
+from . import config, data, developments, emails, resume, resume_files, store
 from .uploads import UploadError, resume_file
 
 log = logging.getLogger()
@@ -119,6 +119,14 @@ def delete_resume(sub):
     return respond(204)
 
 
+def get_developments(event):
+    """What changed on AESO's list in a region between the two latest months. Public."""
+    region = data.region_name(_query(event).get("region", ""))
+    if not region:
+        return error(400, "region is required")
+    return respond(200, developments.latest(region))
+
+
 def get_postings(event):
     # no postings source has been chosen yet, so there's honestly nothing to return
     return respond(200, [])
@@ -161,6 +169,8 @@ def handler(event, context):
             return post_skills(event)
         if route == "GET /api/postings":
             return get_postings(event)
+        if route == "GET /api/developments":
+            return get_developments(event)
 
         if not sub:
             return error(401, "Sign in to do this.")

@@ -216,6 +216,7 @@ Resources:
         Score: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: /api/score, Method: GET, Auth: { Authorizer: NONE } } }
         Skills: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: /api/skills, Method: POST, Auth: { Authorizer: NONE } } }
         Postings: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: /api/postings, Method: GET, Auth: { Authorizer: NONE } } }
+        Developments: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: /api/developments, Method: GET, Auth: { Authorizer: NONE } } }
         Matches: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: /api/matches, Method: GET } }
         Intros: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: /api/intros, Method: POST } }
         ListPathways: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Path: /api/pathways, Method: GET } }
