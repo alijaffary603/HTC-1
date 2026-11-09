@@ -46,13 +46,13 @@ export default function AdvisorPanel({ result }: { result: ModelScore }) {
         {choices.map(o => <MenuItem key={o.code} value={o.code}>{o.title}</MenuItem>)}
       </TextField>
       <TextField label="Your experience and skills" placeholder="For example: customer service, scheduling, Excel. Leave out contact details." value={experience} disabled={busy} multiline minRows={2} onChange={e => setExperience(e.target.value)} slotProps={{ htmlInput: { maxLength: 3000 } }} />
-      <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
-        <TextField label="Study hours per week" type="number" value={hours} disabled={busy} onChange={e => setHours(Number(e.target.value))} slotProps={{ htmlInput: { min: 1, max: 80, required: true } }} />
-        <TextField label="Training budget (CAD)" type="number" value={budget} disabled={busy} onChange={e => setBudget(Number(e.target.value))} slotProps={{ htmlInput: { min: 0, max: 100000, required: true } }} />
-        <TextField select label="Learning preference" value={format} disabled={busy} onChange={e => setFormat(e.target.value)} sx={{ minWidth: 180 }}>
+      <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(3, minmax(0, 1fr))' }, gap: 2 }}>
+        <TextField fullWidth label="Study hours per week" helperText="Time you can spend learning each week." type="number" value={hours} disabled={busy} onChange={e => setHours(Number(e.target.value))} slotProps={{ htmlInput: { min: 1, max: 80, required: true } }} />
+        <TextField fullWidth label="Training budget (CAD)" helperText="Total amount you can spend on training." type="number" value={budget} disabled={busy} onChange={e => setBudget(Number(e.target.value))} slotProps={{ htmlInput: { min: 0, max: 100000, required: true } }} />
+        <TextField fullWidth select label="Learning preference" value={format} disabled={busy} onChange={e => setFormat(e.target.value)}>
           {['Flexible', 'Online', 'In person', 'Evenings'].map(x => <MenuItem key={x} value={x}>{x}</MenuItem>)}
         </TextField>
-      </Stack>
+      </Box>
       <TextField label={plan ? 'Ask a follow-up question' : 'What would you like help with?'} value={question} disabled={busy} multiline minRows={2} onChange={e => setQuestion(e.target.value)} slotProps={{ htmlInput: { maxLength: 3000, required: true } }} />
       <FormControlLabel control={<Checkbox checked={consent} disabled={busy} onChange={e => setConsent(e.target.checked)} />} label="Send my skills, preferences, question and recent conversation to Google Gemini for career guidance." />
       <Box><Button type="submit" variant="contained" disabled={busy || !consent || !question.trim()}>{busy ? 'Preparing your plan…' : plan ? 'Ask and update plan' : 'Build my action plan'}</Button></Box>
